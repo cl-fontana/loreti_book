@@ -1,0 +1,175 @@
+\select@language {italian}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Elenco delle figure}{vii}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Prefazione}{ix}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Prefazione alla sesta edizione}{xi}
+\contentsline {chapter}{\numberline {1}Introduzione}{1}
+\contentsline {section}{\numberline {1.1}Il metodo scientifico}{2}
+\contentsline {chapter}{\numberline {2}La misura}{5}
+\contentsline {section}{\numberline {2.1}Misure dirette e misure indirette}{5}
+\contentsline {section}{\numberline {2.2}Le unit\`a di misura}{6}
+\contentsline {section}{\numberline {2.3}Gli strumenti di misura}{9}
+\contentsline {section}{\numberline {2.4}Errori di misura}{12}
+\contentsline {section}{\numberline {2.5}Cifre significative ed arrotondamenti}{17}
+\contentsline {section}{\numberline {2.6}Errore relativo}{18}
+\contentsline {chapter}{\numberline {3}Elementi di teoria della probabilit\`a}{19}
+\contentsline {section}{\numberline {3.1}La probabilit\`a: eventi e variabili casuali}{19}
+\contentsline {section}{\numberline {3.2}La probabilit\`a: definizioni}{20}
+\contentsline {section}{\numberline {3.3}Propriet\`a della probabilit\`a}{21}
+\contentsline {subsection}{\numberline {3.3.1}L'evento complementare}{22}
+\contentsline {subsection}{\numberline {3.3.2}Probabilit\`a totale}{22}
+\contentsline {subsection}{\numberline {3.3.3}Probabilit\`a condizionata e probabilit\`a composta}{24}
+\contentsline {subsection}{\numberline {3.3.4}Il teorema di Bayes}{25}
+\contentsline {section}{\numberline {3.4}Definizione assiomatica della probabilit\`a}{27}
+\contentsline {subsection}{\numberline {3.4.1}Le leggi della probabilit\`a e la definizione assiomatica}{27}
+\contentsline {section}{\numberline {3.5}La convergenza statistica}{28}
+\contentsline {chapter}{\numberline {4}Elaborazione dei dati}{31}
+\contentsline {section}{\numberline {4.1}Istogrammi}{31}
+\contentsline {section}{\numberline {4.2}Stime di tendenza centrale}{33}
+\contentsline {subsection}{\numberline {4.2.1}La moda}{35}
+\contentsline {subsection}{\numberline {4.2.2}La mediana}{35}
+\contentsline {subsection}{\numberline {4.2.3}La media aritmetica}{37}
+\contentsline {subsection}{\numberline {4.2.4}Considerazioni complessive}{38}
+\contentsline {subsection}{\numberline {4.2.5}Prima giustificazione della media}{40}
+\contentsline {subsection}{\numberline {4.2.6}La media aritmetica espressa tramite le frequenze}{41}
+\contentsline {section}{\numberline {4.3}Stime di dispersione}{42}
+\contentsline {subsection}{\numberline {4.3.1}Semidispersione massima e quantili}{42}
+\contentsline {subsection}{\numberline {4.3.2}Deviazione media assoluta (errore medio)}{43}
+\contentsline {subsection}{\numberline {4.3.3}Varianza e deviazione standard}{43}
+\contentsline {section}{\numberline {4.4}Giustificazione della media}{44}
+\contentsline {chapter}{\numberline {5}Variabili casuali unidimensionali discrete}{47}
+\contentsline {section}{\numberline {5.1}Generalit\`a}{48}
+\contentsline {section}{\numberline {5.2}Speranza matematica}{49}
+\contentsline {section}{\numberline {5.3}Il valore medio delle combinazioni lineari}{50}
+\contentsline {section}{\numberline {5.4}La varianza delle combinazioni lineari}{51}
+\contentsline {section}{\numberline {5.5}L'errore della media dei campioni}{54}
+\contentsline {section}{\numberline {5.6}La legge dei grandi numeri}{55}
+\contentsline {subsection}{\numberline {5.6.1}La disuguaglianza di Bienaym\'e--\v Ceby\v sef}{55}
+\contentsline {subsection}{\numberline {5.6.2}Il teorema di \v Ceby\v sef}{57}
+\contentsline {subsection}{\numberline {5.6.3}Il teorema di Bernoulli}{57}
+\contentsline {section}{\numberline {5.7}Valore medio e valore vero}{58}
+\contentsline {section}{\numberline {5.8}Scarto ed errore quadratico medio}{59}
+\contentsline {section}{\numberline {5.9}Stima della varianza della popolazione}{61}
+\contentsline {section}{\numberline {5.10}Ancora sull'errore quadratico medio}{61}
+\contentsline {chapter}{\numberline {6}Variabili casuali unidimensionali continue}{65}
+\contentsline {section}{\numberline {6.1}La densit\`a di probabilit\`a}{65}
+\contentsline {section}{\numberline {6.2}La speranza matematica per le variabili continue}{69}
+\contentsline {section}{\numberline {6.3}I momenti}{69}
+\contentsline {section}{\numberline {6.4}Funzione generatrice e funzione caratteristica}{71}
+\contentsline {subsection}{\numberline {6.4.1}Funzioni caratteristiche di variabili discrete}{75}
+\contentsline {section}{\numberline {6.5}Cambiamento di variabile casuale}{77}
+\contentsline {section}{\numberline {6.6}I valori estremi di un campione}{78}
+\contentsline {chapter}{\numberline {7}Variabili casuali pluridimensionali}{81}
+\contentsline {section}{\numberline {7.1}Variabili casuali bidimensionali}{81}
+\contentsline {subsection}{\numberline {7.1.1}Momenti, funzione caratteristica e funzione generatrice}{83}
+\contentsline {subsection}{\numberline {7.1.2}Cambiamento di variabile casuale}{84}
+\contentsline {subsection}{\numberline {7.1.3}Applicazione: il rapporto di due variabili casuali indipendenti}{85}
+\contentsline {subsection}{\numberline {7.1.4}Applicazione: il decadimento debole della $\Lambda ^0$}{86}
+\contentsline {subsection}{\numberline {7.1.5}Applicazione: il decadimento debole $K^0_{e3}$}{87}
+\contentsline {subsection}{\numberline {7.1.6}Ancora sui valori estremi di un campione}{87}
+\contentsline {section}{\numberline {7.2}Cenni sulle variabili casuali in pi\`u di due dimensioni}{88}
+\contentsline {chapter}{\numberline {8}Esempi di distribuzioni teoriche}{93}
+\contentsline {section}{\numberline {8.1}La distribuzione uniforme}{93}
+\contentsline {subsection}{\numberline {8.1.1}Applicazione: decadimento del $\pi ^0$}{94}
+\contentsline {subsection}{\numberline {8.1.2}Applicazione: generazione di numeri casuali con distribuzione data}{96}
+\contentsline {subsection}{\numberline {8.1.3}Esempio: valori estremi di un campione di dati a distribuzione uniforme}{99}
+\contentsline {section}{\numberline {8.2}La distribuzione normale}{101}
+\contentsline {section}{\numberline {8.3}La distribuzione di Cauchy}{104}
+\contentsline {subsection}{\numberline {8.3.1}Il rapporto di due variabili normali}{107}
+\contentsline {section}{\numberline {8.4}La distribuzione di Bernoulli}{108}
+\contentsline {subsection}{\numberline {8.4.1}Applicazione: decadimenti radioattivi}{113}
+\contentsline {subsection}{\numberline {8.4.2}Applicazione: il rapporto di asimmetria}{114}
+\contentsline {subsection}{\numberline {8.4.3}La distribuzione binomiale negativa}{115}
+\contentsline {section}{\numberline {8.5}La distribuzione di Poisson}{116}
+\contentsline {subsection}{\numberline {8.5.1}Applicazione: esperimenti ``negativi''}{122}
+\contentsline {subsection}{\numberline {8.5.2}Applicazione: ancora il rapporto di asimmetria}{122}
+\contentsline {subsection}{\numberline {8.5.3}La distribuzione esponenziale}{124}
+\contentsline {subsection}{\numberline {8.5.4}La distribuzione di Erlang}{126}
+\contentsline {subsection}{\numberline {8.5.5}La distribuzione composta di Poisson}{128}
+\contentsline {subsection}{\numberline {8.5.6}Esempio: l'osservazione di un quark isolato}{129}
+\contentsline {subsection}{\numberline {8.5.7}Applicazione: segnale e fondo}{130}
+\contentsline {section}{\numberline {8.6}La distribuzione log-normale}{132}
+\contentsline {section}{\numberline {8.7}La distribuzione normale in pi\`u dimensioni}{135}
+\contentsline {chapter}{\numberline {9}La legge di Gauss}{141}
+\contentsline {section}{\numberline {9.1}La funzione di Gauss}{141}
+\contentsline {section}{\numberline {9.2}Propriet\`a della legge normale}{142}
+\contentsline {section}{\numberline {9.3}Lo scarto normalizzato}{146}
+\contentsline {section}{\numberline {9.4}Il significato geometrico di $\sigma $}{149}
+\contentsline {section}{\numberline {9.5}La curva di Gauss nella pratica}{149}
+\contentsline {section}{\numberline {9.6}Esame dei dati}{152}
+\contentsline {section}{\numberline {9.7}Sommario delle misure dirette}{153}
+\contentsline {section}{\numberline {9.8}Il teorema del limite centrale}{154}
+\contentsline {subsection}{\numberline {9.8.1}Applicazione: numeri casuali normali}{157}
+\contentsline {chapter}{\numberline {10}Le misure indirette}{161}
+\contentsline {section}{\numberline {10.1}Risultato della misura}{161}
+\contentsline {section}{\numberline {10.2}Combinazioni lineari di misure dirette}{163}
+\contentsline {section}{\numberline {10.3}La formula di propagazione degli errori}{164}
+\contentsline {section}{\numberline {10.4}Errore dei prodotti di potenze}{165}
+\contentsline {section}{\numberline {10.5}Errori massimi}{166}
+\contentsline {chapter}{\numberline {11}Stime di parametri}{167}
+\contentsline {section}{\numberline {11.1}Stime e loro caratteristiche}{167}
+\contentsline {section}{\numberline {11.2}La stima di massima verosimiglianza}{170}
+\contentsline {subsection}{\numberline {11.2.1}Un esempio di stima sufficiente}{173}
+\contentsline {section}{\numberline {11.3}Media pesata}{175}
+\contentsline {section}{\numberline {11.4}Interpolazione dei dati con una curva}{178}
+\contentsline {subsection}{\numberline {11.4.1}Interpolazione lineare per due variabili}{179}
+\contentsline {subsection}{\numberline {11.4.2}Stima a posteriori degli errori di misura}{183}
+\contentsline {subsection}{\numberline {11.4.3}Interpolazione con una retta per l'origine}{184}
+\contentsline {subsection}{\numberline {11.4.4}Interpolazione lineare nel caso generale}{186}
+\contentsline {subsection}{\numberline {11.4.5}Interpolazione non lineare}{188}
+\contentsline {section}{\numberline {11.5}Altre applicazioni della stima di massima verosimiglianza}{188}
+\contentsline {subsection}{\numberline {11.5.1}Stima di probabilit\`a}{188}
+\contentsline {subsection}{\numberline {11.5.2}Media e varianza di una popolazione normale}{190}
+\contentsline {subsection}{\numberline {11.5.3}Range di una popolazione uniforme}{191}
+\contentsline {subsection}{\numberline {11.5.4}Stima della vita media di una particella}{192}
+\contentsline {chapter}{\numberline {12}La verifica delle ipotesi (I)}{195}
+\contentsline {section}{\numberline {12.1}La distribuzione del $\chi ^2$}{195}
+\contentsline {section}{\numberline {12.2}Verifiche basate sulla distribuzione del $\chi ^2$}{203}
+\contentsline {subsection}{\numberline {12.2.1}Compatibilit\`a dei dati con una distribuzione}{203}
+\contentsline {subsection}{\numberline {12.2.2}Il metodo del minimo $\chi ^2$}{205}
+\contentsline {subsection}{\numberline {12.2.3}Test di omogeneit\`a per dati raggruppati}{210}
+\contentsline {subsection}{\numberline {12.2.4}Un esempio: diffusione elastica protone-protone}{212}
+\contentsline {section}{\numberline {12.3}Compatibilit\`a con un valore prefissato}{214}
+\contentsline {section}{\numberline {12.4}I piccoli campioni e la distribuzione di Student}{217}
+\contentsline {section}{\numberline {12.5}La compatibilit\`a di due valori misurati}{220}
+\contentsline {section}{\numberline {12.6}La distribuzione di Fisher}{222}
+\contentsline {subsection}{\numberline {12.6.1}Confronto tra varianze}{224}
+\contentsline {section}{\numberline {12.7}Il metodo di Kolmogorov e Smirnov}{225}
+\contentsline {chapter}{\numberline {13}La verifica delle ipotesi (II)}{227}
+\contentsline {section}{\numberline {13.1}Un primo esempio}{229}
+\contentsline {section}{\numberline {13.2}Il lemma di Neyman--Pearson}{232}
+\contentsline {section}{\numberline {13.3}Tests di massima potenza uniforme}{234}
+\contentsline {section}{\numberline {13.4}Il rapporto delle massime verosimiglianze}{235}
+\contentsline {section}{\numberline {13.5}Applicazione: ipotesi sulle probabilit\`a}{238}
+\contentsline {section}{\numberline {13.6}Applicazione: valore medio di una popolazione normale}{240}
+\contentsline {chapter}{\numberline {A}Cenni di calcolo combinatorio}{243}
+\contentsline {section}{\numberline {A.1}Il lemma fondamentale del calcolo combinatorio}{243}
+\contentsline {section}{\numberline {A.2}Fattoriale di un numero intero}{244}
+\contentsline {section}{\numberline {A.3}Disposizioni}{244}
+\contentsline {section}{\numberline {A.4}Permutazioni}{245}
+\contentsline {section}{\numberline {A.5}Permutazioni con ripetizione}{245}
+\contentsline {section}{\numberline {A.6}Combinazioni}{245}
+\contentsline {section}{\numberline {A.7}Partizioni ordinate}{246}
+\contentsline {chapter}{\numberline {B}L'errore della varianza}{249}
+\contentsline {chapter}{\numberline {C}Covarianza e correlazione}{255}
+\contentsline {section}{\numberline {C.1}La covarianza}{255}
+\contentsline {section}{\numberline {C.2}La correlazione lineare}{259}
+\contentsline {section}{\numberline {C.3}Propagazione degli errori per variabili correlate}{261}
+\contentsline {section}{\numberline {C.4}Applicazioni all'interpolazione lineare}{262}
+\contentsline {subsection}{\numberline {C.4.1}Riscrittura delle equazioni dei minimi quadrati}{262}
+\contentsline {subsection}{\numberline {C.4.2}Verifica di ipotesi sulla correlazione lineare}{264}
+\contentsline {subsection}{\numberline {C.4.3}La correlazione tra i coefficienti della retta}{265}
+\contentsline {subsection}{\numberline {C.4.4}Stima puntuale mediante l'interpolazione lineare}{267}
+\contentsline {subsection}{\numberline {C.4.5}Verifica di ipotesi nell'interpolazione lineare}{268}
+\contentsline {subsection}{\numberline {C.4.6}Adeguatezza dell'interpolazione lineare o polinomiale in genere}{269}
+\contentsline {subsection}{\numberline {C.4.7}Il \emph {run test} per i residui}{270}
+\contentsline {section}{\numberline {C.5}Applicazioni alla stima di parametri}{274}
+\contentsline {chapter}{\numberline {D}Il modello di Laplace e la funzione di Gauss}{277}
+\contentsline {chapter}{\numberline {E}La funzione di verosimiglianza}{283}
+\contentsline {chapter}{\numberline {F}La licenza GNU GPL (General Public License)}{293}
+\contentsline {section}{\numberline {F.1}The GNU General Public License}{293}
+\select@language {english}
+\select@language {italian}
+\contentsline {section}{\numberline {F.2}Licenza pubblica generica del progetto GNU}{301}
+\contentsline {chapter}{\numberline {G}Tabelle}{311}
+\contentsline {chapter}{\numberline {H}Bibliografia}{323}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Indice analitico}{327}

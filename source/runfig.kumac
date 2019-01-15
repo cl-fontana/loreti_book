@@ -1,0 +1,27 @@
+| $Id: runfig.kumac,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+hist/del 0
+vect/del *
+set *
+igset *
+
+fort/file 66 runfig.eps
+graph/meta 66 -113
+
+sigma x=array(12,1#12)
+vect/create y(12) r 2 2.2 2.4 2.4 2.8 3.2 3.6 4.4 5.2 6 7 7.6
+vect/create e(12) r 12*0.5
+vect/create z(12) r 12*0
+
+opt nbox
+opt grid
+set *fon -130
+set *siz 0.4
+set ndvx 20207
+
+null 0 13 0 9
+graph/hplot/errors x y z e 12 20 ! 1
+igset ltyp 12
+line 0 0.675758 13 7.457572
+
+fort/close 66

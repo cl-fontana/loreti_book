@@ -1,0 +1,339 @@
+\begin{theindex}\begin{raggedright}\small
+\rule[2.5pt]{2mm}{2pt}\textbf{~~A~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item arrotondamenti, \see{cifre significative}{17}
+  \item asimmetria, \see{coefficiente di asimmetria}{71}
+  \item asimmetria, rapporto di, 114--115, 122--124
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~B~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item Bayes, teorema di, 25--26
+  \item Bernoulli
+    \subitem Jacob (o Jacques), 109
+    \subitem teorema di, 57--58
+  \item Bienaym\'e, Ir\'en\'ee-Jules, 55
+  \item Bienaym\'e--\v Ceby\v sef, disuguaglianza di, 55--56
+  \item binomiale negativa,   distribuzione, 
+		\see{distribuzione binomiale negativa}{115}
+  \item binomiale, distribuzione, \see{distribuzione di Bernoulli}{108}
+  \item Box--Muller, metodo di, 157--159
+  \item branching ratio, 86
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~C~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item calcolo combinatorio, 243--247
+    \subitem lemma fondamentale, 243
+  \item cambiamento di variabile casuale, 77--78, 84--85, 90--91
+  \item campione, 47
+    \subitem valori estremi, \emidx{78--79}, 87--88, 99--100
+  \item casuali
+    \subitem eventi, 19--20
+    \subitem variabili, \emidx{20}, 48
+  \item \v Ceby\v sef
+    \subitem Pafnuty Lvovi\v c, 55
+    \subitem teorema di, \emidx{57}, 69
+  \item cifre significative, \emidx{17--18}, 254
+  \item classi di frequenza, \emidx{32}, 203--204, 210
+  \item coefficiente
+    \subitem di asimmetria, 71
+    \subitem di curtosi, 71
+  \item coefficienti binomiali, 245--246
+  \item combinazioni, 245--246
+  \item combinazioni lineari
+    \subitem di variabili di Cauchy, 107
+    \subitem di variabili normali, 103--104
+    \subitem e loro correlazione, 258
+    \subitem speranza matematica, 50--51
+    \subitem varianza
+      \subsubitem di variabili correlate, 256--258
+      \subsubitem di variabili indipendenti, 51--54
+  \item compatibilit\`a
+    \subitem con un valore, 214--217
+    \subitem con una distribuzione, 203--205, 225--226
+    \subitem tra dati sperimentali, 210--212, 225--226
+    \subitem tra valori misurati, 220--222
+    \subitem tra varianze, 224
+  \item complementare, evento, 22
+  \item contingenze, tabella delle, 210
+  \item correlazione lineare, coefficiente di, 83, \emidx{259--260}, 
+		263--265
+  \item covarianza, 83, \emidx{255--259}
+    \subitem dei coefficienti della retta interpolante, 267
+    \subitem matrice di, \emidx{257}, 261
+  \item Cram\'er--Rao, teorema di, 168, 171--172, 177, 180, 
+		\emidx{284--289}
+  \item curtosi, \see{coefficiente di curtosi}{71}
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~D~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item de Moivre
+    \subitem Abraham, 24, 141, 279
+    \subitem e Stirling, formula di, 279
+  \item decili, \see{quantili}{42}
+  \item deviazione media assoluta, \see{errore medio}{43}
+  \item dimensioni (delle grandezze fisiche), 6--7
+  \item dispersione massima, \see{semidispersione massima}{42}
+  \item disposizioni, 244
+  \item distribuzione
+    \subitem binomiale negativa, 115--116
+    \subitem del $\chi^2$, 195--203
+      \subsubitem e distribuzione normale, 198--199
+      \subsubitem regola di somma, 199
+    \subitem di Bernoulli, 108--113
+      \subsubitem e distribuzione normale, 110--113
+    \subitem di Breit--Wigner, \see{distribuzione di Cauchy}{104}
+    \subitem di Cauchy, 49, \emidx{104--107}
+    \subitem di Erlang, 126--127
+    \subitem di Fisher, 222--224
+    \subitem di Maxwell--Boltzmann, 40
+    \subitem di Poisson, 116--121
+      \subsubitem composta, 128--129
+      \subsubitem e distribuzione di Bernoulli, 118
+      \subsubitem e distribuzione normale, 121
+    \subitem di Student, \emidx{217--220}, 222, 264, 269
+      \subsubitem e distribuzione normale, 219
+    \subitem esponenziale, 124--126
+    \subitem geometrica, 116
+    \subitem log-normale, 132--133
+    \subitem normale, \emidx{101--104}, \emidx{141--149}, 277--282
+    \subitem normale bidimensionale, 135--138
+    \subitem uniforme, \emidx{93--94}
+      \subsubitem range, 100, 191--192
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~E~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item Erlang
+    \subitem Agner Krarup, 126
+    \subitem distribuzione di, \see{distribuzione di Erlang}{126}
+  \item errore
+    \subitem a posteriori, \emidx{183--184}, 185, 264
+    \subitem dell'errore stimato, 254
+    \subitem della media, 45
+    \subitem della varianza stimata, 253
+    \subitem di prima specie, 228
+    \subitem di seconda specie, 228
+    \subitem massimo, 166
+    \subitem medio, 43
+      \subsubitem della distribuzione normale, 144--146
+    \subitem quadratico medio, 43--44
+      \subsubitem della distribuzione normale, \emidx{145--146}, 
+		147--149
+    \subitem relativo, 18
+  \item errori di misura
+    \subitem casuali, 12, \emidx{16--17}, 58
+    \subitem sistematici, \emidx{12--16}, 58, 150
+  \item esame dei dati, \emidx{152--153}, 177--178
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~F~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item Fisher, sir Ronald Aylmer, \emidx{167}, 265
+  \item Fourier, trasformata di, 73, 196
+  \item frequenza
+    \subitem assoluta, 21
+    \subitem cumulativa, 33
+    \subitem relativa, 21
+  \item funzione
+    \subitem caratteristica, 72--73, 84
+      \subsubitem di somme di variabili, 74--75
+      \subsubitem per trasformazioni lineari, 78
+      \subsubitem per variabili discrete, 75--76
+    \subitem di distribuzione, \emidx{68}, 81, 96
+    \subitem di verosimiglianza, \emidx{170--171}, 179--180, 229--242
+    \subitem generatrice dei momenti, 71--72, 84
+      \subsubitem per trasformazioni lineari, 78
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~G~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item Gauss, Karl Friedrich, 44, 56, \emidx{142}
+  \item Gosset, William (``Student''), 195
+  \item grandi numeri, legge dei, 28--29, 33, 50, \emidx{55--58}
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~I~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item interpolazione lineare, \emidx{179--183}, 186--187, 262--273
+    \subitem con una retta per l'origine, 184--185
+  \item ipotesi
+    \subitem alternativa, 228
+    \subitem nulla, 228
+  \item istogrammi, \emidx{31--33}, 65--67
+    \subitem e curva normale, 150--151
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~J~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item Jacobiano
+    \subitem determinante, 84--85
+  \item Jacobiano, determinante, \emidx{90}, 158
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~K~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item Kolmogorov e Smirnov, test di, 225--226
+  \item Kolmogorov, Andrei Nikolaevich, 27, 225
+  \item Kronecker, delta di, 200
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~L~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item Laplace
+    \subitem modello di, 277--282
+    \subitem Pierre Simon de, 141, 142, \emidx{277}
+  \item limite centrale, teorema del, 154--156
+  \item limite debole, \see{statistica, convergenza}{28}
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~M~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item massima verosimiglianza, metodo della, \emidx{170--171}, 
+		188--192, 209, 288--289
+  \item media
+    \subitem aritmetica
+      \subsubitem come stima del valore vero, 40--41, 44--45, 58--59, 
+		144, 156, \emidx{178}, 289--290
+      \subsubitem come stima di tendenza centrale, 37--38
+      \subsubitem e varianza, 191, \emidx{203}, 275
+      \subsubitem propriet\`a matematiche, 37--38, 41--42
+    \subitem armonica, 38
+    \subitem geometrica, 38
+    \subitem pesata, 41, \emidx{176--177}
+    \subitem quadratica, 38
+  \item mediana, 35--37
+  \item metodo
+    \subitem dei rigetti, 96--99
+    \subitem del $\chi^2$, 150
+    \subitem del minimo $\chi^2$, 205--209
+    \subitem del rapporto delle massime verosimiglianze, 235--237
+    \subitem scientifico, 2--3
+  \item minimi quadrati, formule dei, \emidx{181}, 262
+  \item misure
+    \subitem dirette, 5
+    \subitem indirette, 5, 161--165
+  \item moda, 35
+  \item modulo di precisione della misura, \emidx{142}, 145--146
+  \item momenti, 69--71, 83
+    \subitem funzione generatrice, 
+		\see{funzione generatrice dei momenti}{71}
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~N~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item Neyman--Pearson, lemma di, 232--234
+  \item normalizzazione
+    \subitem condizione di, \emidx{68}, 82, 89, 142
+    \subitem della funzione normale agli istogrammi, 150--151
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~O~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item omogeneit\`a, test di, 
+		\see{compatibilit\`a tra dati sperimentali}{210}
+  \item one-tailed test, 217
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~P~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item partizioni ordinate, 188, 209, \emidx{246--247}
+  \item pendolo, periodo del, 14--15
+  \item percentili, \see{quantili}{42}
+  \item permutazioni, 245
+    \subitem con ripetizione, 245
+  \item piccoli campioni, 217--222
+  \item Planck, Max Karl Ernst Ludwig, 7
+  \item Poisson
+    \subitem distribuzione di, \see{distribuzione di Poisson}{116}
+    \subitem Sim\'eon Denis, 118
+  \item popolazione, 47
+  \item potenza, 228
+  \item probabilit\`a
+    \subitem composta (teorema della), 24, 28
+    \subitem condizionata, 24, 28, 82, 89
+    \subitem definizione
+      \subsubitem assiomatica, 27
+      \subsubitem classica, 20
+      \subsubitem empirica, 21
+    \subitem densit\`a di, \emidx{65--68}, 81, 88--89
+    \subitem funzione marginale, 82, \emidx{89}
+    \subitem totale (teorema della), 23, 28
+  \item propagazione degli errori, formula di, \emidx{164--165}, 261
+    \subitem per errori massimi, 166
+    \subitem per prodotti di potenze, 165
+  \item pseudo-casuali, numeri, 96--99
+    \subitem con distribuzione normale, 157--159
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~Q~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item quantili, 42--43
+  \item quartili, \see{quantili}{42}
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~R~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item range, 42
+  \item rapporto di asimmetria, \see{asimmetria, rapporto di}{114}
+  \item rapporto di variabili, 85--86
+    \subitem normali, 107--108
+  \item residui, \emidx{180}, 263, 269--272
+  \item run test, 270--273
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~S~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item scarto normalizzato, 146--147
+  \item semidispersione massima, 42
+  \item significanza, 228
+  \item Sistema Internazionale, 6
+  \item somma di un numero casuale di variabili discrete, 76
+  \item speranza matematica, 49
+    \subitem della media aritmetica, 51
+    \subitem di combinazioni lineari, 50--51
+    \subitem per variabili continue, \emidx{69}, 83
+  \item statistica
+    \subitem convergenza, 28--29
+    \subitem indipendenza, 24--25, 82, 89--90, 256, 259
+  \item stima
+    \subitem imparziale, 59, 61, 163, \emidx{283}
+    \subitem sufficiente, \emidx{170}, 173--174
+  \item stime, 167--170
+    \subitem di dispersione, 42--44
+    \subitem di tendenza centrale, 33--38
+  \item Stirling, James, 279
+  \item strumenti di misura, 9--12
+    \subitem caratteristiche, 10--11
+  \item Student, \see{Gosset, William}{195}
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~T~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item two-tailed test, 217
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~U~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item unit\`a di misura
+    \subitem fondamentali e derivate, 6--9
+    \subitem naturali, 7
+
+  \indexspace
+\rule[2.5pt]{2mm}{2pt}\textbf{~~V~~}\rule[3pt]{10mm}{1pt}\nopagebreak
+
+  \item varianza, 43--44
+    \subitem della media aritmetica, 54
+    \subitem della popolazione, \emidx{49--50}, 290--291
+    \subitem della popolazione e di campioni, 59--63
+    \subitem di combinazioni lineari
+      \subsubitem di variabili correlate, 256--258
+      \subsubitem di variabili indipendenti, 51--54
+    \subitem e media aritmetica, 191, \emidx{203}, 275
+    \subitem propriet\`a matematiche, 44
+  \item vita media, 86, 113, 192--194
+  \item von Mises, Richard, 21
+
+\end{raggedright}\end{theindex}

@@ -1,0 +1,340 @@
+% $Id: chapterb.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{L'errore della varianza}%
+\label{ch:b.errvar}
+Pu\`o a volte essere utile valutare l'errore della stima
+della varianza ricavata da un campione di dati sperimentali.
+Facendo un esempio concreto, supponiamo di disporre di un
+ampio insieme di valutazioni della stessa grandezza fisica:
+$N \cdot M$ misure ripetute $x_1, x_2,\ldots, x_{N \cdot M}
+$.  Dividiamo questi valori in $M$ sottoinsiemi costituiti
+da $N$ dati ciascuno, e per ognuno di questi $M$
+sottocampioni calcoliamo la media aritmetica dei dati;
+otterremo cos\`\i\ $M$ medie parziali, che indicheremo con i
+simboli $ \bar x_1, \ldots, \bar x_M $.
+
+Lo scopo di queste operazioni pu\`o essere quello di
+verificare che le medie di questi sottocampioni sono
+distribuite su un intervallo di valori pi\`u ristretto di
+quello su cui si distribuisce l'insieme dei dati originali:
+in sostanza, per verificare che le medie di $N$ dati hanno
+errore quadratico medio inferiore a quello dei dati di
+partenza.
+
+L'errore delle medie dei sottocampioni pu\`o essere stimato
+sperimentalmente calcolandone la varianza:
+\begin{align*}
+  {\sigma_{\bar x}}^2 &= \frac{1}{M-1} \,
+    \sum_{i=1}^M \Bigl( \bar x_i - \left< \bar x
+    \right> \Bigr) ^2 && \text{\itshape (sperimentale)}
+\end{align*}
+intendendo con $ \left< \bar x \right> $ la media delle $M$
+medie parziali, che coincider\`a necessariamente con la
+media complessiva dell'intero campione di $N \cdot M$ dati.
+
+Questo valore pu\`o essere poi confrontato con quello
+previsto dalla teoria per la varianza della media di un
+gruppo di dati, allo scopo di verificare in pratica
+l'adeguatezza della teoria stessa; tale previsione teorica
+\`e come sappiamo data dal rapporto tra la varianza di
+ognuno dei dati che contribuiscono alla media ed il numero
+dei dati stessi:
+\begin{align*}
+  {\sigma_{\bar x}}^2 &= \frac{\sigma^2}{N}
+    && \text{\itshape (teorico)} \peq .
+\end{align*}
+
+Come stima di $\sigma$ si pu\`o usare l'errore quadratico
+medio dell'insieme di tutti gli $N \cdot M$ dati; ma,
+naturalmente, perch\'e il confronto tra questi due numeri
+abbia un significato, \emph{occorre conoscere gli errori} da
+cui sia la valutazione sperimentale che la previsione
+teorica di $\sigma_{\bar x}$ sono affette.
+
+Consideriamo (come gi\`a fatto precedentemente) una
+popolazione a media zero per semplificare i calcoli:
+\begin{equation*}
+  E(x) \; \equiv \; x^* \; = \; 0 \peq ;
+\end{equation*}
+i risultati si potranno in seguito facilmente estendere ad
+una popolazione qualsiasi, tenendo presente il teorema di
+pagina \pageref{def:5.varind} ed i ragionamenti conseguenti.
+La varianza di una qualsiasi variabile casuale $x$, indicata
+di seguito come $\var (x)$, si pu\`o scrivere come
+\begin{gather*}
+  \var( x ) = E \bigl( x^2 \bigr) -
+    \bigl[ E( x ) \bigr]^2 \\
+  \intertext{e, usando questa formula per calcolare la
+    varianza della varianza di un campione di $N$
+    misure $s^2$, avremo}
+  \var \bigl( s^2 \bigr) = E \bigl( s^4 \bigr)
+    - \left[ E \bigl( s^2 \bigr) \right]^2 \peq .
+\end{gather*}
+
+Ora
+\begin{align*}
+  s^4 &= \left[ \frac{\sum_i {x_i}^2}{N} -
+    \left( \frac{\sum_i x_i}{N} \right) ^2 \right]^2
+    \\[1ex]
+  &= \frac{1}{N^2} \left( \sum \nolimits_i {x_i}^2
+    \right) ^2 - \frac{2}{N^3} \left( \sum\nolimits_i
+    {x_i}^2 \right) \left( \sum \nolimits_i x_i
+    \right)^2 + \frac{1}{N^4} \left( \sum\nolimits_i
+    x_i \right) ^4 \peq .
+\end{align*}
+Sviluppiamo uno per volta i tre termini a secondo membro;
+per il primo risulta
+\begin{align*}
+  \left( \sum \nolimits_i {x_i}^2 \right) ^2 &=
+    \left( \sum \nolimits_i {x_i}^2 \right)
+    \Bigl( \sum \nolimits_j {x_j}^2 \Bigr)
+    \\[1ex]
+  &= \sum \nolimits_i \left( {x_i}^2
+    \sum_{j=i} {x_j}^2 \right) +
+    \sum \nolimits_i \left( {x_i}^2
+    \sum_{j \neq i} {x_j}^2 \right) \\[1ex]
+  &= \sum_i {x_i}^4 +
+    \sum_{\substack{i,j\\j \neq i}} {x_i}^2 {x_j}^2
+    \\[1ex]
+  &= \sum_i {x_i}^4 +
+    2 \sum_{\substack{i,j\\ j < i}} {x_i}^2 {x_j}^2 \peq .
+\end{align*}
+
+La prima sommatoria comprende $N$ addendi distinti; la
+seconda \`e estesa a tutte le possibili \emph{combinazioni}
+dei valori distinti di $i$ e $j$ presi a due a due: \`e
+costituita quindi da
+\begin{equation*}
+  C^N_2 = \frac{N \, (N-1)}{2}
+\end{equation*}
+addendi distinti.
+
+Il fattore 2 che compare davanti ad essa \`e dovuto al fatto
+che una coppia di valori degli indici si presentava nella
+sommatoria su $i \neq j$ una volta come ${x_i}^2 {x_j}^2$ e
+un'altra come ${x_j}^2 {x_i}^2$, termini diversi per
+l'ordine ma con lo stesso valore.  In definitiva, passando
+ai valori medi e tenendo conto dell'indipendenza statistica
+di $x_i$ e $x_j$ quando \`e $i \neq j$, risulta
+\begin{equation*}
+  E \left \{ \left( \sum \nolimits_i {x_i}^2 \right) ^2
+    \right \} = N \: E \bigl( x^4 \bigr) + N \, (N-1) \,
+    \left[ E \bigl( x^2 \bigr) \right] ^2 \peq .
+\end{equation*}
+
+Con simili passaggi, si ricava per il secondo termine
+\begin{align*}
+   \left( \sum \nolimits_i {x_i}^2 \right)
+     \Bigl( \sum \nolimits_j x_j \Bigr) ^2 &=
+     \left( \sum \nolimits_i {x_i}^2 \right)
+     \left( \sum_j {x_j}^2 +
+     \sum_{\substack{j,k\\ j \neq k}} x_j x_k
+     \right) \\[1ex]
+   &= \sum_i {x_i}^4 +
+     \sum_{\substack{i,j\\ i \neq j}} {x_i}^2
+     {x_j}^2 + \sum_{\substack{i,j\\ i \neq j}}
+     {x_i}^3 x_j + \sum_{\substack{i,j,k\\ i \neq j
+     \neq k}} {x_i}^2 x_j \, x_k
+\end{align*}
+dove gli indici aventi simboli diversi si intendono avere
+anche valori sempre diversi tra loro nelle sommatorie.
+
+Il valore medio del terzo e del quarto termine si annulla
+essendo $E(x)=0$; inoltre gli addendi nella prima sommatoria
+sono in numero di $N$ e quelli nella seconda in numero di $N
+\, (N-1) /2$ e vanno moltiplicati per un fattore 2.
+Pertanto anche
+\begin{equation*}
+  E \left \{ \left( \sum \nolimits_i x_i^2 \right)
+    \left( \sum \nolimits_i x_i \right) ^2 \right \} =
+    N \: E \bigl( x^4 \bigr) +
+    N \, (N-1) \, \left[ E \bigl( x^2 \bigr) \right] ^2 \peq
+    .
+\end{equation*}
+
+Infine avremo, con la medesima convenzione sugli indici,
+\begin{multline*}
+   \left( \sum \nolimits_i x_i \right) ^4 =
+     \left( \sum \nolimits_i x_i \right)
+     \Bigl( \sum \nolimits_j x_j \Bigr)
+     \left( \sum \nolimits_k x_k \right)
+     \left( \sum \nolimits_l x_l \right) \\[1ex]
+   = \sum_i {x_i}^4 +
+     \sum_{\substack{i,j \\ i \neq j}} {x_i}^3 x_j +
+     \sum_{\substack{i,j \\ i \neq j}} {x_i}^2 {x_j}^2 +
+     \sum_{\substack{i,j,k \\i \neq j \neq k}} {x_i}^2
+       x_j \, x_k +
+     \sum_{\substack{i,j,k,l \\ i \neq j \neq k \neq l}}
+       x_i \, x_j \, x_k \, x_l \peq .
+\end{multline*}
+
+I valori medi del secondo, quarto e quinto termine (che
+contengono potenze dispari delle $x$) sono nulli.  Gli
+addendi nella prima sommatoria sono in numero di $N$; nella
+terza vi sono $N \, (N-1) / 2$ termini distinti: ma ciascuno
+appare in 6 modi diversi solo per l'ordine, corrispondenti
+al numero $ C^4_2 $ di combinazioni dei quattro indici
+originari $i$, $j$, $k$ ed $l$ presi a due a due.  Allora
+\begin{equation*}
+  E \left( \sum \nolimits_i x_i \right) ^4 =
+    N \: E \bigl( x^4 \bigr) +
+    3 \,N \,(N-1) \, \left[ E \bigl( x^2 \bigr)
+    \right] ^2 \peq ;
+\end{equation*}
+e, riprendendo la formule di partenza,
+\begin{equation*}
+  E \bigl( s^4 \bigr) =
+    \frac{(N-1)^2}{N^3} \, E \bigl( x^4 \bigr) +
+    \frac{(N-1)(N^2-2N+3)}{N^3} \,
+    \left[ E \bigl( x^2 \bigr) \right] ^2 \peq .
+\end{equation*}
+
+Per il valore medio di $s^2$, gi\`a sappiamo come risulti
+per la varianza del campione
+\begin{gather*}
+  E \bigl( s^2 \bigr) = \sigma^2 -
+    {\sigma_{\bar x}}^2 \\
+  \intertext{inoltre}
+  \sigma^2 \; = \; E \left \{ \left( x - x^*
+    \right)^2 \right \} \; = \; E \bigl( x^2 \bigr) \\
+  \intertext{(essendo $x^*=0 $) e}
+  {\sigma_{\bar x}} ^2 \; = \; E \left \{ \left( \bar x
+    - x^* \right) ^2 \right \} \; = \;
+    \frac{\sigma^2}{N} \\
+  \intertext{da cui abbiamo ottenuto a suo tempo la}
+  E \bigl( s^2 \bigr) \; = \;
+    \frac{N-1}{N} \, \sigma^2 \; = \;
+    \frac{N-1}{N} \, E \bigl( x^2 \bigr) \peq .
+\end{gather*}
+
+Per la varianza di $s^2$, che vogliamo determinare:
+\begin{align*}
+  \var \bigl( s^2 \bigr) &= E \bigl( s^4 \bigr) -
+    \left[ E \bigl( s^2 \bigr) \right] ^2 \\[1ex]
+  &= \frac{(N-1)^2}{N^3} \, E \bigl( x^4 \bigr) +
+    \\[1ex]
+  &\qquad + \left[ \, \frac{(N-1)(N^2-2N+3)}{N^3}
+    \, - \, \frac{(N-1)^2}{N^2} \, \right]
+    \left[ E \bigl( x^2 \bigr) \right] ^2 \\[1ex]
+  &= \frac{(N-1)^2}{N^3} \, E \bigl( x^4 \bigr)
+    \, - \, \frac{(N-1)(N-3)}{N^3} \, \left[ E
+    \bigl( x^2 \bigr) \right] ^2 \\[1ex]
+  &= \frac{N-1}{N^3} \, \left \{ (N-1) \, E
+    \bigl( x^4 \bigr) \, - \, (N-3) \, \left[ E
+    \bigl( x^2 \bigr) \right] ^2 \right \} \peq .
+\end{align*}
+
+Questa relazione ha validit\`a generale.  \emph{Nel caso poi
+  che la popolazione ubbidisca alla legge normale}, potremo
+calcolare il valore medio di $ x^4 $ usando la forma
+analitica della funzione di Gauss: per distribuzioni normali
+qualsiasi, i momenti di ordine pari rispetto alla media sono
+dati dalla formula \eqref{eq:8.mopaga}, che qui ricordiamo:
+\begin{equation*}
+  \mu_{2k} \; = \; E \left\{ \bigl[ x - E(x)
+    \bigr]^{2k} \right\} \; = \; \frac{(2k)!}{2^k \,
+    k!} \, {\mu_2} ^k \; = \; \frac{(2k)!}{2^k \, k!}
+    \, \sigma^{2k} \peq .
+\end{equation*}
+
+Per la varianza di $s^2$ se ne ricava
+\begin{gather*}
+  E \bigl( x^4 \bigr) = 3 \sigma^4 \\
+  \intertext{e, sostituendo,}
+  \var \bigl( s^2 \bigr) \; = \;
+    \frac{2(N-1)}{N^2} \, \left[ E \bigl(
+    x^2 \bigr) \right] ^2 \; = \;
+    \frac{2(N-1)}{N^2} \, \sigma^4 \peq ;
+\end{gather*}
+insomma \emph{l'errore quadratico medio della varianza $s^2$
+  del campione} vale
+\begin{equation*}
+  \sigma_{s^2} = \frac{\sqrt{2(N-1)}}{N}
+    \, \sigma^2 \peq .
+\end{equation*}
+
+La varianza, invece, della stima della varianza della
+popolazione
+\begin{gather*}
+  \sigma^2 = \frac{N}{N-1} \, s^2 \\
+  \intertext{vale}
+  \var \bigl( \sigma^2 \bigr) \; = \;
+    \left( \frac{N}{N-1} \right) ^2 \,
+    \var \bigl( s^2 \bigr) \; = \;
+    \frac{2}{N-1} \, \sigma^4 \peq ;
+\end{gather*}
+ed infine \emph{l'errore quadratico medio della stima della
+  varianza della popolazione} ricavata dal campione \`e
+\begin{equation*}%
+\index{errore!della varianza stimata}
+  \boxed{ \rule[-7mm]{0mm}{17mm} \quad
+    \sigma_{\sigma^2} = \sqrt{
+    \dfrac{2}{N-1} }
+    \, \sigma^2 \quad}
+\end{equation*}
+
+Sottolineiamo ancora come queste formule che permettono di
+calcolare, per una popolazione \emph{avente distribuzione
+  normale}, gli errori quadratici medi sia della varianza di
+un campione di $N$ misure che della stima della varianza
+della popolazione ricavata da un campione di $N$ misure,
+siano \emph{esatte}.
+
+Se si vuole invece calcolare l'errore da attribuire agli
+\emph{errori quadratici medi}, cio\`e alle quantit\`a $s$ e
+$\sigma$ radici quadrate delle varianze di cui sopra, non
+\`e possibile dare delle formule esatte: la ragione ultima
+\`e che il valore medio di $s$ non pu\`o essere espresso in
+forma semplice in termini di grandezze caratteristiche della
+popolazione.
+
+Per questo motivo \emph{\`e sempre meglio riferirsi ad
+  errori di varianze} piuttosto che ad errori di scarti
+quadratici medi; comunque, in prima approssimazione,
+l'errore di $\sigma$ si pu\`o ricavare da quello su
+$\sigma^2$ usando la formula di propagazione:
+\begin{gather}
+  \var ( \sigma ) \; \approx \; \left(
+    \frac{1}{\tfrac{\de \left( \sigma^2 \right)}
+    {\de \sigma}} \right)^2 \var \bigl( \sigma^2
+    \bigr) \; = \; \frac{1}{4 \, \sigma^2} \, \var
+    \bigl( \sigma^2 \bigr) \; = \; \frac{\sigma^2}
+   {2 \, (N - 1)} \peq ; \notag \\
+  \intertext{cio\`e}%
+  \index{errore!dell'errore stimato}
+  \boxed{ \rule[-8mm]{0mm}{16mm} \quad
+    \sigma_\sigma \approx
+    \dfrac{\sigma}{\sqrt{2 \, (N - 1)}} \quad}
+    \label{eq:b.errstd}
+\end{gather}
+(il fatto che questa formula sia approssimata risulta
+chiaramente se si considera che la relazione tra $\sigma^2$
+e $\sigma$ \`e non lineare).
+
+Una conseguenza dell'equazione \eqref{eq:b.errstd} \`e che
+l'errore relativo di $\sigma$ dipende \emph{solo dal numero
+  di misure}; diminuisce poi all'aumentare di esso, ma
+questa diminuzione \`e inversamente proporzionale alla
+radice quadrata di $N$ e risulta perci\`o lenta.
+
+\index{cifre significative|(}%
+In altre parole, per diminuire l'errore relativo di $\sigma$
+di un ordine di grandezza occorre aumentare il numero delle
+misure di \emph{due} ordini di grandezza; $\sigma_\sigma /
+\sigma$ \`e (circa) il 25\% per 10 misure, il 7\% per 100
+misure ed il 2\% per 1000 misure effettuate: e questo \`e
+sostanzialmente il motivo per cui, di norma, si scrive
+l'errore quadratico medio \emph{dando per esso una sola
+  cifra significativa}.
+
+Due cifre significative \emph{reali} per $\sigma$
+corrisponderebbero infatti ad un suo errore relativo
+compreso tra il 5\% (se la prima cifra significativa di
+$\sigma$ \`e 1, ad esempio $\sigma = 10 \pm 0.5$) e lo 0.5\%
+($\sigma = 99 \pm 0.5$); e presupporrebbero quindi che
+siano state effettuate almeno 200 misure nel caso pi\`u
+favorevole e quasi $20\updot 000$ in quello pi\`u
+sfavorevole.%
+\index{cifre significative|)}
+
+\endinput

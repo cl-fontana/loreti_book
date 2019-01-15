@@ -1,0 +1,568 @@
+% $Id: chaptere.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{La funzione di verosimiglianza}%
+\label{ch:e.maxlik}
+Si supponga di aver compiuto $N$ osservazioni indipendenti
+relative ad una grandezza fisica $x$, e di aver trovato i
+valori $x_i$, con $i=1,2,\ldots,N$.  Ciascuna delle
+variabili casuali $x_i$ abbia poi densit\`a di probabilit\`a
+data da una funzione nota $ f_i (x_i ; \theta) $; funzione
+che supponiamo dipenda da un parametro $\theta$ di valore
+vero $\theta^*$ ignoto, e definita in un intervallo
+dell'asse reale delle $x_i$ con estremi indipendenti da
+$\theta$ (che potremo assumere essere $\pm \infty$ ponendo
+eventualmente $ f_i (x_i ; \theta) \equiv 0$ esternamente
+all'intervallo di definizione).
+
+Una \emph{stima} di una generica funzione nota del
+parametro, $\tau(\theta)$, che supporremo con derivata non
+nulla, \`e una funzione dei soli valori osservati $t(x_1,
+x_2,\ldots, x_N) $; dunque a sua volta una variabile
+casuale, con associata una funzione densit\`a di
+probabilit\`a che indicheremo con $g(t;\theta)$.  La stima
+si dice \emph{imparziale}%
+\index{stima!imparziale|emidx}
+(o \emph{indistorta}) quando il suo valore medio
+\begin{align*}
+   E(t) &= \int_{-\infty}^{+\infty} \! t
+     \: g(t;\theta) \, \de t \\[1ex]
+   &= \int_{-\infty}^{+\infty} \! \de x_1
+     \, f_1 (x_1;\theta) \cdots
+     \int_{-\infty}^{+\infty} \! \de x_N \,
+     f_N (x_N;\theta) \: t(x_1,x_2,\ldots,x_N)
+\end{align*}
+\`e uguale al rispettivo valore vero:
+\begin{equation*}
+  E(t) = \tau(\theta) \peq .
+\end{equation*}
+Il caso particolare della stima \emph{del parametro stesso}
+corrisponde alla funzione $\tau(\theta) = \theta$, che
+soddisfa evidentemente alla richiesta di possedere derivata
+prima non nulla $\tau'(\theta) = 1$.
+
+Una importante propriet\`a della stima $t$ \`e la sua
+varianza, data (se essa \`e imparziale) da
+\begin{multline*}
+   {\sigma_t}^2 = \int_{-\infty}^{+\infty} \!
+     \bigl[ t - \tau(\theta) \bigr] ^2
+     g(t;\theta) \, \de t \\[1ex]
+   = \int_{-\infty}^{+\infty} \! \de x_1 \,
+     f_1 (x_1;\theta) \cdots
+     \int_{-\infty}^{+\infty} \! \de x_N \,
+     f_N (x_N;\theta) \:
+     \bigl[ t(x_1,x_2,\ldots,x_N) -
+     \tau(\theta) \bigr] ^2
+\end{multline*}
+perch\'e \emph{la minima varianza} sar\`a il nostro criterio
+di scelta fra diverse stime di $\tau(\theta)$.
+
+\index{Cram\'er--Rao, teorema di|(emidx}%
+Il teorema che segue (\textbf{teorema di Cram\'er--Rao})
+mostra che esiste un limite inferiore per la varianza di una
+stima.  Osserviamo per prima cosa che la densit\`a di
+probabilit\`a per la $N$-pla $(x_1, x_2,\ldots, x_N)$
+risulta
+\begin{equation*}
+  \prod_{i=1}^N f_i (x_i;\theta^*)
+\end{equation*}
+per il teorema della probabilit\`a composta; se in luogo del
+valore vero $\theta^*$ si pone il parametro variabile
+$\theta$, si ottiene la \emph{funzione di verosimiglianza}
+\begin{equation*}
+  \mathcal{L} (x_1, x_2,\ldots, x_N;\theta) =
+    \prod_{i=1}^N f_i (x_i;\theta) \peq .
+\end{equation*}
+
+La condizione di normalizzazione di ciascuna $f_i$ comporta
+che l'integrale della verosimiglianza su tutti i domini
+delle variabili $x_i$ valga 1:
+\begin{equation*}
+  \begin{split}
+    \int_{-\infty}^{+\infty} \! \de x_1
+      &\int_{-\infty}^{+\infty} \! \de x_2 \cdots
+      \int_{-\infty}^{+\infty} \! \de x_N \:
+      \mathcal{L} (x_1, x_2,\ldots, x_N;\theta)
+      \; = \\[1ex]
+    &= \; \int_{-\infty}^{+\infty} \! \de x_1 \,
+      f_1(x_1;\theta)
+      \int_{-\infty}^{+\infty} \! \de x_2 \,
+      f_2(x_2;\theta) \cdots
+      \int_{-\infty}^{+\infty} \! \de x_N \,
+      f_N(x_N;\theta) \\[1ex]
+    &= \; \prod_{i=1}^N \int_{-\infty}^{+\infty} \!
+      \de x_i \, f_i(x_i;\theta) \\[1ex]
+      &\equiv \; 1
+  \end{split}
+\end{equation*}
+\emph{indipendentemente} dal valore di $\theta$.  Derivando
+sotto il segno di integrale rispetto a $\theta$, dato che i
+domini delle $f_i(x_i;\theta)$ non dipendono da detta
+variabile si ottiene
+\begin{equation*}
+  \int_{-\infty}^{+\infty} \! \de x_1
+    \int_{-\infty}^{+\infty} \! \de x_2 \cdots
+    \int_{-\infty}^{+\infty} \! \de x_N \:
+    \frac{\partial \mathcal{L}}{\partial \theta}
+    = 0
+\end{equation*}
+da cui, dividendo e moltiplicando l'integrando per
+$\mathcal{L}$, risulta
+\begin{equation*}
+  \begin{split}
+    \int_{-\infty}^{+\infty} \! \de x_1
+      \int_{-\infty}^{+\infty} \! \de x_2 &\cdots
+      \int_{-\infty}^{+\infty} \! \de x_N \:
+      \mathcal{L} \left( \frac{1}{\mathcal{L}} \,
+      \frac{\partial \mathcal{L}}{\partial \theta}
+      \right) \; = \\[1ex]
+    &= \; \int_{-\infty}^{+\infty} \! \de x_1
+      \int_{-\infty}^{+\infty} \! \de x_2 \cdots
+      \int_{-\infty}^{+\infty} \! \de x_N \:
+      \mathcal{L} \, \frac{\partial \left(
+      \ln \mathcal{L} \right)}{\partial \theta}
+      \\[1ex]
+    &= \; \int_{-\infty}^{+\infty} \! \de x_1 \,
+      f_1(x_1;\theta) \cdots
+      \int_{-\infty}^{+\infty} \! \de x_N \:
+      f_N(x_N;\theta) \, \frac{\partial \left(
+      \ln \mathcal{L} \right)}{\partial \theta}
+      \\[1ex]
+    &= \; 0
+  \end{split}
+\end{equation*}
+ossia
+\begin{equation} \label{eq:e.crarao1}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    E \left\{ \dfrac{\partial \left(
+    \ln \mathcal{L} \right)}{\partial \theta}
+    \right\} = 0 \quad }
+\end{equation}
+
+Se $t$ \`e imparziale
+\begin{gather*}
+  E(t) \; = \; \int_{-\infty}^{+\infty} \!
+    \de x_1 \cdots \int_{-\infty}^{+\infty} \!
+    \de x_N \: t(x_1, x_2,\ldots, x_N) \,
+    \mathcal{L}(x_1, x_2,\ldots, x_N ;\theta)
+    \; = \; \tau(\theta) \\
+  \intertext{da cui, derivando ambo i membri
+    rispetto a $\theta$,}
+  \int_{-\infty}^{+\infty} \! \de x_1
+    \int_{-\infty}^{+\infty} \! \de x_2 \cdots
+    \int_{-\infty}^{+\infty} \! \de x_N \:
+    t \: \frac{\partial \mathcal{L}}{\partial
+    \theta} = \tau ' (\theta) \peq .
+\end{gather*}
+
+Dividendo e moltiplicando poi l'integrando per la
+verosimiglianza $\mathcal{L}$, risulta
+\begin{equation*}
+  \begin{split}
+    \int_{-\infty}^{+\infty} \! \de x_1
+      \int_{-\infty}^{+\infty} \! \de x_2 &\cdots
+      \int_{-\infty}^{+\infty} \! \de x_N \:
+      t \: \frac{\partial \mathcal{L}}{\partial
+      \theta} \; = \\
+    &= \; \int_{-\infty}^{+\infty} \! \de x_1
+      \cdots \int_{-\infty}^{+\infty} \! \de x_N
+      \: t \: \mathcal{L} \left( \frac{1}
+      {\mathcal{L}} \, \frac{\partial
+      \mathcal{L}}{\partial \theta} \right) \\
+    &= \; \int_{-\infty}^{+\infty} \! \de x_1 \,
+      f_1(x_1;\theta) \cdots
+      \int_{-\infty}^{+\infty} \! \de x_N \:
+      f_N(x_N;\theta) \: t \: \frac{\partial
+      \left( \ln \mathcal{L} \right)} {\partial
+      \theta} \\
+    &= \; E \left\{ t \: \frac{\partial \left(
+      \ln \mathcal{L} \right)}{\partial \theta}
+      \right\}
+  \end{split}
+\end{equation*}
+e, in definitiva,
+
+\begin{equation*}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    E \left\{ t \: \frac{\partial
+    \left( \ln \mathcal{L} \right)}{\partial
+    \theta} \right\} = \tau ' (\theta) \quad }
+\end{equation*}
+
+Infine, sottraendo membro a membro da questa equazione la
+precedente \eqref{eq:e.crarao1} moltiplicata per
+$\tau(\theta)$, si ottiene
+\begin{gather*}
+  E \left\{ t \: \frac{\partial \left( \ln \mathcal{L}
+    \right)}{\partial \theta} \right\} - \tau(\theta)
+    \cdot E \left\{ \frac{\partial \left( \ln \mathcal{L}
+    \right)}{\partial \theta} \right\} = \tau' (\theta)
+    \\
+  \intertext{ovvero}
+  E \left \{ \bigl[ t - \tau(\theta) \bigr] \cdot
+    \frac{\partial \left( \ln \mathcal{L} \right)}
+    {\partial \theta} \right \}
+    = \tau' (\theta) \peq .
+\end{gather*}
+
+Se ora si definiscono il rapporto
+\begin{gather*}
+  R(\theta) \; = \;
+    \frac{ E \left \{ \bigl[ t -
+    \tau(\theta) \bigr] \cdot
+    \dfrac{\partial \left( \ln \mathcal{L} \right)}
+    {\partial \theta} \right \} }
+    {E \left\{ \left[ \dfrac{\partial \left( \ln
+    \mathcal{L} \right)} {\partial \theta} \right]
+    ^2 \right\} } \; = \; \frac{ \tau ' (\theta)}
+    {E \left\{ \left[ \dfrac{\partial \left(
+    \ln \mathcal{L} \right)} {\partial \theta}
+    \right] ^2 \right\} } \\
+  \intertext{(che \`e una costante dipendente
+    da $\theta$; osserviamo anche che deve
+    risultare $R(\theta) \neq 0$) e la
+    variabile casuale}
+  z = \bigl[ t - \tau(\theta) \bigr]
+    - R(\theta) \,
+    \frac{\partial \left( \ln \mathcal{L} \right)}
+    {\partial \theta} \\
+  \intertext{il cui quadrato risulta essere}
+  z^2 = \bigl[ t - \tau(\theta) \bigr] ^2
+    - 2 \, R(\theta) \cdot \bigl[ t - \tau(\theta)
+    \bigr] \, \frac{\partial \left( \ln
+    \mathcal{L} \right)}{\partial \theta} + R^2
+    (\theta) \cdot \left[ \frac{\partial \left(
+    \ln \mathcal{L} \right)}{\partial \theta}
+    \right] ^2
+\end{gather*}
+prendendo il valore medio di $z^2$ si ottiene
+\begin{multline*}
+    E(z^2) \; = \; E \left \{ \bigl[ t -
+      \tau(\theta) \bigr] ^2 \right \} -
+      2 \, R(\theta) \cdot E \left \{ \bigl[
+      t - \tau(\theta) \bigr] \cdot
+      \frac{\partial \left( \ln \mathcal{L}
+      \right)}{\partial \theta} \right \} +
+      \\[1ex]
+   + \; R^2 (\theta) \cdot E \left\{ \left[
+    \frac{\partial \left( \ln \mathcal{L}
+    \right)}{\partial \theta} \right] ^2
+    \right\}
+\end{multline*}
+ossia
+\begin{multline*}
+  E(z^2) \; = \; {\sigma_t}^2 -
+    2 \, \frac{\tau ' (\theta)}
+    {E \left\{ \left[ \dfrac{\partial \left(
+    \ln \mathcal{L} \right)}{\partial \theta}
+    \right] ^2 \right\} }
+    \, \tau ' (\theta) + \\[1ex]
+  + \; \left \{ \frac{\tau ' (\theta)}
+    {E \left\{ \left[ \dfrac{\partial \left(
+    \ln \mathcal{L} \right)}{\partial \theta}
+    \right] ^2 \right\} } \right\} ^2 E
+    \left\{ \left[ \frac{\partial \left( \ln
+    \mathcal{L} \right)}{\partial \theta}
+    \right] ^2 \right\}
+\end{multline*}
+ed infine
+\begin{align*}
+  E(z^2) \; &= \; {\sigma_t}^2 -
+    2 \, \frac{ \left[ \tau ' (\theta)
+    \right] ^2 }{E \left\{ \left[
+    \dfrac{\partial \left( \ln \mathcal{L}
+    \right)}{\partial \theta} \right] ^2
+    \right\} } +
+    \frac{ \left[ \tau ' (\theta)
+    \right] ^2 }{E \left\{ \left[
+    \dfrac{\partial \left( \ln \mathcal{L}
+    \right)}{\partial \theta} \right] ^2
+    \right\} } \\[1ex]
+  &= \; {\sigma_t}^2 -
+    \frac{ \left[ \tau ' (\theta) \right] ^2 }
+    {E \left\{ \left[ \dfrac{\partial \left(
+    \ln \mathcal{L} \right)}{\partial \theta}
+    \right] ^2 \right\} } \peq .
+\end{align*}
+
+Ma il valore medio del quadrato di una qualsiasi variabile
+casuale non pu\`o essere negativo, e dunque
+\begin{gather*}
+  0 \; \le \;
+    E(z^2) \; = \;
+    {\sigma_t}^2 -
+    \frac{ \left[ \tau ' (\theta) \right] ^2 }
+    {E \left\{ \left[ \dfrac{\partial \left( \ln
+    \mathcal{L} \right)}{\partial \theta} \right]
+    ^2 \right\} } \\
+  \intertext{ed infine}
+  {\sigma_t}^2 \; \geq \;
+    \frac{ \left[ \tau ' (\theta) \right] ^2 }
+    {E \left\{ \left[ \dfrac{\partial \left( \ln
+    \mathcal{L} \right)}{\partial \theta} \right]
+    ^2 \right\} }
+    \; = \; \left[ \tau ' (\theta) \right] ^2 \,
+    \frac{R(\theta)}{\tau ' (\theta)}
+    \; = \; \tau ' (\theta) \cdot R(\theta)
+\end{gather*}
+cio\`e:
+\begin{quote}
+  \textit{Nessuna funzione dei valori osservati
+    $t(x_1,x_2,\ldots,x_N)$, che sia stima imparziale di una
+    funzione del parametro $\tau(\theta)$, pu\`o avere
+    varianza inferiore ad un limite determinato.}
+\end{quote}
+
+La varianza minima si raggiunge se e soltanto se $E(z^2)$
+\`e nullo, il che \`e possibile solo se $z$ \`e nulla
+ovunque, cio\`e se
+\begin{equation*}
+  z \; = \;
+    t - \tau(\theta) - R(\theta) \,
+    \frac{\partial \left( \ln \mathcal{L} \right)}
+    {\partial \theta} \; \equiv \; 0
+\end{equation*}
+o, altrimenti detto, se la derivata logaritmica della
+verosimiglianza \`e proporzionale alla variabile casuale $t
+- \tau(\theta)$:
+
+\begin{equation} \label{eq:e.condmin}
+  \boxed{\rule[-6mm]{0mm}{14mm} \quad
+    \frac{\partial \left( \ln \mathcal{L} \right)}
+    {\partial \theta} \; = \;
+    \frac{t - \tau(\theta)}
+    {R(\theta)} \quad }
+\end{equation}
+
+Nel caso particolare che tutte le $x_i$ provengano dalla
+stessa popolazione, e che quindi abbiano la stessa densit\`a
+di probabilit\`a $f(x;\theta)$,
+\begin{gather*}
+  \frac{\partial (\ln  \mathcal{L})}{\partial \theta} \; =
+    \; \frac{\partial}{\partial \theta} \sum_{i=1}^N \ln
+    f(x_i; \theta) \; = \; \sum_{i=1}^N
+    \frac{\partial}{\partial \theta} \ln f(x_i; \theta)
+    \\[1ex]
+  E \left\{ \frac{\partial (\ln \mathcal{L})}{\partial
+    \theta} \right\} \; = \; \sum_{i=1}^N E \left\{
+    \frac{\partial}{\partial \theta} \ln f(x_i; \theta)
+    \right\} \; = \; N \cdot E \left\{
+    \frac{\partial}{\partial \theta} \ln f(x; \theta)
+    \right\}
+\end{gather*}
+e, tenuto conto della \eqref{eq:e.crarao1}, questo implica
+che
+\begin{equation} \label{eq:e.crarao2}
+  E \left\{ \frac{\partial}{\partial \theta} \ln f(x;
+    \theta) \right\} \; = \; 0 \peq .
+\end{equation}
+Ora
+\begin{equation*}
+  \begin{split}
+    E &\left\{ \left[ \frac{\partial (\ln
+      \mathcal{L})}{\partial \theta} \right]^2 \right\} = E
+      \left\{ \left[ \sum_{i=1}^N \frac{\partial}{\partial
+      \theta} \ln f(x_i; \theta) \right] \left[ \sum_{k=1}^N
+      \frac{\partial}{\partial \theta} \ln f(x_k; \theta)
+      \right] \right\} \\[1ex]
+    &= \sum_{i=1}^N E \left\{ \left[
+      \frac{\partial}{\partial \theta} \ln f(x_i; \theta)
+      \right]^2 \right\} + \sum_{\substack{i,k\\ i \ne k}} E
+      \left\{ \frac{\partial}{\partial \theta} \ln f(x_i;
+      \theta) \cdot \frac{\partial}{\partial \theta} \ln
+      f(x_k; \theta) \right\} \\[1ex]
+    &= N \cdot E \left\{ \left[ \frac{\partial}{\partial
+      \theta} \ln f(x; \theta) \right]^2 \right\} +
+      \sum_{\substack{i,k\\ i \ne k}} E \left\{
+      \frac{\partial}{\partial \theta} \ln f(x_i; \theta)
+      \right\} \cdot E \left\{ \frac{\partial}{\partial
+      \theta} \ln f(x_k; \theta) \right\}
+  \end{split}
+\end{equation*}
+(tenendo conto del fatto che le $x_i$ sono indipendenti);
+l'ultimo termine si annulla in conseguenza della
+\eqref{eq:e.crarao2}, ed infine, in questo caso, il
+minorante della varianza della stima si pu\`o scrivere
+\begin{equation*}
+  \boxed{ \rule[-12mm]{0mm}{20mm} \quad
+    {\sigma_t}^2 \; \ge \; \frac{[ \tau'(\theta) ]^2}{N
+    \cdot E \left\{ \left[ \dfrac{\partial}{\partial \theta}
+    \ln f(x; \theta) \right]^2 \right\} }
+  \quad}
+\end{equation*}
+
+\index{massima verosimiglianza, metodo della|(}%
+Col metodo della massima verosimiglianza si assume, come
+stima del valore vero $\theta^*$ del parametro $\theta$,
+quel valore $\widehat \theta$ che rende massima la
+verosimiglianza $\mathcal{L}$ per i valori osservati delle
+variabili, $x_1, x_2,\ldots, x_N$.
+
+Ora, \emph{nel caso esista una stima di minima varianza} $t$
+per la funzione $\tau(\theta)$, tenendo conto della
+\eqref{eq:e.condmin} la condizione perch\'e la funzione di
+verosimiglianza abbia un estremante diviene
+\begin{gather*}
+  \frac{\partial \left( \ln \mathcal{L} \right)}
+    {\partial \theta} \; = \;
+    \frac{t - \tau(\theta)}{R(\theta)}
+    \; = \; 0 \\
+    \intertext{e le soluzioni $\widehat \theta$ sono
+      tutte e sole quelle dell'equazione}
+  \tau(\theta) = t(x_1,x_2,\ldots,x_N) \peq .
+\end{gather*}
+
+La derivata seconda di $\ln \mathcal{L}$ \`e in tal caso
+\begin{align*}
+  \frac{\partial^2 \left( \ln \mathcal{L} \right)}
+    {\partial \theta^2} &=
+    - \, \frac{\tau ' (\theta) \cdot
+    R(\theta) + R'(\theta) \cdot
+    \left[ t - \tau(\theta) \right] }
+    { R^2(\theta) } \\[1ex]
+  &= - \, \frac{ {\sigma_t}^2 +
+    R'(\theta) \cdot \left[
+    t - \tau(\theta) \right] }
+    { R^2(\theta) }
+\end{align*}
+ma se $\theta = \widehat \theta$ \`e anche $t - \tau \bigl(
+\widehat \theta \, \bigr) = 0$ e risulta
+\begin{equation*}
+  \left[ \frac{\partial^2 \left( \ln \mathcal{L}
+     \right)}{\partial \theta^2}
+     \right]_{\theta = \widehat \theta} \; = \;
+     - \, \frac{ {\sigma_t}^2 }
+     {R^2 \bigl ( \widehat \theta \, \bigr )}
+     \; < \; 0 \peq ;
+\end{equation*}
+cio\`e \emph{per tutte le soluzioni $\theta = \widehat
+  \theta$ la verosimiglianza \`e massima}.
+
+Ora, se la funzione $\ln \mathcal{L}$ \`e regolare, tra due
+massimi deve esistere un minimo; dato che non esistono
+minimi, ne consegue che \emph{il massimo \`e unico} ed in
+corrispondenza al valore della funzione $\tau^{-1}$ inversa
+di $\tau(\theta)$ e calcolata in $t(x_1,x_2,\ldots,x_N)$:
+\begin{equation*}
+  \widehat \theta \; = \; \tau^{-1} \bigl [
+    t(x_1,x_2,\ldots,x_N) \bigr ] \peq .
+\end{equation*}%
+\index{massima verosimiglianza, metodo della|)}%
+\index{Cram\'er--Rao, teorema di|)}
+
+La \emph{statistica} $t(x_1,x_2,\ldots,x_N)$ (come viene
+anche indicata una funzione dei dati) di minima varianza \`e
+un caso particolare di statistica \emph{sufficiente} per il
+parametro $\theta$, come \`e chiamata una funzione dei
+valori osservati, se esiste, che riassume in s\'e tutta
+l'informazione che i dati possono fornire sul valore del
+parametro.
+
+\index{media!aritmetica!come stima del valore vero|(}%
+Se $x_1,x_2,\ldots,x_N$ sono i valori osservati di $N$
+variabili casuali \emph{normali} con lo stesso valore medio
+$\lambda$ e varianze rispettive $\sigma_i$ supposte note, la
+verosimiglianza \`e
+\begin{gather*}
+  \mathcal{L} \; = \; \prod_{i=1}^N \frac{1}
+    {\sigma_i \, \sqrt{2 \pi}} \,
+    e^{\textstyle -\frac{1}{2} \bigl(
+    \frac{x_i - \lambda}{\sigma_i}
+     \bigr) ^2 } \\
+  \intertext{il suo logaritmo}
+  \ln \mathcal{L} \; = \; - \,
+    \frac{1}{2} \sum_{i=1}^N
+    \frac{\left( x_i - \lambda \right) ^2}
+    { {\sigma_i}^2 } \, - \,
+    \sum_{i=1}^N \ln \left(
+    \sigma_i \, \sqrt{2 \pi} \right) \\
+  \intertext{e la sua derivata rispetto al
+    parametro $\lambda$}
+  \frac{\partial \left( \ln \mathcal{L} \right)}
+    {\partial \lambda} \; = \;
+    \sum_{i=1}^N \frac{x_i - \lambda}
+    { {\sigma_i}^2 } \; = \;
+    \left( \sum \nolimits_i \frac{1}
+    { {\sigma_i}^2 } \right)
+    \left( \frac{\displaystyle \sum\nolimits_i
+    \frac{x_i} { {\sigma_i}^2 } }
+    { \displaystyle \sum\nolimits_i \frac{1}{
+    {\sigma_i}^2 } } \, - \lambda \right) \peq .
+\end{gather*}
+
+\emph{Pertanto la media dei dati, pesati con coefficienti
+  inversamente proporzionali alle varianze, \`e una stima di
+  minima varianza per $\lambda$}.  Se le $N$ varianze sono
+poi tutte uguali tra loro e di valore $\sigma^2$, risulta
+\begin{equation*}
+  \frac{\partial \left( \ln \mathcal{L} \right)}
+    {\partial \lambda} \; = \;
+    \frac{1}{\sigma^2} \left[ \left( \,
+    \sum_{i=1}^N x_i \right) -
+    N \lambda \right] \; = \;
+    \frac{N}{\sigma^2} \left( \bar x - \lambda \right) \; = \;
+    \frac{\bar x - \lambda}{R}
+\end{equation*}
+ed in tal caso la \emph{media aritmetica} del campione \`e
+una stima di minima varianza per $\lambda$.  Sempre in tal
+caso \`e poi
+\begin{equation*}
+  R(\lambda) \; \equiv \; R \; = \;
+    \frac{\sigma^2}{N}
+\end{equation*}
+con
+\begin{equation*}
+  \tau(\lambda) \; \equiv \; \lambda
+    \makebox[50mm]{e}
+   \tau'(\lambda) \; = \; 1
+\end{equation*}
+dunque
+\begin{equation*}
+  \var (\bar x) \; = \; \tau ' \, R \; = \;
+    \frac{\sigma^2}{N}
+\end{equation*}
+come d'altra parte gi\`a si sapeva.
+
+Qui la media del campione \`e un esempio di statistica
+sufficiente per $\lambda$; infatti non ha alcuna importanza
+quali siano i singoli valori $x_i$: ma se le medie di due
+diversi campioni sono uguali, le conclusioni che si possono
+trarre sul valore di $\lambda$ sono le medesime.%
+\index{media!aritmetica!come stima del valore vero|)}
+
+\index{varianza!della popolazione|(}%
+Supponendo di conoscere il valore medio $\lambda$, la stima
+della varianza $\sigma^2$ si ottiene cercando lo zero della
+derivata logaritmica
+\begin{gather*}
+  \frac{\partial \left( \ln \mathcal{L} \right)}
+    {\partial \sigma} \; = \;
+    \frac{1}{\sigma^3} \left[ \,
+    \sum_{i=1}^N (x_i - \lambda)^2
+    \right] - \frac{N}{\sigma} \; = \;
+    \frac{N}{\sigma^3} \, \left \{
+    \left[ \frac{1}{N}
+    \sum_{i=1}^N (x_i - \lambda)^2 \right] -
+    \sigma^2 \right \} \\
+  \intertext{la quale ha la forma richiesta
+    perch\'e la soluzione}
+  {\widehat \sigma}^2 = \frac{1}{N}
+    \sum_{i=1}^N (x_i - \lambda)^2 \\
+  \intertext{sia una stima di $\sigma^2$
+    con minima varianza, data da}
+  \var \left \{ \frac{1}{N} \sum_{i=1}^N
+    (x_i - \lambda)^2
+    \right \} \; = \; \tau' R \; = \;
+    2 \, \sigma \, \frac{\sigma^3}{N}
+    \; = \; \frac{2 \sigma^4}{N}
+\end{gather*}
+essendo $R(\sigma)=\sigma^3/N$, $\tau(\sigma)=\sigma^2$ e
+$\tau'(\sigma)=2\sigma$: questo risultato \`e lo stesso
+trovato nell'appendice \ref{ch:b.errvar}.
+
+Il valore di $\lambda$ tuttavia non \`e generalmente noto, e
+l'uso della media aritmetica del campione $\bar x$ comporta
+una distorsione che si corregge, come si \`e visto, ponendo
+$N-1$ in luogo di $N$.%
+\index{varianza!della popolazione|)}
+
+\endinput

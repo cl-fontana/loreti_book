@@ -1,0 +1,1653 @@
+% $Id: chapter12.tex,v 1.3 2006/05/16 11:10:55 loreti Exp $
+
+\chapter{La verifica delle ipotesi (I)}%
+\label{ch:12.veripo}
+Una volta eseguita una misura, si pu\`o voler controllare se
+i nostri risultati possono confermare o rigettare una
+determinata ipotesi riguardante il fenomeno fisico che li ha
+prodotti; naturalmente, visto che risultati di una misura
+comunque lontani dal valore vero sono sempre possibili
+(anche se con probabilit\`a sempre pi\`u piccole al crescere
+dello scarto), una qualunque ipotesi sulla grandezza fisica
+misurata potr\`a essere confermata o rigettata dai dati solo
+ad un certo livello di probabilit\`a.
+
+Qui ci occuperemo inoltre di alcune funzioni di frequenza
+collegate a quella di Gauss, ossia della distribuzione del
+$\chi^2$, di quella di Student\/\footnote{``Student'' \`e lo
+  pseudonimo con cui vennero pubblicati i lavori statistici
+  di William Gosset, scienziato inglese vissuto dal 1876 al
+  1937.  Uno dei pionieri di questo ramo della matematica,
+  svolse le sue ricerche essendo dipendente (prima come
+  chimico, poi come dirigente) della Guinness Brewery di
+  Dublino.}%
+\index{Gosset, William (``Student'')}%
+\index{Student|see{Gosset, William}}
+e di quella di Fisher; e dell'uso che di esse si pu\`o fare
+per la verifica di ipotesi statistiche: quali ad esempio
+quella che un campione di dati sperimentali provenga da una
+popolazione descritta da una densit\`a di probabilit\`a nota
+a priori; o quella che il valore vero della grandezza
+misurata coincida con un valore determinato, noto anch'esso
+a priori.
+
+\section[La distribuzione del $\chi^2$]
+{La distribuzione del
+  $\boldsymbol{\chi}^{\boldsymbol{2}}$}%
+\index{distribuzione!del $\chi^2$|(}
+Se le $N$ variabili casuali $x_i$, tra loro statisticamente
+indipendenti, sono variabili normali standardizzate
+(ovverosia distribuite secondo la legge normale con media 0
+e varianza 1), si pu\`o dimostrare che la nuova variabile
+casuale
+\begin{gather}
+  X = \sum_{i=1}^N {x_i}^2 \notag \\
+  \intertext{(ovviamente non negativa) \`e
+    distribuita con una densit\`a di probabilit\`a
+    data dalla}
+  \frac{\de p}{\de X} \; = \; f(X ; N) \; = \;
+    K_N \, X^{\left(\frac{N}{2}-1 \right)}
+    e^{-\frac{X}{2}} \label{eq:12.denchi}
+\end{gather}
+(\emph{distribuzione del chi quadro}); la costante $K_N$
+viene fissata dalla condizione di normalizzazione, ed il
+parametro $N$ prende il nome di \emph{numero di gradi di
+  libert\`a} della distribuzione.
+
+\begin{figure}[hbtp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{chi.pstex_t}
+  } \end{center}
+  \caption[La distribuzione del $\chi^2$]
+    {La distribuzione del $\chi^2$ per alcuni
+    valori del parametro $N$.}
+\end{figure}
+
+La funzione caratteristica della $X$ si pu\`o trovare
+facilmente considerando che, se la $x$ \`e una variabile
+normale standardizzata, il suo quadrato $y = x^2$ ha una
+funzione caratteristica
+\begin{align*}
+  \phi_y(t) &= E \bigl( e^{ity} \bigr) \\[1ex]
+  &= E \left( e^{itx^2} \right) \\[1ex]
+  &= \int_{-\infty}^{+\infty} \! e^{itx^2}
+    \frac{1}{\sqrt{2\pi}} \, e^{- \frac{x^2}{2}} \, \de
+    x \\[1ex]
+  &= \int_{-\infty}^{+\infty} \frac{1}{\sqrt{2\pi}}
+    \, e^{- \frac{x^2}{2} (1-2it)} \, \de x \\[1ex]
+  &= \frac{1}{\sqrt{1-2it}} \int_{-\infty}^{+\infty}
+    \frac{1}{\sqrt{2\pi}} \, e^{- \frac{u^2}{2}} \, \de
+    u \\[1ex]
+  &= (1-2it)^{- \frac{1}{2}}
+\end{align*}
+(si \`e eseguita la sostituzione di variabile $u = x
+\sqrt{1-2it}$; l'integrale definito \`e quello di una
+distribuzione normale $N(u; 0,1)$ e vale dunque 1).  Di
+conseguenza, applicando l'equazione \eqref{eq:6.fucacl}, la
+funzione caratteristica della $X$ vale
+\begin{equation} \label{eq:12.fucachi}
+  \phi_X(t) = (1 - 2it)^{- \frac{N}{2}} \peq .
+\end{equation}
+
+Per dimostrare che la funzione di frequenza della $X$ \`e
+effettivamente la \eqref{eq:12.denchi}, si parte poi
+dall'espressione \eqref{eq:12.fucachi} della funzione
+caratteristica e le si applica la trasformazione inversa di
+Fourier%
+\index{Fourier, trasformata di}
+gi\`a definita nella \eqref{eq:6.trinfo}.
+
+Con simili passaggi si potrebbe ricavare la funzione
+generatrice dei momenti, che vale
+\begin{equation*}
+  M_X(t) = (1 - 2t)^{- \frac{N}{2}}
+\end{equation*}
+e, da queste, si ottiene infine che il valore medio e la
+varianza di una variabile casuale distribuita come il
+$\chi^2$ a $N$ gradi di libert\`a sono
+\begin{gather*}
+  E(X) \; = \; N \makebox[40mm]{\mbox{e}} \var(X) \; =
+  \; 2N \\
+  \intertext{mentre i coefficienti di asimmetria e di
+    curtosi valgono}
+  \gamma_1 \; = \; 2 \sqrt{\frac{2}{N}}
+  \makebox[40mm]{\mbox{e}} \gamma_2 \; = \; \frac{12}{N} \peq
+  .
+\end{gather*}
+
+\index{distribuzione!del $\chi^2$!e distribuzione normale|(}%
+La distribuzione del $\chi^2$ tende asintoticamente ad una
+distribuzione normale con la stessa media $N$ e la stessa
+varianza $2N$; infatti la funzione caratteristica della
+variabile standardizzata
+\begin{gather*}
+  y \; = \; \frac{X - N}{\sqrt{2N}} \; = \;
+    \frac{X}{\sqrt{2N}} - \frac{N}{\sqrt{2N}} \\
+  \intertext{vale, ricordando la \eqref{eq:6.fuccav},}
+  \phi_y(t) = e^{- \frac{i N t}{\sqrt{2N}}} \left[ 1 -
+    \frac{2 i t}{\sqrt{2N}} \right]^{- \frac{N}{2}} \peq . \\
+  \intertext{Passando ai logaritmi naturali,}
+  \ln \phi_y(t) = - \, \frac{i N t}{\sqrt{2N}} -
+    \frac{N}{2} \ln \left( 1 - \frac{2 i t}{\sqrt{2N}}
+    \right)
+\end{gather*}
+e, sviluppando in serie di McLaurin il logaritmo,
+\begin{align*}
+  \ln \phi_y(t) &= - \, \frac{i N t}{\sqrt{2N}} -
+    \frac{N}{2} \left[ - \, \frac{2 i t}{\sqrt{2N}} -
+    \frac{1}{2} \left( \frac{2 i t}{\sqrt{2N}}
+    \right)^2 + \mathcal{O} \left( N^{-\frac{3}{2}} \right)
+  \right] \\[1ex]
+  &= - \, \frac{t^2}{2} + \mathcal{O} \left(
+    N^{-\frac{1}{2}} \right)
+\end{align*}
+da cui
+\begin{equation*}
+  \lim_{N \to \infty} \phi_y(t) = e^{- \frac{t^2}{2}}
+\end{equation*}
+che \`e appunto la funzione caratteristica di una
+distribuzione normale standardizzata.
+
+In definitiva:
+\begin{itemize}
+\item Quando $N$ assume valori sufficientemente grandi, la
+  distribuzione del $\chi^2$ \`e ben approssimata da una
+  distribuzione normale avente la stessa media $N$ e la
+  stessa varianza $2N$; tale approssimazione si pu\`o
+  ritenere in pratica gi\`a buona quando $N$ \`e superiore a
+  30.
+\item Inoltre si potrebbe analogamente dimostrare che la
+  variabile casuale $\sqrt{2 X}$, anche per valori
+  relativamente piccoli di $N$, ha una distribuzione che \`e
+  assai bene approssimata da una funzione normale con media
+  $\sqrt{2N-1}$ e varianza 1; l'approssimazione \`e gi\`a
+  buona per $N\gtrsim 8$.
+\end{itemize}%
+\index{distribuzione!del $\chi^2$!e distribuzione normale|)}
+
+Dalla definizione (o dalla funzione caratteristica
+\eqref{eq:12.fucachi}) discende immediatamente la cosiddetta
+\emph{regola di somma del $\chi^2$}\label{th:12.resochi}:%
+\index{distribuzione!del $\chi^2$!regola di somma} ossia
+che, se $X$ ed $Y$ sono due variabili casuali
+statisticamente indipendenti entrambe distribuite come il
+$\chi^2$, con $N$ ed $M$ gradi di libert\`a rispettivamente,
+la loro somma $Z=X+Y$ \`e una variabile casuale ancora
+distribuita come il $\chi^2$; per\`o con $N+M$ gradi di
+libert\`a.
+
+Ovviamente, se le $x_i$ (con $i=1,\ldots,N$) sono $N$
+variabili casuali statisticamente indipendenti tra loro e
+provenienti da una stessa distribuzione normale con media
+$\mu$ e varianza $\sigma^2$, discende da quanto detto che la
+nuova variabile casuale
+\begin{equation*}
+  X' = \sum_{i=1}^N \left( \frac{x_i - \mu}{\sigma}
+   \right)^2
+\end{equation*}
+\`e distribuita come il $\chi^2$ a $N$ gradi di libert\`a.
+Indichiamo ora, al solito, con $\bar x$ la media aritmetica
+delle $x_i$: vogliamo dimostrare che la variabile casuale
+\begin{equation*}
+  X'' = \sum_{i=1}^N \left( \frac{x_i - \bar x}{\sigma}
+  \right)^2
+\end{equation*}
+\`e distribuita \emph{ancora come il $\chi^2$, ma con $N -
+  1$ gradi di libert\`a}.
+
+A questo scopo facciamo dapprima alcune considerazioni,
+indipendenti dalle ipotesi prima fatte sulle $x_i$ e che
+risultano quindi valide per variabili casuali qualunque:
+supponiamo di definire $N$ nuove variabili $y_i$ come
+generiche combinazioni lineari delle $x_j$, con coefficienti
+che indicheremo col simbolo $A_{ij}$; in modo insomma che
+risulti
+\begin{equation*}
+  y_i = \sum_{j=1}^N A_{ij} \, x_j \peq .
+\end{equation*}
+
+La somma dei quadrati delle $y_i$ \`e data da
+\begin{equation*}
+  \sum_{i=1}^N {y_i}^2 = \sum_{i=1}^N \left(
+  \sum_{j=1}^N A_{ij} \, x_j \right) \left( \sum_{k=1}^N
+  A_{ik} \, x_k \right) = \sum\nolimits_{jk} x_j \, x_k
+  \sum\nolimits_i A_{ij} \, A_{ik} \peq ;
+\end{equation*}
+\`e possibile che questa somma risulti uguale alla somma dei
+quadrati delle $x_i$ \emph{qualunque} sia il valore di
+queste ultime?  Ovviamente questo avviene se e solo se vale
+la
+\begin{equation} \label{eq:12.conort}
+  \sum\nolimits_i A_{ij} \, A_{ik} \; = \; \delta_{jk} \;
+  = \;
+  \begin{cases}
+    0 & \text{per $j \ne k$} \\[2ex]
+    1 & \text{per $j = k$}
+  \end{cases}
+\end{equation}
+(il simbolo $\delta_{jk}$, che assume il valore 1 quando gli
+indici sono uguali e 0 quando sono invece diversi, si chiama
+\emph{simbolo di Kronecker} o \emph{delta di Kronecker}).%
+\index{Kronecker, delta di}
+
+Consideriamo gli $A_{ij}$ come gli elementi di una matrice
+quadrata $\boldsymbol{A}$ di ordine $N$; gli $x_j$ e le
+$y_i$ si possono invece considerare come le componenti di
+due \emph{vettori} $\boldsymbol{X}$ ed $\boldsymbol{Y}$
+definiti in uno spazio $N$-dimensionale --- ossia come gli
+elementi di due matrici rettangolari con $N$ righe ed 1
+colonna.
+
+La trasformazione che muta $\boldsymbol{X}$ in
+$\boldsymbol{Y}$ si pu\`o scrivere, in forma matriciale,
+come $\boldsymbol{Y} = \boldsymbol{A} \boldsymbol{X}$; la
+somma dei quadrati delle $x_j$ o delle $y_i$ altro non \`e
+se non il prodotto scalare, di $\boldsymbol{X}$ ed
+$\boldsymbol{Y}$ rispettivamente, per loro stessi: ovverosia
+la loro \emph{norma}, il quadrato della loro lunghezza nello
+spazio a $N$ dimensioni.  Quella che abbiamo ricavato adesso
+\`e la condizione perch\'e una \emph{trasformazione lineare}
+applicata ad un vettore ne conservi la lunghezza: occorre e
+basta che la matrice $\boldsymbol{A}$ sia \emph{ortogonale}.
+Infatti la \eqref{eq:12.conort} si pu\`o scrivere
+\begin{align*}
+  \boldsymbol{\widetilde A} \boldsymbol{A} &=
+  \boldsymbol{1} && \text{ossia}
+  & \boldsymbol{\widetilde A} &= \boldsymbol{A}^{-1}
+\end{align*}
+($\boldsymbol{\widetilde A}$ \`e la matrice trasposta di
+$\boldsymbol{A}$, di elementi $\boldsymbol{\widetilde
+  A}_{ij} = A_{ji}$; $\boldsymbol{1}$ \`e la matrice
+unit\`a, di elementi $\boldsymbol{1}_{ij} = \delta_{ij}$;
+$\boldsymbol{A}^{-1}$ \`e la matrice inversa di
+$\boldsymbol{A}$; ed una matrice per cui
+$\boldsymbol{\widetilde A} = \boldsymbol{A}^{-1}$ si dice,
+appunto, ortogonale).
+
+Consideriamo adesso una trasformazione lineare definita
+dalle seguenti relazioni:
+\begin{equation} \label{eq:12.hack}
+  \begin{cases}
+    y_1 = \displaystyle \frac{1}{\sqrt{N}} \, (x_1 +
+      x_2 +\cdots+ x_N) \\[2ex]
+    y_2 = \displaystyle \frac{1}{\sqrt{2}} \, (x_1 -
+      x_2) \\[2ex]
+    y_3 = \displaystyle \frac{1}{\sqrt{6}} \, (x_1 +
+      x_2 - 2 x_3) \\[2ex]
+    \cdots \\[1ex]
+    y_N = \displaystyle \frac{1}{\sqrt{N(N-1)}} \,
+      \bigl[ x_1 + x_2 +\cdots+ x_{N-1} - (N-1) x_N
+      \bigr]
+  \end{cases}
+\end{equation}
+e per la quale la matrice di trasformazione abbia, insomma,
+elementi $A_{ij}$ definiti come
+\begin{equation*}
+  A_{ij} \; \equiv \;
+  \begin{cases}
+    \text{$i=1$:} &  \displaystyle \frac{1}{\sqrt{N}}
+      \\[4ex]
+    \text{$i>1$:} &
+    \begin{cases}
+      \text{$j<i$:} &  \displaystyle
+        \frac{1}{\sqrt{i(i-1)}} \\[2ex]
+      \text{$j=i$:} &  \displaystyle - \,
+        \frac{i-1}{\sqrt{i(i-1)}} \\[2ex]
+      \text{$j>i$:} &  \displaystyle 0
+    \end{cases}
+  \end{cases}
+\end{equation*}
+Non \`e difficile controllare che la matrice
+$\boldsymbol{A}$ \`e ortogonale; inoltre la prima riga \`e
+stata scelta in modo tale che
+\begin{gather}
+  y_1 \; = \; \sum_{i=1}^N \frac{1}{\sqrt{N}} \, x_i \;
+    = \; \frac{1}{\sqrt{N}} \cdot N \bar x \; = \;
+    \sqrt{N} \, \bar x \notag \\
+  \intertext{e quindi}
+  \sum_{i=1}^N {x_i}^2 \; = \; \sum_{i=1}^N {y_i}^2 \;
+    = \; N {\bar x}^2 + \sum_{i=2}^N {y_i}^2 \peq . \notag \\
+  \intertext{Inoltre risulta (per $i > 1$)}
+  \sum_{j=1}^N A_{ij} \; = \; \sum_{j=1}^{i-1}
+    \frac{1}{\sqrt{i(i-1)}} \, - \,
+    \frac{i-1}{\sqrt{i(i-1)}} \; = \; 0
+    \label{eq:12.hackmean} \\
+  \intertext{e, per ogni $i$,}
+  \sum_{j=1}^N {A_{ij}}^2 \; = \; \left( \boldsymbol{A}
+    \boldsymbol{\widetilde A} \right)_{ii} \; = \;
+    \delta_{ii} \; = \; 1 \peq . \label{eq:12.hackstd}
+\end{gather}
+
+Tornando al nostro problema, supponiamo ora che tutte le
+$x_j$ siano variabili aventi distribuzione normale; che
+abbiano tutte valore medio $\mu$ e varianza $\sigma^2$; ed
+inoltre che siano tra loro tutte statisticamente
+indipendenti.  Una qualsiasi loro combinazione lineare,
+quindi anche ognuna delle $y_i$ legate alle $x_j$ da quella
+particolare matrice di trasformazione \eqref{eq:12.hack} che
+abbiamo prima definita, \`e anch'essa distribuita secondo la
+legge normale; inoltre risulta
+
+\begin{align*}
+  \frac{1}{\sigma^2} \sum_{i=1}^N \left( x_i - \bar x
+    \right)^2 &= \frac{1}{\sigma^2} \left(
+    \sum_{i=1}^N {x_i}^2 - N {\bar x}^2 \right) \\[1ex]
+  &= \frac{1}{\sigma^2} \left( N {\bar x}^2 +
+    \sum_{i=2}^N {y_i}^2 - N {\bar x}^2  \right)
+    \\[1ex]
+  &= \sum_{i=2}^N \frac{{y_i}^2}{\sigma^2} \peq .
+\end{align*}
+
+Applicando alle $y_i = \sum_j A_{ij} x_j$ le formule per la
+media e la varianza delle combinazioni lineari di variabili
+casuali statisticamente indipendenti gi\`a ricavate nel
+capitolo \ref{ch:5.varcun}, si trova facilmente (tenendo
+presenti la \eqref{eq:12.hackmean} e la
+\eqref{eq:12.hackstd}) che la varianza di ognuna di esse \`e
+ancora $\sigma^2$; e che, per $i \ne 1$, il loro valore
+medio \`e 0.  Di conseguenza, per $i \geq 2$ le $y_i /
+\sigma$ sono variabili casuali normali aventi media 0 e
+varianza 1: e questo implica che
+\begin{equation} \label{eq:12.xii}
+  X'' = \sum_{i=1}^N \left( \frac{x_i - \bar x}{\sigma}
+    \right)^2
+\end{equation}
+sia effettivamente distribuita come il $\chi^2$ a
+$N - 1$ gradi di libert\`a.
+
+\`E interessante confrontare questo risultato con quello
+precedentemente ricavato, e riguardante la stessa
+espressione --- in cui per\`o gli scarti erano calcolati
+rispetto alla media della popolazione $\mu$.  Nel primo caso
+la distribuzione era ancora quella del $\chi^2$, ma con $N$
+gradi di libert\`a: riferendoci invece alla media aritmetica
+del campione, i gradi di libert\`a diminuiscono di una
+unit\`a.  Questo \`e conseguenza di una legge generale,
+secondo la quale il numero di gradi di libert\`a da
+associare a variabili che seguono la distribuzione del
+$\chi^2$ \`e dato dal numero di contributi
+\emph{indipendenti}: ovvero il numero di termini con
+distribuzione normale sommati in quadratura (qui $N$, uno
+per ogni determinazione $x_i$) diminuito del numero di
+parametri che compaiono nella formula e che sono stati
+stimati dai dati stessi (qui uno: appunto la media della
+popolazione, stimata usando la media aritmetica delle
+misure).
+
+Un'ultima notevole conseguenza del fatto che la variabile
+casuale $X''$ definita dalla \eqref{eq:12.xii} sia
+distribuita come il $\chi^2$ a $N - 1$ gradi di libert\`a
+\`e la seguente: la stima della varianza della popolazione
+ottenuta dal campione, $s^2$, vale
+\begin{equation} \label{eq:12.xiis2}
+  s^2 = X'' \, \frac{\sigma^2}{N-1}
+\end{equation}
+e, essendo proporzionale a $X''$, \`e anch'essa distribuita
+come il $\chi^2$ a $N - 1$ gradi di libert\`a; quindi la sua
+densit\`a di probabilit\`a \`e data dalla
+\eqref{eq:12.denchi} e dipende solamente da $N$; non
+dipende, in particolare, dalla media del campione $\bar x$.
+Quindi:
+\begin{quote}
+  \index{media!aritmetica!e varianza|emidx}%
+  \index{varianza!e media aritmetica|emidx}%
+  \label{th:12.inmest}
+  \textit{Il valore medio $\bar x$ e la varianza campionaria
+    $s^2$, calcolati su valori estratti a caso da una stessa
+    popolazione normale, sono due variabili casuali
+    \textbf{statisticamente indipendenti} tra loro.}
+\end{quote}%
+\index{distribuzione!del $\chi^2$|)}
+
+Questo risulta anche intuitivamente comprensibile; se
+infatti ci \`e noto che un certo campione di dati ha una
+dispersione pi\`u o meno grande, questo non deve alterare la
+probabilit\`a che il suo valore medio abbia un valore
+piuttosto che un altro; n\'e, viceversa, il fatto che il
+campione sia centrato attorno ad un certo valore deve
+permetterci di prevedere in qualche modo la sua dispersione.
+
+\section[Verifiche basate sulla distribuzione del $\chi^2$]
+{Verifiche basate sulla distribuzione del
+  $\boldsymbol{\chi}^{\boldsymbol{2}}$}
+\subsection{Compatibilit\`a dei dati con una distribuzione}%
+\index{compatibilit\`a!con una distribuzione|(}%
+\label{ch:12.comdadis}
+Supponiamo di avere dei dati raccolti in un istogramma, e di
+voler verificare l'ipotesi che i dati provengano da una
+certa distribuzione; ad esempio, dalla distribuzione
+normale.  Ora, per una misura, la probabilit\`a $p_i$ di
+cadere nell'intervallo $i$-esimo (di ampiezza prefissata
+$\Delta x$ e corrispondente alla generica classe di
+frequenza usata per la realizzazione dell'istogramma) \`e
+data dal valore medio della funzione densit\`a di
+probabilit\`a nell'intervallo stesso moltiplicato per
+$\Delta x$.
+
+Il numero di misure effettivamente ottenute in una classe di
+frequenza su $N$ prove deve obbedire poi alla distribuzione
+binomiale: il loro valore medio \`e quindi $N p_i$, e la
+loro varianza $N \, p_i \, (1 - p_i)$; quest'ultimo termine
+si pu\`o approssimare ancora con $N p_i$ se si ammette che
+le classi di frequenza%
+\index{classi di frequenza|(}
+siano sufficientemente ristrette da poter trascurare i
+termini in ${p_i}^2$ rispetto a quelli in $p_i$ (cio\`e se
+$p_i \ll 1$).
+
+In questo caso il numero di misure in ciascuna classe segue
+approssimativamente la distribuzione di Poisson; questa \`e
+infatti la funzione di frequenza che governa il presentarsi,
+su un grande numero di osservazioni, di eventi aventi
+probabilit\`a trascurabile di verificarsi singolarmente in
+ognuna: distribuzione nella quale l'errore quadratico medio
+\`e effettivamente dato dalla radice quadrata del valore
+medio, $\sigma = \sqrt{N \, p_i \, (1 - p_i)} \simeq \sqrt{N
+  p_i}$.
+
+Nei limiti in cui il numero di misure attese in una classe
+\`e sufficientemente elevato da poter confondere la relativa
+funzione di distribuzione con la funzione normale, la
+quantit\`a
+\begin{equation} \label{eq:12.chi2fit}
+  X \; = \;\sum_{i=1}^M
+    \frac{(n_i - N p_i)^2}{N p_i} \; = \; \sum_{i=1}^M
+    \frac{(O_i - A_i)^2}{A_i}
+\end{equation}
+cio\`e la somma, su tutte le classi di frequenza (il cui
+numero abbiamo supposto sia $M$), del quadrato della
+differenza tra il numero di misure ivi \emph{attese} ($A_i =
+N p_i$) ed ivi \emph{effettivamente osservate} ($O_i =
+n_i$), diviso per la varianza del numero di misure attese
+(approssimata da $N p_i = A_i$), ha
+\emph{approssimativamente} la distribuzione del $\chi^2$,
+con $M - 1$ gradi di libert\`a; il motivo di quest'ultima
+affermazione \`e che esiste un vincolo sulle $O_i$, quello
+di avere per somma il numero totale di misure effettuate $N$
+(che viene usato nella formula \eqref{eq:12.chi2fit},
+mediante la quale abbiamo definito $X$, per calcolare il
+numero $A_i$ di misure attese in ogni intervallo).
+
+La condizione enunciata si pu\`o in pratica supporre
+verificata se le $A_i$ in ogni intervallo sono almeno pari a
+5; o, meglio, se il numero di classi di frequenza%
+\index{classi di frequenza|)}
+in cui ci si aspetta un numero di misure minore di 5 \`e
+trascurabile rispetto al totale (meno del 10\%).  In
+realt\`a, se le classi di frequenza si possono scegliere
+arbitrariamente, la cosa migliore consiste nel definirle di
+ampiezze differenti: in modo tale che quegli intervalli dove
+cadono poche misure vengano riuniti assieme in un'unica
+classe pi\`u ampia, ove $n_i$ valga almeno 5 (ma nemmeno
+troppo ampia, per soddisfare al vincolo di avere ${p_i}^2
+\ll p_i$; in genere si cerca di riunire assieme pi\`u classi
+in modo da avere degli $n_i \sim 5\div 10$).
+
+Tornando al problema iniziale, per la verifica dell'ipotesi
+statistica che i dati vengano dalla distribuzione usata per
+il calcolo delle $A_i$ basta:
+\begin{itemize}
+\item fissare arbitrariamente un livello di probabilit\`a
+  che rappresenti il confine tra eventi ammissibili
+  nell'ipotesi della pura casualit\`a ed eventi invece tanto
+  improbabili da far supporre che il loro verificarsi sia
+  dovuto non a fluttuazioni statistiche, ma al non essere
+  verificate le ipotesi fatte in partenza (il provenire i
+  dati dalla distribuzione nota a priori): ad esempio il
+  95\% o il 99\%.
+\item Cercare nelle apposite tabelle\/\footnote{Alcuni
+    valori numerici di questo tipo sono tabulati
+    nell'appendice \ref{ch:f.tabelle}.  \`E bene anche
+    ricordare che quando il numero di gradi di libert\`a $N$
+    \`e superiore a 30 si pu\`o far riferimento alla
+    distribuzione normale con media $N$ ed errore quadratico
+    medio $\sqrt{2N}$; e che, gi\`a per piccoli $N$,
+    $\sqrt{2\chi^2}$ \`e approssimativamente normale con
+    media $\sqrt{2N-1}$ e varianza 1.} il valore di taglio
+  corrispondente alla coda superiore della distribuzione del
+  $\chi^2$ ad $M - 1$ gradi di libert\`a avente area pari al
+  livello di confidenza desiderato; ossia quell'ascissa
+  $\xi$ che lascia alla propria sinistra, sotto la curva
+  della distribuzione del $\chi^2$ ad $M - 1$ gradi di
+  libert\`a, un'area pari a tale valore.
+\item Calcolare $X$; ed infine rigettare l'ipotesi (al
+  livello di confidenza prescelto) perch\'e incompatibile
+  con i dati raccolti, se $X$ risultasse superiore a $\xi$
+  (o, altrimenti, considerare l'ipotesi compatibile con i
+  dati al livello di confidenza prescelto e quindi
+  accettarla).
+\end{itemize}
+
+Quanto detto a proposito della particolare distribuzione del
+$\chi^2$ da usare per il la verifica della nostra ipotesi,
+per\`o, \`e valido solo se le caratteristiche della
+distribuzione teorica con cui confrontare i nostri dati sono
+note a priori; se, invece, $R$ parametri da cui essa dipende
+fossero stati stimati a partire dai dati, il numero di gradi
+di libert\`a sarebbe inferiore e pari ad $M - R - 1$.
+
+Cos\`\i\ se le $p_i$ sono state ricavate integrando sulle
+classi di frequenza una distribuzione normale la cui media e
+la cui varianza siano state a loro volta ottenute dal
+campione istogrammato, il numero di gradi di libert\`a,
+essendo $R=2$, sarebbe pari a $M - 3$.
+
+\begin{figure}[hbtp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{chicdf.pstex_t}
+  } \end{center}
+  \caption[La funzione di distribuzione del $\chi^2$]
+  {L'integrale da $x$ a $+\infty$ della funzione di
+    frequenza del $\chi^2$, per alcuni valori del parametro
+    $N$.}
+  \label{fig:chicdf}
+\end{figure}
+
+\begin{figure}[hbtp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{chirid.pstex_t}
+  } \end{center}
+  \caption[La funzione di distribuzione del $\chi^2$
+  ridotto]
+  {I valori del $\chi^2$ ridotto ($\chi^2/N$) che
+    corrispondono, per differenti gradi di libert\`a $N$, ad
+    un certo livello di confidenza.}
+  \label{fig:chirid}
+\end{figure}
+
+Per dare un'idea dei valori del $\chi^2$ che corrispondono
+al rigetto di una ipotesi (ad un certo livello di
+confidenza), e senza ricorrere alle tabelle numeriche, nella
+figura \ref{fig:chicdf} sono riportati in grafico i valori
+$P$ dell'integrale da $x$ a $+\infty$ della funzione di
+frequenza del $\chi^2$ (ovvero il complemento ad uno della
+funzione di distribuzione), per alcuni valori del parametro
+$N$.
+
+Le curve della figura \ref{fig:chirid} permettono invece di
+identificare (per differenti scelte del livello di
+confidenza $\varepsilon$) i corrispondenti valori di taglio
+del $\chi^2$ \emph{ridotto} --- ovvero del rapporto
+$\chi^2/N$ tra esso ed il numero di gradi di libert\`a $N$.
+Insomma, ogni punto di queste curve al di sopra di
+un'ascissa (intera) $N$ ha come ordinata un numero $X/N$
+tale che l'integrale da $X$ a $+\infty$ della funzione di
+frequenza del $\chi^2$ ad $N$ gradi di libert\`a sia uguale
+ad $\varepsilon$.%
+\index{compatibilit\`a!con una distribuzione|)}
+
+\subsection[Il metodo del minimo $\chi^2$]{Il metodo
+  del minimo $\boldsymbol{\chi}^{\boldsymbol{2}}$}%
+\index{metodo!del minimo $\chi^2$|(}
+Supponiamo di sapere a priori che i nostri dati istogrammati
+debbano seguire una data distribuzione, ma che essa dipenda
+da $R$ parametri incogniti che dobbiamo stimare a partire
+dai dati stessi; visto che l'accordo tra i dati e la
+distribuzione \`e dato dalla $X$ definita nella
+\eqref{eq:12.chi2fit}, ed \`e tanto migliore quanto pi\`u il
+valore ottenuto per essa \`e basso, un metodo plausibile di
+stima potrebbe essere quello di trovare per quali valori dei
+parametri stessi la $X$ \`e minima (\emph{metodo del minimo}
+$\chi^2$).
+
+Indicando con $\alpha_k$ ($k=1,\ldots,R$) i parametri da
+stimare, ognuna delle $p_i$ sar\`a esprimibile in funzione
+delle $\alpha_k$; ed imponendo che le derivate prime della
+$X$ rispetto ad ognuna delle $\alpha_k$ siano tutte nulle
+contemporaneamente, otteniamo
+\begin{gather}
+  \frac{\partial X}{\partial \alpha_k} \; = \;
+    \sum_{i=1}^M \frac{-2 \left(n_i - N p_i \right) N^2
+    p_i - N \left( n_i - N p_i \right)^2}{N^2 {p_i}^2}
+    \, \frac{\partial p_i}{\partial \alpha_k}
+    \; = \; 0 \peq , \notag \\
+  \intertext{ossia}
+  - \frac{1}{2} \, \frac{\partial X}{\partial \alpha_k}
+    \; = \; \sum_{i=1}^M \left[ \frac{n_i - N p_i}{p_i}
+    + \frac{\left( n_i - N p_i \right)^2}{2 N {p_i}^2}
+    \right] \frac{\partial p_i}{\partial \alpha_k} \; =
+    \; 0 \peq . \label{eq:12.michi1}
+\end{gather}
+
+L'insieme delle \eqref{eq:12.michi1} costituisce un sistema
+di $R$ equazioni, nelle $R$ incognite $\alpha_k$, che ci
+permetter\`a di stimarne i valori (salvo poi, nel caso il
+sistema delle \eqref{eq:12.michi1} abbia pi\`u di una
+soluzione, controllare quali di esse corrispondono in
+effetti ad un minimo e quale tra queste ultime corrisponde
+al minimo assoluto); le condizioni sotto le quali il metodo
+\`e applicabile sono quelle gi\`a enunciate in
+precedenza\/\footnote{Se la prima di esse non si pu\`o
+  ritenere accettabile, delle equazioni ancora valide ma
+  pi\`u complesse si possono ottenere dalla
+  \eqref{eq:12.chi2fit} sostituendo $N p_i (1 - p_i)$ al
+  posto di $N p_i$ nel denominatore.}, ossia ${p_i}^2 \ll
+p_i$ e $n_i \gtrsim 5$.
+
+In genere per\`o si preferisce servirsi, in luogo delle
+equazioni \eqref{eq:12.michi1}, di una forma semplificata,
+ottenuta trascurando il secondo termine nella parentesi
+quadra: che, si pu\`o dimostrare, \`e molto inferiore al
+primo per grandi $N$ (infatti il rapporto tra i due termini
+vale
+\begin{equation*}
+  \frac{ \left( n_i - N p_i \right)^2 }{ 2 N {p_i}^2 } \,
+    \frac{ p_i }{ n_i - N p_i } \; = \; \frac{ n_i - N p_i
+    }{ 2 N p_i } \; = \; \frac{1}{2 p_i} \left(
+    \frac{n_i}{N} - p_i \right)
+\end{equation*}
+e converge ovviamente a zero all'aumentare di $N$); e
+risolvere, insomma, il sistema delle
+\begin{equation} \label{eq:12.michi2}
+  \sum_{i=1}^M \left( \frac{n_i - N p_i}{p_i} \right)
+    \frac{\partial p_i}{\partial \alpha_k} = 0
+\end{equation}
+(metodo \emph{semplificato} del minimo $\chi^2$).
+
+Si pu\`o dimostrare che le soluzioni $\bar \alpha_k$ del
+sistema delle \eqref{eq:12.michi2} tendono stocasticamente
+ai valori veri $\alpha_k^*$ (in assenza di errori
+sistematici) al crescere di $N$; inoltre il valore di $X$
+calcolato in corrispondenza dei valori ricavati
+$\bar \alpha_k$ d\`a, se rapportato alla distribuzione del
+$\chi^2$ con $M - R - 1$ gradi di libert\`a, una misura
+della bont\`a della soluzione stessa.
+
+Ora, le equazioni \eqref{eq:12.michi2} si possono scrivere
+anche
+\begin{gather*}
+  \sum_{i=1}^M \left( \frac{n_i - N p_i}{p_i} \right)
+    \frac{\partial p_i}{\partial \alpha_k} =
+    \sum_{i=1}^M \frac{n_i}{p_i} \, \frac{\partial
+    p_i}{\partial \alpha_k} - N \sum_{i=1}^M
+    \frac{\partial p_i}{\partial \alpha_k} \\
+  \intertext{e si possono ulteriormente semplificare,
+    visto che l'ultimo termine si annulla, essendo}
+  \sum_{i=1}^M \frac{\partial p_i}{\partial \alpha_k}
+    \; = \; \frac{\partial}{\partial \alpha_k}
+    \sum_{i=1}^M p_i \; = \; \frac{\partial}{\partial
+    \alpha_k} \, 1 \; \equiv \; 0
+\end{gather*}
+se si fa l'ulteriore ipotesi che l'intervallo dei valori
+indagati copra, anche approssimativamente, tutti quelli in
+pratica permessi; per cui il sistema di equazioni da
+risolvere \`e in questo caso quello delle
+\begin{equation} \label{eq:12.michi4}
+  \sum_{i=1}^M \frac{n_i}{p_i} \, \frac{\partial
+    p_i}{\partial \alpha_k} = 0 \peq .
+\end{equation}
+
+\index{massima verosimiglianza, metodo della|(}%
+Per la stima di parametri incogniti a partire da dati
+misurati abbiamo gi\`a affermato che teoricamente \`e da
+preferire il metodo della massima verosimiglianza, le cui
+soluzioni sono quelle affette, come sappiamo, dal minimo
+errore casuale (almeno asintoticamente); in questo caso
+particolare (dati in istogramma), come lo si dovrebbe
+applicare?  Se le misure sono indipendenti, la probabilit\`a
+di avere $n_i$ eventi nella generica classe di frequenza \`e
+data da $p_i^{n_i}$; la funzione di
+verosimiglianza\/\footnote{Per essere precisi, la
+  probabilit\`a che $n_1$ misure si trovino nella prima
+  classe di frequenza, $n_2$ nella seconda e cos\`\i\ via,
+  \`e dato dalla espressione \eqref{eq:12.michi3}
+  moltiplicata per il numero di modi differenti in cui $N$
+  oggetti possono essere suddivisi in $M$ gruppi composti da
+  $n_1, n_2,\ldots,n_M$ oggetti rispettivamente (numero
+  delle \emph{partizioni ordinate});%
+  \index{partizioni ordinate}
+  questo vale, come mostrato nel paragrafo
+  \ref{ch:a.parord}, $N! / (n_1!\, n_2!\cdots n_M!)$, e
+  rappresenta un fattore costante che non incide nella
+  ricerca del massimo della \eqref{eq:12.michi3}.}  da
+\begin{gather}
+  \mathcal{L}(\alpha_1,\ldots,\alpha_R) = \prod_{i=1}^M
+    p_i^{n_i} \label{eq:12.michi3} \\
+  \intertext{ed il suo logaritmo da}
+  \ln \mathcal{L} = \sum_{i=1}^M \left( n_i \cdot \ln
+    p_i \right) \peq . \notag
+\end{gather}
+
+La soluzione di massima verosimiglianza (e quindi di minima
+varianza) si trova cercando il massimo di $\ln \mathcal{L}$:
+e risolvendo quindi il sistema delle
+\begin{equation*}
+  \frac{\partial}{\partial \alpha_k} \, \ln \mathcal{L}
+    \; = \; \sum_{i=1}^M n_i \, \frac{1}{p_i} \,
+    \frac{\partial p_i}{\partial \alpha_k} \; = \; 0 \peq ;
+\end{equation*}
+in questo caso, vista l'equazione \eqref{eq:12.michi4} in
+precedenza ricavata, i due metodi (della massima
+verosimiglianza e del minimo $\chi^2$ semplificato)
+conducono dunque \emph{alla stessa soluzione}.%
+\index{massima verosimiglianza, metodo della|)}%
+\index{metodo!del minimo $\chi^2$|)}
+
+\subsection{Test di omogeneit\`a per dati raggruppati}%
+\index{compatibilit\`a!tra dati sperimentali|(}%
+\index{omogeneit\`a, test di|see{compatibilit\`a tra dati sperimentali}}
+Supponiamo di avere a disposizione $Q$ campioni di dati,
+indipendenti l'uno dall'altro e composti da $n_1,
+n_2,\ldots, n_Q$ elementi rispettivamente; e, all'interno di
+ognuno di tali campioni, i dati siano suddivisi nei medesimi
+$P$ gruppi: indichiamo infine col simbolo $\nu_{ij}$ il
+numero di dati appartenenti al gruppo $i$-esimo all'interno
+del campione $j$-esimo.
+
+Per fare un esempio, i campioni si potrebbero riferire alle
+regioni italiane e i gruppi al livello di istruzione
+(licenza elementare, media, superiore, laurea): cos\`\i\ che
+i $\nu_{ij}$ rappresentino il numero di persone, per ogni
+livello di istruzione, residenti in ogni data regione;
+oppure (e questo \`e un caso che si presenta frequentemente
+nelle analisi fisiche) si abbiano vari istogrammi
+all'interno di ognuno dei quali i dati siano stati
+raggruppati secondo le medesime classi di frequenza:%
+\index{classi di frequenza} allora i $\nu_{ij}$ saranno il
+numero di osservazioni che cadono in una determinata classe
+in ogni istogramma.
+
+Il problema che ci poniamo \`e quello di verificare
+l'ipotesi che tutti i campioni provengano dalla stessa
+popolazione e siano perci\`o compatibili tra loro
+(\emph{test di omogeneit\`a}).  Indichiamo con il simbolo
+$N$ il numero totale di dati a disposizione; e con $m_i$
+(con $i=1,\ldots,P$) il numero totale di dati che cadono
+nell'$i$-esimo gruppo in tutti i campioni a disposizione.
+
+\begin{table}[htbp]
+  \vspace*{2ex}
+  \begin{center}
+    \begin{tabular}{|r|ccccc|c|}
+      \cline{2-6}
+      \multicolumn{1}{c}{\tabtop\tabbot} &
+        \multicolumn{5}{|c|}{Campioni} \\
+      \hline
+      & $\nu_{11}$ & $\nu_{12}$ & $\nu_{13}$ & $\cdots$
+        & $\nu_{1Q}$ & $m_1$\tabtop \\
+      & $\nu_{21}$ & $\nu_{22}$ & $\cdots$ & $\cdots$ &
+        $\nu_{2Q}$ & $m_2$ \\
+      Gruppi & $\nu_{31}$ & $\cdots$ & $\cdots$ &
+        $\cdots$ & $\cdots$ & $m_3$ \\
+      & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ &
+        $\cdots$ & $\cdots$ \\
+      & $\nu_{P1}$ & $\nu_{P2}$ & $\cdots$ & $\cdots$ &
+        $\nu_{PQ}$ & $m_P$\tabbot \\
+      \hline
+      \multicolumn{1}{c|}{} & $n_1$ & $n_2$ & $n_3$ &
+        $\cdots$ & $n_Q$ & $N$\tabtop\tabbot \\
+      \cline{2-7}
+    \end{tabular}
+  \end{center}
+  \caption{Un esempio delle cosiddette \emph{tabelle
+    delle contingenze}.}
+  \label{tab:12.contin}
+\end{table}
+
+\`E consuetudine che dati di questo genere siano
+rappresentati in una tabella del tipo della
+\ref{tab:12.contin}, che si chiama \emph{tabella delle
+  contingenze};%
+\index{contingenze, tabella delle}
+e risulta ovviamente
+\begin{align*}
+  n_j &= \sum_{i=1}^P \nu_{ij} && \qquad \qquad
+    (j=1,2,\ldots,Q) \peq ; \\[1ex]
+  m_i &= \sum_{j=1}^Q \nu_{ij} && \qquad \qquad
+    (i=1,2,\ldots,P) \peq ; \\[1ex]
+  N &= \sum_{j=1}^Q n_j = \sum_{i=1}^P m_i = \sum_{i,j}
+    \nu_{ij} \peq .
+\end{align*}
+
+Vogliamo ora dimostrare che la variabile casuale
+\begin{equation} \label{eq:12.chiomo}
+  X = N \left[ \sum_{i,j} \frac{\left( \nu_{ij}
+  \right)^2}{m_i \, n_j} - 1 \right]
+\end{equation}
+\`e distribuita come il $\chi^2$ a $(P-1)(Q-1)$ gradi di
+libert\`a: a questo scopo supponiamo innanzi tutto sia
+valida l'ipotesi che i dati provengano tutti dalla medesima
+popolazione, ed indichiamo con i simboli $p_i$ e $q_j$ le
+probabilit\`a che un componente di tale popolazione scelto a
+caso cada rispettivamente nel gruppo $i$-esimo o nel
+campione $j$-esimo; e sappiamo inoltre che (ammessa per\`o
+vera l'ipotesi che \emph{tutti} i campioni provengano dalla
+stessa distribuzione) questi due eventi sono statisticamente
+indipendenti: per cui ognuno dei dati ha probabilit\`a
+complessiva $p_i q_j$ di cadere in una delle caselle della
+tabella delle contingenze.
+
+Possiamo stimare i $P$ valori $p_i$ a partire dai dati
+sperimentali: si tratta in realt\`a solo di $P-1$ stime
+\emph{indipendenti}, perch\'e, una volta ricavate le prime
+$P-1$ probabilit\`a, l'ultima di esse risulter\`a
+univocamente determinata dalla condizione che la somma
+complessiva valga 1.  Analogamente possiamo anche stimare i
+$Q$ valori $q_j$ dai dati sperimentali, e si tratter\`a in
+questo caso di effettuare $Q-1$ stime indipendenti.
+
+Le stime di cui abbiamo parlato sono ovviamente
+\begin{align} \label{eq:12.piqj}
+  p_i &= \frac{m_i}{N} &&\text{e} & q_j &=
+    \frac{n_j}{N}
+\end{align}
+e, applicando le conclusioni del paragrafo precedente
+(l'equazione \eqref{eq:12.chi2fit}), la variabile
+\begin{align*}
+  X &= \sum_{i,j} \frac{\left( \nu_{ij} - N p_i q_j
+    \right)^2}{N p_i q_j} \\[1ex]
+  &= \sum_{i,j} \left[ \frac{\left( \nu_{ij}
+    \right)^2}{N p_i q_j} - 2 \nu_{ij} + N p_i q_j
+    \right] \\[1ex]
+  &= \sum_{i,j} \frac{\left( \nu_{ij} \right)^2}{N p_i
+    q_j} -2N + N \\[1ex]
+  &= \sum_{i,j} \frac{\left( \nu_{ij} \right)^2}{N p_i
+    q_j} - N
+\end{align*}
+deve essere distribuita come il $\chi^2$.
+
+Sostituendo in quest'ultima espressione i valori
+\eqref{eq:12.piqj} per $p_i$ e $q_j$, essa si riduce alla
+\eqref{eq:12.chiomo}; il numero di gradi di libert\`a \`e
+pari al numero di contributi sperimentali indipendenti, $PQ
+- 1$ (c'\`e il vincolo che la somma totale sia $N$),
+diminuito del numero $(P-1) + (Q-1)$ di parametri stimato
+sulla base dei dati: ovverosia proprio $(P-1) (Q-1)$ come
+anticipato.%
+\index{compatibilit\`a!tra dati sperimentali|)}
+
+\subsection{Un esempio: diffusione elastica protone-protone}
+\begin{figure}[hbtp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{scat.pstex_t}
+  } \end{center}
+  \caption{Urto elastico protone-protone.}
+  \label{fig:12.scat}
+\end{figure}
+Nella figura \ref{fig:12.scat} \`e schematicamente
+rappresentato un processo di urto elastico tra due
+particelle, una delle quali sia inizialmente ferma; dopo
+l'urto esse si muoveranno lungo traiettorie rettilinee ad
+angoli $\vartheta_1$ e $\vartheta_2$ rispetto alla direzione
+originale della particella urtante.
+
+Gli angoli $\vartheta_i$ vengono misurati; supponendo che il
+processo di misura introduca errori che seguono la
+distribuzione normale ed abbiano una entit\`a che (per
+semplificare le cose) assumiamo sia costante, nota ed
+indipendente dall'ampiezza dell'angolo, vogliamo verificare
+l'ipotesi che le due particelle coinvolte nel processo
+d'urto siano di massa uguale (ad esempio che siano entrambe
+dei protoni).
+
+La prima cosa da fare \`e quella di ricavare dai dati
+misurati $\vartheta_i$, che per ipotesi hanno una funzione
+di frequenza
+\begin{equation*}
+  f(\vartheta; \vartheta^*, \sigma) \; = \; \frac{1}{\sigma
+    \sqrt{2 \pi}} \, e^{- \frac{1}{2} \left( \frac{\vartheta
+        - \vartheta^*}{\sigma} \right)^2}
+\end{equation*}
+una stima dei valori veri $\vartheta^*$.  Il logaritmo della
+funzione di verosimiglianza \`e dato da
+\begin{equation*}
+  \ln \mathcal{L} \; = \; - 2 \ln \left( \sigma \sqrt{2 \pi}
+    \right) - \frac{1}{2} \left( \frac{\vartheta_1 -
+        \vartheta_1^*}{\sigma} \right)^2  - \frac{1}{2}
+    \left( \frac{\vartheta_2 - \vartheta_2^*}{\sigma}
+    \right)^2 \peq ;
+\end{equation*}
+ma le variabili $\vartheta_1$ e $\vartheta_2$ \emph{non sono
+  indipendenti}, visto che il processo deve conservare sia
+energia che quantit\`a di moto.  Ammessa vera l'ipotesi che
+le due particelle abbiano uguale massa (e restando nel
+limite non-relativistico), le leggi di conservazione
+impongono il vincolo che l'angolo tra le due particelle dopo
+l'urto sia di 90\gra (o, in radianti, $\pi / 2$); usando il
+metodo dei moltiplicatori di Lagrange, la funzione da
+massimizzare \`e
+\begin{equation*}
+  \varphi( \vartheta_1^*, \vartheta_2^*, \lambda) \; =
+  \; - \frac{1}{2} \left( \frac{\vartheta_1 -
+      \vartheta_1^*}{\sigma} \right)^2 - \frac{1}{2}
+  \left( \frac{\vartheta_2 - \vartheta_2^*}{\sigma}
+  \right)^2 + \lambda \left( \vartheta_1^* +
+    \vartheta_2^* - \frac{\pi}{2} \right)
+\end{equation*}
+e, annullando contemporaneamente le sue derivate rispetto
+alle tre variabili, si giunge al sistema
+\begin{equation*}
+  \left\{
+    \begin{array}{cclcc}
+      \dfrac{\partial \varphi}{\partial \lambda} & = &
+      \vartheta_1^* + \vartheta_2^* - \dfrac{\pi}{2} & = &
+      0 \\[2.5ex]
+      \dfrac{\partial \varphi}{\partial \vartheta_1^*} & = &
+      \dfrac{1}{\sigma^2} \left( \vartheta_1 - \vartheta_1^*
+      \right) + \lambda & = & 0 \\[2.5ex]
+      \dfrac{\partial \varphi}{\partial \vartheta_2^*} & = &
+      \dfrac{1}{\sigma^2} \left( \vartheta_2 - \vartheta_2^*
+      \right) + \lambda & = & 0
+    \end{array}
+  \right.
+\end{equation*}
+Eliminando $\lambda$ dalle ultime due equazioni otteniamo
+\begin{gather*}
+  \vartheta_1 - \vartheta_1^* \; = \; \vartheta_2 -
+  \vartheta_2^* \\
+  \intertext{e, sostituendo l'espressione per
+    $\vartheta_2^*$ ricavata dalla prima equazione,}
+  \vartheta_1 - \vartheta_1^* \; = \; \vartheta_2 - \left(
+    \frac{\pi}{2} - \vartheta_1^* \right)
+\end{gather*}
+per cui le due stime di massima verosimiglianza sono
+\begin{equation*}
+  \left\{
+    \begin{array}{ccl}
+      \hat \vartheta_1^* & = & \vartheta_1 + \dfrac{1}{2}
+      \left( \dfrac{\pi}{2} - \vartheta_1 - \vartheta_2
+      \right) \\[2.5ex]
+      \hat \vartheta_2^* & = & \vartheta_2 + \dfrac{1}{2}
+      \left( \dfrac{\pi}{2} - \vartheta_1 - \vartheta_2
+      \right)
+    \end{array}
+  \right.
+\end{equation*}
+
+Ammesso che queste soluzioni siano buone stime dei valori
+veri, la variabile casuale
+\begin{equation*}
+  X \; = \; \left( \frac{ \vartheta_1 -
+      \vartheta_1^*}{\sigma} \right)^2 + \left( \frac{
+      \vartheta_2 - \vartheta_2^*}{\sigma} \right)^2 \;
+  = \; \frac{1}{2 \sigma^2} \left( \frac{\pi}{2} -
+    \vartheta_1 - \vartheta_2 \right)^2
+\end{equation*}
+\`e distribuita come il $\chi^2$ ad un grado di libert\`a
+(due contributi, un vincolo); ed il valore di $X$
+confrontato con le tabelle del $\chi^2$ pu\`o essere usato
+per la verifica dell'ipotesi.
+
+\section{Compatibilit\`a con un valore prefissato}%
+\index{compatibilit\`a!con un valore|(}
+Un altro caso che frequentemente si presenta \`e il
+seguente: si vuole controllare se un determinato valore
+numerico, a priori attribuibile alla grandezza fisica in
+esame, \`e o non \`e confermato dai risultati della misura;
+cio\`e se quel valore \`e o non \`e \emph{compatibile} con i
+nostri risultati --- pi\`u precisamente, a che livello di
+probabilit\`a (o, per usare la terminologia statistica, a
+che \emph{livello di confidenza}) \`e con essi compatibile.
+
+Ammettiamo che gli errori di misura seguano la legge
+normale; sappiamo che la probabilit\`a per il risultato di
+cadere in un qualunque intervallo prefissato dell'asse reale
+si pu\`o calcolare integrando la funzione di Gauss fra gli
+estremi dell'intervallo stesso.  Riferiamoci per comodit\`a
+alla variabile \emph{scarto normalizzato}
+\begin{equation*}
+  t = \frac{x - E(x)}{\sigma}
+\end{equation*}
+che sappiamo gi\`a dal paragrafo \ref{ch:9.scanor} essere
+distribuita secondo una legge che \`e indipendente
+dall'entit\`a degli errori di misura.
+
+Se fissiamo arbitrariamente un numero positivo $\tau$,
+possiamo calcolare la probabilit\`a che si verifichi
+l'evento casuale consistente nell'ottenere, in una
+particolare misura, un valore di $t$ che in modulo
+superi $\tau$; come esempio particolare, le condizioni
+$|t| > 1$ o $|t|> 2$ gi\`a sappiamo che si verificano
+con probabilit\`a rispettivamente del 31.73\% e del
+4.55\%, visto che l'intervallo $-1 \leq t \leq 1$
+corrisponde al 68.27\% dell'area della curva normale, e
+quello $-2 \leq t \leq 2$ al 95.45\% .
+
+Se consideriamo poi un campione di $N$ misure indipendenti,
+avente valore medio $\bar x$ e proveniente da questa stessa
+popolazione di varianza $\sigma^2$, \`e immediato capire
+come la variabile
+\begin{equation*}
+  t = \frac{\bar x - E(x)}{\dfrac{\sigma}{\sqrt{N}}}
+\end{equation*}
+soddisfer\`a a queste stesse condizioni: accadr\`a cio\`e
+nel 31.73\% dei casi che $|t|$ sia maggiore di $\tau=1$, e
+nel 4.55\% dei casi che $|t|$ sia superiore a $\tau=2$ .
+
+Per converso, se fissiamo arbitrariamente un qualunque
+valore ammissibile $P$ per la probabilit\`a, possiamo
+calcolare in conseguenza un numero $\tau$, tale che la
+probabilit\`a di ottenere effettivamente da un particolare
+campione un valore dello scarto normalizzato $t$ superiore
+ad esso (in modulo) sia data dal numero $P$.  Ad esempio,
+fissato un valore del 5\% per $P$, il limite per $t$ che se
+ne ricava \`e $\tau = 1.96$: insomma
+\begin{equation*}
+  \int_{-1.96}^{+1.96} \frac{1}{\sqrt{2 \pi}} \,
+    e^{- \frac{1}{2} t^2} \de t
+    \; = \; 0.95
+\end{equation*}
+e solo nel cinque per cento dei casi si ottiene un valore di
+$t$ che supera (in modulo) 1.96.
+
+Se si fissa per convenzione un valore della probabilit\`a
+che indichi il confine tra un avvenimento accettabile ed uno
+inaccettabile nei limiti della pura casualit\`a, possiamo
+dire che l'ipotesi consistente nell'essere un certo numero
+$\xi$ il valore vero della grandezza misurata sar\`a
+compatibile o incompatibile con i nostri dati a seconda che
+lo scarto normalizzato
+\begin{equation*}
+  t = \frac{\bar x - \xi}{\dfrac{\sigma}{\sqrt{N}}}
+\end{equation*}
+relativo a tale numero sia, in valore assoluto, inferiore o
+superiore al valore di $\tau$ che a quella probabilit\`a
+corrisponde; e diremo che la compatibilit\`a (o
+incompatibilit\`a) \`e riferita a quel certo livello di
+confidenza prescelto.
+
+La difficolt\`a \`e che tutti questi ragionamenti
+coinvolgono una quantit\`a numerica (lo scarto quadratico
+medio) relativa \emph{alla popolazione} e per ci\`o stesso
+in generale ignota; in tal caso, per calcolare lo scarto
+normalizzato relativo ad un certo valore numerico $\xi$ non
+possiamo che servirci, in luogo di $\sigma$, della
+corrispondente stima ricavata dal campione, $s$:
+\begin{equation*}
+  t = \frac{\bar x - \xi}{\dfrac{s}{\sqrt{N}}}
+\end{equation*}
+e quindi si deve presupporre di avere un campione di
+dimensioni tali che questa stima si possa ritenere
+ragionevole, ossia sufficientemente vicina ai corrispondenti
+valori relativi alla popolazione a meno di fluttuazioni
+casuali abbastanza poco probabili.
+
+In generale si ammette che \emph{almeno 30 dati} siano
+necessari perch\'e questo avvenga: in corrispondenza a tale
+dimensione del campione, l'errore della media \`e circa 5.5
+volte inferiore a quello dei dati; e l'errore relativo di
+$s$ \`e approssimativamente del 13\%.
+
+Bisogna anche porre attenzione alla esatta natura
+dell'ipotesi che si intende verificare.  Per un valore
+limite di $\tau = 1.96$ abbiamo visto che il 95\% dell'area
+della curva normale \`e compreso tra $-\tau$ e $+\tau$:
+superiormente a $+\tau$ si trova il 2.5\% di tale area; ed
+anche inferiormente a $-\tau$ se ne trova un'altra porzione
+pari al 2.5\%.
+
+\begin{table}[htbp]
+  \vspace*{2ex}
+  \begin{center}
+    \begin{tabular}{rcc}
+      \toprule
+      \multicolumn{1}{c}{$P$ (\%)} & $\tau_2$ & $\tau_1$ \\
+      \midrule
+      10.0 & 1.64485 & 1.28155 \\
+      5.0  & 1.95996 & 1.64485 \\
+      2.0  & 2.32635 & 2.05375 \\
+      1.0  & 2.57583 & 2.32635 \\
+      0.5  & 2.81297 & 2.57583 \\
+      0.2  & 3.09023 & 2.87816 \\
+      0.1  & 3.29053 & 3.09023 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \caption{Alcuni valori della
+    probabilit\`a $P$ e dei corrispondenti limiti
+    $\tau$ sullo scarto normalizzato, per verifiche
+    two-tailed ($\tau_2$) o one-tailed ($\tau_1$).}
+  \label{tab:12.conlev1}
+\end{table}
+
+\begin{table}[hbtp]
+  \vspace*{2ex}
+  \begin{center}
+    \begin{tabular}{crr}
+      \toprule
+      $\tau$ & \multicolumn{1}{c}{$P_2$ (\%)} &
+      \multicolumn{1}{c}{$P_1$ (\%)} \\
+      \midrule
+      0.5 & 61.708 & 30.854 \\
+      1.0 & 31.731 & 15.866 \\
+      1.5 & 13.361 &  6.681 \\
+      2.0 &  4.550 &  2.275 \\
+      2.5 &  1.242 &  0.621 \\
+      3.0 &  0.270 &  0.135 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \caption{I valori della
+    probabilit\`a per verifiche two-tailed ($P_2$) ed
+    one-tailed ($P_1$) che corrispondono a valori
+    prefissati dello scarto normalizzato $\tau$.}
+  \label{tab:12.conlev2}
+\end{table}
+
+Se l'ipotesi da verificare riguarda l'\emph{essere
+  differenti tra loro} due entit\`a (il presupposto valore
+vero della grandezza misurata e la media aritmetica dei
+nostri dati, nell'esempio precedente) quel valore di $\tau$
+corrisponde in effetti ad una verifica relativa ad un
+livello di confidenza del 5\% (usando il termine inglese,
+stiamo effettuando un \emph{two-tailed test});%
+\index{two-tailed test}
+ma se l'ipotesi riguarda l'essere un valore numerico
+\emph{superiore} (od \emph{inferiore}) alla nostra media
+aritmetica (ad esempio, i dati misurati potrebbero essere
+relativi al rendimento di una macchina, e si vuole
+verificare l'ipotesi che tale rendimento misurato sia
+superiore ad un valore prefissato), allora un limite $\tau =
+1.96$ corrisponde in effetti ad un livello di confidenza del
+2.5\% (\emph{one-tailed test}):%
+\index{one-tailed test}
+nell'esempio fatto, soltanto l'intervallo $[-\infty, -\tau]$
+deve essere preso in considerazione per il calcolo della
+probabilit\`a.  Alcuni limiti relativi a diversi livelli di
+confidenza si possono trovare nelle tabelle
+\ref{tab:12.conlev1} e \ref{tab:12.conlev2}; altri si
+possono facilmente ricavare dalle tabelle dell'appendice
+\ref{ch:f.tabelle}.%
+\index{compatibilit\`a!con un valore|)}
+
+\section{I piccoli campioni e la distribuzione di
+  Student}%
+\index{piccoli campioni|(}
+Cosa si pu\`o fare riguardo alla verifica di ipotesi
+statistiche come quella (considerata nel paragrafo
+precedente) della compatibilit\`a del risultato delle misure
+con un valore noto a priori, quando si abbiano a
+disposizione solamente piccoli campioni?  Ci riferiamo,
+pi\`u esattamente, a campioni costituiti da un numero di
+dati cos\`\i\ esiguo da farci ritenere che non si possa
+ottenere da essi con ragionevole probabilit\`a una buona
+stima delle varianze delle rispettive popolazioni (sempre
+per\`o supposte normali).
+
+\index{distribuzione!di Student|(emidx}%
+Sia $X$ una variabile casuale distribuita come il $\chi^2$
+ad $N$ gradi di libert\`a, ed $u$ una seconda variabile
+casuale, indipendente dalla prima, e avente distribuzione
+normale standardizzata $N(u;0,1)$; consideriamo la nuova
+variabile casuale $t$ definita attraverso la
+\begin{equation} \label{eq:12.stuvar}
+  t = \frac{u}{\sqrt{\dfrac{X}{N}}} \peq .
+\end{equation}
+
+Si pu\`o dimostrare che la funzione densit\`a di
+probabilit\`a relativa alla variabile casuale $t$ \`e data
+dalla
+\begin{equation*}
+  f(t;N) = \frac{T_N}{\left( 1 + \frac{t^2}{N}
+    \right)^{\frac{N + 1}{2}}}
+\end{equation*}
+che si chiama \emph{distribuzione di Student ad $N$ gradi di
+  libert\`a}.
+
+\begin{figure}[hbtp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{student.pstex_t}
+  } \end{center}
+  \caption[La distribuzione di Student]
+    {La distribuzione di Student per $N=2$ ed $N=4$,
+    confrontata con la funzione normale.}
+  \label{fig:12.student}
+\end{figure}
+
+Il coefficiente $T_N$ \`e una costante che viene fissata
+dalla condizione di normalizzazione; se $N$ viene poi fatto
+tendere all'infinito il denominatore della funzione (come si
+potrebbe facilmente provare partendo dal limite notevole
+\eqref{eq:9.linote}) tende a $e^{t^2/2}$, e dunque la
+distribuzione di Student tende alla distribuzione normale
+(con media 0 e varianza 1).%
+\index{distribuzione!di Student!e distribuzione normale}
+Anche la forma della funzione di Student ricorda molto
+quella della funzione di Gauss, come appare evidente dalla
+figura \ref{fig:12.student}; soltanto, rispetto a dati che
+seguano la distribuzione normale, valori elevati dello
+scarto sono relativamente pi\`u probabili\/\footnote{Per
+  valori di $N \gtrsim 35$ la distribuzione di Student si
+  pu\`o approssimare con la distribuzione normale a media 0
+  e varianza 1.}.
+
+La distribuzione di Student \`e simmetrica, quindi tutti i
+momenti di ordine dispari (compreso il valore medio
+$\lambda_1$) sono nulli; mentre la varianza della
+distribuzione \`e
+\begin{gather*}
+  \var(t) = \frac{N}{N-2} \\
+  \intertext{(se $N > 2$); ed il coefficiente di
+    curtosi vale}
+  \gamma_2 = \frac{6}{N-4}
+\end{gather*}
+(se $N > 4$).
+
+Indicando con $\bar x$ la media aritmetica di un campione di
+dimensione $N$, estratto a caso da una popolazione normale
+avente valore medio $E(x)$ e varianza $\sigma^2$; e con $s$
+la stima della deviazione standard della popolazione
+ottenuta dal campione stesso, cio\`e
+\begin{gather}
+  s^2 = \frac{\sum_i (x_i - \bar x)^2}{N-1} \notag \\
+  \intertext{sappiamo, ricordando l'equazione
+    \eqref{eq:12.xiis2}, che la variabile casuale}
+  X'' = (N - 1) \, \frac{s^2}{\sigma^2} \notag \\
+  \intertext{\`e distribuita come il $\chi^2$ ad
+    $N - 1$ gradi di libert\`a; inoltre, ovviamente,}
+  u = \frac{\bar x - E(x)}{\dfrac{\sigma}{\sqrt{N}}}
+    \notag \\
+  \intertext{segue la legge normale, con media 0 e
+    varianza 1. Di conseguenza la variabile casuale}
+  t \; = \; \frac{u}{\sqrt{\dfrac{X''}{N - 1}}} \; = \;
+    \frac{\bar x - E(x)}{\dfrac{s}{\sqrt{N}}}
+    \label{eq:12.xsecond}
+\end{gather}
+\emph{segue la distribuzione di Student ad $N - 1$
+  gradi di libert\`a}.
+
+Insomma: se i campioni a disposizione non hanno dimensioni
+accettabili, una volta calcolato lo scarto normalizzato
+relativo alla differenza tra la media di un campione ed un
+valore prefissato occorrer\`a confrontare il suo valore con
+i limiti degli intervalli di confidenza relativi alla
+distribuzione di Student e non alla distribuzione
+normale\/\footnote{Per taluni pi\`u usati valori del livello
+  di confidenza, i limiti rilevanti si possono trovare
+  tabulati anche nell'appendice \ref{ch:f.tabelle}.}.%
+\index{distribuzione!di Student|)}%
+\index{piccoli campioni|)}
+
+\section{La compatibilit\`a di due valori misurati}%
+\index{compatibilit\`a!tra valori misurati|(}
+Un altro caso frequente \`e quello in cui si hanno a
+disposizione due campioni di misure, e si vuole verificare
+l'ipotesi statistica che essi provengano da popolazioni
+aventi lo stesso valore medio: un caso particolare \`e
+quello dell'ipotesi consistente nell'essere i due campioni
+composti da misure della stessa grandezza fisica, che hanno
+prodotto differenti stime come effetto della presenza in
+entrambi degli errori; errori che assumiamo ancora seguire
+la legge normale.
+
+Siano ad esempio un primo campione di $N$ misure $x_i$, ed
+un secondo campione di $M$ misure $y_j$; indichiamo con
+$\bar x$ e $\bar y$ le medie dei due campioni, con
+${\sigma_x}^2$ e ${\sigma_y}^2$ le varianze delle
+popolazioni da cui tali campioni provengono, e con $\delta =
+\bar x - \bar y$ la differenza tra le due medie.
+
+Sappiamo gi\`a che i valori medi e le varianze delle medie
+dei campioni sono legati ai corrispondenti valori relativi
+alle popolazioni dalle
+\begin{equation*}
+  E(\bar x) \; = \; E(x)
+    \makebox[4cm]{\mbox{,}}
+    E(\bar y) \; = \; E(y)
+\end{equation*}
+e
+\begin{equation*}
+  \var (\bar x) \; = \; \frac{{\sigma_x}^2}{N}
+    \makebox[4cm]{\mbox{,}}
+    \var (\bar y) \; = \; \frac{{\sigma_y}^2}{M}
+\end{equation*}
+per cui risulter\`a, se i campioni sono tra loro
+statisticamente indipendenti e se si ammette valida
+l'ipotesi (da verificare) che abbiano la stessa media,
+\begin{gather*}
+  E(\delta) \; = \; E(\bar x - \bar y)
+    \; =  \;E(x) - E(y) = 0 \\
+  \intertext{e}
+  \var (\delta) \; = \;
+    \var (\bar x - \bar y) \; = \;
+    \frac{{\sigma_x}^2}{N} + \frac{{\sigma_y}^2}{M} \peq .
+\end{gather*}
+
+Inoltre, essendo $\bar x$, $\bar y$ (e quindi $\delta$)
+combinazioni lineari di variabili normali, seguiranno
+anch'esse la legge normale; e la verifica dell'ipotesi che i
+campioni provengano da popolazioni aventi la stessa media si
+traduce nella verifica dell'ipotesi che $\delta$ abbia
+valore vero nullo.
+
+Tale verifica, essendo $\delta$ distribuita secondo la legge
+normale, si esegue come abbiamo visto nel paragrafo
+precedente: si fissa arbitrariamente un valore del livello
+di confidenza, si determina il corrispondente valore limite
+degli scarti normalizzati, e lo si confronta con il valore
+di
+\begin{equation*}
+  \frac{\delta - E(\delta)}{\sigma_\delta} \; = \;
+    \frac{\bar x - \bar y}{\sqrt{
+    \dfrac{{\sigma_x}^2}{N} +
+    \dfrac{{\sigma_y}^2}{M}}} \peq .
+\end{equation*}
+
+Ovviamente vale anche qui l'osservazione fatta nel paragrafo
+precedente: non conoscendo le deviazioni standard delle
+popolazioni, $\sigma_x$ e $\sigma_y$, siamo costretti ad
+usare in loro vece le stime ottenute dai campioni, $s_x$ ed
+$s_y$; e questo si ammette generalmente lecito quando la
+dimensione di entrambi i campioni \`e almeno pari a 30.
+
+\index{piccoli campioni|(}%
+In caso contrario, presupponendo cio\`e di avere a
+disposizione piccoli campioni per almeno una delle due
+variabili, limitiamo la nostra analisi al caso in cui si
+sappia con sicurezza che le due popolazioni $x$ ed $y$
+\emph{abbiano la stessa varianza},
+\begin{equation*}
+  {\sigma_x}^2 \; = \; {\sigma_y}^2 \; \equiv \;
+    \sigma^2
+\end{equation*}
+e definiamo la grandezza $S^2$ (\emph{varianza globale} dei
+campioni) come
+\begin{align*}
+  S^2 &= \frac{1}{N + M - 2} \cdot \left\{ \sum_{i=1}^N
+    \left[ x_i - \bar x \right]^2 + \sum_{j=1}^M \left[
+    y_j - \bar y \right]^2 \right\} \\[2ex]
+  &= \frac{(N-1) \, {s_x}^2 + (M-1) \, {s_y}^2}{N + M -
+    2} \peq .
+\end{align*}
+
+Sapendo, dall'equazione \eqref{eq:12.xiis2}, che le due
+variabili
+\begin{align*}
+  &(N-1) \, \frac{{s_x}^2}{\sigma^2} &&\text{e}
+    &&(M-1)\, \frac{{s_y}^2}{\sigma^2}
+\end{align*}
+sono entrambe distribuite come il $\chi^2$, con $N - 1$ ed
+$M - 1$ gradi di libert\`a rispettivamente, sfruttando la
+regola di somma enunciata a pagina \pageref{th:12.resochi}
+si ricava che la variabile casuale
+\begin{equation*}
+  X \; = \; \frac{(N-1) \, {s_x}^2 + (M-1) \,
+    {s_y}^2}{\sigma^2} \; = \; (N + M - 2) \,
+    \frac{S^2}{\sigma^2}
+\end{equation*}
+\`e distribuita come il $\chi^2$ ad $N + M - 2$ gradi di
+libert\`a; essendo inoltre $\delta = \bar x - \bar y$ una
+variabile normale con media e varianza date da
+\begin{align*}
+  E(\delta) &= E(x) - E(y) &&\text{e}
+    &{\sigma_\delta}^2 &= \frac{\sigma^2}{N} +
+    \frac{\sigma^2}{M}
+\end{align*}
+la variabile casuale
+\begin{equation*}
+  u \; = \; \frac{\delta - E(\delta)}{\sigma_\delta} \;
+    = \; \frac{(\bar x - \bar y) - \left[ E(x) - E(y)
+    \right]}{\sqrt{{\sigma}^2 \left( \dfrac{1}{N} +
+    \dfrac{1}{M} \right)}}
+\end{equation*}
+\`e normale con media 0 e varianza 1.  Per concludere,
+\begin{equation} \label{eq:12.tdif2c}
+  t \; = \; \frac{u}{\sqrt{\dfrac{X}{N+M-2}}} \; = \;
+    \frac{(\bar x - \bar y) - \left[ E(x) - E(y)
+    \right]}{\sqrt{S^2 \left( \dfrac{1}{N} +
+    \dfrac{1}{M} \right)}}
+\end{equation}
+deve seguire la distribuzione di Student%
+\index{distribuzione!di Student}
+con $N + M - 2$ gradi di libert\`a; di conseguenza, per
+verificare l'ipotesi che le due popolazioni \emph{normali}
+da cui i campioni provengono abbiano la stessa media
+\emph{ammesso gi\`a che posseggano la stessa varianza},
+basta confrontare con le apposite tabelle della
+distribuzione di Student il valore della $t$ ottenuta dalla
+\eqref{eq:12.tdif2c} ponendovi $E(x) - E(y) = 0$:
+\begin{equation*}
+  t = \frac{\bar x - \bar y}{\sqrt{S^2 \left(
+    \dfrac{1}{N} + \dfrac{1}{M} \right)} } \peq .
+\end{equation*}%
+\index{piccoli campioni|)}%
+\index{compatibilit\`a!tra valori misurati|)}
+
+\section{La distribuzione di Fisher}%
+\index{distribuzione!di Fisher|(}
+Sia $X$ una variabile casuale distribuita come il $\chi^2$
+ad $M$ gradi di libert\`a; ed $Y$ una seconda variabile
+casuale, indipendente dalla prima, distribuita ancora come
+il $\chi^2$, ma con $N$ gradi di libert\`a.
+
+La variabile casuale $w$ (sempre positiva) definita in
+funzione di esse attraverso la relazione
+\begin{equation*}
+  w \; = \; \frac{\phantom{t} \dfrac{X}{M}
+    \phantom{t}}{\dfrac{Y}{N}}
+\end{equation*}
+ha una densit\`a di probabilit\`a che segue la cosiddetta
+\emph{funzione di frequenza di Fisher} con $M$ ed $N$ gradi
+di libert\`a.  La forma analitica della funzione di Fisher
+\`e data dalla
+\begin{equation} \label{eq:12.fisher}
+  F(w;M,N) = K_{MN} \, \frac{w^{\frac{M}{2} - 1}}{\left( M
+    w + N \right)^{\frac{M + N}{2}}}
+\end{equation}
+(nella quale $K_{MN}$ \`e un fattore costante determinato
+dalla condizione di normalizzazione).
+
+Il valore medio e la varianza della funzione di frequenza di
+Fisher sono dati poi rispettivamente da
+\begin{align*}
+  E(F) &= \frac{N}{N-2} &&\text{(se $N>2$)} \\
+  \intertext{e da}
+  \var(F) &= \frac{2 \, N^2 (M + N - 2)}{M (N - 2)^2
+    (N - 4)} &&\text{(se $N>4$)} \peq .
+\end{align*}
+
+Si pu\`o dimostrare che, se $Y$ \`e una variabile casuale
+distribuita come il $\chi^2$ ad $N$ gradi di libert\`a,
+\begin{equation*}
+  \lim_{N \to +\infty} \frac{Y}{N} = 1
+\end{equation*}
+in senso statistico (ovverosia la probabilit\`a che il
+rapporto $Y/N$ sia differente da 1 tende a zero quando $N$
+viene reso arbitrariamente grande); per cui, indicando con
+$f(x;M)$ la funzione di frequenza del $\chi^2$ ad $M$ gradi
+di libert\`a,
+\begin{gather*}
+  F(w; M, \infty) \; \equiv \; \lim_{N \to +\infty}
+    F(w; M, N) \; = \; \frac{f(w; M)}{M} \peq . \\
+  \intertext{Allo stesso modo}
+  F(w; \infty, N) \; \equiv \; \lim_{M \to +\infty}
+    F(w; M, N) \; = \; \frac{N}{f(w;N)}
+\end{gather*}
+e quindi esiste una stretta relazione tra le distribuzioni
+di Fisher e del chi quadro.
+
+Inoltre, ricordando che, se $u$ \`e una variabile casuale
+distribuita secondo la legge normale standardizzata
+$N(u;0,1)$, l'altra variabile casuale $u^2$ \`e distribuita
+come il $\chi^2$ ad un grado di libert\`a, il rapporto
+\begin{gather*}
+  w \; = \; \frac{\phantom{t} u^2
+    \phantom{t}}{\dfrac{Y}{N}} \\
+  \intertext{deve essere distribuito secondo
+    $F(w;1,N)$; ma, se definiamo}
+  t \; = \; \frac{\phantom{t} u
+    \phantom{t}}{\sqrt{\dfrac{Y}{N}}}
+\end{gather*}
+sappiamo anche dalla \eqref{eq:12.stuvar} che la $t$ segue
+la distribuzione di Student ad $N$ gradi di libert\`a.  La
+conclusione \`e che il quadrato di una variabile $t$ che
+segua la distribuzione di Student ad $N$ gradi di libert\`a
+\`e a sua volta distribuito con una densit\`a di
+probabilit\`a data da $F(t^2; 1, N)$.
+
+Per terminare, quando i due parametri $M$ ed $N$ (da cui la
+funzione di frequenza di Fisher \eqref{eq:12.fisher}
+dipende) vengono resi arbitrariamente grandi, essa tende ad
+una distribuzione normale; ma la convergenza \`e lenta, e
+l'approssimazione normale alla distribuzione di Fisher si
+pu\`o pensare in pratica usabile quando sia $M$ che $N$ sono
+superiori a 50.%
+\index{distribuzione!di Fisher|)}
+
+\subsection{Confronto tra varianze}%
+\index{compatibilit\`a!tra varianze|(}
+Supponiamo di avere a disposizione due campioni di misure,
+che ipotizziamo provenire da due differenti popolazioni che
+seguano delle distribuzioni normali.
+
+Siano $M$ ed $N$ le dimensioni di tali campioni, e siano
+${\sigma_1}^2$ e ${\sigma_2}^2$ le varianze delle rispettive
+popolazioni di provenienza; indichiamo poi con ${s_1}^2$ ed
+${s_2}^2$ le due stime delle varianze delle popolazioni
+ricavate dai campioni.  Vogliamo ora capire come si pu\`o
+verificare l'ipotesi statistica che le due popolazioni
+abbiano \emph{la stessa varianza}, ossia che $\sigma_1 =
+\sigma_2$.
+
+Ora sappiamo gi\`a dalla equazione \eqref{eq:12.xiis2}
+che le due variabili casuali
+\begin{align*}
+  X &= (M - 1) \, \frac{{s_1}^2}{{\sigma_1}^2}
+    &&\text{e} & Y &= (N - 1) \,
+    \frac{{s_2}^2}{{\sigma_2}^2}
+\end{align*}
+sono entrambe distribuite come il $\chi^2$, con $M - 1$
+ed $N - 1$ gradi di libert\`a rispettivamente; quindi
+la quantit\`a
+\begin{equation*}
+  w \; = \; \frac{X}{M - 1} \, \frac{N - 1}{Y} \; = \;
+    \frac{{s_1}^2}{{\sigma_1}^2} \,
+    \frac{{\sigma_2}^2}{{s_2}^2}
+\end{equation*}
+ha densit\`a di probabilit\`a data dalla funzione di
+Fisher con $M - 1$ ed $N - 1$ gradi di libert\`a.
+
+Assunta a priori vera l'ipotesi statistica $\sigma_1 =
+\sigma_2$, la variabile casuale
+\begin{equation*}
+  w = \frac{{s_1}^2}{{s_2}^2}
+\end{equation*}
+ha densit\`a di probabilit\`a data dalla funzione di Fisher
+prima menzionata, $F(w; M-1, N-1)$; per cui, fissato un
+livello di confidenza al di l\`a del quale rigettare
+l'ipotesi, e ricavato dalle apposite tabelle\/\footnote{Per
+  un livello di confidenza pari a 0.95 o 0.99, e per alcuni
+  valori dei due parametri $M$ ed $N$, ci si pu\`o riferire
+  ancora alle tabelle dell'appendice \ref{ch:f.tabelle}; in
+  esse si assume che sia $s_1 > s_2$, e quindi $w > 1$.}  il
+valore $W$ che lascia alla propria sinistra, al di sotto
+della funzione $F(w; M-1, N-1)$, un'area pari al livello di
+confidenza prescelto, si pu\`o escludere che i due campioni
+provengano da popolazioni con la stessa varianza se $w >
+W$.%
+\index{compatibilit\`a!tra varianze|)}
+
+\section{Il metodo di Kolmogorov e Smirnov}%
+\index{Kolmogorov e Smirnov, test di|(}%
+\index{compatibilit\`a!con una distribuzione|(}%
+\index{compatibilit\`a!tra dati sperimentali|(}%
+\index{Kolmogorov, Andrei Nikolaevich}
+Il \emph{test di Kolmogorov e Smirnov} \`e un metodo di
+analisi statistica che permette di confrontare tra loro un
+campione di dati ed una distribuzione teorica (oppure due
+campioni di dati) allo scopo di verificare l'ipotesi
+statistica che la popolazione da cui i dati provengono sia
+quella in esame (oppure l'ipotesi che entrambi i campioni
+provengano dalla stessa popolazione).
+
+Una caratteristica interessante di questo metodo \`e che
+esso non richiede la preventiva, e pi\`u o meno arbitraria,
+suddivisione dei dati in classi di frequenza; definendo
+queste ultime in modo diverso si ottengono ovviamente, dal
+metodo del $\chi^2$, differenti risultati per gli stessi
+campioni.
+
+Il test di Kolmogorov e Smirnov si basa infatti sulla
+\emph{frequenza cumulativa relativa} dei dati, introdotta
+nel paragrafo \ref{def:4.frcure} a pagina
+\pageref{def:4.frcure}; e sull'analogo concetto di
+\emph{funzione di distribuzione} di una variabile continua
+definito nel paragrafo \ref{def:6.fundis} a pagina
+\pageref{def:6.fundis}.  Per la compatibilit\`a tra un
+campione ed una ipotetica legge che si ritiene possa
+descriverne la popolazione di provenienza, e collegata ad
+una funzione di distribuzione $\Phi(x)$, bisogna confrontare
+la frequenza cumulativa relativa $F(x)$ del campione con
+$\Phi(x)$ per ricavare \emph{il valore assoluto del massimo
+  scarto tra esse},
+\begin{equation*}
+  \delta = \max \Bigl\{ \bigl| F(x) - \Phi(x) \bigr|
+    \Bigr\} \peq .
+\end{equation*}
+
+Si pu\`o dimostrare che, se l'ipotesi da verificare fosse
+vera, la probabilit\`a di ottenere casualmente un valore di
+$\delta$ non inferiore ad una prefissata quantit\`a
+(positiva) $\delta_0$ sarebbe data da
+\begin{gather}
+  \Pr \left( \delta \ge \delta_0 \right) = F_{\mathrm{KS}}
+    \left( \delta'_0 \right) \notag \\
+  \intertext{ove $F_{\mathrm{KS}}$ \`e la serie}
+  F_{\mathrm{KS}} (x) = 2 \sum_{k=1}^\infty ( -1 )^{k-1}
+    e^{-2 \, k^2 x^2} \label{eq:12.kosmfu} \\
+  \intertext{e $\delta'_0$ vale}
+  \delta'_0 = \left( \sqrt{N} + 0.12 +
+    \frac{0.11}{\sqrt{N}} \right) \delta_0 \peq .
+    \label{eq:12.kosmva}
+\end{gather}
+
+La legge ora enunciata \`e approssimata, ma il test di
+Kolmogorov e Smirnov pu\`o essere usato gi\`a per dimensioni
+del campione $N$ uguali a 5.  Attenzione per\`o che, se
+qualche parametro da cui la distribuzione teorica dipende
+\`e stato stimato sulla base dei dati, l'integrale della
+densit\`a di probabilit\`a per la variabile $\delta$ di
+Kolmogorov e Smirnov \emph{non segue pi\`u} la legge
+\eqref{eq:12.kosmfu}: non solo, ma non \`e pi\`u possibile
+ricavare teoricamente una funzione che ne descriva il
+comportamento in generale (in questi casi, nella pratica, la
+distribuzione di $\delta$ viene studiata usando metodi di
+Montecarlo).
+
+Se si vogliono invece confrontare tra loro due campioni
+indipendenti per verificarne la compatibilit\`a, bisogna
+ricavare dai dati il massimo scarto (in valore assoluto),
+$\delta$, tra le due frequenze cumulative relative; e
+ricavare ancora dalla \eqref{eq:12.kosmfu} la probabilit\`a
+che questo possa essere avvenuto (ammessa vera l'ipotesi)
+per motivi puramente casuali.  L'unica differenza \`e che la
+funzione \eqref{eq:12.kosmfu} va calcolata in un'ascissa
+$\delta'_0$ data dalla \eqref{eq:12.kosmva}, nella quale $N$
+vale
+\begin{equation*}
+  N \; = \; \frac{1}{\frac{1}{N_1} + \frac{1}{N_2}} \; = \;
+  \frac{N_1 \, N_2}{N_1 + N_2}
+\end{equation*}
+($N_1$ ed $N_2$ sono le dimensioni dei due campioni).
+
+Oltre al gi\`a citato vantaggio di non richiedere la
+creazione di pi\`u o meno arbitrarie classi di frequenza per
+raggrupparvi i dati, un'altra caratteristica utile del test
+di Kolmogorov e Smirnov \`e quella di essere, entro certi
+limiti, \emph{indipendente dalla variabile usata} nella
+misura: se al posto di $x$ si usasse, per caratterizzare il
+campione, $\ln(x)$ o $\sqrt{x}$, il massimo scarto tra
+frequenza cumulativa e funzione di distribuzione rimarrebbe
+invariato.
+
+Un altrettanto ovvio svantaggio \`e collegato al fatto che
+per valori molto piccoli (o molto grandi) della variabile
+casuale usata, qualsiasi essa sia, \emph{tutte} le funzioni
+di distribuzione e tutte le frequenze cumulative \emph{hanno
+  lo stesso valore} (0, o 1 rispettivamente).  Per questo
+motivo il test di Kolmogorov e Smirnov \`e assai sensibile a
+differenze nella zona centrale dei dati (attorno al valore
+medio), mentre non \`e affatto efficace per discriminare tra
+due distribuzioni che differiscano significativamente tra
+loro solo nelle code; ad esempio che abbiano lo stesso
+valore medio e differente ampiezza.%
+\index{compatibilit\`a!tra dati sperimentali|)}%
+\index{compatibilit\`a!con una distribuzione|)}%
+\index{Kolmogorov e Smirnov, test di|)}
+
+\endinput

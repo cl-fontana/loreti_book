@@ -1,0 +1,566 @@
+% $Id: chapter7.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{Variabili casuali pluridimensionali}
+Pu\`o avvenire che un evento casuale complesso $E$ sia
+decomponibile in $N$ eventi semplici $E_i$, ognuno dei quali
+a sua volta sia descrivibile mediante una variabile casuale
+$x_i$ (che supporremo continua); le differenti modalit\`a
+dell'evento $E$ si possono allora associare univocamente
+alla $N$-pla dei valori delle $x_i$, ossia alla posizione di
+un punto in uno spazio cartesiano $N$-dimensionale.
+
+\section{Variabili casuali bidimensionali}%
+\label{ch:7.bidim}
+Nel caso multidimensionale pi\`u semplice, $N = 2$, se
+supponiamo che la probabilit\`a $\de P$ per la coppia di
+variabili casuali $x$ ed $y$ di trovarsi nell'intorno
+(infinitesimo) di una certo punto dello spazio
+bidimensionale sia proporzionale all'ampiezza dell'intorno
+stesso e dipenda dalla sua posizione, possiamo definire la
+\emph{densit\`a di
+  probabilit\`a}%
+\index{probabilit\`a!densit\`a di}
+(o \emph{funzione di frequenza}) \emph{congiunta}, $f(x,y)$,
+attraverso la
+\begin{equation*}
+  \de P = f(x,y) \: \de x \, \de y \peq ;
+\end{equation*}
+e, analogamente a quanto fatto nel caso unidimensionale,
+definire poi attraverso di essa altre funzioni.  Ad esempio
+la \emph{funzione di distribuzione congiunta}%
+\index{funzione!di distribuzione},
+\begin{gather*}
+  F(x,y) = \int_{-\infty}^x \! \! \de u \int_{-\infty}^y \!
+  \de v \: f(u,v) \\
+    \intertext{che d\`a la probabilit\`a di ottenere valori
+    delle due variabili non superiori a quantit\`a
+    prefissate; le \emph{funzioni di frequenza marginali}%
+    \index{probabilit\`a!funzione marginale}}
+  g(x) = \int_{-\infty}^{+\infty} \! f(x,y) \, \de y
+  \makebox[20mm]{e}
+  h(y) = \int_{-\infty}^{+\infty} \! f(x,y) \, \de x
+  \intertext{che rappresentano la densit\`a di probabilit\`a
+    di ottenere un dato valore per una delle due variabili
+    \emph{qualunque sia il valore assunto dall'altra}; ed
+    infine le \emph{funzioni di distribuzione marginali}}
+  G(x) = \int_{-\infty}^x \! \! g(t) \, \de t = F(x,
+  +\infty)
+  \makebox[20mm]{e}
+  H(y) = \int_{-\infty}^y \! \! h(t) \, \de t = F(+\infty,
+  y) \peq . \\
+  \intertext{La \emph{condizione di normalizzazione}%
+    \index{normalizzazione!condizione di}
+    si potr\`a poi scrivere}
+  F(+\infty, +\infty) = 1 \peq .
+\end{gather*}
+
+\index{probabilit\`a!condizionata|(}%
+Per un insieme di due variabili si possono poi definire le
+funzioni di frequenza \emph{condizionate}, $\pi(x|y)$ e
+$\pi(y|x)$; esse rappresentano la densit\`a di probabilit\`a
+dei valori di una variabile quando gi\`a si conosce il
+valore dell'altra.  Per definizione deve valere la
+\begin{gather*}
+  f(x,y) \: \de x \, \de y \; = \; g(x) \, \de x \cdot
+  \pi(y|x) \, \de y \; = \; h(y) \, \de y \cdot \pi(x|y) \,
+  \de x \\
+  \intertext{per cui tra probabilit\`a condizionate,
+    marginali e congiunte valgono la}
+  \pi(y|x) = \frac{ f(x,y) }{ g(x) }
+  \makebox[35mm]{e la}
+  \pi(x|y) = \frac{ f(x,y) }{ h(y) } \peq .
+\end{gather*}
+Due variabili casuali sono, come sappiamo, statisticamente
+indipendenti tra loro quando il fatto che una di esse abbia
+un determinato valore non altera le probabilit\`a relative
+ai valori dell'altra: ovvero quando
+\begin{gather}
+  \pi(x|y) = g(x)
+  \makebox[30mm]{e}
+  \pi(y|x) = h(y) \peq ; \label{eq:7.istat1} \\
+  \intertext{e questo a sua volta implica che}
+  f(x,y) = g(x) \cdot h(y) \label{eq:7.istat2}
+\end{gather}
+Non \`e difficile poi, assunta vera la \eqref{eq:7.istat2},
+giungere alla \eqref{eq:7.istat1}; in definitiva:
+\index{statistica!indipendenza|(}%
+\begin{quote}
+  \textit{Due variabili casuali continue sono
+    statisticamente indipendenti tra loro se e solo se la
+    densit\`a di probabilit\`a congiunta \`e fattorizzabile
+    nel prodotto delle funzioni marginali.}
+\end{quote}%
+\index{statistica!indipendenza|)}%
+\index{probabilit\`a!condizionata|)}
+
+\subsection{Momenti, funzione caratteristica e funzione
+  generatrice}
+Analogamente a quanto fatto per le variabili casuali
+unidimensionali, in uno spazio degli eventi bidimensionale
+in cui rappresentiamo le due variabili $\{x,y\}$ aventi
+densit\`a di probabilit\`a congiunta $f(x,y)$, si
+pu\`o definire la speranza matematica%
+\index{speranza matematica!per variabili continue}
+(o valore medio) di una qualunque funzione $\psi(x,y)$ come
+\begin{gather*}
+  E \bigl[ \psi(x,y) \bigr] = \int_{-\infty}^{+\infty} \!
+  \! \de x \int_{-\infty}^{+\infty} \! \! \de y \: \psi(x,y)
+  \, f(x,y) \peq ; \\
+  \intertext{i momenti%
+    \index{momenti|(}
+    rispetto all'origine come}
+  \lambda_{mn} = E \left( x^m \, y^n \right) \\
+  \intertext{e quelli rispetto alla media come}
+  \mu_{mn} = E \bigl[ ( x - \lambda_{10} )^m ( y -
+  \lambda_{01} )^n \bigr] \peq .
+\end{gather*}%
+\index{momenti|)}
+
+Risulta ovviamente:
+\begin{align*}
+  \lambda_{00} \; &\equiv \; 1 \\[1ex]
+  \lambda_{10} \; &= \; E(x) \\[1ex]
+  \lambda_{01} \; &= \; E(y) \\[1ex]
+  \mu_{20} \; &= \; E \left\{ \bigl[ x - E(x) \bigr]^2
+  \right\} \; = \; \var (x) \\[1ex]
+  \mu_{02} \; &= \; E \left\{ \bigl[ y - E(y) \bigr]^2
+  \right\} \; = \; \var (y) \\[1ex]
+  \mu_{11} \; &= \; E \Bigl\{ \bigl[ x - E(x) \bigr] \bigl[
+    y - E(y) \bigr] \Bigr\}
+\end{align*}
+La quantit\`a $\mu_{11}$ si chiama anche \emph{covarianza}%
+\index{covarianza}
+di $x$ ed $y$; si indica generalmente col simbolo
+$\cov(x,y)$, e di essa ci occuperemo pi\`u in dettaglio
+nell'appendice \ref{ch:c.covcor} (almeno per quel che
+riguarda le variabili discrete).  Un'altra grandezza
+collegata alla covarianza \`e il cosiddetto
+\emph{coefficiente di correlazione lineare},%
+\index{correlazione lineare, coefficiente di}
+che si indica col simbolo $r_{xy}$ (o, semplicemente, con
+$r$): \`e definito come
+\begin{equation*}
+  r_{xy} \; = \; \frac{ \mu_{11} }{ \sqrt{\mu_{20} \:
+      \mu_{02}} } \; = \; \frac{ \cov(x,y) }{ \sigma_x \,
+    \sigma_y } \peq ,
+\end{equation*}
+e si tratta di una grandezza adimensionale compresa, come
+vedremo, nell'intervallo $[ -1, +1 ]$.  Anche del
+coefficiente di correlazione lineare ci occuperemo
+estesamente pi\`u avanti, e sempre nell'appendice
+\ref{ch:c.covcor}.
+
+La funzione caratteristica per due variabili,%
+\index{funzione!caratteristica}
+che esiste sempre, \`e la
+\begin{gather*}
+  \phi_{xy} (u,v) = E \left[ e^{ i (ux+vy) } \right] \peq ;
+  \\
+  \intertext{se poi esistono tutti i momenti, vale anche la}
+  \left. \frac{ \partial^{m+n} \phi_{xy} }{ \partial u^m \,
+      \partial v^n } \right|_{\substack{u=0\\ v=0}} =
+  (i)^{ m+n } \, \lambda_{mn} \peq . \\
+  \intertext{La funzione generatrice,%
+    \index{funzione!generatrice dei momenti}
+    che esiste solo se tutti i momenti esistono, \`e poi
+    definita come}
+  M_{xy} (u,v) = E \left[ e^{ ( ux + vy ) } \right] \\
+  \intertext{e per essa vale la}
+  \left. \frac{ \partial^{m+n} M_{xy} }{ \partial u^m \,
+      \partial v^n } \right|_{\substack{u=0\\ v=0}} =
+  \lambda_{mn} \peq .
+\end{gather*}
+
+\subsection{Cambiamento di variabile casuale}%
+\index{cambiamento di variabile casuale|(}
+Supponiamo di definire due nuove variabili casuali $u$ e $v$
+per descrivere un evento casuale collegato a due variabili
+continue $x$ ed $y$; e questo attraverso due funzioni
+\begin{gather*}
+  u = u(x,y) \makebox[30mm]{e} v = v(x,y) \peq . \\
+  \intertext{\emph{Se} la corrispondenza tra le due coppie
+    di variabili \`e biunivoca, esistono le funzioni
+    inverse}
+  x = x(u,v) \makebox[30mm]{e} y = y(u,v) \peq ; \\
+  \intertext{\emph{se} inoltre esistono anche le derivate
+    parziali prime della $x$ e della $y$ rispetto alla $u$
+    ed alla $v$, esiste anche non nullo il
+    \emph{determinante Jacobiano}%
+    \index{Jacobiano!determinante|(}}
+  \frac{ \partial (x,y) }{ \partial (u,v) } = \det \left\|
+    \begin{array}{cc}
+      \dfrac{ \partial x }{ \partial u } & \dfrac{ \partial
+        x }{ \partial v } \\[3ex]
+      \dfrac{ \partial y }{ \partial u } & \dfrac{ \partial
+        y }{ \partial v }
+    \end{array} \right\| \\
+  \intertext{dotato della propriet\`a che}
+  \frac{ \partial (x,y) }{ \partial (u,v) } = \left[ \frac{
+      \partial (u,v) }{ \partial (x,y) } \right]^{-1}
+\end{gather*}%
+\index{Jacobiano!determinante|)}
+
+In tal caso, dalla richiesta di invarianza della
+probabilit\`a sotto il cambiamento di variabili,
+\begin{gather}
+  f(x,y) \: \de x \, \de y = g(u,v) \: \de u \, \de v \notag
+  \\
+  \intertext{si ottiene la funzione densit\`a di
+    probabilit\`a congiunta per $u$ e $v$, che \`e legata
+    alla $f(x,y)$ dalla}
+  g(u,v) = f \left[ x(u,v), y(u,v) \right] \cdot \left|
+    \frac{\partial (x,y)}{\partial (u,v)} \right|
+  \label{eq:7.cavar2}
+\end{gather}%
+\index{cambiamento di variabile casuale|)}
+
+\subsection{Applicazione: il rapporto di due variabili
+  casuali indipendenti}%
+\index{rapporto di variabili|(}
+Come esempio, consideriamo due variabili casuali $x$ ed $y$
+indipendenti tra loro e di cui si conoscano le funzioni di
+frequenza, rispettivamente $f(x)$ e $g(y)$; e si sappia
+inoltre che la $y$ non possa essere nulla.  Fatte queste
+ipotesi, useremo la formula precedente per calcolare la
+funzione di frequenza $\varphi(u)$ della variabile casuale
+$u$ rapporto tra $x$ ed $y$.  Definite
+\begin{gather*}
+  u = \dfrac{x}{y} \makebox[30mm]{e} v = y \peq , \\
+  \intertext{la corrispondenza tra le coppie di variabili
+    \`e biunivoca; e le funzioni inverse sono la}
+  x = uv \makebox[35mm]{e la} y = v \peq . \\
+  \intertext{Le funzioni di frequenza congiunte delle due
+    coppie di variabili sono, ricordando la
+    \eqref{eq:7.istat2} e la \eqref{eq:7.cavar2}}
+  f(x,y) = f(x) \, g(y) \makebox[30mm]{e}
+  \varphi(u,v) =  f(x) \, g(y) \left| \frac{ \partial (x,y) }{
+      \partial (u,v) } \right| \\
+  \intertext{rispettivamente; e, calcolando le derivate
+    parziali,}
+  \frac{ \partial (x,y) }{ \partial (u,v) } = \det \left\|
+    \begin{array}{cc}
+      v & u \\[1ex]
+      0 & 1
+    \end{array} \right\| \\
+  \intertext{per cui}
+  \varphi(u,v) = f(uv) \, g(v) \, |v| \peq .
+\end{gather*}
+In conclusione, la funzione di distribuzione della sola $u$
+(la funzione marginale) \`e la
+\begin{equation} \label{eq:7.rapvar}
+  \varphi(u) \; = \; \int_{-\infty}^{+\infty} \!
+  \varphi(u,v) \, \de v \; = \; \int_{-\infty}^{+\infty} \!
+  f(uv) \, g(v) \, |v| \, \de v
+\end{equation}%
+\index{rapporto di variabili|)}
+
+\subsection[Applicazione: il decadimento debole della
+  $\Lambda^0$]{Applicazione: il decadimento debole della
+  $\boldsymbol{\Lambda}^{\boldsymbol{0}}$}
+La particella elementare $\Lambda^0$ decade, attraverso
+processi governati dalle interazioni deboli, nei due canali
+\begin{align*}
+  \Lambda^0 &\to p + \pi^- &&\text{e} & \Lambda^0 &\to n +
+  \pi^0 \peq ;
+\end{align*}
+il suo decadimento \`e quindi un evento casuale che pu\`o
+essere descritto dalle due variabili $c$ (carica del
+nucleone nello stato finale, 1 o 0 rispettivamente) e $t$
+(tempo di vita della $\Lambda^0$).
+
+La teoria (confermata dagli esperimenti) richiede che la
+legge di decadimento sia la stessa per entrambi gli stati
+finali, ovvero esponenziale con la stessa vita media%
+\index{vita media}
+$\tau$; e che il cosiddetto \emph{branching ratio},%
+\index{branching ratio}
+cio\`e il rapporto delle probabilit\`a di decadimento nei
+due canali citati, sia indipendente dal tempo di vita e
+valga
+\begin{equation*}
+  \frac{\Pr \left( \Lambda^0 \to p + \pi^- \right)}{\Pr
+    \left( \Lambda^0 \to n + \pi^0 \right)} = 2 \peq .
+\end{equation*}
+
+In altre parole, le probabilit\`a marginali e condizionate
+per le due variabili (una discreta, l'altra continua) devono
+essere: per la $c$
+\begin{align*}
+  g(1) &= g(1|t) = \frac{2}{3} &&\text{e} &
+  g(0) &= g(0|t) = \frac{1}{3}
+\end{align*}
+o, in maniera compatta,
+\begin{gather*}
+  g(c) = g(c|t) = \frac{c + 1}{3} \peq ; \\
+  \intertext{per il tempo di vita $t$,}
+  h(t) = h(t|0) = h(t|1) = \frac{1}{\tau} \, e^{-
+    \frac{t}{\tau} } \peq .
+  \intertext{La probabilit\`a congiunta delle due variabili
+    casuali \`e, infine,}
+  f(c, t) = g(c) \cdot h(t) = \frac{c + 1}{3 \tau} \, e^{-
+    \frac{t}{\tau} } \peq .
+\end{gather*}
+
+\subsection[Applicazione: il decadimento debole
+  $K^0_{e3}$]{Applicazione: il decadimento debole
+  $\boldsymbol{K}^{\boldsymbol{0}}_{\boldsymbol{e3}}$}
+I decadimenti $K^0_{e3}$ consistono nei due processi deboli
+di decadimento del mesone $K^0$
+\begin{align*}
+  K^0 &\to e^- + \pi^+ + \bar \nu_e &&\text{e} & K^0 &\to
+  e^+ + \pi^- + \nu_e \peq ;
+\end{align*}
+essi possono essere descritti dalle due variabili casuali
+$c$ (carica dell'elettrone nello stato finale, $c = \mp 1$)
+e $t$ (tempo di vita del $K^0$).  La teoria, sulla base
+della cosiddetta ``ipotesi $\Delta Q = \Delta S$''), prevede
+che la funzione di frequenza congiunta sia
+\begin{gather}
+  f(t, c) = \frac{ N(t, c) }{ \sum_c \int_0^{+\infty}  N(t,
+    c) \, \de t} \notag \\
+  \intertext{ove si \`e indicato con $N(t,c)$ la funzione}
+  N(t, c) = e^{- \lambda_1 t} + e^{- \lambda_2 t} + 2 c
+  \cos(\omega t) \, e^{- \frac{\lambda_1 + \lambda_2}{2} \,
+    t} \peq : \label{eq:7.kappae3}
+\end{gather}
+nella \eqref{eq:7.kappae3}, le costanti $\lambda_1$ e
+$\lambda_2$ rappresentano gli inversi delle vite medie dei
+mesoni $K^0_1$ e $K^0_2$, mentre $\omega$ corrisponde alla
+differenza tra le loro masse.
+
+Si vede immediatamente che la \eqref{eq:7.kappae3} non \`e
+fattorizzabile: quindi le due variabili \emph{non sono} tra
+loro indipendenti.  In particolare, le probabilit\`a
+marginali sono date dalla
+\begin{align*}
+  h(t) &= \frac{\lambda_1 \, \lambda_2}{\lambda_1 +
+    \lambda_2} \, \left( e^{- \lambda_1 t} + e^{- \lambda_2
+      t} \right) \\
+  \intertext{e dalla}
+  g(c) &=  \frac{1}{2} + \frac{4 \, c \, \lambda_1
+    \lambda_2}{( \lambda_1 + \lambda_2 )^2 + 4 \omega^2}
+  \peq ;
+\end{align*}
+mentre le probabilit\`a condizionate sono, da definizione,
+la
+\begin{align*}
+  h(t|c) &= \frac{ f(t, c) }{ g(c) } &&\text{e la} &
+  g(c|t) &= \frac{ f(t, c) }{ h(t) } \peq .
+\end{align*}
+
+\subsection{Ancora sui valori estremi di un campione}%
+\index{campione!valori estremi|(}%
+\label{ch:7.estremi}
+Come esempio, e ricordando il paragrafo \ref{ch:6.estremi},
+calcoliamo la densit\`a di probabilit\`a congiunta dei due
+valori estremi $x_1$ e $x_N$ di un campione \emph{ordinato}
+e di dimensione $N$; questo sotto l'ipotesi che i dati
+appartengano a una popolazione avente funzione di frequenza
+$f(x)$ e funzione di distribuzione $F(x)$ entrambe note.
+
+$x_1$ pu\`o provenire dal campione a disposizione in $N$
+maniere distinte; una volta noto $x_1$, poi, $x_N$ pu\`o
+essere scelto in $(N-1)$ modi diversi; e, infine, ognuno dei
+dati restanti \`e compreso tra $x_1$ e $x_N$: e questo
+avviene con probabilit\`a $\bigl[ F(x_N) - F(x_1) \bigr]$.
+Ripetendo i ragionamenti del paragrafo \ref{ch:6.estremi},
+si ricava
+\begin{equation} \label{eq:7.estremi}
+  f(x_1, x_N) \; = \; N \, (N - 1) \, \bigl[ F(x_N) - F(x_1)
+  \bigr]^{N - 2} \, f(x_1) \, f(x_N)
+\end{equation}
+che \emph{non \`e fattorizzabile}: quindi i valori minimo e
+massimo di un campione \emph{non} sono indipendenti tra
+loro.  Introducendo le variabili ausiliarie
+\begin{align*}
+  &\begin{cases}
+    \displaystyle \xi = N \cdot F(x_1) \\[1ex]
+    \displaystyle \eta = N \cdot \bigl[ 1 - F(x_N) \bigr]
+  \end{cases}
+  &&\text{con}
+  &&\begin{cases}
+    \displaystyle \de \xi = N \, f(x_1) \: \de x_1
+    \\[1ex]
+    \displaystyle \de \eta = - N \, f(x_N) \: \de x_N
+  \end{cases}
+\end{align*}
+ed essendo $F(x_N) - F(x_1)$ identicamente uguale a $1 -
+\bigl[ 1 - F(x_N) \bigr] - F(x_1)$, dalla
+\eqref{eq:7.estremi} si ricava
+\begin{gather*}
+  f(\xi, \eta) \; = \; \frac{N-1}{N} \, \left( 1 -
+    \frac{\xi + \eta}{N} \right)^{N - 2} \\
+  \intertext{che, ricordando il limite notevole}
+  \lim_{x \to +\infty} \left( 1 + \frac{k}{x} \right)^x \; =
+  \; e^k \peq , \\
+  \intertext{asintoticamente diventa}
+  f(\xi, \eta) \quad \xrightarrow{\quad N \to \infty \quad}
+  \quad e^{- \left( \xi + \eta \right)} \; \equiv \; e^{-
+    \xi} \, e^{- \eta} \peq .
+\end{gather*}
+Quindi $\xi$ ed $\eta$ (come anche di conseguenza $x_1$ e
+$x_N$) sono statisticamente indipendenti \emph{solo
+  asintoticamente}, all'aumentare indefinito della
+dimensione del campione.%
+\index{campione!valori estremi|)}
+
+\section{Cenni sulle variabili casuali in pi\`u di due
+  dimensioni}%
+\index{probabilit\`a!densit\`a di|(}
+Estendendo a spazi cartesiani a pi\`u di due dimensioni il
+concetto di densit\`a di probabilit\`a, possiamo pensare di
+associare ad un evento casuale $E$ descritto da $N$
+variabili continue $x_1, x_2, \ldots, x_N$ una funzione $f$
+di tutte queste variabili; la probabilit\`a che,
+simultaneamente, ognuna di esse cada in un intervallo
+infinitesimo attorno ad un determinato valore sar\`a poi
+data da
+\begin{equation*}
+  \de P = f(x_1, x_2,\ldots, x_N) \, \de x_1 \, \de x_2
+    \cdots \de x_N \peq .
+\end{equation*}%
+\index{probabilit\`a!densit\`a di|)}
+
+Usando la legge della probabilit\`a totale e la definizione
+dell'operazione di integrazione, \`e poi immediato
+riconoscere che la probabilit\`a dell'evento casuale
+consistente nell'essere ognuna delle $x_i$ compresa in un
+determinato intervallo finito $[a_i, b_i]$ \`e data da
+\begin{equation*}
+  P = \int_{a_1}^{b_1} \! \de x_1 \int_{a_2}^{b_2} \!
+    \de x_2 \, \cdots \int_{a_N}^{b_N} \! \de x_N \cdot
+    f(x_1, x_2,\ldots, x_N) \peq .
+\end{equation*}
+
+\index{probabilit\`a!funzione marginale|(emidx}%
+Similmente, poi, se consideriamo il sottoinsieme delle prime
+$M$ variabili $x_i$ (con $M < N$), la probabilit\`a che
+ognuna di esse cada all'interno di intervallini infinitesimi
+attorno ad una $M$-pla di valori prefissati,
+\emph{indipendentemente} dal valore assunto dalle altre
+$N-M$ variabili, \`e data da
+\begin{align*}
+  \de P &\equiv f^M (x_1,\ldots,x_M) \, \de x_1 \,
+    \cdots \de x_M \\[1ex]
+  &= \de x_1 \cdots \de x_M
+    \int_{-\infty}^{+\infty} \! \de x_{M+1}
+    \int_{-\infty}^{+\infty} \! \de x_{M+2} \cdots
+    \int_{-\infty}^{+\infty} \! \de x_N \cdot
+    f(x_1, x_2,\ldots, x_N)
+\end{align*}
+dove gli integrali definiti sulle $N-M$ variabili che non
+interessano si intendono estesi a tutto l'asse reale;
+potendosi senza perdere in generalit\`a assumere che tale
+sia il loro dominio di esistenza, definendo eventualmente la
+$f$ come identicamente nulla al di fuori del reale
+intervallo di variabilit\`a se esse fossero limitate.
+
+La $f^M$ definita dalla equazione precedente prende il nome
+di \emph{densit\`a di probabilit\`a marginale} delle $M$
+variabili casuali $x_1,\ldots,x_M$;%
+\index{probabilit\`a!funzione marginale|)}
+infine la condizione di normalizzazione si scriver\`a
+\begin{equation*}%
+\index{normalizzazione!condizione di}
+  \int_{-\infty}^{+\infty} \! \de x_1
+    \int_{-\infty}^{+\infty} \! \de x_2 \, \cdots
+    \int_{-\infty}^{+\infty} \! \de x_N \cdot
+    f(x_1, x_2,\ldots, x_N) = 1 \peq .
+\end{equation*}
+
+\index{probabilit\`a!condizionata|(}%
+Definendo, analogamente a quanto fatto nel paragrafo
+\ref{ch:7.bidim}, la densit\`a di probabilit\`a delle $M$
+variabili casuali $x_j$ (con $j=1, 2,\ldots ,M$ e $M<N$)
+\emph{condizionata} dai valori assunti dalle restanti $N-M$
+variabili attraverso la
+\begin{equation} \label{eq:6.procas}
+  f(x_1, x_2,\ldots,x_M | x_{M+1}, x_{M+2},\ldots,x_N)
+  = \frac{f(x_1, x_2,\ldots,x_N)}{f^M(x_{M+1},
+  x_{M+2},\ldots,x_N)}
+\end{equation}%
+\index{probabilit\`a!condizionata|)}%
+\index{statistica!indipendenza|(}%
+il concetto di indipendenza statistica pu\`o facilmente
+essere generalizzato a \emph{sottogruppi} di variabili:
+diremo che le $M$ variabili $x_j$ sono statisticamente
+indipendenti dalle restanti $N - M$ quando la probabilit\`a
+che le $x_1, x_2, \ldots, x_M$ assumano determinati valori
+non dipende dai valori assunti dalle $x_{M+1}, x_{M+2},
+\ldots, x_N$ --- e dunque quando la densit\`a condizionata
+\eqref{eq:6.procas} \`e identicamente uguale alla densit\`a
+marginale $f^M(x_1, x_2,\ldots,x_M)$.
+
+Esaminando la \eqref{eq:6.procas} si pu\`o facilmente capire
+come, perch\'e questo avvenga, occorra e basti che la
+densit\`a di probabilit\`a complessiva sia
+\emph{fattorizzabile} nel prodotto di due termini: il primo
+dei quali sia funzione solo delle prime $M$ variabili ed il
+secondo dei quali dipenda soltanto dalle altre $N-M$;
+ovviamente ognuno dei fattori coincide con le probabilit\`a
+marginali, per cui la condizione \`e espressa
+matematicamente dalla formula
+\begin{gather}
+  f(x_1,\ldots, x_N) = f^M (x_1,\ldots, x_M) \cdot
+    f^M(x_{M+1},\ldots, x_N) \notag \\
+  \intertext{e, in particolare, le variabili sono
+    \emph{tutte} indipendenti tra loro se e solo se
+    risulta}
+  f(x_1, x_2,\ldots, x_N) = f^M (x_1) \cdot f^M (x_2)
+    \cdots f^M (x_N) \peq . \label{eq:6.instmu}
+\end{gather}%
+\index{statistica!indipendenza|)}
+
+\index{cambiamento di variabile casuale|(}%
+Nel caso che esista un differente insieme di $N$ variabili
+$y_i$ in grado di descrivere lo stesso fenomeno casuale $E$,
+il requisito che la probabilit\`a di realizzarsi di un
+qualunque sottoinsieme dei possibili risultati (l'integrale
+definito, su una qualunque regione $\Omega$ dello spazio ad
+$N$ dimensioni, della funzione densit\`a di probabilit\`a)
+sia invariante per il cambiamento delle variabili di
+integrazione, porta infine a ricavare la formula di
+trasformazione delle densit\`a di probabilit\`a per il
+cambiamento di variabili casuali nel caso multidimensionale:
+\begin{equation} \label{eq:6.cavamu}
+  f(y_1, y_2,\ldots ,y_N) = f(x_1, x_2,\ldots, x_N)
+    \cdot \left| \frac{\partial (x_1, x_2,\ldots
+    ,x_N)}{\partial (y_1, y_2,\ldots ,y_N)} \right|
+\end{equation}
+dove con il simbolo
+\begin{gather*}
+  \left| \frac{\partial (x_1, x_2,\ldots
+    ,x_N)}{\partial (y_1, y_2,\ldots ,y_N)} \right| \\
+  \intertext{si \`e indicato il valore assoluto del
+    determinante Jacobiano%
+    \index{Jacobiano, determinante|emidx}
+    delle $x$ rispetto alle $y$:}
+  \frac{\partial (x_1, x_2,\ldots
+    ,x_N)}{\partial (y_1, y_2,\ldots ,y_N)} =
+    \det \left\|
+      \begin{array}{cccc}
+        \dfrac{\partial x_1}{\partial y_1} &
+          \dfrac{\partial x_1}{\partial y_2} & \cdots &
+          \dfrac{\partial x_1}{\partial y_N} \\[2ex]
+        \dfrac{\partial x_2}{\partial y_1} &
+          \dfrac{\partial x_2}{\partial y_2} & \cdots &
+          \dfrac{\partial x_2}{\partial y_N} \\[2ex]
+        \cdots & \cdots & \cdots & \cdots \\[1ex]
+        \dfrac{\partial x_N}{\partial y_1} &
+          \dfrac{\partial x_N}{\partial y_2} & \cdots &
+          \dfrac{\partial x_N}{\partial y_N}
+      \end{array}
+    \right\| \\
+  \intertext{che esiste sempre non nullo se la
+    trasformazione tra l'insieme delle funzioni $x_i$ e
+    quello delle funzioni $y_i$ \`e biunivoca; e che
+    gode, sempre in questa ipotesi, della propriet\`a che}
+  \frac{\partial (y_1, y_2,\ldots
+    ,y_N)}{\partial (x_1, x_2,\ldots ,x_N)} =
+    \left[ \frac{\partial (x_1, x_2,\ldots
+    ,x_N)}{\partial (y_1, y_2,\ldots ,y_N)} \right]^{-1} \peq
+    .
+\end{gather*}%
+\index{cambiamento di variabile casuale|)}
+
+\endinput

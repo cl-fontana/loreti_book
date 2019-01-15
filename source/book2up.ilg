@@ -1,0 +1,7 @@
+This is makeindex, version 2.14 [02-Oct-2002] (kpathsea + Thai support).
+Scanning style file ./book.ist.....done (5 attributes redefined, 0 ignored).
+Scanning input file book2up.idx....done (521 entries accepted, 0 rejected).
+Sorting entries.......done (5093 comparisons).
+Generating output file book2up.ind....done (339 lines written, 0 warnings).
+Output written in book2up.ind.
+Transcript written in book2up.ilg.

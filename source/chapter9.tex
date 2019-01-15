@@ -1,0 +1,1015 @@
+% $Id: chapter9.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{La legge di Gauss}
+Vogliamo ora investigare sulla distribuzione dei risultati
+delle misure ripetute di una grandezza fisica, nell'ipotesi
+che esse siano affette da errori esclusivamente
+casuali\/\footnote{Il primo ad intuire la forma e
+  l'equazione della distribuzione normale fu Abraham de
+  Moivre%
+  \index{de Moivre!Abraham}
+  nel 1733, che la deriv\`o dalla distribuzione binomiale
+  facendo uso della formula di Stirling per il fattoriale;
+  fu poi studiata da Laplace,%
+  \index{Laplace!Pierre Simon de}
+  ma la teoria completa \`e dovuta a Gauss.}.
+
+\section{La funzione di Gauss}%
+\index{distribuzione!normale|(emidx}%
+\label{ch:9.fungau}
+Dall'esame di molte distribuzioni sperimentali di valori
+ottenuti per misure ripetute in condizioni omogenee, si
+possono astrarre due propriet\`a generali degli errori
+casuali:
+\begin{itemize}
+\item La probabilit\`a di ottenere un certo scarto dal
+  valore vero deve essere funzione del modulo di tale scarto
+  e non del suo segno, se valori in difetto ed in eccesso
+  rispetto a quello vero si presentano con uguale
+  probabilit\`a; in definitiva la distribuzione degli scarti
+  deve essere \emph{simmetrica rispetto allo zero}.
+\item La probabilit\`a di ottenere un certo scarto dal
+  valore vero (in modulo) deve essere \emph{decrescente} al
+  crescere di tale scarto e \emph{tendere a zero} quando
+  esso tende all'infinito; questo perch\'e deve essere pi\`u
+  probabile commettere errori piccoli che errori grandi, ed
+  infinitamente improbabile commettere errori infinitamente
+  grandi.
+\end{itemize}
+
+A queste due ipotesi sulla distribuzione delle misure
+affette da errori puramente casuali se ne pu\`o aggiungere
+una terza, valida per \emph{tutte} le distribuzioni di
+probabilit\`a; la condizione di normalizzazione,%
+\index{normalizzazione!condizione di}
+ossia l'equazione \eqref{eq:6.connor} di cui abbiamo gi\`a
+parlato prima:
+\begin{itemize}
+\item L'area compresa tra la curva densit\`a di
+  probabilit\`a dello scarto e l'asse delle ascisse, da
+  $-\infty$ a $+\infty$, deve valere 1.
+\end{itemize}
+
+Da queste tre ipotesi e dal principio della media
+aritmetica, Gauss\/\footnote{Karl Friedrich Gauss fu senza
+  dubbio la maggiore personalit\`a del primo 800 nel campo
+  della fisica e della matematica; si occup\`o di teoria dei
+  numeri, analisi, geometria analitica e differenziale,
+  statistica e teoria dei giochi, geodesia, elettricit\`a e
+  magnetismo, astronomia e ottica.  Visse a G\"ottingen dal
+  1777 al 1855 e, nel campo di cui ci stiamo occupando,
+  teorizz\`o (tra le altre cose) la funzione normale ed il
+  metodo dei minimi quadrati, quest'ultimo (studiato anche
+  da Laplace) all'et\`a di soli 18 anni.}%
+\index{Laplace!Pierre Simon de}%
+\index{Gauss, Karl Friedrich|emidx}
+dimostr\`o in modo euristico che la distribuzione degli
+scarti $z$ delle misure affette da errori casuali \`e data
+dalla funzione
+\begin{equation} \label{eq:9.gauss}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    f(z) = \dfrac{h}{\sqrt{\pi}}
+    \, e^{-h^2 z^2} \quad }
+\end{equation}
+che da lui prese il nome (\emph{funzione di Gauss} o
+\emph{legge normale} di distribuzione degli errori).  Si
+deve originalmente a Laplace%
+\index{Laplace!Pierre Simon de}
+una prova pi\`u rigorosa ed indipendente dall'assunto della
+media aritmetica; una versione semplificata di questa
+dimostrazione \`e data nell'appendice \ref{ch:d.applap}.
+
+La funzione di Gauss ha una caratteristica forma a campana:
+simmetrica rispetto all'asse delle ordinate (di equazione
+$z=0$), decrescente man mano che ci si allontana da esso sia
+nel senso delle $z$ positive che negative, e tendente a $0$
+per $z$ che tende a $\pm \infty$; cos\`\i\ come richiesto
+dalle ipotesi di partenza.
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{trigau.pstex_t}
+  } \end{center}
+  \caption[Dipendenza da $h$ della distribuzione di Gauss]
+    {La funzione di Gauss per tre diversi
+    valori di $h$.}
+  \label{fig:9.gauss}
+\end{figure}
+
+Essa dipende da un parametro $h>0$ che prende il nome di
+\emph{modulo di precisione}%
+\index{modulo di precisione della misura|emidx}
+della misura: infatti quando $h$ \`e piccolo la funzione \`e
+sensibilmente diversa da zero in una zona estesa dell'asse
+delle ascisse; mentre al crescere di $h$ l'ampiezza di tale
+intervallo diminuisce, e la curva si stringe sull'asse delle
+ordinate (come si pu\`o vedere nella figura
+\ref{fig:9.gauss}).
+
+\section{Propriet\`a della legge normale}
+Possiamo ora, come gi\`a anticipato nei paragrafi
+\ref{ch:4.medpes} e \ref{ch:6.mevaco}, determinare il valore
+medio di una qualsiasi grandezza $W(z)$ legata alle misure,
+nel limite di un numero infinito di misure effettuate;
+questo valore medio sappiamo dall'equazione
+\eqref{eq:6.mevaco} che si dovr\`a ricavare calcolando
+l'integrale
+\begin{equation*}
+  \int_{- \infty}^{+ \infty} \! W(z) \cdot f(z) \, \de
+    z
+\end{equation*}
+dove per $f(z)$ si intende la funzione densit\`a di
+probabilit\`a dello scarto dal valore vero, che supporremo
+qui essere la distribuzione normale \eqref{eq:9.gauss}.
+
+Se vogliamo ad esempio calcolare il valore medio dello
+scarto $z$, questo \`e dato dalla
+\begin{equation*}
+  E(z) \; = \; \frac{h}{\sqrt{\pi}}
+  \int_{- \infty}^{+ \infty} \!
+  z \, e^{-h^2 z^2} \, \de z \; = \; 0 \peq .
+\end{equation*}
+
+Il risultato \`e immediato considerando che $f(z)$ \`e una
+funzione simmetrica mentre $z$ \`e antisimmetrica: in
+definitiva, ad ogni intervallino centrato su un dato valore
+$z>0$ possiamo associarne uno uguale centrato sul punto
+$-z$, in cui il prodotto $z \, f(z) \, \de z $ assume valori
+uguali in modulo ma di segno opposto; cos\`\i\ che la loro
+somma sia zero.  Essendo poi
+\begin{equation*}
+  E(z) \; = \; E \left( x - x^* \right) \; = \;
+  E(x) - x^*
+\end{equation*}
+abbiamo cos\`\i\ \emph{dimostrato} quanto assunto nel
+paragrafo \ref{ch:5.medcl}, ossia che
+\begin{quote}
+  \index{media!aritmetica!come stima del valore vero}%
+  \textit{Il valore medio della popolazione delle misure di
+    una grandezza fisica affette solo da errori casuali
+    esiste, e coincide con il valore vero della grandezza
+    misurata.}
+\end{quote}
+
+\index{errore!medio!della distribuzione normale}%
+Cerchiamo ora il valore medio del modulo dello scarto $ E
+\bigl( | z | \bigr) $:
+\begin{align*}
+  E \bigl( | z | \bigr) &=
+    \int_{- \infty}^{+ \infty} \! |z| \, f(z) \, \de z
+    \\[1ex]
+  &= 2 \int_0^{+ \infty} \! z \, f(z) \, \de z
+    \\[1ex]
+  &= \frac{2h}{\sqrt{\pi}} \int_0^{+\infty} \! z \,
+    e^{-h^2 z^2} \, \de z \\[1ex]
+  &= \frac{h}{\sqrt{\pi}} \int_0^{+\infty} \!
+    e^{-h^2 t} \, \de t \\[1ex]
+  &= - \frac{1}{h\sqrt{\pi}} \left[ e^{-h^2 t}
+     \right]_0^{+\infty} \\[1ex]
+  &= \frac{1}{h\sqrt{\pi}}
+\end{align*}
+dove si \`e eseguito il cambio di variabile $t=z^2$.
+
+Il valore medio del modulo degli scarti \`e quella grandezza
+che abbiamo definito come ``errore medio'': qui abbiamo
+ricavato la relazione tra l'errore medio di misure affette
+solo da errori casuali ed il modulo di precisione della
+misura $h$.%
+\index{errore!medio!della distribuzione normale}
+
+Il rapporto invece tra l'errore quadratico medio ed $h$ si
+trova calcolando il valore medio del quadrato degli scarti:%
+\index{errore!quadratico medio!della distribuzione normale|(emidx}
+\begin{align*}
+  E \bigl( z^2 \bigr) &= \frac{h}{\sqrt{\pi}}
+    \int_{-\infty}^{+\infty} \! z^2 \, e^{-h^2 z^2} \,
+    \de z \\[1ex]
+  &= \frac{1}{h^{2}\sqrt{\pi}}
+    \int_{-\infty}^{+\infty} \! t^2 \, e^{-t^2} \, \de
+    t \\[1ex]
+  &= - \, \frac{1}{2h^2 \sqrt{\pi}}
+    \int_{-\infty}^{+\infty} \! t \cdot \de \bigl(
+    e^{-t^2} \bigr) \\[1ex]
+  &= - \, \frac{1}{2h^2 \sqrt{\pi}} \, \left \{
+    \left[ t e^{-t^2} \right]_{-\infty}^{+\infty} \:
+    - \: \int_{-\infty}^{+\infty} \! e^{-t^2} \de t
+    \right \} \\[1ex]
+  &= \frac{1}{2h^2} \peq .
+\end{align*}
+
+Per giungere al risultato, per prima cosa si \`e effettuata
+la sostituzione di variabile $t=hz$; poi si \`e integrato
+per parti; ed infine si \`e tenuto conto del fatto che
+\begin{equation*}
+  \int_{-\infty}^{+\infty} \! e^{-t^2} \de t
+  \: = \: \sqrt{\pi}
+\end{equation*}
+come si pu\`o ricavare dalla condizione di normalizzazione
+della funzione di Gauss per il particolare valore $h=1$.
+
+Concludendo:
+\begin{quote}%
+  \index{errore!medio!della distribuzione normale|(}%
+  \index{modulo di precisione della misura|(}%
+  \begin{itemize}
+  \item \textit{Per misure affette da errori distribuiti
+      secondo la legge normale, il rapporto tra l'errore
+      quadratico medio $\sigma$ e l'errore medio $a$ vale}
+    \begin{equation*}
+      \frac{\sigma}{a} \: = \:
+      \sqrt{\frac{\pi}{2}} \: = \:
+      1.2533\ldots \peq .
+    \end{equation*}
+  \item \textit{Per misure affette da errori distribuiti
+      secondo la legge normale, l'errore quadratico medio ed
+      il modulo di precisione $h$ sono legati dalla}
+    \begin{equation*}
+      \sigma = \frac{1}{h\sqrt{2}} \peq .
+    \end{equation*}
+  \item \textit{L'errore medio ed il modulo di precisione
+      sono invece legati dalla}
+    \begin{equation*}
+      a = \frac{1}{h\sqrt{\pi}} \peq .
+    \end{equation*}
+  \end{itemize}%
+\end{quote}%
+\index{modulo di precisione della misura|)}%
+\index{errore!medio!della distribuzione normale|)}%
+\index{errore!quadratico medio!della distribuzione normale|)}
+
+Sostituendo nella \eqref{eq:9.gauss} il valore di $h$ in
+funzione di $\sigma$, la legge di Gauss si pu\`o quindi
+anche scrivere nella forma equivalente
+\begin{equation} \label{eq:9.sgauss}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    f(z) = \dfrac{1}{\sigma \sqrt{2\pi}}
+    \, e^{- \frac{z^2}{2 \sigma^2}} \quad }
+\end{equation}
+
+\section{Lo scarto normalizzato}%
+\index{scarto normalizzato|(}%
+\label{ch:9.scanor}
+Introduciamo in luogo dello scarto $z$ il risultato della
+misura $x$; questo \`e legato a $z$ dalla $ z=x-x^* $
+(relazione che implica anche $ \de z = \de x $).  In luogo
+del modulo di precisione $h$ usiamo poi l'errore quadratico
+medio $\sigma$; la funzione di Gauss \eqref{eq:9.sgauss} si
+pu\`o allora scrivere nella forma
+\begin{equation*}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    f(x) =
+    \dfrac{1}{\sigma \sqrt{2\pi}}
+    \, e^{\textstyle -\frac{1}{2} \left(
+        \frac{x - x^*}{\sigma} \right) ^2 } \quad }
+\end{equation*}
+
+Definiamo ora una nuova variabile $t$, legata alla $x$ dalla
+relazione
+\begin{align*}
+  t &= \frac{x - x^*}{ \sigma }
+  & &\Longrightarrow
+  & \de t &= \frac{\de x}{\sigma} \peq .
+\end{align*}
+
+Essa prende il nome di \emph{scarto normalizzato} della $x$;
+vogliamo trovare la funzione di frequenza $\varphi(t)$ della
+$t$ nell'ipotesi che la $x$ abbia distribuzione normale.
+Siano $x_1$ ed $x_2$ due qualunque valori della variabile
+$x$ (con $ x_1 < x_2$); sappiamo che
+\begin{equation} \label{eq:9.scnor1}
+  \Pr \Bigl( x \in \left[ x_1 , x_2 \right] \Bigr)
+  \; = \; \int_{x_1}^{x_2} \! f(x) \, \de x \; = \;
+  \frac{1}{\sigma \sqrt{2\pi}} \int_{x_1}^{x_2} \!
+  e^{\textstyle -\frac{1}{2} \left( \frac{x -
+  x^*}{\sigma} \right) ^2 } \de x \peq .
+\end{equation}
+Siano poi $t_1$ e $t_2$ i valori per la $t$ che
+corrispondono a $x_1$ e $x_2$; sar\`a
+\begin{equation} \label{eq:9.scnor2}
+  \Pr \Bigl( t \in \left[ t_1 , t_2 \right] \Bigr)
+  \; = \; \int_{t_1}^{t_2} \! \varphi(t) \, \de t \peq .
+\end{equation}
+
+Quando la $x$ \`e compresa nell'intervallo $ \left[ x_1 ,
+  x_2 \right] $, allora (e soltanto allora) la $t$ \`e
+compresa nell'intervallo $ \left[ t_1 , t_2 \right]$;
+pertanto la probabilit\`a che $x$ sia compresa in $ \left[
+  x_1 , x_2 \right] $ deve essere identicamente uguale alla
+probabilit\`a che $t$ sia compresa in $ \left[ t_1 , t_2
+\right] $.
+
+Eseguiamo sull'espressione \eqref{eq:9.scnor1} della
+probabilit\`a per $x$ un cambiamento di variabile,
+sostituendovi la $t$:
+\begin{equation} \label{eq:9.scnor3}
+  \Pr \Bigl( x \in \left[ x_1 , x_2 \right]
+  \Bigr) \; = \; \frac{1}{\sqrt{2\pi}}
+  \int_{t_1}^{t_2} \! e^{- \frac{1}{2}
+    t^2} \de t \peq .
+\end{equation}
+
+Confrontando le due espressioni \eqref{eq:9.scnor2} e
+\eqref{eq:9.scnor3} (che, ricordiamo, devono assumere lo
+stesso valore per \emph{qualunque} coppia di valori $x_1$ e
+$x_2$), si ricava immediatamente che deve essere
+\begin{equation} \label{eq:9.pscnor}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    \varphi(t) = \frac{1}{\sqrt{2\pi}} \,
+    e^{- \frac{1}{2} t^2} \quad }
+\end{equation}
+
+La cosa importante \`e che in questa espressione non
+compaiono n\'e l'errore quadratico medio $\sigma$ n\'e
+alcuna altra grandezza dipendente dal modo in cui la misura
+\`e stata effettuata, ma \emph{solo costanti}: in altre
+parole \emph{lo scarto normalizzato ha una distribuzione di
+  probabilit\`a indipendente dalla precisione della misura}.
+
+Di questa propriet\`a si fa uso, ad esempio, per comporre in
+un unico grafico campioni di misure aventi precisione
+diversa: se due osservatori misurano la stessa grandezza
+commettendo solo errori casuali, le distribuzioni delle loro
+misure saranno normali; ma se gli errori commessi sono
+diversi, raggruppando i due insiemi di osservazioni in un
+solo istogramma l'andamento di quest'ultimo non \`e
+gaussiano.
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{tremis.pstex_t}
+  } \end{center}
+  \caption[Istogrammi di dati con differente precisione]
+    {Gli istogrammi relativi a due campioni di
+    misure aventi differente precisione, e quello
+    relativo ai dati di entrambi i campioni.}
+\end{figure}
+Per\`o gli scarti normalizzati hanno la stessa legge di
+distribuzione per entrambi i misuratori, indipendentemente
+dall'entit\`a dei loro errori, e possono essere cumulati in
+un unico istogramma.
+
+Altra conseguenza dell'indipendenza da $\sigma$ della
+funzione di frequenza \eqref{eq:9.pscnor} di $t$, \`e che la
+probabilit\`a per una misura di avere scarto normalizzato
+compreso tra due valori costanti prefissati risulta
+indipendente dalla precisione della misura stessa; ad
+esempio si ha
+
+\begin{displaymath}
+  \begin{array}{lcccl}
+    \Pr \Bigl( t \in \left[ -1 , +1 \right] \Bigr) &
+      = & \dfrac{1}{\sqrt{2\pi}} \displaystyle \int
+      _{-1}^{+1} \! e^{
+      -\frac{t^{2}}{2}} \, \de t & = & 0.6827\ldots
+      \\[4ex]
+    \Pr \Bigl( t \in \left[ -2 , +2 \right] \Bigr) &
+      = & \dfrac{1}{\sqrt{2\pi}} \displaystyle \int
+      _{-2}^{+2} \! e^{
+      -\frac{t^{2}}{2}} \, \de t & = & 0.9545\ldots
+      \\[4ex]
+    \Pr \Bigl( t \in \left[ -3 , +3 \right] \Bigr) &
+      = & \dfrac{1}{\sqrt{2\pi}} \displaystyle \int
+      _{-3}^{+3} \! e^{
+      -\frac{t^{2}}{2}} \, \de t & = & 0.9973\ldots
+  \end{array}
+\end{displaymath}
+e, ricordando la relazione che intercorre tra $z$ e
+$t$, questo implica che risulti anche
+\begin{displaymath}
+  \begin{array}{lcccl}
+    \Pr \Bigl( z \in \left[ -\sigma , +\sigma \right]
+      \Bigr) & \equiv & \Pr \Bigl( t \in \left[ -1 ,
+      +1 \right] \Bigr) & \approx & 0.6827 \\[1ex]
+    \Pr \Bigl( z \in \left[ -2\sigma , +2\sigma \right]
+      \Bigr) & \equiv & \Pr \Bigl( t \in \left[ -2 ,
+      +2 \right] \Bigr) & \approx & 0.9545 \\[1ex]
+    \Pr \Bigl( z \in \left[ -3\sigma , +3\sigma \right]
+      \Bigr) & \equiv & \Pr \Bigl( t \in \left[ -3 ,
+      +3 \right] \Bigr) & \approx & 0.9973 \peq .
+  \end{array}
+\end{displaymath}%
+\index{scarto normalizzato|)}
+
+\index{errore!quadratico medio!della distribuzione normale|(}%
+Possiamo quindi far uso di una qualsiasi di queste relazioni
+per dare una \emph{interpretazione probabilistica}
+dell'errore quadratico medio:
+\begin{quote}
+  \begin{itemize}
+  \item \textit{Le misure affette da errori casuali (e
+      quindi normali) hanno una probabilit\`a del 68\% di
+      cadere all'interno di un intervallo di semiampiezza
+      $\sigma$ centrato sul valore vero della grandezza
+      misurata.}
+  \item \textit{L'intervallo di semiampiezza $\sigma$
+      centrato su di una misura qualsiasi di un campione ha
+      pertanto una probabilit\`a del 68\% di contenere il
+      valore vero, semprech\'e gli errori siano casuali e
+      normali.}
+  \end{itemize}
+\end{quote}
+
+\section[Il significato geometrico di $\sigma$]%
+{Il significato geometrico di $\boldsymbol{\sigma}$}
+Calcoliamo ora la derivata prima della funzione di
+Gauss, nella sua forma \eqref{eq:9.sgauss}:
+\begin{equation*}
+  \frac{\de f}{\de z} = - \, \frac{z}{\sqrt{2 \pi}
+    \, \sigma^3} \, e^{- \frac{z^2}{2 \sigma^2} } \peq .
+\end{equation*}
+
+La funzione $f(z)$ \`e crescente ($f'(z)>0$) quando $z$ \`e
+negativa, e viceversa; ha quindi un massimo per $z=0$, come
+d'altronde richiesto dalle ipotesi fatte nel paragrafo
+\ref{ch:9.fungau} per ricavarne la forma analitica.  La
+derivata seconda invece vale
+\begin{align*}
+  \frac{\de^2f}{\de z^2} &= - \, \frac{1}{
+    \sqrt{2 \pi} \, \sigma^3} \, e^{
+    - \frac{z^2}{2 \sigma^2} }
+    \, - \, \frac{z}{\sqrt{2 \pi} \, \sigma^3}
+    \, e^{- \frac{z^2}{2 \sigma^2} } \left( - \,
+    \frac{z}{\sigma^2} \right) \\[0.7ex]
+  &= \frac{1}{\sqrt{2 \pi} \, \sigma^3} \,
+    e^{-\frac{z^2}{2 \sigma^2} }
+    \left( \frac{z^2}{\sigma^2} -1 \right)
+\end{align*}
+e si annulla quando $z = \pm \sigma$.
+
+Da qui si pu\`o allora ricavare il \emph{significato
+  geometrico} dell'errore quadratico medio $\sigma$ in
+relazione alla distribuzione normale:
+\begin{quote}
+  \textit{L'errore quadratico medio $\sigma$ pu\`o essere
+    interpretato geometricamente come valore assoluto delle
+    ascisse dei due punti di flesso della curva di Gauss.}
+\end{quote}%
+\index{errore!quadratico medio!della distribuzione normale|)}%
+\index{distribuzione!normale|)}
+
+\section{La curva di Gauss nella pratica}
+Un campione di $N$ misure di una grandezza fisica con valore
+vero $x^*$, affette da soli errori casuali normali con
+errore quadratico medio $\sigma$, avr\`a media $\bar x$
+prossima a $x^*$ (sappiamo infatti che la varianza della
+media vale $ \sigma^2 / N $ e tende a zero al crescere di
+$N$), e varianza $s^2$ prossima a $\sigma^2$ (anche la
+varianza di $s^2$ tende a zero al crescere di $N$: vedi in
+proposito l'appendice \ref{ch:b.errvar}).
+
+Per $N$ abbastanza grande\/\footnote{Cosa si debba intendere
+  esattamente per ``abbastanza grande'' risulter\`a chiaro
+  dall'analisi dell'appendice \ref{ch:b.errvar}; normalmente
+  si richiedono almeno 30 misure, dimensione del campione
+  che corrisponde per $s$ ad un errore relativo di poco
+  superiore al 10\%.}  si pu\`o dunque assumere $ s \approx
+\sigma $ ed interpretare lo stesso scarto quadratico medio
+del campione $s$, in luogo di $\sigma$ (peraltro ignoto),
+come semiampiezza dell'intervallo di confidenza
+corrispondente ad una probabilit\`a del 68\%.
+
+\index{errori di misura!sistematici|(}%
+Purtroppo non \`e generalmente possibile capire,
+dall'andamento di un insieme di osservazioni, se fossero o
+meno presenti nella misura errori sistematici; un campione
+di misure ripetute, effettuate confrontando la lunghezza di
+un oggetto con un regolo graduato mal tarato, avr\`a
+distribuzione ancora normale: solo centrata attorno ad una
+media che non corrisponde al valore vero.
+
+Al contrario, se la distribuzione delle misure non \`e
+normale sicuramente c'\`e qualcosa di sospetto nei dati che
+stiamo esaminando; sorge quindi il problema di stimare se un
+insieme di dati ha o non ha distribuzione conforme alla
+funzione di Gauss (o meglio, di stimare con quale livello di
+probabilit\`a possa provenire da una distribuzione normale).
+
+Per far questo si pu\`o ricorrere ad alcune propriet\`a
+matematiche della curva: ad esempio, si possono calcolare
+l'errore medio e l'errore quadratico medio per verificare se
+il loro rapporto ha un valore vicino a quello teorico;
+oppure si pu\`o calcolare la frazione di dati che cadono tra
+$\bar x - s$ e $\bar x + s$ e confrontare il numero ottenuto
+con il valore teorico di 0.68.
+
+Il modo migliore di eseguire il confronto \`e per\`o quello
+che consiste nel disegnare assieme all'istogramma dei dati
+anche la curva teorica relativa; a questo livello il
+confronto pu\`o essere soltanto visuale, ma esistono metodi
+matematici (\emph{metodo del chi quadro};%
+\index{metodo!del $\chi^2$}
+si veda in proposito il paragrafo \ref{ch:12.comdadis}) che
+permettono di stimare con esattezza la probabilit\`a che i
+dati di un istogramma provengano da una data distribuzione,
+nel nostro caso quella normale.%
+\index{errori di misura!sistematici|)}
+
+\index{istogrammi!e curva normale|(}%
+Per sovraimporre la curva di Gauss ad un istogramma, occorre
+comunque moltiplicarne in ogni punto l'ordinata per un
+fattore costante.  L'altezza dell'istogramma \`e infatti in
+ogni intervallo data da
+\begin{equation*}
+  y_i = \frac{n_i \, A}{\Delta x_i}
+\end{equation*}
+dove $n_i$ \`e il numero di valori osservati nell'intervallo
+di centro $x_i$ ed ampiezza $\Delta x_i$, mentre $A$ \`e
+l'area del rettangolo corrispondente ad una osservazione.
+
+\index{normalizzazione!della funzione normale agli istogrammi|(}%
+Al tendere del numero $N$ di misure effettuate all'infinito,
+risulta
+\begin{align*}
+  \lim_{N \rightarrow \infty} \frac{n_i}{N} &=
+    \Pr \left( x_i - \frac{\Delta x_i}{2} \le x <
+    x_i + \frac{\Delta x_i}{2} \right) \\[1ex]
+  &= \frac{1}{\sigma \sqrt{2 \pi}}
+    \int_{x_i - \frac{\Delta x_i}{2}}^{x_i
+    + \frac{\Delta x_i}{2}} \! e^{- \frac{1}{2}
+    \left( \frac{ x - x^* }{ \sigma } \right)^2 } \de x
+\end{align*}
+e dunque
+\begin{equation*}
+  y_i \;\;\; \xrightarrow[\quad N \to \infty \quad] \;\;\;
+  \frac{N \, A}{\Delta x_i} \, \frac{1}{\sigma \sqrt{2 \pi}}
+  \int_{x_i - \frac{\Delta x_i}{2}}^{x_i +
+    \frac{\Delta x_i}{2}} \! e^{- \frac{1}{2}
+    \left( \frac{x - x^*}{\sigma} \right) ^2} \de x \peq .
+\end{equation*}
+
+Cio\`e l'altezza dell'istogramma, in ognuna delle classi di
+frequenza, tende al valore medio sull'intervallo
+corrispondente della funzione di Gauss moltiplicato per un
+fattore costante $NA$.  Allora la curva da sovrapporre
+all'istogramma sperimentale deve essere quella che
+corrisponde alla funzione
+\begin{equation*}
+  f(x) = \frac{NA}{s \sqrt{2\pi}} \,
+  e^{- \frac{1}{2} \left( \frac{x -
+    \bar x}{s} \right) ^2 }
+\end{equation*}
+(in luogo del valore vero $x^*$ e dell'errore quadratico
+medio $\sigma$, generalmente ignoti, si pongono le loro
+stime, $\bar x$ e $s$ rispettivamente, ottenute dal campione
+stesso); osserviamo che $f(x)$ sottende la stessa area $NA$
+dell'istogramma.
+
+Se gli intervalli hanno tutti la medesima ampiezza $\Delta
+x$, l'area del rettangolo elementare vale $A = \Delta x$,
+assumendo l'arbitraria unit\`a di misura per le ordinate
+pari all'altezza costante del rettangolo elementare, e la
+funzione diviene
+\begin{equation*}
+  f(x) = \frac{N \, \Delta x}{s \sqrt{2\pi}} \,
+  e^{- \frac{1}{2} \left( \frac{x -
+    \bar x}{s} \right) ^2 } \peq .
+\end{equation*}%
+\index{normalizzazione!della funzione normale agli istogrammi|)}%
+\index{istogrammi!e curva normale|)}
+
+Sempre per quel che riguarda le implicazioni ``pratiche''
+della legge normale di distribuzione degli errori, un altro
+punto sul quale gli studenti hanno frequentemente dei dubbi
+riguarda l'applicazione della funzione di Gauss a grandezze
+misurate s\`\i\ commettendo errori casuali, ma che siano per
+loro natura \emph{limitate}.  Ad esempio, una lunghezza \`e
+una grandezza fisica implicitamente non negativa: quindi la
+densit\`a di probabilit\`a associata ai particolari valori
+ottenibili $x$ dovrebbe essere identicamente nulla quando $x
+< 0$, mentre la funzione normale si annulla soltanto quando
+$x = \pm \infty$.  Affermare che i risultati della misura
+seguono la legge di Gauss sembra dunque una contraddizione.
+
+La risposta a questa obiezione \`e che la funzione di
+distribuzione della $x$ effettivamente \emph{non pu\`o
+  essere normale}: ma che la reale differenza tra la vera
+funzione di distribuzione e quella di Gauss \`e
+assolutamente trascurabile.  Facciamo un esempio pratico:
+supponiamo di voler misurare la dimensione del lato di un
+quaderno (di valore vero $20\un{cm}$) con un regolo graduato,
+e di commettere un errore di misura $\sigma = 1\un{mm}$; la
+probabilit\`a di trovare un risultato in un intervallo ampio
+$1\un{mm}$ appena alla sinistra dello zero secondo la legge
+normale vale
+\begin{equation*}
+  p \; \simeq \; \frac{1}{\sqrt{2 \pi}} \, e^{- \frac{1}{2}
+    \, 200^2} \; \approx \; 0.4 \, e^{-2 \times 10^4} \peq ;
+\end{equation*}
+quindi $\ln(p) \sim -2 \times 10^4$, e $\log_{10} (p) =
+\ln(p) \cdot \log_{10} (e) \sim -10^4$, mentre dovrebbe
+essere rigorosamente $p \equiv 0$.
+
+Per valutare le reali implicazioni di un valore di $p$ come
+quello che stiamo considerando, attualmente il numero di
+atomi presenti nell'universo si stima essere dell'ordine di
+$10^{79}$; mentre l'et\`a dell'universo stesso si stima in
+circa $10^{10}$ anni, ovvero dell'ordine di $10^{18}$
+secondi; se pensiamo ad un gruppo di misuratori in numero
+pari al numero di atomi nell'universo, ed ognuno dei quali
+esegua una misura al secondo, dovrebbe passare un tempo pari
+circa a 7 volte l'et\`a dell'universo stesso per ottenere un
+valore illegale qualora le misure seguissero veramente la
+legge di Gauss: quindi la differenza tra la funzione di
+distribuzione reale e quella ipotizzata \`e effettivamente
+trascurabile.
+
+\section{Esame dei dati}%
+\index{esame dei dati|(emidx}
+Talvolta nella misura si compiono errori non classificabili
+n\'e come casuali n\'e come sistematici: ad esempio, dopo
+aver misurato un angolo di un triangolo con un goniometro,
+si pu\`o riportare come valore un numero diverso scambiando
+tra di loro due cifre contigue.  La conseguenza sar\`a
+quella di ottenere per il risultato finale della misura (la
+somma degli angoli interni di un triangolo) un dato molto
+differente dagli altri, che si impone quindi alla nostra
+attenzione come \emph{sospetto}.
+
+Nasce quindi il desiderio di avere un criterio preciso in
+base al quale decidere se un dato possa o meno considerarsi
+\emph{sospetto}, ed essere in conseguenza eliminato.
+
+Normalmente la procedura consigliata \`e la seguente: dopo
+aver calcolato media e scarto quadratico medio, si eliminano
+dal campione i dati che differiscano da $\bar x$ per pi\`u
+di tre volte $s$.  Sappiamo infatti che valori che si
+trovino nella regione oltre $3 \sigma$ hanno probabilit\`a
+molto bassa di presentarsi (del tre per mille circa);
+bisogna comunque osservare che questo modo di procedere \`e
+giustificato \emph{solo} in presenza di un \emph{numero
+  piccolo} di dati.
+
+Se le misure effettuate sono in numero ad esempio di 60, ci
+si attende che (per fluttuazioni dovute esclusivamente al
+caso) solo 0.18 misure (praticamente: nessuna) differiscano
+dal valore medio, in modulo, per pi\`u di $3 \sigma$; se
+troviamo una (o pi\`u) misure di questo tipo, possiamo
+attribuire la loro presenza, piuttosto che ad una
+fluttuazione casuale, a cause d'errore del tipo di quelle
+considerate, quindi etichettarle come \emph{sospette} ed
+infine scartarle.
+
+Le cose cambiano se ci troviamo di fronte invece ad un
+milione di misure, per le quali ci aspettiamo che ben 3000
+cadano (per motivi perfettamente normali) al di fuori
+dell'intervallo di $3 \sigma$, e non possiamo quindi
+permetterci di scartare alcun dato particolare.%
+\index{esame dei dati|)}
+
+\section{Sommario delle misure dirette}
+Per concludere, dovendo effettuare delle misure
+dirette:
+\begin{quote}
+  \begin{itemize}
+  \item \textit{Bisogna considerare criticamente le
+      modalit\`a della misura e le formule usate, e
+      controllare le caratteristiche di costruzione e d'uso
+      degli strumenti per mettere in evidenza la
+      possibilit\`a di errori sistematici; se questi sono
+      presenti bisogna eliminarli: o cambiando gli
+      strumenti, o modificando le modalit\`a delle
+      operazioni da compiere, o correggendo opportunamente i
+      risultati.}
+  \item \textit{Potendo, bisogna effettuare misure ripetute:
+      perch\'e in questo caso sappiamo stimare
+      ragionevolmente l'errore commesso a partire dalle
+      misure stesse (se non \`e possibile effettuare misure
+      ripetute, si assumer\`a convenzionalmente come errore
+      l'inverso della sensibilit\`a dello strumento,
+      ovverosia la pi\`u piccola variazione della grandezza
+      indicata sulla scala di lettura); e bisogna
+      effettuarne quante pi\`u possibile per aumentare in
+      corrispondenza la validit\`a statistica dei nostri
+      risultati.}
+  \item \textit{Se il numero di misure effettuate \`e
+      basso\thinspace\footnote{``Basso'' si pu\`o ad esempio
+        considerare un numero di misure tale che il numero
+        atteso di eventi da scartare in base alla
+        distribuzione normale sia inferiore all'unit\`a.}
+      si scartano quei dati che differiscano dal valore
+      medio per pi\`u di 3 volte lo scarto quadratico medio
+      $s$.  Effettuata questa operazione si ricalcolano la
+      media $\bar x$ e lo scarto quadratico medio $s$, e si
+      ricava da quest'ultimo la stima dell'errore della
+      media $\sigma_{\bar x}$ costituita da $s_{\bar x} = s
+      / \sqrt{N} $.}
+  \item \textit{Come valore pi\`u verosimile per la
+      grandezza misurata si assume $\bar x$, e come errore
+      di questo valore $s_{\bar x}$; se le misure sono in
+      numero sufficiente e non si sono commessi errori
+      sistematici, il significato dell'errore \`e quello di
+      semiampiezza dell'intervallo di confidenza centrato
+      sulla media e avente probabilit\`a di includere il
+      valore vero pari al 68\%.}
+  \end{itemize}
+\end{quote}
+
+\section{Il teorema del limite centrale}%
+\index{limite centrale, teorema del|(}
+Fino ad ora abbiamo pi\`u volte sottolineato il fatto che un
+preciso significato (quello statistico) dell'errore
+quadratico medio pu\`o essere enunciato solo se la
+distribuzione delle misure effettuate \`e quella normale.
+
+Con riguardo alla media aritmetica delle misure, se queste
+seguono la legge normale e se, inoltre, sono statisticamente
+indipendenti tra loro, il teorema di pagina
+\pageref{th:8.colino} ci assicura che qualunque loro
+combinazione lineare (ed in particolare la media aritmetica)
+\`e ancora distribuita secondo la legge normale; ed
+all'errore della media $\sigma_{\bar x}$ si pu\`o quindi
+attribuire lo stesso significato statistico.
+
+Vogliamo ora ampliare questo discorso dimostrando un
+importantissimo teorema della statistica e discutendone le
+implicazioni:
+\begin{quote}
+  \textsc{Teorema (del limite centrale):} \textit{siano $N$
+    variabili casuali $x_i$, statisticamente indipendenti
+    tra loro e provenienti da una distribuzione avente
+    densit\`a di probabilit\`a ignota, della quale esistano
+    finite sia la media $\mu$ che la varianza $\sigma^2$;
+    sotto questa ipotesi, la distribuzione della media
+    aritmetica del campione, $\bar x$, tende asintoticamente
+    alla distribuzione normale con media $\mu$ e varianza
+    $\sigma^2/N$ al crescere di $N$.}
+\end{quote}
+
+Dimostreremo questo teorema facendo l'ipotesi, pi\`u
+restrittiva, che esistano i momenti della funzione di
+frequenza delle $x_i$ di qualunque ordine $k$ (esso pu\`o
+essere dimostrato, come si vede dall'enunciato, anche se
+esistono solamente i primi due); e partiamo dal fatto che,
+sotto le ipotesi su dette, la somma $S$ delle $N$ variabili
+casuali
+\begin{equation*}
+  S = \sum_{i=1}^N x_i
+\end{equation*}
+ha valore medio e varianza date dalle
+\begin{align*}
+  E(S) &= N \mu &&\text{e} & {\sigma_S}^2 &= N \sigma^2 \peq
+    .
+\end{align*}
+
+Inoltre, visto che i valori $x_i$ sono tra loro
+statisticamente indipendenti, possiamo applicare l'equazione
+\eqref{eq:6.fucacl} per trovare la funzione caratteristica
+della $S$, che vale
+\begin{align*}
+  \phi_S(t) &= \prod_{i=1}^N \phi_{x_i}(t) \\[1ex]
+  &= \bigl[ \phi_x(t) \bigr]^N
+\end{align*}
+visto che le $x_i$ hanno tutte la stessa distribuzione (e
+quindi la stessa funzione caratteristica).  Se consideriamo
+invece gli scarti $z_i = x_i - \mu$ delle $x_i$ dalla media,
+dalla \eqref{eq:6.fuccav} possiamo ricavare la funzione
+caratteristica della $z$:
+\begin{gather}
+  \phi_z(t) = e^{- i \mu t} \phi_x(t) \label{eq:9.phiz}
+    \\
+  \intertext{e, se esistono tutti i momenti fino a
+    qualsiasi ordine della $x$ (e in conseguenza anche
+    della $z$), la \eqref{eq:6.funcar1} implica}
+  \phi_z(t) \; = \; \sum_{k=0}^{\infty}
+    \frac{(it)^k}{k!} \, \lambda_k \; = \; 1 + 0 -
+    \frac{1}{2} \, t^2 \sigma^2 + \mathcal{O} \bigl( t^3
+    \bigr) \label{eq:9.phizsv}
+\end{gather}
+in cui i $\lambda_k$ sono i momenti della funzione di
+frequenza della $z$, i primi due dei quali valgono 0 e
+$\sigma^2$.
+
+Introduciamo infine la nuova variabile
+\begin{equation*}
+  y \; = \; \frac{S - E(S)}{\sigma_S} \; = \;
+    \frac{1}{\sigma \sqrt{N}} \, S -
+    \frac{N \mu}{\sigma \sqrt{N}} \; = \;
+    \frac{1}{\sigma \sqrt{N}} \sum_{i=1}^N \left( x_i -
+    \mu \right)
+\end{equation*}
+e indichiamo poi con $\phi_y(t)$ la funzione caratteristica
+della $y$; essendo quest'ultima lineare in $S$ abbiamo dalla
+\eqref{eq:6.fuccav} che
+\begin{align*}
+  \phi_y(t) &= e^{- i \, t \, \frac{N \, \mu}{\sigma
+    \sqrt{N}}} \cdot \phi_S \left( \frac{t}{\sigma
+    \sqrt{N}} \right) \\[1ex]
+  &= e^{- i \, t \, \frac{N \, \mu}{\sigma \sqrt{N}}}
+    \left[ \phi_x \left( \frac{t}{\sigma \sqrt{N}}
+    \right) \right]^N \\[1ex]
+  &= \left[ e^{- i \, \mu \, \frac{t}{\sigma \sqrt{N}}}
+    \cdot \phi_x \left( \frac{t}{\sigma \sqrt{N}}
+    \right) \right]^N \\[1ex]
+  &= \left[ \phi_z \left( \frac{t}{\sigma \sqrt{N}}
+    \right) \right]^N
+\end{align*}
+ricordando la \eqref{eq:9.phiz}.  Da qui, introducendo
+l'espressione \eqref{eq:9.phizsv} prima ottenuta per lo
+sviluppo di $\phi_z(t)$,
+\begin{align*}
+  \phi_y(t) &= \left[ 1 - \frac{1}{2} \, \frac{t^2}{N
+    \sigma^2} \, \sigma^2 + \mathcal{O} \left(
+    \frac{t^3}{N^{ \frac{3}{2}}} \right) \right]^N
+    \\[1ex]
+  &= \left[ 1 - \frac{t^2}{2 N} + \mathcal{O}
+    \left( N^{- \frac{3}{2} } \right) \right]^N
+\end{align*}
+e quando $N$ tende all'infinito
+\begin{equation*}
+  \lim_{N \to \infty} \phi_y(t) = e^{- \frac{t^2}{2}}
+\end{equation*}
+sfruttando il limite notevole
+\begin{equation} \label{eq:9.linote}
+  \lim_{x \to +\infty} \left( 1 + \frac{k}{x}
+    \right)^x \; = \; e^k
+\end{equation}
+(qui, appunto, $k = -t^2/2$).  Insomma la funzione
+caratteristica della $y$ tende a quella di una distribuzione
+normale di media zero e varianza 1: quindi la $S$ tende
+asintoticamente ad una distribuzione normale di media $N
+\mu$ e varianza $N \sigma^2$; e $\bar x = S / N$ tende
+asintoticamente ad una distribuzione normale di media $\mu$
+e varianza $\sigma^2 / N$.
+
+\index{media!aritmetica!come stima del valore vero|(}%
+Il teorema \`e di fondamentale importanza perch\'e non fa
+alcuna ipotesi sulla distribuzione delle variabili che
+compongono il campione (all'infuori del requisito
+dell'esistenza di media e varianza).  Con riguardo alle
+misure ripetute di una stessa grandezza fisica esso ci dice
+che, se anche la loro distribuzione non segue la legge di
+Gauss, \emph{purch\'e se ne abbia un numero sufficiente} il
+nostro risultato finale (la media aritmetica) tuttavia la
+segue ugualmente in modo approssimato: cos\`\i\ che l'errore
+della media conserva il consueto significato statistico (di
+semiampiezza dell'intervallo, centrato su $\bar x$, che
+contiene il valore vero con probabilit\`a costante
+prefissata del 68\%) anche se questo non \`e verificato per
+le singole misure.
+
+Da notare che il teorema del limite centrale implica una
+convergenza asintoticamente normale del valore medio del
+campione al valore medio della popolazione delle misure; per
+attribuire a quest'ultimo, come si \`e fatto nell'ultima
+frase, il significato di valore vero della grandezza
+misurata, si sottintende che le misure abbiano
+distribuzione, ancorch\'e di forma non specificata,
+simmetrica rispetto al valore vero $x^*$; insomma che errori
+per difetto e per eccesso siano ugualmente probabili.%
+\index{media!aritmetica!come stima del valore vero|)}%
+\index{limite centrale, teorema del|)}
+
+Incidentalmente, notiamo qui come il \emph{prodotto} di
+molte variabili casuali indipendenti debba avere un
+comportamento, indipendentemente dal tipo di distribuzione,
+asintoticamente tendente a quello di una distribuzione
+\emph{log-normale}.
+
+\subsection{Applicazione: numeri casuali normali}%
+\index{pseudo-casuali, numeri!con distribuzione normale|(}
+Siano gli $u_i$ (con $i=1,\ldots,N$) dei numeri provenienti
+da una popolazione $u$ distribuita uniformemente
+nell'intervallo $[0,1]$; abbiamo visto nel paragrafo
+\ref{ch:8.distun} che $E(u) = \frac{1}{2}$ e $\var(u) =
+\frac{1}{12}$.  La loro media aritmetica $\bar u$, in
+conseguenza del teorema del limite centrale, tende
+asintoticamente (al crescere di $N$) alla distribuzione
+normale con media $\frac{1}{2}$ e varianza $\frac{1}{12\cdot
+  N}$; quindi la loro somma $N \bar u$ \`e asintoticamente
+normale con media $\frac{N}{2}$ e varianza $\frac{N}{12}$;
+e, infine, la variabile casuale
+\begin{equation} \label{eq:9.nucaga}
+  x = \frac{\sum\limits_{i=1}^N u_i -
+    \dfrac{N}{2}}{\sqrt{\dfrac{N}{12}}}
+\end{equation}
+\`e asintoticamente normale con media 0 e varianza 1.
+
+Di questa propriet\`a si pu\`o far uso per ottenere da un
+computer dei numeri pseudo-casuali con distribuzione
+(approssimativamente) normale, a partire da altri numeri
+pseudo-casuali con distribuzione uniforme; in pratica
+l'approssimazione \`e gi\`a buona quando $N \gtrsim 10$, e
+scegliendo $N=12$ possiamo, ad esempio, porre semplicemente
+\begin{equation*}
+  x = \sum_{i=1}^{12} u_i - 6 \peq .
+\end{equation*}
+
+\`E da notare, comunque, che \textbf{non \`e} buona pratica
+servirsi di questo metodo: anche se la parte centrale della
+distribuzione normale \`e approssimata abbastanza bene, le
+code mancano totalmente (essendo impossibile che risulti
+$|x| > \sqrt{3N}$); l'effetto di questa mancanza, quando
+(come nelle analisi fisiche basate su metodi di Montecarlo)
+vengano richiesti numeri pseudo casuali per generare eventi
+simulati in quantit\`a dell'ordine di milioni almeno, \`e
+tale da invalidare completamente i risultati.
+
+Soprattutto, poi, generare numeri pseudo-casuali normali
+usando il teorema del limite centrale non \`e solo
+sbagliato, ma inutile: esistono altri metodi (come ad
+esempio quello di Box--Muller che discuteremo ora) che sono
+in grado di generare numeri pseudo-casuali con una
+\emph{vera} distribuzione normale usando, per il calcolo, un
+tempo non molto superiore a quello richiesto dalla
+\eqref{eq:9.nucaga}.
+
+\index{Box--Muller, metodo di|(}%
+Siano $x$ ed $y$ due variabili casuali \emph{statisticamente
+  indipendenti}, ed aventi distribuzione uniforme
+nell'intervallo $[0,1]$; consideriamo le altre due variabili
+casuali $u$ e $v$ definite attraverso le
+\begin{align} \label{eq:9.boxmul}
+  u &= \sqrt{-2 \ln x} \cdot \cos( 2 \pi y ) &&\text{e}
+  & v &= \sqrt{-2 \ln x} \cdot \sin( 2 \pi y ) \peq .
+\end{align}
+
+Queste funzioni si possono invertire, e risulta
+\begin{align*}
+  x &= e^{- \frac{1}{2} \left( u^2 + v^2
+  \right)} &&\text{e} & y &= \frac{1}{2 \pi} \, \arctan
+  \left( \frac{v}{u} \right)
+\end{align*}
+con derivate parziali prime date da
+\begin{equation*}
+  \begin{cases}
+    \displaystyle \frac{\partial x}{\partial u} = - \,
+      u \cdot e^{- \frac{1}{2} \left( u^2 + v^2
+      \right)} \\[2.5ex]
+    \displaystyle \frac{\partial x}{\partial v} = - \,
+      v \cdot e^{- \frac{1}{2} \left( u^2 + v^2
+      \right)}
+  \end{cases}
+\end{equation*}
+e da
+\begin{equation*}
+  \begin{cases}
+    \displaystyle \frac{\partial y}{\partial u} =
+      \frac{1}{2 \pi} \: \frac{1}{1 + \frac{v^2}{u^2}}
+      \left( - \, \frac{v}{u^2} \right) \\[3ex]
+    \displaystyle \frac{\partial y}{\partial v} =
+      \frac{1}{2 \pi} \: \frac{1}{1 + \frac{v^2}{u^2}}
+      \; \frac{1}{u}
+  \end{cases}
+\end{equation*}
+
+Il determinante Jacobiano%
+\index{Jacobiano, determinante}
+delle $(x,y)$ rispetto alle $(u,v)$ vale
+\begin{align*}
+  \frac{\partial (x, y)}{\partial (u, v)} & =
+    \frac{\partial x}{\partial u} \, \frac{\partial
+    y}{\partial v} - \frac{\partial x}{\partial v} \,
+    \frac{\partial y}{\partial u} \\[1ex]
+  &= - \, \frac{1}{2\pi} \, e^{- \frac{1}{2}
+    \left( u^2 + v^2 \right)}
+\end{align*}
+per cui, essendo la densit\`a di probabilit\`a congiunta
+delle due variabili casuali $x$ ed $y$ data dalla
+\begin{gather*}
+  f(x,y) = 1 \\
+  \intertext{e applicando la \eqref{eq:6.cavamu}, la
+    densit\`a di probabilit\`a congiunta della $u$ e
+    della $v$ \`e data da}
+  f(u,v) = \frac{1}{\sqrt{2\pi}}
+    e^{- \frac{1}{2} u^2} \cdot
+    \frac{1}{\sqrt{2\pi}} e^{- \frac{1}{2}
+    v^2}
+\end{gather*}
+e quindi, in conseguenza della \eqref{eq:6.instmu}, la $u$ e
+la $v$ sono due variabili casuali \emph{statisticamente
+  indipendenti} tra loro ed entrambe aventi funzione di
+frequenza data dalla \emph{distribuzione normale
+  standardizzata}; questo \`e appunto il metodo cosiddetto
+``di Box--Muller'' per la generazione di numeri
+pseudo-casuali con distribuzione normale, a partire da
+numeri pseudo-casuali con distribuzione uniforme.
+
+Una variante che consente di sveltire questo metodo (lento,
+perch\'e l'esecuzione delle funzioni logaritmo, seno e
+coseno consuma molto tempo di \textsc{cpu}) consiste nel
+generare dapprima due numeri pseudo-casuali $x'$ e $y'$
+distribuiti uniformemente tra i limiti $-1$ e $+1$; e
+nell'accettarli se $S = R^2 = {x'}^2 + {y'}^2 \leq 1$, in
+modo che il punto $P$ le cui coordinate essi rappresentano
+nel piano $\{ x', y' \}$ sia uniformemente distribuito entro
+il cerchio avente centro nell'origine $O$ e raggio unitario
+--- o nel rigettarli in caso contrario, ripetendo il passo
+precedente.
+
+Questa prima condizione in realt\`a \emph{rallenta} il
+procedimento, perch\'e la coppia di numeri a caso viene
+accettata con probabilit\`a $\frac{\pi}{4} \approx 78.5\%$;
+ma se, a questo punto, si usa al posto della $x$ nella
+\eqref{eq:9.boxmul} il valore di $S$ (che, come non \`e
+difficile dimostrare, \`e anch'esso distribuito
+uniformemente nell'intervallo $[0,1]$); e se si prende poi
+in luogo dell'angolo $2 \pi y$ l'angolo polare $\theta$ tra
+$\overline{OP}$ e l'asse delle $x'$, il calcolo risulta in
+definitiva molto pi\`u rapido: perch\'e il seno ed il coseno
+di $\theta$ si possono valutare come $y'/R$ ed $x'/R$
+rispettivamente, eseguendo il calcolo di una radice quadrata
+e due divisioni soltanto.%
+\index{Box--Muller, metodo di|)}%
+\index{pseudo-casuali, numeri!con distribuzione normale|)}
+
+\endinput

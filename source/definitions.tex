@@ -1,0 +1,103 @@
+% $Id: definitions.tex,v 1.2 2005/04/27 10:08:51 loreti Exp $
+
+\hyphenation{}
+\setlength{\unitlength}{1mm}
+
+\newcommand{\copyleft}{\reflectbox{\textcopyright}}
+
+% \ldots (with the other *dots macros) is redefined from amsmath.sty
+% in a way I don't like; here follows the old definition, from
+% latex.ltx
+
+\DeclareRobustCommand{\ldots}{\ifmmode\mathellipsis\else\textellipsis\fi}
+
+% "Right length and right position" overlined symbols: works for
+% symbols used in subscripts, superscripts or sizes different from
+% textstyle.
+%
+% - A first command \ob[size]{symbol} is intended for use in textstyle
+%   and displaystyle sizes only, both in math and text mode: the first
+%   parameter (the height of the overbar line) is optional and
+%   defaults to 0.48 pt; the second parameter is the (math) symbol to
+%   be overlined.
+% - A second command \overbar{symbol} is intended for use in math mode
+%   only; and scales appropriately for every text size and in sub- and
+%   superscripts.
+
+\newcommand{\ob}[2][0.48pt]{\setbox0=\hbox{\ensuremath{#2}}%
+  \dimen0=\ht0\advance\dimen0 by0.2ex%
+  \dimen3=0.17\ht0%
+  \dimen1=\wd0\advance\dimen1 by-\dimen3\advance\dimen1 by-0.02em%
+  \dimen2=\dimen1\advance\dimen2 by-0.03em%
+  \box0%
+  \kern-\dimen1\hbox{\rule[\dimen0]{\dimen2}{#1}}%
+}
+
+\newcommand{\overbar}[1]{{\mathchoice
+  {\displaystyle\ob{\displaystyle#1}}%
+  {\textstyle\ob{\textstyle#1}}%
+  {\scriptstyle\ob[0.36pt]{\scriptstyle#1}}%
+  {\scriptscriptstyle\ob[0.24pt]{\scriptscriptstyle#1}}}}
+
+% Definition of a command for "emphasis in the index"
+
+%\newcommand{\emidx}[1]{\textbf{\textit{#1}}}
+\newcommand{\emidx}[1]{\textbf{#1}}
+
+% Definition of a command that takes care of the "spacing for
+% punctuation at the end of equations"
+
+\newcommand{\peq}{\;\;}
+
+% Miscellaneous commands
+
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\cor}{Corr}
+\newcommand{\updot}{{\raisebox{1.2ex}{.}}}
+\newcommand{\gra}{\ensuremath{^\circ}}
+\newcommand{\de}{\mathrm{d}}
+
+% To insert space at top/bottom of tabular lines (written by Claudio
+% Beccari, beccari@polito.it)
+
+\newcommand{\tabtop}{\rule{0pt}{2.6ex}}
+\newcommand{\tabbot}{\rule[-1.2ex]{0pt}{0pt}}
+
+% (Code written by Donald Arseneau, asnd@reg.triumf.ca)
+% \un Put units after a number; e.g., 0.0821\un{l\,atm\,mol^{-1}\,K^{-1}}
+%     Use \, or space to put thin spaces between units (but spaces only
+%     work if they are not buried in inner braces).  Works in math and
+%     text mode. \un is fragile.
+
+\makeatletter
+\newmuskip\unitmuskip \unitmuskip=3mu plus 1mu minus 1mu
+\def\unitmskip{\penalty\@highpenalty \mskip\unitmuskip}
+\newcommand\un[1]{\leavevmode\unskip\penalty\@highpenalty
+  \ensuremath{\mskip\medmuskip
+  \begingroup \fam\z@ % limit \fam but not style changes
+  \let\,\unitmskip \unit@PreserveSpaces\@empty #1 \unit@PreserveSpaces
+  \endgroup}}
+\def\unit@PreserveSpaces#1 {#1\@ifnextchar\unit@PreserveSpaces{\@gobble}%
+  {\unitmskip \unit@PreserveSpaces\@empty}}
+\makeatother
+
+% Two commands, "daytime" and "thismonth", used for the preliminary
+% copies (in "preambolo.tex")
+
+\newcount\hour \newcount\minute
+\hour=\time \divide \hour by 60
+\minute=\time
+\count99=\hour \multiply \count99 by -60
+\advance \minute by \count99
+\newcommand{\daytime}{%
+  \ifnum\hour=0 00\else\ifnum\hour<10 0\fi\number\hour\fi:%
+  \ifnum\minute<10 0\fi\number\minute%
+}
+
+\newcommand{\thismonth}{%
+  \ifcase\month\or Gennaio\or Febbraio\or Marzo\or Aprile\or
+  Maggio\or Giugno\or Luglio\or Agosto\or Settembre\or Ottobre\or
+  Novembre\or Dicembre\fi}
+
+\endinput

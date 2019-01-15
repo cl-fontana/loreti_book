@@ -1,0 +1,1570 @@
+% $Id: chapter11.tex,v 1.2 2006/11/06 10:30:15 loreti Exp $
+
+\chapter{Stime di parametri}%
+\label{ch:11.teldat}
+In questo capitolo prenderemo in considerazione due speciali
+tecniche di elaborazione dei dati che sono utilizzate per
+stimare il valore di parametri ignoti dai quali le
+distribuzioni teoriche dipendono: la media pesata di
+determinazioni sperimentali aventi diversa precisione; e la
+valutazione dei parametri da cui dipende l'equazione di una
+curva che deve descrivere una relazione tra pi\`u variabili
+interconnesse e misurate indipendentemente (curva
+interpolante i dati sperimentali).
+
+Il metodo usato per la soluzione \`e, in entrambi i casi,
+quello della \emph{massima verosimiglianza} (introdotto
+originariamente da Fisher\/\footnote{Sir Ronald Fisher
+  nacque a Londra nel 1890 e mor\`\i\ ad Adelaide (in
+  Australia) nel 1962.  \`E considerato, per l'importanza
+  dei suoi lavori, uno dei fondatori della moderna
+  statistica: oltre al concetto di verosimiglianza
+  (\emph{likelihood} in inglese), introdusse per primo
+  l'analisi delle varianze e scoperse la forma analitica
+  delle funzioni di distribuzione di molte importanti
+  variabili casuali; dette poi importanti contributi ai
+  metodi per i piccoli campioni ed a quelli per la verifica
+  delle ipotesi.}%
+\index{Fisher, sir Ronald Aylmer|emidx}
+nel 1921); la prima parte del capitolo riguarder\`a appunto
+il problema della stima del valore dei parametri in
+generale, e questo metodo in particolare.
+
+\section{Stime e loro caratteristiche}%
+\index{stime|(}%
+\label{ch:11.sticar}
+Supponiamo che la densit\`a di probabilit\`a $f(x;\theta)$
+di una variabile casuale continua $x$ (che possa assumere
+tutti i valori dell'asse reale) dipenda da un parametro
+$\theta$, il cui valore vero $\theta^*$ ci sia ignoto; se si
+hanno a disposizione $N$ determinazioni sperimentali
+indipendenti $x_i$ della grandezza $x$, vogliamo trovare una
+funzione $\bar \theta = \bar \theta(x_1, x_2,\ldots,x_N)$
+che, a partire da esse, ci permetta di ricavare, nella
+maniera migliore possibile, un valore numerico da attribuire
+a $\theta^*$: le funzioni $\bar \theta$ di questo tipo si
+chiamano appunto \emph{stime}.
+
+Una stima \`e dunque una funzione di variabili casuali, e,
+pertanto, una variabile casuale essa stessa; potremo in
+conseguenza parlare del valore medio o della varianza di una
+particolare stima, intendendo cos\`\i\ riferirci alle
+caratteristiche della popolazione dei possibili valori
+restituiti dalla stima stessa in corrispondenza di tutti i
+possibili campioni che possono essere usati per calcolarla.
+
+Nella statistica, alle stime si possono associare svariate
+caratteristiche; la prima di esse (e la pi\`u importante)
+\`e la \textbf{consistenza}.  Una stima si dice
+\emph{consistente} quando converge (probabilisticamente) al
+valore vero del parametro, ossia quando
+\begin{equation*}
+  \lim_{N\to\infty} \bar \theta(x_1,x_2,\ldots,x_N) \; = \;
+    \theta^* \peq .
+\end{equation*}
+Ad esempio, il teorema di \v Ceby\v sef si pu\`o enunciare
+sinteticamente affermando che ``il valore medio di un
+campione \`e una stima consistente del valore medio della
+popolazione''.
+
+Una seconda caratteristica delle stime \`e la
+\textbf{distorsione}: una stima si dice \emph{indistorta}, o
+\emph{imparziale}, se mediamente coincide col valore vero
+del parametro; insomma se
+\begin{equation*}
+  E ( \bar \theta ) = \theta^* \peq .
+\end{equation*}
+Gi\`a sappiamo, dai paragrafi \ref{ch:5.vmclc} e
+\ref{ch:5.scedeqm} rispettivamente, che la media dei
+campioni \`e una stima indistorta del valore medio della
+popolazione; mentre la varianza del campione \`e una stima
+distorta, ancorch\'e consistente, della varianza della
+popolazione (a meno che non sia opportunamente corretta
+moltiplicandola per un fattore $N / (N-1)$).
+
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center}
+    \input{stime.pstex_t}
+  \end{center}
+  \caption[Stime consistenti ed inconsistenti, imparziali e
+  deviate]{Stime consistenti ed inconsistenti, imparziali
+    e deviate.}
+  \label{fig:11.stime}
+\end{figure}
+
+Nella figura \ref{fig:11.stime} sono riportati esempi di
+stime consistenti ed inconsistenti, distorte ed indistorte,
+per dare un'idea dell'andamento della densit\`a di
+probabilit\`a delle stime stesse all'aumentare delle
+dimensioni del campione.
+
+Una terza caratteristica delle stime \`e
+l'\textbf{efficienza}: diremo che una prima stima \`e pi\`u
+\emph{efficiente} di una seconda se la sua varianza \`e
+inferiore, e, quindi, se mediamente essa \`e pi\`u vicina al
+valore centrale $E( \bar \theta)$; che coincide con
+$\theta^*$ se la stima \`e anche imparziale.  Esiste un
+teorema (teorema di Cram\'er--Rao)%
+\index{Cram\'er--Rao, teorema di}
+del quale ci occuperemo sia pi\`u avanti nel corso di questo
+capitolo, sia in particolare nell'appendice
+\ref{ch:e.maxlik}; questo teorema dimostra l'esistenza di un
+limite inferiore per la varianza delle stime, e quindi di un
+limite superiore per la loro efficienza.
+
+Se abbiamo a disposizione, poi, $M$ stime differenti
+$\theta_j$ dello stesso parametro $\theta$, ogni campione di
+$N$ valori $x_i$ produrr\`a, attraverso l'applicazione di
+ognuna di tali stime, $M$ diversi valori per $\theta$.  Se
+ora indichiamo con $f$ la densit\`a di probabilit\`a
+congiunta di questi $M$ valori, risulter\`a in generale
+\begin{equation*}
+  f ( \theta_1, \theta_2,\ldots,\theta_M; \theta^* ) = f^M (
+    \theta_1; \theta^* ) \cdot \varphi( \theta_2,
+    \theta_3,\ldots,\theta_M; \theta^* | \theta_1 )
+\end{equation*}
+dove con $f^M ( \theta_1; \theta^* )$ abbiamo, al solito,
+indicato la funzione densit\`a di probabilit\`a marginale
+della sola $\theta_1$ (ovvero la densit\`a di probabilit\`a
+collegata al presentarsi di un certo valore per $\theta_1$
+indipendentemente da quello ottenuto per le altre stime);
+mentre $\varphi( \theta_2, \theta_3\ldots,\theta_M; \theta^*
+| \theta_1 )$ \`e la densit\`a di probabilit\`a di queste
+ulteriori $M-1$ stime condizionata dal valore della prima.
+
+\index{stima!sufficiente|(emidx}%
+Nel caso che $\varphi$ risulti \emph{indipendente} da
+$\theta^*$, la conseguenza che da questo fatto si deduce \`e
+che, una volta calcolata $\theta_1$, le altre stime
+sarebbero distribuite comunque nello stesso modo per
+\emph{qualunque} valore di $\theta^*$; esse non potrebbero
+quindi aggiungere nulla alla conoscenza gi\`a ottenuta sul
+valore del parametro $\theta$: ovverosia $\theta_1$
+\emph{sfrutta tutta l'informazione} sul parametro ignoto che
+\`e contenuta nei dati, ed in questo caso la stima
+$\theta_1$ si dice \textbf{sufficiente}.  Non \`e detto che
+una stima sufficiente per un certo parametro $\theta$
+esista; ma se ne esiste una, $\bar \theta$, allora ne
+esistono infinite: si pu\`o dimostrare infatti che ogni
+funzione monotona in senso stretto di $\bar \theta$ gode
+della stessa propriet\`a.%
+\index{stima!sufficiente|)}%
+\index{stime|)}
+
+\section{La stima di massima verosimiglianza}%
+\index{massima verosimiglianza, metodo della|(emidx}%
+\label{ch:11.maxver}
+Dato un campione di $N$ determinazioni \emph{indipendenti}
+$x_i$, l'espressione
+\begin{equation*}
+  \prod_{i=1}^N f(x_i; \theta^*)
+\end{equation*}
+rappresenta la densit\`a di probabilit\`a da associare
+all'evento casuale consistente nell'ottenere una determinata
+$N$-pla di valori, essendo $\theta^*$ il valore del
+parametro da cui la $f$ dipende.
+
+\index{funzione!di verosimiglianza|(emidx}%
+Se in questa espressione si sostituisce al valore vero (che
+avevamo supposto noto) $\theta^*$ il generico valore
+$\theta$; e se le $x_i$ non vengono considerate pi\`u
+variabili casuali, ma costanti che sono state determinate
+dalle nostre operazioni di misura, la funzione
+\begin{equation} \label{eq:11.funver}
+  \mathcal{L} ( x_1, x_2,\ldots, x_N; \theta ) =
+    \prod_{i=1}^N f(x_i; \theta)
+\end{equation}
+(\emph{funzione di verosimiglianza}) rappresenta la
+densit\`a di probabilit\`a da associare all'evento casuale
+consistente nell'essere un certo $\theta$ il valore vero del
+nostro parametro, nell'ipotesi di avere gi\`a ottenuto la
+particolare $N$-pla di valori sperimentali $x_1, x_2,\ldots,
+x_N$.%
+\index{funzione!di verosimiglianza|)}
+
+Il metodo della massima verosimiglianza consiste
+nell'adottare, come stima del parametro $\theta$, quel
+valore $\widehat \theta$ \emph{che rende massima} la
+funzione di verosimiglianza \eqref{eq:11.funver}; ovvero la
+soluzione delle
+\begin{align} \label{eq:11.eqver}
+  \frac{\de \mathcal{L}}{\de \theta} &= 0 &
+  \frac{\de^2 \mathcal{L}}{\de \theta^2} &< 0
+\end{align}
+(nel caso che le \eqref{eq:11.eqver} abbiano pi\`u di una
+soluzione, si sceglie quella che corrisponde al massimo
+assoluto).
+
+Visto che il logaritmo naturale \`e (essendo la base, $e$,
+maggiore di uno) una funzione monotona strettamente
+crescente dell'argomento, trovare il massimo di $\ln
+\mathcal{L}$ condurrebbe ancora a tutti e soli i valori che
+rendono massima $\mathcal{L}$; questo corrisponde al
+sostituire (essendo $\mathcal{L} > 0$), alla prima delle
+\eqref{eq:11.eqver}, l'equivalente
+\begin{equation*}
+  \frac{1}{\mathcal{L}} \, \frac{\de \mathcal{L}}{\de
+    \theta} \; = \; \frac{\de \, ( \ln \mathcal{L} )}{\de
+    \theta} \; = \; 0 \peq .
+\end{equation*}
+
+Enunciamo qui, senza dimostrarle, alcune propriet\`a
+fondamentali della stima di massima verosimiglianza:
+\begin{enumerate}
+\item La stima di massima verosimiglianza \`e una stima
+  \emph{asintoticamente consistente} al crescere della
+  dimensione del campione.
+\item La stima di massima verosimiglianza ha una densit\`a
+  di probabilit\`a \emph{asintoticamente normale} al
+  crescere della dimensione del campione.
+\item La stima di massima verosimiglianza \`e
+  asintoticamente, al crescere della dimensione del
+  campione, anche \emph{la stima pi\`u efficiente possibile}
+  (ossia quella di minima varianza).
+\item Se esiste una stima sufficiente di $\theta$, essa
+  pu\`o sempre essere espressa come funzione della sola
+  stima di massima verosimiglianza $\widehat \theta$.
+\end{enumerate}%
+\index{massima verosimiglianza, metodo della|)}
+
+Le ipotesi sotto le quali si riesce a dimostrare che la
+stima di massima verosimiglianza gode asintoticamente delle
+propriet\`a su dette sono estremamente generali: per la
+normalit\`a basta che esistano i primi due momenti della
+$f(x; \theta)$; per la consistenza e la massima efficienza
+basta che $f(x; \theta)$ sia continua, dotata di derivata
+prima e seconda rispetto al parametro, e che l'operazione di
+integrazione rispetto a $x$ commuti con quella di
+derivazione rispetto a $\theta$ (ovvero, in pratica, che il
+dominio di definizione della $x$ non dipenda dal parametro).
+
+Il teorema di Cram\'er--Rao%
+\index{Cram\'er--Rao, teorema di|(}
+(cui si \`e prima accennato) permette di dimostrare, sotto
+ipotesi del tutto generali, che esiste \emph{un estremo
+  inferiore} per le varianze delle stime \emph{imparziali}
+di una qualsiasi grandezza dipendente dal parametro
+$\theta$; non solo, ma che, se una stima di varianza minima
+esiste, essa \emph{rende massima la funzione di
+  verosimiglianza}.
+
+Pi\`u in dettaglio: nell'ipotesi che la densit\`a di
+probabilit\`a $f(x;\theta)$ sia una funzione definita in una
+regione dell'asse $x$ avente estremi indipendenti dal
+parametro $\theta$; che esista ovunque la derivata rispetto
+a $\theta$ di $\ln f(x; \theta)$; e, infine, che esista
+finito il valore medio del quadrato di questa derivata
+\begin{equation*}
+  E \left\{ \left[ \frac{\partial}{\partial
+    \theta} \ln f(x; \theta) \right]^2 \right\} \; = \; \frac{1}{N} \cdot E
+    \left\{ \left[ \frac{\partial (\ln \mathcal{L})}{\partial
+    \theta} \right]^2 \right\}
+\end{equation*}
+il teorema di Cram\'er--Rao afferma che una \emph{qualsiasi}
+stima \emph{imparziale} $\bar \theta$ di $\theta$ ha una
+varianza che non pu\`o essere inferiore ad un valore
+(\emph{limite di Cram\'er--Rao}) dato dalla
+\begin{equation} \label{eq:11.crao1}
+  \var( \bar \theta ) \;
+    \ge \; \frac{1}{N \cdot E \left\{ \left[ \dfrac{\partial
+    }{\partial \theta} \ln f(x; \theta) \right]^2 \right\} }
+    \peq .
+\end{equation}
+Inoltre questo estremo inferiore viene raggiunto, e vale il
+segno di uguaglianza nella \eqref{eq:11.crao1}, \emph{se e
+  solo se} esiste una funzione $R(\theta)$ per la quale
+risulti
+\begin{equation} \label{eq:11.crao2}
+  \frac{\partial (\ln \mathcal{L}) }{\partial \theta} \; = \;
+    \sum_{i=1}^N \frac{\partial}{\partial
+    \theta} \ln f(x_i; \theta) \; = \; \frac{\bar
+    \theta(x_1, x_2, \ldots, x_N) - \theta}{R(\theta)}
+\end{equation}
+e, in tal caso, la stima di minima varianza \emph{rende
+anche massima la funzione di verosimiglianza}.
+
+La condizione \eqref{eq:11.crao2} \`e assai restrittiva,
+potendosi tra l'altro dimostrare che essa implica che la
+densit\`a di probabilit\`a $f(x; \theta)$ deve essere una
+funzione di tipo esponenziale: nel caso generale non \`e
+quindi affatto certo che una stima di varianza minima
+esista, essendo questo subordinato alla validit\`a della
+\eqref{eq:11.crao2}.
+
+In ogni caso la stima di massima verosimiglianza deve, come
+prima detto, tendere \emph{asintoticamente} a questo
+comportamento al crescere di $N$; per\`o nulla si pu\`o dire
+sulla rapidit\`a di tale convergenza.  Cos\`\i, per un
+numero di misure finito, non c'\`e alcuna garanzia che la
+funzione di verosimiglianza abbia un solo massimo; e, se
+essa ne ammette pi\`u d'uno, non esiste modo di sapere quale
+di essi corrisponde (asintoticamente) alla stima di minima
+varianza, n\'e esiste modo di sapere quale di questi massimi
+rappresenti la stima corretta del valore vero.%
+\index{Cram\'er--Rao, teorema di|)}
+
+Come abbiamo detto, la funzione di verosimiglianza
+\eqref{eq:11.funver} pu\`o essere interpretata come
+densit\`a di probabilit\`a del parametro una volta che si
+sia ottenuto un certo insieme di valori misurati; sfruttando
+la seconda delle propriet\`a su elencate, la densit\`a di
+probabilit\`a di $\theta$ deve anche essere
+(asintoticamente) data da
+\begin{gather}
+  \mathcal{L} (\theta) = \frac{1}{\sigma_\theta \, \sqrt{2
+    \pi}} \, e^{- \frac{1}{2} \! \left(
+    \frac{\theta - \widehat \theta}{\sigma_\theta} \right)^2}
+    \notag \\
+  \intertext{quindi, nell'intorno di $\widehat \theta$, deve
+    essere}
+  \ln \mathcal{L} = -\ln \left( \sigma_\theta \, \sqrt{2
+    \pi} \right) - \frac{1}{2} \left( \frac{\theta - \widehat
+    \theta}{\sigma_\theta} \right)^2 \notag \\
+  \intertext{e, derivando due volte rispetto al parametro,}
+  \frac{\de^2 ( \ln \mathcal{L} ) }{\de \theta^2} = -
+    \frac{1}{{\sigma_\theta}^2} \notag \\
+  \intertext{ed infine si giunge alla}
+  \var( \widehat \theta ) \; \equiv \; {\sigma_\theta}^2
+    \; = \; - \frac{1}{\displaystyle \left. \frac{\de^2 (
+    \ln \mathcal{L} ) }{\de \theta^2} \right|_{\theta = \widehat
+    \theta}} \label{eq:11.varlik}
+\end{gather}
+frequentemente usata per il calcolo dell'errore della stima
+di massima verosimiglianza.
+
+\subsection{Un esempio di stima sufficiente}%
+\index{stima!sufficiente|(}%
+\label{ch:11.stisuf}
+Supponiamo di avere un campione di $N$ determinazioni
+indipendenti $x_k$ di una variabile che segua la
+distribuzione di Poisson; le probabilit\`a dei differenti
+valori sono date dalla \eqref{eq:8.poiss2}, e dipendono da
+un unico parametro: il valore medio della distribuzione,
+$\alpha$.  La funzione di verosimiglianza \`e la
+\begin{align}
+  \Pr(x_1, \ldots, x_N; \alpha) &=
+  \frac{ \alpha^{x_1} }{ x_1 ! } \, e^{- \alpha} \cdot
+  \frac{ \alpha^{x_2} }{ x_2 ! } \, e^{- \alpha} \cdots
+  \frac{ \alpha^{x_N} }{ x_N ! } \, e^{- \alpha} \notag
+  \\[1ex]
+  &= \frac{ \alpha^{\sum_k x_k} \cdot e^{- N \alpha} }{ x_1!
+    \, x_2! \cdots x_N!} \cdot \frac{ (N \bar x)! }{ (N \bar
+    x)! } \notag \\[1ex]
+  &= \frac{ \alpha^{ N \bar x } }{ ( N \bar x )! } \, e^{- N
+    \alpha} \cdot \frac{ ( N \bar x )! }{ x_1! \, x_2!
+    \cdots x_N! } \cdot \frac{ N^{N \bar x} }{ N^{N \bar x}
+    } \notag \\[1ex]
+  &= \left\{ \frac{ (N \alpha)^{N \bar x} }{ (N \bar x)! }
+    \, e^{-N \alpha} \right\} \Biggl\{ \frac{ (N \bar x)! }{
+      x_1! \, x_2! \cdots x_N! } \, \frac{ 1 }{ N^{N \bar x}
+      } \Biggr\} \label{eq:11.stisuf}
+\end{align}
+Nei passaggi, per due volte si \`e moltiplicato e diviso per
+una stessa quantit\`a non nulla: prima per $(N \bar x)!$ e
+poi per $N^{N \bar x}$.
+
+La stima di massima verosimiglianza si trova annullando la
+derivata della \eqref{eq:11.stisuf}; che, a meno di un
+fattore costante, \`e della forma
+\begin{gather*}
+  f(\alpha) = \alpha^{N \bar x} e^{- N \alpha} \\
+  \intertext{per cui}
+  \frac{\de f}{\de \alpha} \; = \; N \, \bar x \,
+  \alpha^{N \bar x - 1} e^{- N \alpha} - N \, \alpha^{N \bar
+    x} e^{- N \alpha} \; = \; N \, \alpha^{N \bar x - 1}
+  e^{- N \alpha} (\bar x - \alpha) \\
+  \intertext{e quindi la stima cercata \`e}
+  \hat \alpha = \bar x
+\end{gather*}
+
+Il primo termine dell'espressione finale
+\eqref{eq:11.stisuf} per la funzione di verosimiglianza \`e
+la probabilit\`a $\Pr(S)$ che la variabile casuale
+\begin{equation*}
+  S \; = \; \sum_{k=1}^N x_k \; = \; N \bar x
+\end{equation*}
+abbia un determinato valore: $\Pr(S)$ infatti, come gi\`a
+sappiamo dal paragrafo \ref{ch:8.poisson}, segue la
+distribuzione di Poisson con valore medio $N \alpha$.
+Notiamo anche che, avendo $N$ un valore costante noto a
+priori, $\Pr(S)$ coincide con $\Pr(\bar x)$: il secondo
+termine \emph{deve} quindi essere la probabilit\`a che i
+dati osservati valgano $x_1, x_2, \ldots, x_N$
+\emph{condizionata} dal fatto che la loro somma vale $N \bar
+x$; ma, non dipendendo questo termine da $\alpha$, tale
+probabilit\`a \`e la stessa qualunque sia il parametro.
+
+Qualunque sia $\bar x$, una volta noto il suo valore le
+$x_k$ sono distribuite allo stesso modo: $\bar x$ riassume
+insomma tutta l'informazione contenuta nei dati, ed \`e
+quindi per definizione una stima \emph{sufficiente} del
+parametro.  In effetti, se la probabilit\`a dei valori $x_k$
+una volta nota $\bar x$ non dipende dal parametro, questo
+implica che \emph{qualunque} funzione dei dati ha
+probabilit\`a (condizionata) che gode della stessa
+propriet\`a.  Citiamo senza dimostrarlo, in proposito, il
+seguente
+\begin{quote}
+  \textsc{Teorema:} \textsl{$\bar \theta$ \`e una stima
+    sufficiente di $\theta$ se e solo se la funzione di
+    verosimiglianza \`e fattorizzabile nella forma}
+  \begin{equation*}
+    \mathcal{L} (x_1, x_2, \ldots, x_N; \theta) = f(\bar
+    \theta, \theta) \cdot \phi(x_1, x_2, \ldots, x_N)
+  \end{equation*}
+\end{quote}%
+\index{stima!sufficiente|)}
+
+\section{Media pesata}%
+\label{ch:11.mepeted}
+Quando si abbiano a disposizione pi\`u determinazioni
+ripetute di una stessa grandezza fisica, sappiamo che da
+esse si pu\`o ricavare un valore unico da usare come
+risultato finale attraverso il calcolo della media
+aritmetica; questa (come gi\`a anticipato senza
+dimostrazione nel paragrafo \ref{ch:4.giumed}) \`e la
+funzione dei dati con la distribuzione pi\`u stretta attorno
+al valore vero, e ci fornisce quindi la stima pi\`u
+verosimile di esso.  Per\`o questo presuppone che i dati,
+essendo considerati tutti allo stesso modo nella formula,
+posseggano la stessa precisione sperimentale: ad esempio che
+siano stati valutati dallo stesso sperimentatore, con lo
+stesso strumento e nelle stesse condizioni; in altre parole,
+che le misure provengano da un'unica popolazione.
+
+Pu\`o capitare invece di disporre di pi\`u determinazioni
+della stessa grandezza fisica fatte da sperimentatori
+diversi, od in condizioni sperimentali differenti: e di
+voler ugualmente estrarre da queste valutazioni, affette da
+differenti errori, un valore unico da usare come risultato
+complessivo.
+
+Facendo le ipotesi che tutte le misure $x_i$ siano tra loro
+statisticamente indipendenti, ed inoltre affette da errori
+casuali distribuiti secondo la legge di Gauss, la densit\`a
+di probabilit\`a corrispondente all'evento casuale
+costituito dall'osservazione degli $N$ valori $x_1,
+x_2,\ldots, x_N$ si pu\`o scrivere (applicando il teorema
+della probabilit\`a composta)
+\begin{equation*}
+  \prod_{i=1}^N \frac{1}{\sigma_i \sqrt{2 \pi}}
+    \, e^{- \frac{1}{2} \left( \frac{x^*
+    - x_i}{\sigma_i} \right) ^2}
+\end{equation*}
+dove $x^*$ \`e il valore vero (ignoto) di $x$, e le
+$\sigma_i$ sono gli errori quadratici medi (supposti noti)
+delle diverse determinazioni.
+
+La funzione di verosimiglianza \`e la
+\begin{equation*}
+  \mathcal{L} (x_1, x_2,\ldots, x_N ; x) \; = \;
+    \prod_{i=1}^N \frac{1}{\sigma_i \sqrt{2 \pi}}
+    \, e^{- \frac{1}{2} \left( \frac{x -
+    x_i}{\sigma_i} \right) ^2}
+\end{equation*}
+(cio\`e la densit\`a di probabilit\`a di cui sopra, nella
+quale il valore vero $x^*$ \`e sostituito dal parametro
+variabile $x$); e ricordiamo che essa rappresenta la
+densit\`a di probabilit\`a associata all'evento casuale
+consistente nell'essere il numero $x$ il valore vero della
+grandezza misurata, qualora di essa si siano ottenute le $N$
+stime indipendenti $x_i$, di errori rispettivi $\sigma_i$,
+supposte seguire la legge normale.
+
+La stima pi\`u verosimile \`e quella che, rendendo massima
+$\mathcal{L}$, individua quel numero che, sulla base delle
+osservazioni disponibili, possiede la \emph{massima
+  probabilit\`a} di coincidere con il valore vero: vedremo
+tra poco che la soluzione \`e unica.  Prendendo il logaritmo
+naturale di $\mathcal{L}$,
+\begin{equation*}
+  - 2 \, \ln\mathcal{L} \; = \;
+  \sum_{i=1}^N \left( \frac{x - x_i}{\sigma_i}
+  \right) ^2 \; + \; 2 \sum_{i=1}^N \ln \sigma_i
+  \; + \; 2 N \ln \sqrt{2 \pi}
+\end{equation*}
+e ricordando, come prima detto, che il logaritmo naturale
+\`e una funzione monotona strettamente crescente
+dell'argomento, si vede che il massimo di $\mathcal{L}$
+corrisponde al minimo di $-2 \, \ln \mathcal{L}$; la
+determinazione del valore pi\`u verosimile di $x$ (nel caso
+di errori normali) si riduce allora al problema analitico di
+trovare il minimo della funzione
+\begin{equation*}
+  f(x) \; = \; \sum_{i=1}^{N} \left(
+    \frac{ x - x_{i} }{ \sigma_{i} } \right) ^{2}
+\end{equation*}
+(infatti nessuno degli altri termini dipende dall'incognita
+$x$).  Risolviamo il problema facendo uso del calcolo
+infinitesimale:
+\begin{gather*}
+  \frac{\de f}{\de x} \; = \; 2 \sum_{i=1}^{N}
+    \left( \frac{x - x_{i}}{ \sigma_{i} } \right)
+    \frac{1}{\sigma_{i}} \; = \; 2 \left( x
+    \sum_{i=1}^{N} \frac{1}{ {\sigma_i}^2 }
+    \; - \; \sum_{i=1}^{N} \frac{x_i}{{\sigma_i}^2}
+    \right) \peq ; \\[1ex]
+  \frac{\de^2 f}{\de x^2} \; = \; 2 \sum_{i=1}^{N}
+    \frac{1}{ {\sigma_i}^2 } \; > \; 0 \peq .
+\end{gather*}
+
+Se per brevit\`a poniamo
+\begin{gather}
+  K \; = \; \sum_{i=1}^{N} \frac{1}{{\sigma_i}^2}
+    \notag \\
+  \intertext{la condizione per l'estremante di
+    $f(x)$ si scrive}
+  \frac{\de f}{\de x} \; = \; 2 \left( K x -
+    \sum_{i=1}^{N} \frac{x_i}{{\sigma_i}^2} \right)
+    \; = \; 0 \notag \\
+  \intertext{e la derivata prima di $f$ si annulla
+    quando la variabile $x$ assume il valore}%
+  \index{media!pesata|(emidx}
+  \bar x \; = \; \frac{1}{K} \sum_{i=1}^{N}
+   \frac{x_i}{{\sigma_i}^2} \peq . \label{eq:11.medpes}
+\end{gather}
+
+Il fatto che la derivata seconda sia positiva assicura poi
+che si tratta effettivamente di un punto di minimo; si vede
+come $\bar x$ sia una \emph{media pesata} dei valori
+misurati $x_i$, ottenuta assegnando ad ognuno di essi peso
+relativo inversamente proporzionale al \emph{quadrato}
+dell'errore rispettivo.
+
+Per determinare poi l'errore del risultato $ \bar x $, \`e
+in questo caso possibile usare in tutta generalit\`a la
+formula della propagazione degli errori: infatti $ \bar x $
+\`e una particolare funzione delle variabili $x_i$, di
+ognuna delle quali conosciamo per ipotesi l'errore
+quadratico medio $\sigma_i$; ed inoltre dipende
+\emph{linearmente} da ognuna di queste $N$ variabili, e
+questo fa s\`\i\ che la formula di propagazione
+\eqref{eq:10.proper} sia in questo caso \emph{esatta} e non
+approssimata (dando insomma risultati sempre validi,
+indipendentemente dall'entit\`a degli errori commessi).
+
+Applichiamo direttamente l'equazione \eqref{eq:5.varcol} per
+la varianza delle combinazioni lineari di variabili tra loro
+indipendenti, invece della pi\`u complicata
+\eqref{eq:10.proper}: $\bar x$ \`e calcolata come
+combinazione lineare delle $x_i$ con coefficienti $1/\left(
+  K \, {\sigma_i}^2 \right)$, e quindi avremo
+\begin{gather}
+  {\sigma_{\bar x}}^2 \; = \; \sum_{i=1}^N
+    \left( \frac{1}{ K \, {\sigma_i}^2 }
+    \right)^2 {\sigma_i}^2\; = \;
+    \frac{1}{K^2} \sum_{i=1}^N \frac{1}
+   {{\sigma_i}^2} \; = \; \frac{1}{K} \notag \\
+  \intertext{cio\`e}
+  {\sigma_{\bar x}}^2 = \frac{1} {\sum
+    \limits_{i=1}^N \dfrac{1}{{\sigma_i}^2} }
+    \peq . \label{eq:11.ermear}
+\end{gather}
+
+Per la osservata linearit\`a della formula, la media pesata
+$\bar x$ (nelle ipotesi ammesse) \`e una variabile casuale
+normale come le singole $x_i$; ed il suo errore quadratico
+medio $\sigma_{\bar x}$ ha dunque l'analoga interpretazione
+di semiampiezza dell'intervallo con centro in $\bar x$
+avente probabilit\`a pari al 68\% di contenere il valore
+vero $x^*$.
+
+Per quanto concerne le propriet\`a della media pesata $\bar
+x$ come stima del valore vero, la derivata del logaritmo
+della funzione di verosimiglianza rispetto al parametro
+incognito (che \`e $x$) vale
+\begin{equation*}
+  \frac{\de (\ln \mathcal{L}) }{\de x} \; = \; \sum_{i=1}^N
+  \frac{x_i}{{\sigma_i}^2} - x \sum_{i=1}^N
+  \frac{1}{{\sigma_i}^2} \; = \; K ( \bar x - x )
+\end{equation*}
+ed \`e soddisfatta la condizione \eqref{eq:11.crao2} sotto
+la quale il teorema di Cram\'er--Rao%
+\index{Cram\'er--Rao, teorema di}
+(che esamineremo in dettaglio nell'appendice
+\ref{ch:e.maxlik}) ci permette di affermare che la stima di
+massima verosimiglianza \emph{\`e anche quella di varianza
+  minima}: ovvero, tra tutte le possibili funzioni dei dati
+che si potrebbero definire per stimare il valore vero $x^*$
+dal campione, quella mediamente pi\`u vicina ad esso.%
+\index{media!pesata|)}
+
+\index{esame dei dati|(}%
+\`E da notare come, prima di comporre tra loro
+determinazioni indipendenti della stessa grandezza, sia
+opportuno controllare che queste siano (entro i rispettivi
+errori) tra loro \emph{compatibili}; analogamente a quanto
+si fa per le misure ripetute, \`e preferibile non
+considerare dati che non vadano d'accordo con gli altri
+entro i limiti della pura casualit\`a.%
+\index{esame dei dati|)}
+
+\index{media!aritmetica!come stima del valore vero|(emidx}%
+Il caso di $N$ misure ripetute effettuate nelle medesime
+condizioni sperimentali non \`e altro che il caso
+particolare in cui tutti gli errori quadratici medi
+$\sigma_i$ sono uguali tra di loro: la media pesata
+\eqref{eq:11.medpes} si riduce allora alla media aritmetica
+\eqref{eq:4.mediar} (ed il suo errore \eqref{eq:11.ermear}
+alla gi\`a nota espressione \eqref{eq:5.sbarx}).
+
+Questo prova l'asserto del paragrafo \ref{ch:4.giumed}
+(giustificazione della media); abbiamo finalmente
+\emph{dimostrato} che la media aritmetica \`e il valore
+\emph{pi\`u verosimile} della grandezza misurata: cio\`e
+quello che ha la massima probabilit\`a di coincidere con il
+valore vero sulla base del nostro campione di misure, e che
+rappresenta la stima di minima varianza.%
+\index{media!aritmetica!come stima del valore vero|)}
+
+\section{Interpolazione dei dati con una curva}
+Pu\`o in alcuni casi capitare di conoscere la forma
+analitica della legge fisica che mette in relazione tra loro
+due variabili, e di dover stimare dai dati misurati il
+valore di uno o pi\`u parametri da cui tale funzione
+dipende.
+
+Ad esempio, nel moto dei corpi soggetti all'azione di una
+forza costante le velocit\`a assunte in istanti successivi
+dal corpo crescono linearmente rispetto ai tempi trascorsi,
+secondo la nota formula $ v = v_0 + a t $; misurando in
+istanti successivi del moto tempi e velocit\`a, i punti
+aventi per coordinate cartesiane i valori determinati per
+queste due grandezze devono disporsi approssimativamente
+lungo una linea retta: e sarebbero tutti quanti esattamente
+allineati se fosse possibile misurare senza commettere
+errori.
+
+In questo ultimo caso sarebbe possibile ricavare
+immediatamente dal grafico il valore dell'accelerazione del
+moto, che corrisponderebbe al coefficiente angolare (o
+pendenza) della retta tracciata; vedremo ora come, pur
+commettendo errori, sia comunque possibile ricavare una
+stima sia dei valori dei parametri da cui l'equazione del
+moto dipende, sia degli errori inerenti a tale valutazione.
+
+C'\`e una qualche analogia fra questo problema e quello
+delle misure indirette, nel senso che in entrambi i casi si
+presuppone esistente una relazione funzionale tra pi\`u
+grandezze fisiche; tuttavia, mentre in quel caso la funzione
+era completamente nota e veniva usata per trovare il valore
+di una di quelle grandezze una volta misurati quelli di
+tutte le altre, qui si suppone di conoscere soltanto la
+forma della funzione: ma sono ignoti uno o pi\`u parametri
+da cui pure essa dipende, e si usano i valori osservati di
+tutte le grandezze per stimare quelli dei parametri stessi.
+
+\subsection{Interpolazione lineare per due variabili}%
+\index{interpolazione lineare|(emidx}%
+\label{ch:11.intlin}
+Cominciamo col supporre che le variabili oggetto della
+misura siano due sole, e che la legge che le mette in
+relazione reciproca sia di tipo lineare:
+\begin{equation*}
+  y = a+bx \peq .
+\end{equation*}
+
+Supponiamo poi che siano state effettuate misure del valore
+della $x$ e di quello corrispondente assunto dalla $y$ in
+diverse condizioni, cos\`\i\ che si disponga in definitiva
+di $N$ coppie di valori tra loro corrispondenti $(x_i,
+y_i)$; abbiamo gi\`a detto che, una volta riportati sul
+piano cartesiano $\{ x, y \}$ punti con queste coordinate,
+essi si dovranno disporre approssimativamente lungo una
+linea retta.
+
+Ora, si pu\`o dimostrare che vale, sul piano, qualcosa di
+analogo a quanto abbiamo gi\`a asserito riguardo alla media
+aritmetica di misure ripetute di una stessa grandezza fisica
+(cio\`e, geometricamente, su di una retta, visto che quelle
+determinazioni potevano essere univocamente rappresentate da
+punti su di una retta orientata); infatti
+\begin{itemize}
+\item Sulla base delle misure effettuate, non si pu\`o
+  escludere con certezza che alcuna delle infinite rette del
+  piano corrisponda a quella vera su cui le nostre
+  osservazioni si disporrebbero in assenza di errori;
+  tuttavia esse non appaiono tutte quante ugualmente
+  verosimili, e la verosimiglianza sar\`a in qualche modo in
+  relazione con la \emph{distanza complessiva} tra i nostri
+  punti sperimentali e la retta stessa.
+\item Nel caso particolare che siano verificate le seguenti
+  ipotesi:
+    \begin{enumerate}
+    \item una sola delle variabili coinvolte (ad esempio la
+      $y$) \`e affetta da errori;
+    \item gli errori quadratici medi delle misure dei
+      diversi valori di $y$ sono tutti uguali (o comunque
+      non molto differenti);
+    \item questi errori seguono la legge normale di
+      distribuzione;
+    \item le $N$ determinazioni effettuate sono tra loro
+      statisticamente indipendenti;
+    \end{enumerate}
+    dimostreremo ora che per ``distanza complessiva'' si
+    deve intendere \emph{la somma dei quadrati delle
+      lunghezze dei segmenti di retta parallela all'asse $y$
+      compresi tra i punti misurati e la retta esaminata}.
+\end{itemize}
+
+Infatti, detto $\sigma_y$ l'errore quadratico medio delle
+$y_i$, la funzione di verosimiglianza \`e
+\begin{equation*}%
+\index{funzione!di verosimiglianza|(}
+  \mathcal{L} (x_1, y_1, x_2, y_2,\ldots,x_N, y_N ;
+    a, b ) \; = \; \prod_{i=1}^N \frac{1}{\sigma_y
+    \sqrt{2 \pi}} \,  e^{- \frac{1}{2}
+    \left( \frac{a + b x_i - y_i}{\sigma_y} \right)
+    ^2 } \peq .
+\end{equation*}
+
+Per scrivere questa espressione si \`e fatto uso di tutte le
+ipotesi postulate: in particolare, il fatto che le $x_i$
+siano misurate senza errore ci permette di affermare che il
+valore vero assunto in corrispondenza dalla $y$ \`e $ a + b
+x_i$; visto che \`e $y = a + bx$ la legge fisica che lega le
+due variabili tra loro.
+
+Questa funzione di verosimiglianza rappresenta allora la
+densit\`a di probabilit\`a collegata all'evento casuale
+consistente nell'essere la legge fisica che lega $x$ ad $y$
+rappresentata dall'equazione $y = a + bx$, qualora si siano
+ottenuti gli $N$ valori misurati $(x_i, y_i)$, e sotto le
+quattro ipotesi su elencate.%
+\index{funzione!di verosimiglianza|)}
+
+I valori pi\`u verosimili del parametro saranno quelli che
+rendono massima $\mathcal{L}$: vedremo ora che la soluzione
+\`e unica; e, ancora, il teorema di Cram\'er--Rao%
+\index{Cram\'er--Rao, teorema di}
+ci permetterebbe di dimostrare che la stima, appunto, pi\`u
+verosimile (la retta che corrisponde al massimo della
+probabilit\`a) \`e anche la stima di minima varianza (ovvero
+la pi\`u precisa possibile).  Prendendo il logaritmo
+naturale di entrambi i membri, risulta
+\begin{equation*}
+  - 2 \, \ln\mathcal{L} \; = \;
+  \frac{1}{{\sigma_y}^2} \,
+  \sum_{i=1}^N \left( a + b x_i - y_i \right) ^2
+  \; + \; 2 N \ln \sigma_y
+  \; + \; 2 N \ln \sqrt{2 \pi} \peq .
+\end{equation*}
+
+I valori pi\`u verosimili dei parametri $a$ e $b$ sono
+quelli per cui \`e massima $\mathcal{L}$, ovvero \`e minima
+$- 2 \ln\mathcal{L} $: il problema dell'interpolazione
+lineare dunque si riduce (se sono soddisfatte le ipotesi
+citate) a quello di trovare tra le infinite rette del piano
+quella che rende minima la funzione
+\begin{equation*}
+  f(a,b) \; =  \;\sum_{i=1}^N \Bigl[ \left( a + b x_i
+    \right) - y_i \Bigr] ^{2}
+\end{equation*}
+(essendo tutti gli altri termini indipendenti dalle due
+incognite $a$ e $b$).
+
+L'interpretazione geometrica \`e evidente: la retta
+soluzione del nostro problema \`e (come gi\`a preannunciato)
+quella che rende minima la somma dei quadrati delle
+distanze, misurate per\`o \emph{parallelamente all'asse
+  $y$}, dall'insieme dei punti misurati; queste ``distanze''
+sono anche comunemente chiamate ``residui''.%
+\index{residui|emidx}
+Per trovare il valore dei coefficienti dell'equazione di
+tale retta, calcoliamo ora le derivate prime della funzione
+$f$:
+\begin{gather*}
+  \frac{\partial f}{\partial a} \; = \;
+    2 \sum_{i=1}^N \left( a + b x_i - y_i \right)
+    \; = \; 2 \left( N a \; + \;
+    b \sum_{i=1}^N x_i \; - \;
+    \sum_{i=1}^N y_i \right) \peq ; \\[1ex]
+  \frac{\partial f}{\partial b} \; = \;
+     2 \sum_{i=1}^N \left( a + b x_i - y_i \right) x_i
+     \; = \; 2 \left( a \sum_{i=1}^N x_i \; + \;
+     b \sum_{i=1}^N {x_i}^2 \; - \;
+     \sum_{i=1}^N x_i y_i \right) \peq .
+\end{gather*}
+
+Imponendo che le due derivate prime siano contemporaneamente
+nulle, dovranno essere verificate le
+\begin{equation} \label{eq:11.normeq}
+  \left \{ \begin{array}{ccccl}
+    a \cdot N & + & b \cdot \sum_i x_i &
+      = & \sum_i y_i \\*[5mm]
+    a \cdot \sum_i x_i & + & b \cdot \sum_i {x_i}^2
+      & = & \sum_i x_i y_i
+    \end{array} \right.
+\end{equation}
+e questo sistema di due equazioni in due incognite ammette,
+come si pu\`o verificare, sempre una ed una sola soluzione,
+purch\'e vi siano almeno due punti sperimentali non
+coincidenti; esaminando poi le derivate seconde si
+troverebbe che essa corrisponde in effetti ad un minimo.  La
+soluzione \`e
+\begin{equation}%
+  \label{eq:11.minqua}%
+  \index{minimi quadrati, formule dei|emidx}
+  \left \{
+    \begin{array}{ccl}
+      a & = & \dfrac{1}{\Delta}
+        \Bigl[ \left( \sum_{i} {x_i}^2 \right) \cdot
+        \left( \sum_i y_i \right) -
+        \left( \sum_i x_i \right) \cdot
+        \left( \sum_i x_i y_i \right) \Bigr] \\*[7mm]
+      b & = & \dfrac{1}{\Delta}
+        \Bigl[ N \cdot \left( \sum_i x_i y_i \right) -
+        \left( \sum_i x_i \right) \cdot
+        \left( \sum_i y_i \right)
+        \Bigr]
+    \end{array}
+  \right.
+\end{equation}
+in cui si \`e posto per brevit\`a
+\begin{equation*}
+  \Delta \; = \; N \sum \nolimits_i {x_i}^2 \: - \:
+  \left( \sum \nolimits_i x_i \right) ^2
+\end{equation*}
+(le formule \eqref{eq:11.minqua} sono note sotto il nome di
+\emph{formule dei minimi quadrati}).
+
+Per quanto attiene al calcolo degli errori commessi nella
+valutazione di $a$ e $b$ in base ai dati, osserviamo che
+entrambi si ricavano da relazioni lineari in ognuna delle
+variabili affette da errore che, nelle nostre ipotesi, sono
+le sole $ y_i$: possiamo dunque adoperare la formula della
+propagazione degli errori \eqref{eq:10.proper}, che \`e in
+questo caso esatta; oppure la pi\`u semplice
+\eqref{eq:5.varcol}.  Possiamo esprimere $a$ e $b$ in
+funzione delle $y_i$ come
+\begin{align*}
+  a &= \sum_{i=1}^N a_i \, y_i &&\text{e} &
+  b &= \sum_{i=1}^N b_i \, y_i
+\end{align*}
+una volta posto
+\begin{equation*}
+  \left\{
+    \begin{array}{rcl}
+      a_i & = & \displaystyle \frac{1}{\Delta} \,
+        \left( \sum\nolimits_j {x_j}^2 - x_i \,
+        \sum\nolimits_j x_j \right) \\[3ex]
+      b_i & = & \displaystyle \frac{1}{\Delta} \left(
+        N \, x_i - \sum\nolimits_j x_j \right)
+    \end{array}
+  \right.
+\end{equation*}
+e, se indichiamo con ${\sigma_y}^2$ la varianza comune a
+tutte le $y_i$, si ottiene, per l'errore di $a$:
+
+\begin{align*}
+  {\sigma_a}^2 &= \sum\nolimits_i {a_i}^2 \,
+    {\sigma_y}^2 \\[2ex]
+  &= {\sigma_y}^2 \; \sum\nolimits_i \left[
+    \frac{1}{\Delta} \left( \sum\nolimits_j {x_j}^2 -
+    x_i \sum\nolimits_j x_j \right) \right] ^2 \\[2ex]
+  &= \frac{{\sigma_y}^2}{\Delta^2} \; \sum\nolimits_i
+    \left[ \left( \sum\nolimits_j {x_j}^2 \right) ^2 +
+    {x_i}^2 \left( \sum\nolimits_j x_j \right) ^2 - 2
+    \, x_i \left( \sum\nolimits_j {x_j}^2 \right)
+    \left( \sum\nolimits_j x_j \right) \right]
+    \\[2ex]
+  &= \frac{{\sigma_y}^2}{\Delta^2} \left[ N \left(
+    \sum\nolimits_j {x_j}^2 \right) ^2 \! + \left(
+    \sum\nolimits_i {x_i}^2 \right) \left( \sum\nolimits_j
+    x_j \right) ^2 \! - 2 \left( \sum\nolimits_j
+    {x_j}^2 \right) \left( \sum\nolimits_j x_j \right) ^2
+    \right] \\[2ex]
+  &= \frac{{\sigma_y}^2}{\Delta^2} \left[ N \left(
+    \sum\nolimits_j {x_j}^2 \right) ^2 - \left(
+    \sum\nolimits_j x_j \right) ^2 \left( \sum\nolimits_j
+    {x_j}^2 \right) \right] \\[2ex]
+  &= \frac{{\sigma_y}^2}{\Delta^2} \left(
+    \sum\nolimits_j {x_j}^2 \right) \left[ N \left(
+    \sum\nolimits_j {x_j}^2 \right) - \left(
+    \sum\nolimits_j x_j \right) ^2 \right] \\[2ex]
+  &= {\sigma_y}^2 \; \frac{\sum_j {x_j}^2 }{\Delta} \\
+\end{align*}
+e, similmente, per $b$:
+
+\begin{align*}
+  {\sigma_b}^2 &= \sum\nolimits_i {b_i}^2 \,
+    {\sigma_y}^2 \\[1ex]
+  &= {\sigma_y}^2 \; \sum\nolimits_i \left[
+    \frac{1}{\Delta} \left( N \, x_i - \sum\nolimits_j
+    x_j \right) \right] ^2 \\[1ex]
+  &= \frac{{\sigma_y}^2}{\Delta^2} \; \sum\nolimits_i \left[
+    N^2 {x_i}^2 + \left( \sum\nolimits_j x_j \right) ^2
+    - 2 \, N \, x_i \sum\nolimits_j x_j \right] \\[1ex]
+  &= \frac{{\sigma_y}^2}{\Delta^2} \left[ N^2 \left(
+    \sum\nolimits_i {x_i}^2 \right) + N \left(
+    \sum\nolimits_j x_j \right) ^2 - 2 \, N \left(
+    \sum\nolimits_j x_j \right) ^2 \right] \\[1ex]
+  &= \frac{N \, {\sigma_y}^2}{\Delta^2} \left[ N
+    \left( \sum\nolimits_i {x_i}^2 \right) - \left(
+    \sum\nolimits_j x_j \right) ^2 \right] \\[1ex]
+  &= {\sigma_y}^2 \; \frac{N}{\Delta} \peq .
+\end{align*}
+
+In definitiva, $a$ e $b$ hanno errori quadratici medi dati
+dalle
+\begin{equation} \label{eq:11.errab}
+  \left \{ \begin{array}{ccl}
+    \sigma_{a} & = & \sigma_{y} \, \sqrt{
+      \dfrac{\sum \nolimits_i x_i^2}
+      {\Delta} } \\*
+   & & \\*
+   \sigma_{b} & = & \sigma_{y} \, \sqrt{
+     \dfrac{N}{\Delta} }
+   \end{array} \right.
+\end{equation}
+ed il fatto poi che $a$ e $b$ siano funzioni lineari di
+variabili che seguono la legge di Gauss ci permette ancora
+di affermare che anch'esse sono distribuite secondo la legge
+normale; e di attribuire cos\`\i\ ai loro errori il consueto
+significato statistico.%
+\index{interpolazione lineare|)}
+
+\subsection{Stima a posteriori degli errori di misura}%
+\index{errore!a posteriori|(emidx}%
+\label{ch:11.fisher}
+\`E da osservare come nelle formule \eqref{eq:11.minqua} dei
+minimi quadrati non compaia il valore di $\sigma_y$: la
+soluzione del problema dell'interpolazione lineare \`e
+indipendente dall'entit\`a degli errori di misura, nel senso
+che i coefficienti della retta interpolante possono essere
+calcolati anche se gli errori sulle $y$ non sono noti
+(purch\'e naturalmente si assuma che siano tutti uguali tra
+loro).
+
+Se non \`e a priori nota la varianza delle $y$, essa pu\`o
+per\`o essere stimata a partire dai dati stessi una volta
+eseguita l'interpolazione lineare; infatti gli stessi
+ragionamenti fatti per le variabili casuali unidimensionali
+potrebbero essere ripetuti (con le opportune modifiche) sul
+piano, per giungere a risultati analoghi.
+
+In una dimensione abbiamo a suo tempo potuto collegare
+l'errore commesso alla dispersione dei dati rispetto al
+\emph{valore stimato} della grandezza misurata; sul piano
+\`e in effetti ancora possibile calcolare l'errore commesso,
+partendo dalla dispersione dei dati misurata rispetto alla
+\emph{retta stimata} che passa attraverso di essi: dati
+disposti mediamente lontano da questa retta indicheranno
+errori maggiori rispetto a dati ben allineati (e quindi
+vicini alla retta interpolante).
+
+In una dimensione abbiamo visto che la dispersione dei dati,
+misurata dal valore medio del quadrato degli scarti rispetto
+alla loro media aritmetica (nostra migliore stima per la
+grandezza misurata), era sistematicamente in difetto
+rispetto alla corrispondente grandezza riferita all'intera
+popolazione delle misure.  Sul piano si pu\`o, analogamente,
+dimostrare che il valore medio del quadrato delle distanze
+dei punti misurati dalla retta nostra migliore stima \`e
+ancora sistematicamente in difetto rispetto alla varianza
+riferita alla popolazione delle misure ed alla retta vera
+che corrisponde alla legge fisica reale che collega le due
+variabili.
+
+Cos\`\i\ come abbiamo dimostrato che, al fine di correggere
+questa sottostima (in media) per le misure ripetute, occorre
+dividere la somma dei quadrati degli scarti per $N-1$ invece
+che per $N$, si potrebbe analogamente dimostrare che una
+corretta stima dell'errore dei punti misurati si ha, in
+media, dividendo l'analoga somma per $N-2$; in definitiva,
+che la corretta stima di $\sigma_y$ \`e data dalla formula
+\begin{equation*}
+  {\sigma_y}^2 = \frac{\sum\limits_{i=1}^N \Bigl[
+    \left( a + b x_i \right) - y_i \Bigr]^2}{N - 2} \peq .
+\end{equation*}
+
+In essa a numeratore compare la somma dei quadrati dei
+residui, cio\`e delle ``distanze'' dei punti misurati $(x_i,
+y_i)$ dalla retta interpolante di equazione $a+bx$ calcolate
+secondo la direzione parallela all'asse delle ordinate.
+Questa formula\/\footnote{Una formula equivalente (ma pi\`u
+  semplice) per il calcolo di $\sigma_y$ si pu\`o trovare
+  nell'equazione \eqref{eq:c.fishalt} alla pagina
+  \pageref{eq:c.fishalt}.} permette una corretta stima
+dell'errore dei dati interpolati, qualora sia impossibile (o
+scomodo) determinarli per altra via; l'errore \`e stimato
+dai residui dei dati sperimentali, ed \`e quindi
+scientificamente affidabile.
+
+Il fatto che la corretta stima dell'errore si ottenga
+dividendo per $N-2$ invece che per $N$ deve essere messo in
+relazione con il fatto che gli scarti, invece che rispetto
+al valore vero, sono calcolati rispetto ad un valore stimato
+che dipende da \emph{due} parametri, che sono a loro volta
+stati preventivamente determinati sulla base dei dati
+sperimentali: cio\`e i due coefficienti $a$ e $b$
+dell'equazione della retta.
+
+Nell'analogo caso della stima dell'errore quadratico medio
+di una variabile casuale unidimensionale, gli scarti erano
+calcolati rispetto ad un valore che, unica grandezza
+necessaria, veniva preventivamente determinato sulla base
+delle misure: appunto la media aritmetica.
+
+In generale, disponendo di $N$ dati sperimentali dai quali
+possiamo determinare un valore dell'errore quadratico medio
+che dipende da $M$ parametri che debbano essere
+preventivamente derivati dai dati stessi, la modifica da
+apportare alla formula per ottenere una corretta valutazione
+dell'errore della popolazione consiste nel dividere la somma
+dei quadrati degli scarti per un fattore $N-M$.%
+\index{errore!a posteriori|)}
+
+\subsection{Interpolazione con una retta per l'origine}%
+\index{interpolazione lineare!con una retta per l'origine|(}
+Se conosciamo altri vincoli cui debba soddisfare la legge
+che mette in relazione i valori delle variabili misurate $x$
+e $y$, possiamo imporre che la retta corrispondente
+appartenga ad un particolare sottoinsieme delle rette del
+piano; ad esempio, un caso che si pu\`o presentare \`e che
+la retta sia vincolata a passare per una posizione
+particolare, che supporremo qui essere l'origine degli assi
+coordinati.
+
+Una generica retta per l'origine ha equazione $y=mx$;
+ammesso ancora che gli errori commessi riguardino soltanto
+la misura della $y$ e non quella della $x$, che tutti i vari
+$y_i$ abbiano errori distribuiti secondo la legge normale e
+tra loro uguali, e che le misure siano tra loro
+indipendenti, il problema dell'interpolazione lineare si
+riduce a trovare tra le infinite rette passanti per
+l'origine quella che rende massima la funzione di
+verosimiglianza
+\begin{equation*}
+  \mathcal{L} (x_1, y_1, x_2, y_2,\ldots,x_N, y_N ;
+    m) \; = \; \prod_{i=1}^N \frac{1}{\sigma_y \,
+    \sqrt{2 \pi}} \,  e^{- \frac{1}{2}
+    \left( \frac{m x_i - y_i}{\sigma_y} \right)
+    ^2 } \peq .
+\end{equation*}
+
+Passando al logaritmo naturale di $\mathcal{L}$, \`e facile
+vedere che la soluzione ricercata \`e sempre quella che
+rende minima la somma dei quadrati dei residui dai punti
+misurati: che cio\`e minimizza la funzione
+\begin{equation*}
+  f(m) = \sum_{i=1}^N \left( m x_i - y_i \right) ^2 \peq .
+\end{equation*}
+
+La derivata prima di $f$ vale
+\begin{equation*}
+  \frac{\de f}{\de m} \; = \;
+  2 \sum_{i=1}^N \left( m x_i - y_i \right) x_i
+  \; = \; 2 \left( m \sum_{i=1}^N {x_i}^2 \; - \;
+    \sum_{i=1}^N x_i y_i \right)
+\end{equation*}
+e, imponendo che essa sia nulla, l'estremante si ha per
+\begin{equation*}
+  m = \frac{\sum_i x_i y_i}{\sum_i {x_i}^2}
+\end{equation*}
+e corrisponde in effetti ad un minimo.  La legge di
+propagazione degli errori \`e esatta anche in questo caso,
+perch\'e $m$ \`e una combinazione lineare delle variabili
+affette da errore (le $y_i$); il coefficiente di $y_i$ nella
+combinazione vale
+\begin{gather*}
+  \frac{x_i}{\sum_k {x_k}^2} \\
+  \intertext{e quindi}
+  {\sigma_m}^2 \; = \; \sum_{i=1}^N \left(
+    \frac{x_i}{\sum_k {x_k}^2} \right)^2
+    {\sigma_y}^2 \; = \; \frac{{\sigma_y}^2}{
+    \left( \sum_k {x_k}^2 \right)^2 } \,
+    \sum_{i=1}^N {x_i}^2 \; = \; \frac{{\sigma_y}^2}
+    {\sum_k {x_k}^2} \\
+  \intertext{e la formula per il calcolo degli
+    errori a posteriori diventa}%
+  \index{errore!a posteriori}
+  {\sigma_y}^2 = \frac{\sum_i \left( m x_i - y_i \right)
+    ^2}{N-1}
+\end{gather*}
+visto che il parametro da cui l'errore quadratico medio
+dipende e che deve essere stimato sulla base dei dati \`e
+uno soltanto: $m$.%
+\index{interpolazione lineare!con una retta per l'origine|)}
+
+\subsection{Interpolazione lineare nel caso generale}%
+\index{interpolazione lineare|(}
+Le condizioni 1) e 2) sugli errori delle grandezze misurate
+$x$ e $y$ date nel paragrafo \ref{ch:11.intlin} non potranno
+ovviamente mai essere verificate esattamente; come ci si
+deve comportare quando nemmeno in prima approssimazione le
+possiamo considerare vere?
+
+Se gli errori quadratici medi delle $y_i$ sono tra loro
+diversi, non \`e pi\`u possibile raccogliere a fattore
+comune $1 / \sigma^2$ nell'espressione del logaritmo della
+verosimiglianza; e ciascun addendo sar\`a diviso per il
+corrispondente errore $\sigma_i$.  In definitiva la retta
+pi\`u verosimile si trova cercando il minimo della funzione
+\begin{equation*}
+  f(a,b) = \sum_{i=1}^N \left[
+    \frac{ ( a + b x_i ) - y_i }{ \sigma_i } \right] ^2 \peq .
+\end{equation*}
+
+Questo avviene quando
+\begin{equation*}
+  \left \{ \begin{array}{ccl}
+    a & = & \dfrac{1}{\Delta}
+      \left[ \left( \sum \nolimits_i
+      \dfrac{{x_i}^2}{{\sigma_i}^2} \right)
+      \cdot \left( \sum \nolimits_i
+      \dfrac{y_i}{{\sigma_i}^2} \right) -
+      \left( \sum \nolimits_i
+      \dfrac{x_i}{{\sigma_i}^2} \right)
+      \cdot \left( \sum \nolimits_i
+      \dfrac{x_i y_i}{{\sigma_i}^2}
+      \right) \right] \\*[7mm]
+    b & = & \dfrac{1}{\Delta}
+      \left[ \left( \sum \nolimits_i
+      \dfrac{1}{{\sigma_i}^2} \right) \cdot
+      \left( \sum \nolimits_i
+      \dfrac{x_i y_i}{{\sigma_i}^2} \right)
+      - \left( \sum \nolimits_i
+      \dfrac{x_i}{{\sigma_i}^2} \right) \cdot
+      \left( \sum \nolimits_i
+      \dfrac{y_i}{{\sigma_i}^2} \right)
+      \right]
+    \end{array} \right.
+\end{equation*}
+in cui si \`e posto
+\begin{equation*}
+  \Delta \; = \; \left( \sum \nolimits_i
+    \frac{1}{{\sigma_i}^2} \right) \cdot
+    \left( \sum \nolimits_i \frac{{x_i}^2}
+    {{\sigma_i}^2}  \right) - \left(
+    \sum\nolimits_i \frac{x_i}{{\sigma_i}^2}
+    \right) ^2 \peq .
+\end{equation*}
+
+Le varianze di $a$ e di $b$ saranno poi date dalle
+\begin{equation*}
+  \left\{
+  \begin{array}{ccl}
+    {\sigma_a}^2 & = & \dfrac{1}{\Delta} \,
+      \sum \nolimits_i \dfrac{{x_i}^2}{{\sigma_i}^2}
+      \\*[7mm]
+    {\sigma_b}^2 & = & \dfrac{1}{\Delta} \,
+      \sum \nolimits_i \dfrac{1}{{\sigma_i}^2}
+  \end{array}
+  \right.
+\end{equation*}
+
+Si deve tuttavia osservare che per applicare questo metodo
+\`e necessario conoscere, per altra via e preventivamente,
+tutte le $N$ varianze ${\sigma_i}^2$.  Ci\`o pu\`o essere
+molto laborioso o addirittura impossibile, e non risulta
+conveniente rinunciare ad una stima unica e ragionevole
+${\sigma_y}^2$ di queste varianze per tener conto di una
+variazione, generalmente debole, delle $\sigma_i$ in un
+intervallo limitato di valori della $x$.
+
+Volendo tener conto dell'errore su entrambe le variabili $x$
+ed $y$, non \`e generalmente possibile usare un metodo,
+descritto in alcuni testi, consistente nel cercare la retta
+che rende minima la somma dei quadrati delle distanze dai
+punti, misurate per\`o \emph{ortogonalmente} alla retta
+stessa: a prescindere dalla complicazione della soluzione di
+un sistema di equazioni non lineari, resta il fatto che se
+$x$ ed $y$ sono due grandezze fisiche diverse, o anche
+soltanto misurate con strumenti e metodi diversi, i loro
+errori quadratici medi sono generalmente differenti; mentre
+la distanza sul piano attribuisce lo stesso peso agli scarti
+in $x$ ed a quelli in $y$.
+
+Per applicare questo metodo si dovrebbe conoscere, per via
+indipendente, almeno il rapporto tra $\sigma_x$ e
+$\sigma_y$; e rappresentare i valori misurati $( x_i , y_i
+)$ non gi\`a sul piano $\{ x,y \}$, bens\`\i\ su quello
+delle variabili ridotte $\{ x/\sigma_x \, , \, y/\sigma_y
+\}$.
+
+Per solito nella pratica si preferisce considerare affetta
+da errore una soltanto delle variabili, ad esempio la $y$,
+la scelta cadendo generalmente su quella determinata in
+maniera \emph{pi\`u indiretta}, e che risente perci\`o degli
+errori di tutte le altre grandezze misurate direttamente;
+cos\`\i, in un diagramma velocit\`a-tempo trascorso o
+velocit\`a-spazio percorso, si assumer\`a affetta da errore
+la sola velocit\`a.
+
+Un eventuale errore sulla $x$ si \emph{propagher\`a}
+attraverso la relazione funzionale anche alla $y$, e, se
+l'errore quadratico medio $\sigma_y$ \`e stimato dai dati
+sperimentali, esso conglober\`a anche l'indeterminazione
+dovuta alla $x$.
+
+Per meglio chiarire il concetto, consideriamo la legge $v =
+v(t) = v_0 + g t$ che descrive la caduta di un grave, e
+pensiamo di misurare la sua velocit\`a in un certo istante:
+nell'ipotesi originale $t$ sarebbe determinabile
+esattamente, ma l'imprecisione nella misura delle velocit\`a
+ci darebbe valori di $v$ compresi in un intervallo di
+ampiezza non nulla (dipendente dall'errore quadratico medio
+$\sigma_v$).
+
+Se delle due grandezze, al contrario, fosse la velocit\`a ad
+essere conoscibile esattamente, l'impossibilit\`a di
+determinare con precisione l'istante $t$ in cui essa deve
+essere misurata ci darebbe ugualmente valori di $v$
+distribuiti in un intervallo di ampiezza non nulla (legata
+stavolta a $g \cdot \sigma_t$).
+
+Indicando, insomma, con $\sigma_x$ e $\sigma_y$ gli errori
+(sempre supposti costanti) di ognuna delle determinazioni
+(sempre supposte indipendenti) $x_i$ e $y_i$, la formula
+dell'errore a posteriori ci permette di ricavare dai dati
+una ragionevole stima non tanto del solo $\sigma_y$ quanto,
+piuttosto, della combinazione (quadratica) dell'errore
+intrinseco delle ordinate e di quello intrinseco delle
+ascisse propagato sulle ordinate:
+\begin{equation*}
+  \sigma^2 \approx {\sigma_y}^2 + \left( b^* \: \sigma_x
+    \right)^2
+\end{equation*}
+(ove $b^*$ \`e il valore vero della pendenza della retta).%
+\index{interpolazione lineare|)}
+
+\subsection{Interpolazione non lineare}
+Formule analoghe a quelle trovate si possono ricavare per
+risolvere il problema dell'interpolazione di curve di ordine
+superiore al primo (parabole, cubiche, polinomiali in
+genere) ad un insieme di dati sperimentali, sempre usando il
+metodo della massima verosimiglianza.
+
+Nel caso poi ci si trovasse di fronte ad una curva di
+equazione diversa da un polinomio, in parecchi casi \`e
+possibile \emph{linearizzare} la relazione cambiando
+variabile: cos\`\i, ad esempio, se due grandezze hanno tra
+loro una relazione di tipo esponenziale, il logaritmo
+naturale ne avr\`a una di tipo lineare:
+\begin{align*}
+  y &= K e^{-bx} & &\Longleftrightarrow &
+   \ln y \; = \; \ln K - bx \; &= \; a-bx \peq .
+\end{align*}
+
+\section{Altre applicazioni della stima di massima
+   verosimiglianza}%
+\index{massima verosimiglianza, metodo della|(}%
+\label{ch:11.exampl}
+Per concludere il capitolo, presentiamo altre tre
+applicazioni del metodo della massima verosimiglianza:
+la stima delle probabilit\`a ignote di un insieme di
+modalit\`a esclusive ed esaurienti cui pu\`o dar luogo un
+fenomeno casuale; la stima sia della media che della
+varianza di una popolazione normale; e la stima del range di
+una popolazione uniforme.
+
+\subsection{Stima di probabilit\`a}
+Supponiamo che un fenomeno casuale possa dare origine ad un
+numero finito $M$ di eventualit\`a, ognuna delle quali sia
+associata ad un valore $p_i$ ignoto della probabilit\`a; se,
+eseguite $N$ prove indipendenti, indichiamo con $n_i$ la
+frequenza assoluta con cui ognuna delle $M$ eventualit\`a si
+\`e presentata nel corso di esse, quale \`e la stima di
+massima verosimiglianza, $\widehat p_i$, per le incognite
+probabilit\`a $p_i$?
+
+La funzione di verosimiglianza \`e, visto che la generica
+delle $M$ eventualit\`a, di probabilit\`a $p_i$, si \`e
+presentata $n_i$ volte, data\/\footnote{A meno di un fattore
+  moltiplicativo costante, corrispondente al numero di modi
+  in cui $N$ oggetti si possono ripartire tra $M$ gruppi in
+  modo che ogni gruppo sia composto da $n_i$ oggetti; numero
+  delle \emph{partizioni ordinate}%
+  \index{partizioni ordinate}
+  (vedi in proposito il paragrafo \ref{ch:a.parord}).
+} da
+\begin{gather}
+  \mathcal{L} ( \boldsymbol{n}; \boldsymbol{p} ) =
+    \prod_{i=1}^M {p_i}^{n_i} \notag \\
+  \intertext{(in cui abbiamo indicato sinteticamente con
+    due vettori, $\boldsymbol{n}$ e $\boldsymbol{p}$,
+    entrambi di dimensione $M$, l'insieme degli
+    $M$ valori $n_i$ e quello degli $M$ valori $p_i$
+    rispettivamente); ed il suo logaritmo da}
+  \ln \mathcal{L} ( \boldsymbol{n}; \boldsymbol{p} ) =
+    \sum_{i=1}^M n_i \, \ln p_i \peq . \label{eq:11.lnlipi}
+\end{gather}
+
+Il problema della ricerca del massimo della
+\eqref{eq:11.lnlipi} \`e complicato dal fatto che i valori
+delle $p_i$ non sono liberi, ma \emph{vincolati} dalla
+condizione
+\begin{equation} \label{eq:11.sumpi}
+  \sum_{i=1}^M p_i = 1 \peq .
+\end{equation}
+Usiamo quindi il metodo dei moltiplicatori di Lagrange,
+costruendo la funzione
+\begin{equation} \label{eq:11.likpro}
+  f( \boldsymbol{n}; \boldsymbol{p} ) \; = \; \sum_{i=1}^M
+    n_i \, \ln p_i - \lambda \left( \sum_{i=1}^M p_i - 1
+    \right)
+\end{equation}
+e risolvendo il sistema delle $M+1$ equazioni, nelle $M+1$
+incognite $p_i$ e $\lambda$, composto dalla
+\eqref{eq:11.sumpi} e dalle altre $M$ ottenute derivando la
+\eqref{eq:11.likpro} rispetto ad ognuna delle $p_k$:
+\begin{gather*}
+  \frac{\partial f}{\partial p_k} \; = \; n_k \,
+    \frac{1}{p_k} - \lambda \; = \; 0 \hspace{2cm} (k = 1,
+    2,\ldots, M) \peq . \\
+  \intertext{Da quest'ultima si ricava}
+  \widehat p_k = \frac{n_k}{\lambda} \\
+  \intertext{e, sostituendo nella \eqref{eq:11.sumpi},}
+  \sum_{i=1}^M \widehat p_i \; = \; \frac{1}{\lambda}
+    \sum_{i=1}^M n_i \; = \; \frac{N}{\lambda} \; = \; 1
+    \\
+  \intertext{si ottiene}
+  \lambda = N \\
+  \intertext{per cui in definitiva la soluzione di massima
+    verosimiglianza \`e (cosa non sorprendente) data dalle}
+  \widehat p_i = \frac{n_i}{N} \peq .
+\end{gather*}
+
+\subsection{Media e varianza di una popolazione
+  normale}
+Abbiamo gi\`a visto nel paragrafo \ref{ch:11.mepeted} che,
+\emph{ammessa nota la varianza} $\sigma^2$ di una
+popolazione normale, il suo valore medio $\mu$ ha come stima
+di massima verosimiglianza la media aritmetica $\bar x$ di
+un campione di stime indipendenti; vogliamo ora stimare
+\emph{contemporaneamente sia $\mu$ che $\sigma$} dai dati,
+usando sempre il metodo della massima verosimiglianza.
+
+La densit\`a di probabilit\`a vale
+\begin{gather*}
+  f( x; \mu, \sigma ) = \frac{1}{\sigma \sqrt{2 \pi}} \,
+    e^{- \frac{1}{2} \left( \frac{x - \mu}{
+          \sigma } \right)^2 } \\
+  \intertext{ed il suo logaritmo}
+  \ln f ( x; \mu, \sigma ) \; = \; - \ln \sigma - \ln \sqrt{
+    2 \pi } - \frac{1}{2} \left( \frac{x - \mu}{ \sigma }
+    \right)^2 \peq .
+\end{gather*}
+
+Il logaritmo della funzione di verosimiglianza \`e
+\begin{gather*}
+  \ln \mathcal{L} ( \boldsymbol{x}; \mu, \sigma) \; =
+    \; \sum_{i=1}^N \ln f ( x_i ; \mu, \sigma ) \\
+  \intertext{e dunque}
+  \ln \mathcal{L} ( \boldsymbol{x}; \mu, \sigma) \; = \; - N
+    \ln \sigma - N \, \ln \sqrt{2 \pi} - \frac{1}{2 \sigma^2}
+    \sum_{i=1}^N \left( x_i - \mu \right)^2 \peq ;
+\end{gather*}
+e le sue derivate parziali prime sono
+\begin{gather*}
+  \frac{ \partial }{ \partial \mu } \ln \mathcal{L} \; = \;
+    \frac{1}{\sigma^2} \, \sum_{i=1}^N \left( x_i - \mu
+    \right) \; = \; \frac{1}{ \sigma^2 } \left(
+  \sum\limits_{i=1}^N x_i - N \mu \right) \\
+  \intertext{e}
+  \frac{ \partial }{ \partial \sigma } \ln \mathcal{L} \; =
+    \; - \frac{N}{\sigma} + \frac{1}{\sigma^3} \sum_{i=1}^N
+    \left( x_i - \mu \right)^2 \; = \; \frac{1}{\sigma^3} \,
+    \left[ \sum_{i=1}^N \left( x_i - \mu \right)^2 - N
+    \sigma^2  \right] \peq .
+\end{gather*}
+
+Il sistema ottenuto annullando le due derivate parziali
+prime ha l'unica soluzione (in effetti un massimo) data da
+\begin{align*}
+  \widehat \mu &= \bar x = \frac{1}{N} \sum_{i=1}^N x_i
+   &&\text{e} &
+   \widehat \sigma^2 &= \frac{1}{N} \sum_{i=1}^N \left( x_i
+     - \widehat \mu \right)^2 \peq .
+\end{align*}
+Questo era gi\`a noto: entrambe le stime, come sappiamo,
+sono consistenti; per\`o la seconda non \`e imparziale (ma
+pu\`o essere resa tale moltiplicandola per un opportuno
+fattore di correzione).
+
+In sostanza il fatto che la varianza della popolazione abbia
+un determinato valore (come assunto nel paragrafo
+\ref{ch:11.mepeted}) non cambia il fatto che la nostra
+migliore stima del valore medio della popolazione sia
+comunque data dalla media aritmetica del campione: vedremo
+poi nel paragrafo \ref{th:12.inmest} che il valore medio del
+campione e la sua varianza sono variabili casuali
+\emph{statisticamente indipendenti tra loro}.%
+\index{media!aritmetica!e varianza}%
+\index{varianza!e media aritmetica}
+
+\subsection{Range di una popolazione uniforme}%
+\index{distribuzione!uniforme!range|(}
+Sia una variabile casuale $x$ distribuita uniformemente tra
+un estremo inferiore noto, che senza perdere in generalit\`a
+possiamo supporre sia lo zero, ed un estremo superiore
+ignoto $A$; in questo caso dobbiamo innanzi tutto osservare
+sia che il dominio di definizione della funzione di
+frequenza $f(x)$ della $x$ \emph{dipende dal parametro} che
+dobbiamo stimare, sia che $f(x)$ e la sua derivata prima
+hanno dei punti di discontinuit\`a: e non possiamo in
+conseguenza garantire \emph{a priori} n\'e la consistenza,
+n\'e la massima efficienza asintotica del metodo usato.
+
+Comunque, introducendo la cosiddetta \emph{funzione gradino}
+(o \emph{step function}) $S(x)$, definita attraverso la
+\begin{equation*}
+  \begin{cases}
+    S(x) = 0 &\qquad(x < 0) \\[1ex]
+    S(x) = 1 &\qquad(x \ge 0)
+  \end{cases}
+\end{equation*}
+la funzione di frequenza $f(x)$ si pu\`o anche scrivere
+\begin{gather*}
+  f(x) \; = \; \frac{1}{A} \; S(x) \; S(A - x) \\
+  \intertext{e la funzione di verosimiglianza}
+  \mathcal{L}(x_1, x_2, \ldots, x_N; A) = \frac{1}{A^N}
+  \; S(x_{\min}) \; S(A - x_{\max}) \peq .
+\end{gather*}
+
+Come sappiamo, ammesso noto il valore del parametro $A$ essa
+rappresenta la densit\`a di probabilit\`a di ottenere gli
+$N$ valori $x_i \in [-\infty , +\infty]$; se invece si
+considera $A$ come l'unica variabile e si ammettono noti gli
+$N$ valori $x_i$, rappresenta la densit\`a di probabilit\`a
+che un dato $A$ abbia prodotto i dati osservati.  Ma in
+quest'ultimo caso $S(x_{\min}) \equiv 1$, e la funzione di
+verosimiglianza si riduce alla
+\begin{equation} \label{eq:11.range1}
+  \mathcal{L}(A) = \frac{1}{A^N} \; S(A - x_{\max})
+\end{equation}
+che \`e nulla per $A < x_{\max}$ e monotona strettamente
+decrescente per $A \ge x_{\max}$; ed ammette quindi un unico
+massimo all'estremo del dominio, che vale
+\begin{equation} \label{eq:11.range2}
+  \hat A = x_{\max} \peq .
+\end{equation}
+
+Valore medio e varianza della stima valgono, come gi\`a
+sappiamo dal paragrafo \ref{ch:8.estremi},
+\begin{gather*}
+  E( \hat A ) \; = \; A^* - \frac{A^*}{N + 1} \; = \;
+  \frac{N}{N + 1} \, A^* \\
+  \intertext{e}
+  \var( \hat A ) \; = \; \frac{N}{(N + 1)^2 \, (N + 2)} \,
+  \left( A^* \right)^2
+  \intertext{e quindi la stima \`e consistente, ma non
+    imparziale; una stima imparziale \`e invece}
+  \bar A \; = \; \frac{N + 1}{N} \, x_{\max} \; = \;
+  x_{\max} \, \left( 1 + \frac{1}{N} \right) \peq ,
+\end{gather*}
+di varianza ovviamente superiore per un fattore $(1 +
+1/N)^2$.  \`E anche ovvio, dalla forma sia della
+\eqref{eq:11.range1} che della \eqref{eq:11.range2}, che
+$\hat A$ \`e una stima sufficiente di $A^*$.%
+\index{distribuzione!uniforme!range|)}%
+\index{massima verosimiglianza, metodo della|)}
+
+\subsection{Stima della vita media di una particella}%
+\index{vita media|(}
+Nel processo di decadimento di una particella instabile,
+indichiamo con $\tau$ l'incognita vita media e con $t$ i
+tempi (propri) di decadimento osservati; tempi che (come
+sappiamo) seguono la distribuzione esponenziale:
+\begin{equation*}
+  f(t; \tau) = \frac{1}{\tau} \, e^{- \frac{t}{\tau} }
+  \makebox[40mm]{$\Longrightarrow$}
+  \begin{cases}
+    E(t) = \tau \\[2ex]
+    \var(t) = \tau^2
+  \end{cases}
+\end{equation*}
+Ammettendo per semplicit\`a che l'osservazione avvenga con
+una efficienza unitaria, o, in altre parole, che tutti i
+decadimenti vengano osservati, la funzione di
+verosimiglianza si scrive
+\begin{gather*}
+  \mathcal{L} \; = \; \prod_{k=1}^N f(t_k; \tau) \; = \;
+  \frac{1}{\tau^N} \, e^{- \frac{1}{\tau} \sum_k t_k } \peq
+  , \\
+  \intertext{ed il suo logaritmo vale}
+  \ln( \mathcal{L} ) \; = \; - N \ln \tau -
+  \frac{1}{\tau} \sum_{k=1}^N t_k \; = \; - N \left(
+    \frac{\bar t}{\tau} + \ln \tau \right) \peq . \\
+  \intertext{Derivando rispetto al parametro e cercando gli
+    estremanti,}
+  \frac{\de \, \ln( \mathcal{L} )}{\de \tau} \; = \;
+  \frac{N}{\tau^2} ( \bar t - \tau ) \; = \; 0 \peq ; \\
+  \intertext{e quindi l'unico estremante della funzione di
+    verosimiglianza si ha per}
+  \hat \tau = \bar t \peq . \\
+  \intertext{Se calcoliamo la derivata seconda,}
+  \frac{\de^2 \, \ln( \mathcal{L} )}{\de \tau^2} = -
+  \frac{N}{\tau^3} \left( 2 \bar t - \tau \right) \\
+\end{gather*}
+essa, calcolata per $t = \bar t$ \`e negativa; quindi
+l'unico estremante \`e effettivamente un punto di massimo.
+
+La soluzione di massima verosimiglianza $\hat \tau = \bar t$
+\`e \emph{consistente ed imparziale} (essendo il valore medio
+del campione); \emph{di varianza minima} (per il teorema di
+Cram\'er--Rao); inoltre la stima \`e \emph{sufficiente}
+(riassume insomma tutta l'informazione del campione).
+
+Normalmente l'efficienza non \`e per\`o unitaria; ad esempio
+il nostro rivelatore pu\`o avere dimensioni confrontabili
+col cammino medio delle particelle, che possono quindi
+uscirne prima di decadere.  In questo caso, visto che i
+decadimenti possono essere stati osservati solo essendo
+avvenuti all'interno di un intervallo compreso tra un valore
+temporale minimo (eventualmente nullo) ed uno massimo (ad
+esempio dipendente dalla posizione del decadimento, dalla
+direzione di emissione dei suoi prodotti, dalle dimensioni
+del rivelatore, \ldots) --- intervallo differente per ognuno
+dei decadimenti --- dovremo costruire la funzione di
+verosimiglianza considerando le probabilit\`a di
+osservazione \emph{condizionate} dall'essere il decadimento
+$i$-esimo avvenuto tra un certo $(t_{\min})_i$ ed un certo
+$(t_{\max})_i$:
+\begin{equation} \label{eq:11.taulik}
+  \mathcal{L} = \prod_{i=1}^N \left[ \frac{ \frac{1}{\tau}
+      e^{- \frac{t_i}{\tau}} }{ e^{-
+        \frac{(t_{\min})_i}{\tau}} - e^{-
+        \frac{(t_{\max})_i}{\tau}} } \right]
+\end{equation}
+
+Il denominatore della \eqref{eq:11.taulik} rappresenta
+infatti la probabilit\`a di decadere tra il tempo $t_{\min}$
+e quello $t_{\max}$, come \`e immediato ricavare dalla
+funzione di distribuzione della densit\`a di probabilit\`a
+esponenziale, che vale
+\begin{gather*}
+  F(t) \; = \; \int_0^t \frac{1}{\tau} \, e^{-
+    \frac{x}{\tau} } \, \de x \; = \; 1 - e^{-
+    \frac{t}{\tau} } \peq ; \\
+  \intertext{dalla \eqref{eq:11.taulik} si ricava poi}
+  \ln( \mathcal{L} ) = -N \ln \tau + \sum_{i=1}^N \left\{
+    - \frac{t_i}{\tau} - \ln \left[ e^{-
+        \frac{(t_{\min})_i}{\tau}} -  e^{-
+        \frac{(t_{\max})_i}{\tau}} \right] \right\} \\
+  \intertext{e, posto per brevit\`a}
+  \varphi_i(\tau) = \frac{ (t_{\min})_i^2 \cdot e^{-
+      \frac{(t_{\min})_i}{\tau}} - (t_{\max})_i^2 \cdot
+    e^{- \frac{(t_{\max})_i}{\tau}}}{e^{-
+      \frac{(t_{\min})_i}{\tau}} - e^{-
+      \frac{(t_{\max})_i}{\tau}}} \\
+  \intertext{si arriva alla}
+  \frac{\de \, \ln( \mathcal{L} ) }{\de \tau} \; = \;
+  \frac{1}{\tau^2} \left\{ \sum_{i=1}^N \bigl[ t_i -
+    \varphi_i(\tau) \bigr] - N \tau \right\} \; = \; 0
+\end{gather*}
+che bisogna risolvere in modo numerico.  Non si pu\`o
+inoltre in questo caso garantire che le propriet\`a
+precedentemente delineate per $\hat \tau$ (consistenza,
+normalit\`a, efficienza, \ldots) siano ancora valide, almeno
+per $N$ finito.  Pu\`o darsi che la funzione di
+verosimiglianza ammetta pi\`u di un massimo, e non si sa a
+priori quale di essi converger\`a verso $\tau^*$; e, per
+finire, l'errore della stima deve essere ricavato dalla
+concavit\`a della funzione di verosimiglianza, supposta
+approssimativamente normale.%
+\index{vita media|)}
+
+\endinput

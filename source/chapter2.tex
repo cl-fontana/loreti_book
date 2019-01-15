@@ -1,0 +1,784 @@
+% $Id: chapter2.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{La misura}
+Ad ogni grandezza fisica si deve, almeno in linea di
+principio, poter associare un valore numerico in modo
+\emph{univoco} ed \emph{oggettivo}, cio\`e riproducibile
+nelle stesse condizioni da qualsiasi osservatore; valore
+pari al rapporto fra la grandezza stessa e l'unit\`a di
+misura per essa prescelta.
+
+Per eseguire tale associazione dobbiamo disporre di
+strumenti e metodi che ci permettano di mettere in relazione
+da una parte la grandezza da misurare, e dall'altra
+l'unit\`a di misura (oppure suoi multipli o sottomultipli);
+e ci dicano se esse sono uguali o, altrimenti, quale delle
+due \`e maggiore.
+
+\section{Misure dirette e misure indirette}
+La misura si dice \emph{diretta}%
+\index{misure!dirette}
+quando si confronta direttamente la grandezza misurata con
+l'unit\`a di misura (\emph{campione}) o suoi multipli o
+sottomultipli; come esempio, la misura di una lunghezza
+mediante un regolo graduato \`e una misura diretta.
+
+\`E una misura diretta anche quella effettuata mediante
+l'uso di \emph{strumenti pretarati} (ad esempio la misura
+della temperatura mediante un termometro), che si basa sulla
+propriet\`a dello strumento di reagire sempre nella stessa
+maniera quando viene sottoposto alla medesima
+sollecitazione.
+
+Misure \emph{indirette}%
+\index{misure!indirette}
+sono invece quelle in cui non si misura la grandezza che
+interessa, ma altre che risultino ad essa legate da una
+qualche relazione funzionale; cos\`\i\ la velocit\`a di
+un'automobile pu\`o essere valutata sia direttamente (con il
+tachimetro) sia indirettamente: misurando spazi percorsi e
+tempi impiegati, dai quali si risale poi alla velocit\`a
+(media) con una operazione matematica.
+
+\section{Le unit\`a di misura}%
+\index{unit\`a di misura!fondamentali e derivate|(}
+Le grandezze fisiche si sogliono dividere in
+\emph{fondamentali} e \emph{derivate}.  Con il primo di
+questi nomi si indicavano, originariamente, quelle grandezze
+misurate con strumenti e metodi sperimentali che
+richiedessero un confronto diretto con un campione, scelto
+arbitrariamente come unit\`a di misura; mentre le seconde
+venivano generalmente determinate in modo indiretto,
+ovverosia (come appena detto) attraverso misure dirette di
+altre grandezze ad esse legate da relazioni algebriche: che
+permettevano non solo di calcolarne i valori, ma ne
+fissavano nel contempo anche le unit\`a di misura.
+
+In questo modo si sono definiti vari sistemi di misura
+coerenti, come il Sistema Internazionale%
+\index{Sistema Internazionale}
+(\textbf{SI}) attualmente in uso: esso assume come grandezze
+fondamentali lunghezza, massa, tempo, intensit\`a di
+corrente elettrica, temperatura, intensit\`a luminosa e
+quantit\`a di materia; con le rispettive unit\`a metro,
+chilogrammo, secondo, Amp\`ere, grado Kelvin, candela e
+mole.  Le unit\`a per la misura delle altre grandezze sono
+poi univocamente determinate dalle relazioni algebriche che
+le legano a quelle fondamentali.
+
+\index{dimensioni (delle grandezze fisiche)|(}%
+Se ciascuna unit\`a fondamentale viene ridotta di un certo
+fattore, il valore della grandezza espresso nelle nuove
+unit\`a dovr\`a essere moltiplicato per un prodotto di
+potenze dei medesimi fattori.  Cos\`\i, per restare
+nell'ambito della meccanica, se riduciamo l'unit\`a di
+lunghezza di un fattore $L$, l'unit\`a di massa di un
+fattore $M$ e quella di tempo di un fattore $T$, ed il
+valore di una grandezza fisica ne risultasse in conseguenza
+moltiplicato per
+\begin{equation*}
+  L^\lambda \, M^\mu \, T^\tau \peq ,
+\end{equation*}
+si dir\`a che la grandezza in questione ha le
+\emph{dimensioni} di una lunghezza elevata alla potenza
+$\lambda$ per una massa elevata alla potenza $\mu$ per un
+tempo elevato alla potenza $\tau$.
+
+Pensiamo alla velocit\`a (media) di un corpo in movimento,
+che \`e definita come il rapporto tra lo spazio da esso
+percorso in un certo intervallo di tempo e la durata di tale
+intervallo: ed \`e dunque una grandezza derivata.  Una volta
+scelte le unit\`a di misura delle lunghezze e dei tempi (per
+esempio il metro ed il secondo), l'unit\`a di misura delle
+velocit\`a risulta fissata univocamente (metro al secondo).
+
+Se si alterano ad esempio l'unit\`a di lunghezza
+moltiplicandola per un fattore $1 / L = 1000$ (chilometro),
+quella di tempo moltiplicandola per un fattore $1 / T =
+3600$ (ora) e quella di massa moltiplicandola per un fattore
+$1 / M = 1000$ (tonnellata), il valore di qualunque
+velocit\`a nella nuova unit\`a (chilometro all'ora)
+risulter\`a alterato rispetto al precedente di un fattore
+\begin{equation*}
+  L^1 M^0 T^{-1} = L T^{-1}
+\end{equation*}
+e si dice pertanto che le dimensioni fisiche di una
+velocit\`a sono quelle di una lunghezza divisa per un tempo.
+
+Come altro esempio si consideri l'energia cinetica di un
+corpo, definita come il lavoro compiuto dalla forza che si
+deve applicare per arrestarlo; e che \`e pari numericamente
+alla met\`a del prodotto della massa per il quadrato della
+velocit\`a del corpo stesso:
+\begin{equation*}
+  K = \frac{1}{2} \, m v^2 \peq .
+\end{equation*}
+
+Essa \`e pertanto una grandezza derivata, la cui unit\`a di
+misura nel Sistema Internazionale \`e l'energia cinetica di
+un corpo avente massa di 2\un{Kg} ed in moto traslatorio con
+velocit\`a di 1\un{m/s} (unit\`a detta \emph{joule}).
+Passando al nuovo sistema di unit\`a prima definito (assai
+inconsueto per un'energia), il valore di $K$ risulta
+moltiplicato per il fattore $M^1 L^2 T^{-2}$; si dice dunque
+che un'energia ha le dimensioni di una massa, moltiplicata
+per il quadrato di una lunghezza e divisa per il quadrato di
+un tempo.
+
+Queste propriet\`a di trasformazione sono legate alla
+cosiddetta \emph{analisi dimensionale} ed alla
+\emph{similitudine meccanica}, argomenti che esulano da
+questo corso.%
+\index{dimensioni (delle grandezze fisiche)|)}
+Basti qui osservare che il numero di unit\`a indipendenti
+non coincide necessariamente con quello delle grandezze
+assunte come ``fondamentali''; cos\`\i\ l'angolo piano e
+l'angolo solido sono entrambi privi di dimensioni in termini
+di grandezze fisiche fondamentali, e come tali dovrebbero
+avere come unit\`a di misura derivata ($1\un{m} / 1\un{m}$ e
+rispettivamente $1\un{m^2} / 1\un{m^2}$) lo stesso ``numero
+puro'' 1, mentre esistono per essi due diverse unit\`a: il
+radiante e lo steradiante, quasi essi avessero dimensioni
+proprie e distinte.
+
+N\'e vi \`e alcunch\'e di necessario nella scelta delle
+grandezze fondamentali quale si \`e venuta configurando
+storicamente nel Sistema Internazionale, potendosi definire
+un sistema coerente anche con l'assegnazione di valori
+convenzionali alle costanti universali delle leggi fisiche
+(come proposto agli inizi del secolo da
+Max Planck):%
+\index{Planck, Max Karl Ernst Ludwig}
+cos\`\i\ un sistema di unit\`a ``naturali''%
+\index{unit\`a di misura!naturali}
+si potrebbe fondare, in linea di principio, ponendo uguali
+ad 1 la velocit\`a della luce nel vuoto, il quanto d'azione
+(o costante di Planck), la costante di gravitazione
+universale, la costante di Boltzmann ed il quanto elementare
+di carica elettrica (ovverosia la carica dell'elettrone).
+Ma, a parte considerazioni di opportunit\`a e consuetudine,
+ci\`o che determina in ultima analisi fino a che punto si
+possa tradurre in pratica un simile programma, e quali
+grandezze siano quindi da considerare fondamentali, \`e la
+riproducibilit\`a dei campioni e la precisione con cui \`e
+possibile il confronto diretto tra grandezze omogenee.
+
+\`E emblematica a questo riguardo la storia dell'evoluzione
+delle unit\`a di misura delle lunghezze: queste anticamente
+erano riferite a parti del corpo umano quali il braccio, il
+cubito (gi\`a usato dagli Egizi), il piede e la larghezza
+del pollice; ovvero delle medie di tali lunghezze su di un
+numero limitato di individui.  L'ovvio vantaggio di una
+simile definizione \`e la disponibilit\`a del campione in
+ogni tempo e luogo; l'altrettanto ovvio svantaggio \`e la
+grande variabilit\`a del campione stesso, donde il ricorso
+dapprima a valori medi ed infine a campioni artificiali
+costruiti con materiali e accorgimenti che garantissero una
+minima variabilit\`a della loro lunghezza, col tempo e con
+le condizioni esterne pi\`u o meno controllabili.
+
+Cos\`\i, dopo la parentesi illuministica che port\`o
+all'adozione della quarantamilionesima parte del meridiano
+terrestre quale unit\`a di lunghezza (metro), e fino al
+1960, il metro campione fu la distanza tra due tacche
+tracciate su di un'opportuna sezione di una sbarra costruita
+usando una lega metallica molto stabile; tuttavia le
+alterazioni spontanee della struttura microcristallina della
+sbarra fanno s\`\i\ che diversi campioni, aventi la medesima
+lunghezza alla costruzione, presentino con l'andar del tempo
+differenze apprezzabili dai moderni metodi di misura.
+Inoltre l'uso di metodi ottici interferenziali fin\`\i \
+per consentire un confronto pi\`u preciso delle lunghezze, e
+condusse nel 1960 (come suggerito da Babinet gi\`a nel
+1829!) a svincolare la definizione del metro dalla
+necessit\`a di un supporto materiale macroscopico, col porlo
+uguale a $1 \updot 650 \updot 763.73$ volte l'effettivo
+campione: cio\`e la lunghezza d'onda nel vuoto della luce
+emessa, in opportune condizioni, da una sorgente atomica
+(riga arancione dell'isotopo del Kripton $^{86}
+\makebox{Kr}$).
+
+L'ulteriore rapido sviluppo della tecnologia, con l'avvento
+di laser molto stabili e di misure accuratissime delle
+distanze planetarie col metodo del radar, ha condotto
+recentemente (1984) ad una nuova definizione del metro, come
+distanza percorsa nel vuoto dalla luce in una determinata
+frazione ($1 / 299 \updot 792 \updot 458$) dell'unit\`a di
+tempo (secondo); il che equivale ad assumere un valore
+convenzionale per il campione di velocit\`a (la velocit\`a
+della luce nel vuoto) ed a ridurre la misura della lunghezza
+fondamentale ad una misura di tempo.  \`E implicita nella
+definizione anche la fiducia nell'indipendenza della
+velocit\`a della luce nel vuoto sia dal sistema di
+riferimento dell'osservatore che dal ``tipo'' di luce
+(frequenza, stato di polarizzazione e cos\`\i\ via); ipotesi
+queste che sono necessarie conseguenze delle moderne teorie
+della fisica.
+
+Le misure di lunghezza hanno dunque percorso l'intero arco
+evolutivo, ed appare evidente come la complessa realt\`a
+metrologica odierna non sia pi\`u riflessa esattamente nella
+classificazione tradizionale di grandezze ``fondamentali'' e
+``derivate''.  Infatti la velocit\`a assume ora in un certo
+senso il ruolo di grandezza fondamentale, e tuttavia una
+velocit\`a non si misura praticamente mai per confronto
+diretto col campione (la velocit\`a della luce nel vuoto);
+per converso le lunghezze sono spesso ancora oggi misurate
+per confronto con campioni, ma la lunghezza del campione
+primario (il metro) \`e a sua volta determinata da una
+misura di tempo.
+
+Per quanto riguarda l'unit\`a di durata temporale, essa fu
+svincolata da un supporto macroscopico (il moto diurno della
+terra o i moti planetari) nel 1964 con l'adozione di un
+campione di frequenza atomico (in termini imprecisi il
+cosiddetto ``orologio atomico al Cesio''), assegnando il
+valore convenzionale di $9 \updot 192 \updot 631 \updot 770$
+cicli al secondo (hertz) alla frequenza della radiazione
+elettromagnetica emessa in una particolare transizione tra
+due stati quantici dell'atomo di $^{133} \makebox{Cs}$.
+
+Questa definizione del minuto secondo consente il confronto
+di intervalli di tempo con un errore
+relativo\/\footnote{Vedi il paragrafo \ref{ch:2.errel} alla
+  fine del corrente capitolo.} inferiore ad una parte su
+$10^{13}$.  Se si considera che il quanto d'azione $\hbar$,
+che \`e la costante universale della meccanica (quantistica)
+determinata con maggior precisione dopo la velocit\`a della
+luce nel vuoto e che sia da essa indipendente, \`e noto
+soltanto con una incertezza dell'ordine di 0.2 parti per
+milione\/\footnote{Attualmente (2004), l'errore relativo sul
+  valore comunemente usato di $\hbar$ (e che vale $1.054
+  \updot 571 \updot 68 \times 10^{-34} \un{J s}$) \`e di
+  $1.7 \times 10^{-7}$.}, si comprende quale iato si
+dovrebbe colmare per portare a compimento il programma di
+Planck anche con il tempo, cos\`\i\ come lo si \`e
+realizzato per la lunghezza.
+
+Ad uno stadio ancora meno avanzato \`e giunta l'evoluzione
+delle misure di massa, il cui campione \`e tuttora
+costituito da un particolare oggetto macroscopico detto
+``chilogrammo-campione''.  Anche qui la precisione con cui
+si possono confrontare le masse supera di vari ordini di
+grandezza quella con cui \`e nota la costante di
+gravitazione universale, cui l'attribuzione di un valore
+convenzionale consentirebbe di ridurre le misure di massa a
+quelle di tempo e di lunghezza.%
+\index{unit\`a di misura!fondamentali e derivate|)}
+
+\section{Gli strumenti di misura}%
+\index{strumenti di misura|(}
+Lo strumento di misura \`e un apparato che permette il
+confronto tra la grandezza misurata e l'unit\`a prescelta.
+Esso \`e costituito da un oggetto sensibile in qualche modo
+alla grandezza da misurare, che si pu\`o chiamare
+\emph{rivelatore}; eventualmente da un dispositivo
+\emph{trasduttore}, che traduce le variazioni della
+grandezza caratteristica del rivelatore in quelle di
+un'altra grandezza pi\`u facilmente accessibile allo
+sperimentatore; e da un dispositivo \emph{indicatore} che
+presenta il risultato della misura ai sensi (generalmente
+alla vista) dello sperimentatore: o direttamente o mediante
+una registrazione, grafica o di altro genere.
+
+Cos\`\i\ in un \emph{calibro}, strumento per la misura di
+spessori, il rivelatore \`e costituito dalla ganascia mobile
+col cursore ad essa solidale, e che pu\`o scorrere nella
+guida facente corpo unico con la ganascia fissa; mentre
+l'elemento indicatore \`e costituito dalla scala graduata in
+millimetri tracciata sulla guida e dal segno di fede inciso
+sul cursore, a sua volta generalmente collegato ad una scala
+graduata ausiliaria (\emph{nonio}) per la lettura delle
+frazioni di millimetro.  La grandezza letta sulla scala \`e
+qui direttamente lo spessore oggetto della misura.
+
+In un \emph{termometro} a liquido l'elemento sensibile alla
+temperatura \`e il liquido contenuto nel bulbo; esso funge
+almeno in parte anche da trasduttore, perch\'e la
+propriet\`a termometrica che viene usata \`e il volume del
+rivelatore stesso.  Il tubo capillare a sezione costante
+traduce le variazioni di volume del rivelatore in variazioni
+di lunghezza della colonna di liquido ivi contenuta; il
+menisco che separa il liquido dal suo vapore nel capillare
+funge da indicatore, assieme con la scala tracciata sulla
+superficie esterna del tubo stesso o sopra un regolo ad essa
+solidale.  La grandezza letta sulla scala \`e la distanza
+del menisco da un segno di riferimento che pu\`o essere
+messa in corrispondenza con la temperatura per mezzo di una
+tabella di conversione; oppure, pi\`u spesso e comodamente,
+le temperature corrispondenti sono scritte sulla scala
+stessa accanto alle tacche della graduazione.
+
+\index{strumenti di misura!caratteristiche|(}%
+Le caratteristiche pi\`u importanti di uno strumento sono le
+seguenti:
+\begin{itemize}
+\item La \emph{prontezza}: \`e determinata dal tempo
+  necessario perch\'e lo strumento risponda in modo completo
+  ad una variazione della sollecitazione; ad esempio, per
+  avere una risposta corretta da un termometro si deve
+  attendere che si raggiunga l'equilibrio termico tra il
+  rivelatore e l'oggetto di cui si misura la temperatura.
+\item L'\emph{intervallo d'uso}: \`e definito come l'insieme
+  dei valori compresi tra la \emph{soglia} e la
+  \emph{portata} dello strumento, cio\`e tra il minimo ed il
+  massimo valore della grandezza che lo strumento pu\`o
+  apprezzare in un singolo atto di misura.
+\item La \emph{sensibilit\`a}: si pu\`o definire come il
+  reciproco della incertezza di lettura propria dello
+  strumento, cio\`e della pi\`u piccola variazione della
+  grandezza che pu\`o essere letta sulla scala, e che si
+  assume generalmente corrispondente alla pi\`u piccola
+  divisione della scala stessa (o ad una frazione
+  apprezzabile di questa).  La sensibilit\`a pu\`o essere
+  diversa in differenti punti della scala, o per diversi
+  valori della grandezza; \`e un fattore che limita
+  l'intervallo d'uso dello strumento, potendo divenire
+  insufficiente al di sotto della soglia od al di sopra
+  della portata.
+\item La \emph{precisione} dello strumento: \`e legata alla
+  riproducibilit\`a del risultato della misura di una stessa
+  grandezza.  Esso pu\`o variare da una parte per difetti
+  dello strumento dovuti alla costruzione, che non pu\`o mai
+  essere perfetta, e per il logoramento di alcune componenti
+  in conseguenza dell'uso prolungato o improprio, o
+  dell'invecchiamento; e, inoltre, per la presenza di varie
+  cause di disturbo ineliminabili anche in condizioni
+  normali d'uso dello strumento stesso.
+
+  Tutto questo fa s\`\i\ che misure ripetute di una stessa
+  grandezza fisica si distribuiscano in un intervallo pi\`u
+  o meno ampio; la precisione si pu\`o definire come il
+  reciproco dell'incertezza sul valore della grandezza che
+  viene determinata dall'insieme di questi fattori: ed \`e
+  sostanzialmente legata all'entit\`a degli \emph{errori
+    casuali}, di cui parleremo tra poco nel paragrafo
+  \ref{ch:2.errmis}.
+
+\item L'\emph{accuratezza} dello strumento; ossia la sua
+  capacit\`a di fornire valori corrispondenti a quello
+  realmente posseduto dalla grandezza in esame.  In altre
+  parole, se lo strumento \`e accurato ci si aspetta che i
+  risultati di misure ripetute della stessa grandezza fisica
+  siano equamente distribuiti in un intorno del valore vero;
+  questa caratteristica degli strumenti sar\`a, come
+  vedremo, legata alla presenza di \emph{errori sistematici}
+  da essi introdotti (di questi, e delle loro possibili
+  cause parleremo sempre nel paragrafo \ref{ch:2.errmis}).
+
+  Ci si attende da uno sperimentatore serio che sappia
+  individuare le cause di scarsa accuratezza nei suoi
+  strumenti (ad esempio un'errata taratura dello zero della
+  scala) ed in qualche modo neutralizzarle; cos\`\i\ da
+  ricondursi, in ogni caso, a \emph{risultati accurati}.
+\end{itemize}%
+\index{strumenti di misura!caratteristiche|)}
+
+Per sfruttare a pieno le possibilit\`a di uno strumento di
+misura, \`e opportuno che la sensibilit\`a non sia troppo
+inferiore alla precisione; gli strumenti di uso corrente
+sono costruiti con una sensibilit\`a circa uguale alla
+precisione in condizioni normali d'uso.
+
+Anche se, per questo motivo, generalmente la sensibilit\`a e
+la precisione in uno strumento hanno valori simili, fate
+attenzione a non confondere i due concetti: la sensibilit\`a
+\`e una caratteristica intrinseca degli strumenti, e rimane
+perci\`o costante in ogni situazione; mentre la precisione
+delle nostre misure dipende, \`e vero, dal tipo di strumento
+usato (e quindi dalla sua sensibilit\`a) --- ma anche dalle
+modalit\`a contestuali di impiego e dal tipo di grandezza
+misurata.
+
+Cos\`\i\ su un orologio nella cui scala non siano
+riportate che poche divisioni (l'inverso della sensibilit\`a
+sia ad esempio di 60 o 15 minuti) non \`e difficile stimare
+l'ora con una approssimazione che invece \`e dell'ordine di
+pochi minuti; mentre un cronometro in grado di apprezzare il
+decimillesimo di secondo, se azionato a mano, difficilmente
+pu\`o raggiungere una precisione inferiore al decimo.
+
+Similmente, un regolo lungo un metro e graduato al
+millimetro pu\`o essere usato per valutare le dimensioni di
+un quaderno (con un singolo atto di misura); oppure
+(riportandolo varie volte di seguito a se stesso) le
+dimensioni di un edificio.  \`E evidente come, pur essendo
+lo strumento lo stesso (quindi la sensibilit\`a non varia)
+la precisione delle misure debba essere completamente
+diversa nei due casi.%
+\index{strumenti di misura|)}
+
+\section{Errori di misura}
+\label{ch:2.errmis}
+Come gi\`a accennato in relazione alla precisione di uno
+strumento, se si esegue una misura di una qualsiasi
+grandezza fisica si commettono inevitabilmente errori;
+conseguentemente il valore ottenuto per la grandezza
+misurata non \`e mai esattamente uguale al suo vero valore,
+che non ci potr\`a perci\`o mai essere noto con precisione
+arbitrariamente grande (diversamente da quanto accade con
+una costante matematica, come ad esempio $\pi$).
+
+Quando si ripete la misura della stessa grandezza col
+medesimo strumento, nelle medesime condizioni e seguendo la
+medesima procedura, la presenza delle varie cause di errore
+(che andremo tra poco ad esaminare) produce delle differenze
+casuali tra il valore misurato ed il valore vero; differenze
+variabili da una misura all'altra, ed in modo imprevedibile
+singolarmente.  In conseguenza di ci\`o, i risultati di
+queste misure ripetute (se lo strumento \`e abbastanza
+sensibile) fluttueranno apprezzabilmente in maniera casuale
+in un certo intervallo: la cui ampiezza definir\`a la
+precisione delle misure stesse.  Gli errori di questo tipo
+si dicono \emph{errori casuali}%
+\index{errori di misura!casuali},
+e la loro esistenza \`e facilmente accertabile con l'uso di
+un qualsiasi strumento sensibile.
+
+Tuttavia, certe cause di errore possono dar luogo a una
+discrepanza tra valore misurato e valore vero che si
+riproduce inalterata in una serie di misure ripetute: e la
+inosservabilit\`a delle fluttuazioni non garantisce affatto
+che tale discrepanza sia inferiore all'incertezza di lettura
+dello strumento; n\'e si pu\`o esser certi che essa sia
+contenuta entro l'intervallo di variabilit\`a degli errori
+casuali (quando esso sia maggiore dell'incertezza di
+lettura).
+
+Gli errori di questo secondo tipo si dicono
+\emph{errori sistematici}%
+\index{errori di misura!sistematici|(emidx}
+e sono i pi\`u insidiosi, perch\'e non risultano
+immediatamente identificabili.  Cause di errori sistematici
+possono essere quelle elencate nel seguito (ma la lista non
+\`e necessariamente completa):
+\begin{enumerate}
+\item \emph{Difetti dello strumento, risalenti alla
+    costruzione o conseguenti al suo deterioramento}.  Ad
+  esempio, in una bilancia con bracci di lunghezza diversa,
+  l'uguaglianza dei momenti applicati ai due bracci ed
+  assicurata dall'equilibrio del giogo non implica
+  l'uguaglianza delle masse ad essi sospese: perch\'e una
+  massa minore sospesa al braccio pi\`u lungo produrr\`a una
+  azione atta ad equilibrare quella esercitata da una massa
+  maggiore sospesa all'altro (questo errore si potrebbe
+  anche classificare nel tipo \ref{li:2.forapp}, cio\`e come
+  errore di interpretazione del risultato).
+
+  Un altro esempio \`e quello di un goniometro
+  \emph{eccentrico}, cio\`e avente la croce centrale o
+  l'asse di rotazione in posizione diversa da quella del
+  centro del cerchio recante la graduazione: ci\`o determina
+  come conseguenza misure di angoli acuti sistematicamente
+  errate per difetto o per eccesso a seconda della posizione
+  del centro presunto rispetto agli assi 0\gra--180\gra\ e
+  90\gra--270\gra\ del goniometro.
+
+  Lo zero di una scala (ad esempio di un termometro) pu\`o
+  essere spostato dalla posizione corretta di taratura, per
+  cui tutte le letture saranno in difetto o in eccesso a
+  seconda del verso di tale spostamento.  Oppure la scala
+  stessa dello strumento pu\`o essere difettosa: cos\`\i, se
+  il capillare di un termometro non ha sezione costante,
+  anche se le posizioni corrispondenti a due punti fissi
+  come 0\gra{}C e 100\gra{}C fossero esatte, le temperature
+  lette risulterebbero in difetto in un tratto della scala
+  ed in eccesso in un altro tratto.
+\item \emph{Uso dello strumento in condizioni errate},
+  cio\`e diverse da quelle previste per il suo uso corretto.
+  Tale \`e l'uso di regoli, calibri e simili strumenti per
+  misurare le lunghezze, o di recipienti tarati per la
+  misura dei volumi, a temperature diverse da quella di
+  taratura (generalmente fissata a 20\gra{}C); infatti la
+  dilatazione termica far\`a s\`\i\ che lunghezze e volumi
+  risultino alterati, in difetto o in eccesso a seconda che
+  si operi a temperatura superiore o inferiore.
+
+  Si pu\`o naturalmente commettere un errore anche usando lo
+  strumento a 20\gra{}C, quando ci\`o che interessa in
+  realt\`a \`e conoscere il valore di una grandezza
+  dipendente dalla temperatura (la lunghezza di un oggetto,
+  il volume di un corpo, la resistenza elettrica di un filo
+  o qualsiasi altra) ad una temperatura diversa da
+  20\gra{}C.
+\item \emph{Errori di stima da parte dello sperimentatore}:
+  un esempio di questo tipo di errore si ha quando, nello
+  stimare una certa frazione di divisione di una scala
+  graduata, lo sperimentatore tende a valutarla sempre in
+  difetto o sempre in eccesso; oppure quando, nel leggere la
+  posizione di un indice mobile posto di fronte ad una scala
+  graduata (non sullo stesso piano), lo sperimentatore tenga
+  il proprio occhio sistematicamente alla sinistra o alla
+  destra del piano passante per l'indice ed ortogonale alla
+  scala stessa (\emph{errore di parallasse}).  Proprio per
+  evitare questi errori di parallasse, dietro gli indici
+  mobili degli strumenti pi\`u precisi si pone uno specchio
+  che aiuta l'osservatore a posizionarsi esattamente davanti
+  ad esso.
+\item \emph{Perturbazioni esterne}; un esempio di errori di
+  questo tipo \`e la presenza di corpi estranei, come la
+  polvere, interposti tra le ganasce di un calibro e
+  l'oggetto da misurare: questo porta a sovrastimarne lo
+  spessore.
+
+  Un altro esempio \`e la misura della profondit\`a del
+  fondo marino o fluviale con uno scandaglio (filo a piombo)
+  in presenza di corrente; questa fa deviare il filo dalla
+  verticale e porta sempre a sovrastimare la profondit\`a se
+  il fondo \`e approssimativamente orizzontale.
+\item \emph{Perturbazione del fenomeno osservato da parte
+    dell'operazione di misura}.  Tra gli errori di questo
+  tipo si pu\`o citare la misura dello spessore di un
+  oggetto con un calibro a cursore, o col pi\`u sensibile
+  calibro a vite micrometrica (Palmer); l'operazione
+  richiede l'accostamento delle ganasce dello strumento
+  all'oggetto, ed effettuandola si comprime inevitabilmente
+  quest'ultimo con una forza sia pur piccola: e se ne
+  provoca perci\`o una deformazione, con leggera riduzione
+  dello spessore.
+\item \label{li:2.forapp} \emph{Uso di formule errate o
+    approssimate nelle misure indirette}.  Un esempio \`e
+  offerto dalla misura indiretta dell'accelerazione di
+  gravit\`a $g$, ottenuta dalla misura della lunghezza
+  (cosiddetta ridotta) $l$ di un apposito tipo di pendolo
+  (di Kater) e dalla misura del suo periodo di oscillazione
+  $T_0$, utilizzando la formula
+  \begin{gather}%
+  \index{pendolo, periodo del|(}
+    g = 4 \pi^2 \, \frac{l}{{T_0}^2} \label{eq:2.g} \\
+    \intertext{ottenuta dalla nota espressione del periodo}
+    T_0 = 2 \pi \sqrt{ \frac{l}{g} } \peq . \label{eq:2.t0}
+  \end{gather}
+
+  Ma questa formula vale solo, al limite, per oscillazioni
+  di ampiezza infinitesima; mentre una formula che meglio
+  approssima la realt\`a \`e\/\footnote{Riguardo a questo
+    punto ed al successivo, per una discussione approfondita
+    del moto del pendolo si pu\`o consultare: G.~Bruhat -
+    Cours de M\'ecanique Physique - Ed.\ Masson, pagg.
+    311--321.}
+  \begin{equation*}
+    T \; = \;T(\theta) \; = \; 2 \pi \sqrt{ \frac{l}{g} }
+    \left( 1 + \frac{\theta^2}{16} \right) \; = \;
+    T_0 \left( 1 + \frac{\theta^2}{16} \right)
+  \end{equation*}
+  ed essa mostra come il periodo $T$ sia una funzione
+  leggermente crescente dell'ampiezza massima $\theta$ delle
+  oscillazioni (qui espressa in radianti).  L'uso della
+  formula \eqref{eq:2.g} di prima approssimazione per
+  determinare $g$ comporta dunque una sua sottostima, che
+  diviene tanto pi\`u sensibile quanto maggiore \`e
+  $\theta$: questo in quanto si usa in luogo di $T_0$ la
+  durata $T$ di una oscillazione reale avente ampiezza non
+  nulla --- e perci\`o sempre superiore a $T_0$.
+
+  La medesima misura \`e affetta anche da un'altra causa di
+  errore sistematico, originata dal fatto che il pendolo non
+  ruota oscillando attorno al filo orizzontale del coltello
+  di sospensione; ma compie un moto in cui il profilo del
+  taglio del coltello (che \`e approssimativamente un
+  cilindro con raggio di curvatura minimo dell'ordine dei
+  centesimi di millimetro) rotola sul piano di appoggio.  A
+  causa dell'impossibilit\`a di una perfetta realizzazione
+  meccanica dell'apparato, il fenomeno osservato \`e diverso
+  da quello supposto che si intendeva produrre: e la sua
+  errata interpretazione comporta una sovrastima di $g$.
+
+  Infatti la formula del periodo, corretta \emph{per questo
+    solo effetto}, risulta essere
+  \begin{equation*}
+    T = T_0 \, \sqrt{ 1 - \frac{r}{a} }
+  \end{equation*}
+  (in cui $r$ \`e il raggio di curvatura del filo del
+  coltello ed $a$ la distanza del centro di massa dal punto
+  di appoggio) ed il $T$ reale \`e sempre inferiore al $T_0$
+  definito nell'equazione \eqref{eq:2.t0}.
+\end{enumerate}%
+\index{pendolo, periodo del|)}
+
+Un modo per rivelare la presenza di errori sistematici
+insospettati pu\`o essere quello di misurare, se possibile,
+la stessa grandezza con strumenti e metodi diversi; questi
+presumibilmente sono affetti da errori aventi cause diverse
+e possono fornire perci\`o risultati differenti.  Tuttavia
+neppure l'assenza di questo effetto d\`a la certezza che la
+misura sia esente da errori sistematici, ed essi sono
+generalmente individuati solo da una attenta e minuziosa
+analisi critica: sia dello strumento usato, sia della
+procedura seguita nella misura.
+
+Una volta scoperto, un errore sistematico pu\`o essere
+eliminato: modificando o lo strumento o la procedura, oppure
+ancora apportando una opportuna correzione al risultato
+della misura (sebbene questo comporti generalmente un
+aumento dell'errore casuale: il fattore di correzione deve
+essere ricavato sperimentalmente, e quindi sar\`a
+affetto da un suo errore intrinseco).%
+\index{errori di misura!sistematici|)}
+
+\index{errori di misura!casuali|(emidx}%
+Le prime cinque categorie sopra citate come possibili cause
+di errori sistematici, possono produrre anche errori
+casuali: cos\`\i, per il primo tipo, gli inevitabili giochi
+meccanici e gli attriti tra parti dello strumento in moto
+relativo possono dar luogo a risultati fluttuanti; per
+quanto riguarda il secondo tipo, condizioni ambientali
+variabili e non del tutto controllabili (come temperatura e
+pressione) possono produrre variazioni imprevedibili del
+risultato.
+
+Lo sperimentatore non ha un comportamento fisso e costante
+sia nelle valutazioni che nelle azioni compiute durante
+l'operazione di misura; come un esempio di questo terzo tipo
+di errori si consideri l'imprevedibile variabilit\`a del
+tempo di reazione nell'avvio e nell'arresto di un cronometro
+a comando manuale.
+
+Anche i disturbi esterni (quarto tipo), potendo essere di
+natura e intensit\`a variabile, produrranno errori di un
+segno determinato (sistematici), ma di entit\`a variabile ed
+imprevedibile; dunque, in parte, anche casuali.
+
+Si aggiunga a ci\`o che disturbi casuali possono essere
+presenti nello strumento stesso per la costituzione
+corpuscolare della materia e per la natura fondamentalmente
+statistica di certe grandezze fisiche.  Cos\`\i\
+l'equipaggio mobile, sospeso ad un filo lungo e sottile, di
+una bilancia a torsione di estrema sensibilit\`a, avr\`a
+posizioni fluttuanti attorno a quella di equilibrio: non
+solo a causa del bombardamento incessante cui esso \`e
+sottoposto da parte delle molecole del gas circostante; ma
+anche nel vuoto assoluto, per l'agitazione termica dei suoi
+stessi costituenti.
+
+Infine, anche le cause del quinto tipo possono dar luogo ad
+errori casuali se il disturbo del fenomeno o dell'oggetto
+prodotto dall'operazione di misura \`e di entit\`a variabile
+e non controllata.
+
+Alle cause comuni con gli errori sistematici si deve qui
+aggiungerne una ulteriore e tipica degli errori casuali, e
+consistente nella \emph{imperfetta definizione della
+  grandezza} che si intende misurare.  Anche restando
+nell'ambito della fisica classica (e come accennato in
+relazione ai disturbi delle misure), certe grandezze, quali
+la pressione e la temperatura, sono in realt\`a legate a
+delle medie statistiche, come l'energia cinetica media
+molecolare; in quanto tali esse hanno un'indeterminazione
+intrinseca, che tuttavia non si manifesta nelle misure
+relative ad oggetti e fenomeni macroscopici se non in casi
+eccezionali.
+
+Ad un livello meno fondamentale, se si misura pi\`u volte
+con un calibro il diametro di un oggetto sferico pu\`o
+avvenire che i risultati siano leggermente diversi di misura
+in misura; questo perch\'e l'oggetto non pu\`o essere
+\emph{perfettamente} sferico, ed ogni suo diametro ha una
+lunghezza generalmente diversa da quella di un altro.
+
+Per concludere, gli errori casuali:
+\begin{itemize}
+\item Sono osservabili solo con uno strumento
+  sufficientemente sensibile, cio\`e quando sono di entit\`a
+  maggiore dell'incertezza di lettura della scala.
+\item Possono essere ridotti; ad esempio migliorando le
+  caratteristiche dello strumento, o controllando pi\`u
+  strettamente le condizioni del suo uso e dell'ambiente e
+  precisando meglio la procedura di esecuzione della misura:
+  ma ci\`o con difficolt\`a crescente sempre pi\`u con la
+  precisione.  \emph{Non possono quindi \textbf{mai} essere
+    eliminati}.
+\item Posseggono tuttavia certe propriet\`a statistiche, che
+  studieremo nell'ambito di una teoria matematica che
+  verr\`a affrontata nei prossimi capitoli; la loro entit\`a
+  pu\`o pertanto essere \emph{stimata}.
+\end{itemize}%
+\index{errori di misura!casuali|)}
+
+Compito della \emph{teoria dell'errore} \`e appunto quello
+di stimare l'errore presumibilmente commesso nell'atto della
+misura, a partire dai dati sperimentali stessi.
+Riassumendo:
+\begin{quote}
+  \textit{Scopo della misura di una grandezza fisica \`e il
+    valutare sia il rapporto della grandezza stessa con una
+    certa unit\`a di misura, sia l'errore da cui tale
+    rapporto \`e presumibilmente affetto.}
+\end{quote}
+
+Il risultato delle misure dovr\`a quindi \emph{sempre}
+essere espresso in una forma del tipo
+\begin{equation*}
+  l \, = \, 12.34 \pm 0.01 \; \un{m}
+\end{equation*}
+in cui compaiano le tre parti \emph{valore}, \emph{errore}
+ed \emph{unit\`a di misura}.
+
+\section{Cifre significative ed arrotondamenti}%
+\index{cifre significative|(emidx}%
+\index{arrotondamenti|see{cifre significative}}
+
+Sempre per quanto riguarda il modo di esprimere il risultato
+delle nostre misure, \emph{\`e un errore} spingere la
+valutazione del risultato stesso al di l\`a della precisione
+sperimentale; in altre parole, se il calcolo dell'errore per
+la misura di una lunghezza indica incertezza sulla cifra, ad
+esempio, dei centimetri, \`e un errore dare nel risultato la
+cifra dei millimetri, o (peggio) dei decimi o centesimi di
+millimetro.  Nei risultati intermedi possiamo tenere per i
+successivi calcoli tutte le cifre che vogliamo; ma, giunti
+\emph{al risultato finale}, e solo una volta che l'errore
+sia stato calcolato, bisogna troncare il risultato stesso al
+livello dell'errore da noi stimato ed arrotondare.
+Cos\`\i\/\footnote{Come vedremo nelle ultime righe
+  dell'appendice \ref{ch:b.errvar}, normalmente per l'errore
+  si d\`a una sola cifra significativa; o al massimo due, se
+  le misure sono state veramente molte --- o anche per
+  diminuire il disagio psicologico legato al ``buttare via
+  qualcosa'' del frutto delle proprie fatiche\ldots}
+\begin{center}
+  \begin{math}
+    \begin{array}{ccccc}
+      12.34567 \pm 0.231   & \makebox{diventa} & 12.3   \pm 0.2   &
+      \makebox{o} & 12.34 \pm 0.23 \peq ; \\*
+      12.34567 \pm 0.00789 & \makebox{diventa} & 12.346 \pm 0.008 &
+      \makebox{o} & 12.3457 \pm 0.0079 \peq .
+    \end{array}
+  \end{math}
+\end{center}%
+\index{cifre significative|)}
+
+\section{Errore relativo}%
+\index{errore!relativo|(}
+\label{ch:2.errel}
+Una volta valutato l'errore presumibile $\Delta x$ (errore
+\emph{assoluto}) da cui \`e affetta la misura $x_0$ di una
+grandezza fisica $x$, il rapporto
+\begin{equation} \label{eq:2.errel}
+ \epsilon = \frac{\Delta x}{\left| x_0 \right|}
+\end{equation}
+(indicato in \emph{valore} od in \emph{percentuale}) prende
+il nome di \emph{errore relativo}; essendo definito
+attraverso il modulo del valore stimato della grandezza in
+esame, l'errore relativo \`e una quantit\`a sicuramente
+positiva.
+
+L'errore relativo \`e importante perch\'e, in un certo
+senso, esprime la \emph{qualit\`a} della misura di una
+grandezza: \`e evidente come un errore assoluto stimato in
+1\un{cm} assuma ben diverso significato se riferito alla
+misura di un tavolo o di una distanza astronomica --- ed \`e
+appunto la differenza fra gli errori relativi a suggerirci
+tale interpretazione.
+
+\`E opportuno tuttavia osservare che l'errore relativo
+definito nella \eqref{eq:2.errel} \`e privo di senso quando
+il valore vero della grandezza che si misura \`e nullo;
+pertanto si potr\`a parlare di errore relativo solo quando
+si possa escludere tale eventualit\`a con pratica certezza:
+nel caso cio\`e che sia $ \left| x_0 \right| \gg \Delta x $,
+ovvero che $\epsilon$ sia di almeno un ordine di grandezza
+inferiore all'unit\`a.%
+\index{errore!relativo|)}
+
+\endinput

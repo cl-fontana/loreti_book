@@ -1,0 +1,226 @@
+% $Id: chaptera.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{Cenni di calcolo combinatorio}%
+\index{calcolo combinatorio|(}
+Il \emph{calcolo combinatorio} \`e una branca della
+matematica orientata alla discussione ed allo sviluppo di
+formule che permettano di ottenere il numero di casi
+distinti che si possono presentare in un esperimento, od il
+numero di elementi che compongono un insieme, senza
+ricorrere alla loro enumerazione esplicita.
+
+Il calcolo combinatorio trova importanti applicazioni nella
+teoria della probabilit\`a e nella statistica: alcune
+formule, specificatamente quelle per le permutazioni e le
+combinazioni, vengono usate nel corso del testo; qui se ne
+d\`a una breve giustificazione.
+
+\section{Il lemma fondamentale del calcolo combinatorio}%
+\index{calcolo combinatorio!lemma fondamentale|(}
+\begin{quote}
+  \textsc{Lemma fondamentale del calcolo combinatorio}:
+  \textit{dati due insiemi $I_1$ ed $I_2$, composti da $N_1$
+    ed $N_2$ elementi distinti rispettivamente, l'insieme $I
+    = I_1 \otimes I_2$ di tutte le coppie ordinate che si
+    possono costruire associando un elemento di $I_1$ con un
+    elemento di $I_2$ \`e composto da $N_1 \cdot N_2$
+    elementi.}
+\end{quote}
+
+Questo lemma si pu\`o immediatamente generalizzare (per
+induzione completa) a $K$ insiemi $I_1,\ldots, I_K$ composti
+da $N_1,\ldots, N_K$ elementi distinti rispettivamente:
+l'insieme $I = I_1 \otimes I_2 \otimes \cdots \otimes I_K$,
+costituito da tutte le possibili associazioni ordinate di
+$K$ elementi ognuno dei quali provenga da un differente
+insieme $I_j$, con $j=1,\ldots, K$, \`e composto da $N_1
+\cdot N_2 \cdots N_K$ elementi.%
+\index{calcolo combinatorio!lemma fondamentale|)}
+
+\section{Fattoriale di un numero intero}
+Si definisce come \emph{fattoriale} di un numero intero
+positivo $N$, e si indica con il simbolo $N!$, il prodotto
+dei primi $N$ numeri interi:
+\begin{equation*}
+  N! = 1 \cdot 2 \cdot 3 \cdots N \peq ;
+\end{equation*}
+per motivi che appariranno chiari pi\`u avanti\footnote{La
+  ``definizione'' $0!  = 1$ non \`e cos\`\i\ arbitraria come
+  pu\`o sembrare: in realt\`a si comincia definendo una
+  certa funzione di variabile complessa $\Gamma(z)$ che,
+  quando l'argomento $z$ \`e un numero intero positivo,
+  coincide con il suo fattoriale; e per la quale si vede che
+  $\Gamma(0) = 1$.}, si definisce poi il fattoriale di zero
+come $0!  = 1$.
+
+\section{Disposizioni}%
+\index{disposizioni|(}
+Se $N$ e $K$ sono due numeri interi positivi tali che sia $K
+\le N$, si definisce come numero delle disposizioni di $N$
+oggetti di classe $K$ (che si indica con il simbolo $D^N_K$)
+il numero dei gruppi \emph{distinti} di $K$ oggetti che \`e
+possibile formare a partire dagli $N$ originali; definendo
+come \emph{distinti} due gruppi se essi differiscono o per
+qualche elemento o per l'ordine.
+
+Come esempio, le disposizioni di classe 2 che si possono
+formare con le 21 lettere dell'alfabeto italiano sono le
+seguenti:
+\begin{equation*}
+  \left\{ \begin{array}{lllllll}
+       & AB & AC & AD & \cdots & AV & AZ \\
+    BA &    & BC & BD & \cdots & BV & BZ \\
+       &    &    &    & \cdots &    &    \\
+    ZA & ZB & ZC & ZD & \cdots & ZV &    \\
+  \end{array} \right.
+\end{equation*}
+
+Il valore di $D^N_K$ si pu\`o facilmente trovare sfruttando
+il lemma fondamentale del calcolo combinatorio: il primo
+elemento di una disposizione si pu\`o infatti scegliere in
+$N$ modi distinti, il secondo in $N-1$, e cos\`\i\ via.  Di
+conseguenza $D^N_K$ \`e il prodotto di $K$ numeri interi
+decrescenti a partire da $N$:
+\begin{equation} \label{eq:a.dnk}
+  D^N_K \; = \; N \cdot (N-1) \cdot (N-2) \cdots
+    (N-K+1) \; = \; \frac{N!}{(N-K)!}
+\end{equation}
+(nel caso dell'esempio fatto, le disposizioni sono $D^{21}_2
+= 21 \cdot 20 = 420$; nella tabella in cui sono state
+elencate vi sono 21 righe di 20 elementi ciascuna).
+
+L'espressione \eqref{eq:a.dnk} \`e verificata anche se
+$K=N$, per\`o purch\'e (come prima detto) si ponga $0!=1$.%
+\index{disposizioni|)}
+
+\section{Permutazioni}%
+\index{permutazioni|(}
+Se $N$ \`e un numero intero positivo, si definisce come
+numero delle permutazioni di $N$ oggetti, e si indica con
+$P_N$, il numero di maniere distinte in cui si possono
+ordinare gli $N$ oggetti stessi.  Evidentemente risulta
+\begin{equation*}
+  P_N \; \equiv \; D^N_N \; = \; N! \peq .
+\end{equation*}%
+\index{permutazioni|)}
+
+\section{Permutazioni con ripetizione}%
+\index{permutazioni!con ripetizione|(}
+Se gli $N$ oggetti che si hanno a disposizione sono tali da
+poter essere divisi in $M$ gruppi (composti da $N_1,
+N_2,\ldots,N_M$ oggetti rispettivamente; ovviamente $N_1 +
+N_2 + \cdots+N_M = N$), tali che gli oggetti in ognuno di
+questi gruppi siano \emph{indistinguibili} tra loro, il
+numero di permutazioni che con essi si possono realizzare
+\`e inferiore a $P_N$; pi\`u precisamente, visto che gli
+oggetti di ogni gruppo si possono scambiare tra loro in
+qualsiasi modo senza per questo dare luogo a una sequenza
+distinta, il numero di \emph{permutazioni con ripetizione}
+\`e dato da
+\begin{equation} \label{eq:a.perip}
+  \frac{N!}{N_1! \cdot N_2! \cdots N_M!} \peq .
+\end{equation}%
+\index{permutazioni!con ripetizione|)}
+
+\section{Combinazioni}%
+\index{combinazioni|(}%
+\label{ch:a.combina}
+Se $N$ e $K$ sono due numeri interi positivi tali che sia $K
+\le N$, si definisce come numero delle combinazioni di
+classe $K$ di $N$ oggetti il numero dei sottoinsiemi
+\emph{distinti} composti da $K$ oggetti che \`e possibile
+formare a partire dagli $N$ originali; definendo come
+\emph{distinti} due sottoinsiemi se essi differiscono per
+qualche elemento.  Il numero delle combinazioni di classe
+$K$ di $N$ oggetti si indica con uno dei due simboli
+\begin{equation*}
+  C^N_K \makebox[20mm]{o} \binom{N}{K}
+\end{equation*}%
+\index{coefficienti binomiali}
+(l'ultimo dei quali si chiama \emph{coefficiente
+  binomiale}).
+
+Consideriamo l'insieme composto da tutte le disposizioni di
+classe $K$ di $N$ oggetti, e pensiamo di raggruppare i suoi
+elementi in sottoinsiemi in modo che ciascuno di essi
+contenga tutte e sole quelle disposizioni che differiscano
+esclusivamente per l'ordine ma siano composte dagli stessi
+oggetti; ovviamente il numero di questi sottoinsiemi \`e
+$C^N_K$: ed ognuno di essi contiene un numero di elementi
+che \`e $P_K$.
+
+Da qui ricaviamo
+\begin{equation} \label{eq:a.binom}
+  C^N_K \; \equiv \; \binom{N}{K} \; = \;
+    \frac{D^N_K}{P_K} \; = \;
+    \frac{N \cdot (N-1) \cdots (N-K+1)}{K \cdot (K-1)
+    \cdots 1} \; = \; \frac{N!}{K! \, (N-K)!}
+\end{equation}
+O, in altre parole, il numero di combinazioni di classe $K$
+di $N$ oggetti \`e uguale al rapporto tra il prodotto di $K$
+numeri interi decrescenti a partire da $N$ ed il prodotto di
+$K$ numeri interi crescenti a partire dall'unit\`a.
+
+\index{coefficienti binomiali|(}%
+Si dimostrano poi facilmente, a partire dalla definizione,
+due importanti propriet\`a dei coefficienti binomiali:
+\begin{gather*}
+  \binom{N}{K} = \binom{N}{N-K} \\
+  \intertext{e}
+  \binom{N+1}{K} = \binom{N}{K-1} + \binom{N}{K} \peq .
+\end{gather*}
+
+\`E da osservare che, cos\`\i\ come sono stati ricavati
+(dalla definizione delle possibili combinazioni di $N$
+oggetti), i coefficienti binomiali hanno senso solo se $N$ e
+$K$ sono numeri interi; ed inoltre se risulta sia $N > 0$
+che $0 \le K \le N$.  La definizione \eqref{eq:a.binom}
+pu\`o comunque essere estesa a valori interi qualunque, ed
+anche a valori reali di $N$ --- ma questo esula dal nostro
+interesse.%
+\index{coefficienti binomiali|)}%
+\index{combinazioni|)}
+
+\section{Partizioni ordinate}%
+\index{partizioni ordinate|(emidx}%
+\label{ch:a.parord}
+Consideriamo un insieme di $N$ oggetti; vogliamo calcolare
+il numero di maniere in cui essi possono essere divisi in
+$M$ gruppi che siano composti da $N_1, N_2,\ldots,N_M$
+oggetti rispettivamente (essendo $N_1 + N_2 + \cdots + N_M =
+N$).
+
+Gli $N_1$ oggetti che compongono il primo gruppo possono
+essere scelti in $C^N_{N_1}$ modi differenti; quelli del
+secondo gruppo in $C^{N-N_1}_{N_2}$ modi; e cos\`\i\ via.
+Per il lemma fondamentale del calcolo combinatorio, il
+numero delle \emph{partizioni ordinate} deve essere uguale a
+\begin{multline*}
+  \binom{N}{N_1} \binom{N-N_1}{N_2}
+    \binom{N-N_1-N_2}{N_3} \cdots
+    \binom{N-N_1-\cdots-N_{M-1}}{N_M} = \\[1.5ex]
+  = \frac{N!}{N_1! \, (N-N_1)!} \cdot
+    \frac{(N-N_1)!}{N_2! \, (N-N_1-N_2)!} \cdots
+    \frac{(N-N_1-\cdots-N_{M-1})!}{N_M! \,
+    (N-N_1-\cdots-N_M)!} = \\[1.5ex]
+  = \frac{N!}{N_1! \, N_2! \cdots N_M!}
+\end{multline*}
+(sfruttando il fatto che tutti i numeratori dei termini dal
+secondo in poi si semplificano con uno dei fattori del
+denominatore del termine precedente; inoltre, nell'ultimo
+termine, $N-N_1-\cdots-N_M \equiv 0$).  Si pu\`o notare che
+l'ultimo termine della prima espressione, essendo
+$N-N_1-\cdots-N_{M-1} = N_M$, vale sempre uno; cosa non
+sorprendente visto che, quando i primi $M-1$ gruppi sono
+stati scelti, anche l'ultimo risulta univocamente
+determinato.
+
+Insomma il numero delle partizioni ordinate \`e uguale al
+numero delle permutazioni con ripetizione di $N$ oggetti
+raggruppabili in $M$ insiemi, composti rispettivamente da
+$N_1, N_2,\ldots,N_M$ oggetti indistinguibili tra loro, dato
+dalla formula \eqref{eq:a.perip}%
+\index{partizioni ordinate|)}%
+\index{calcolo combinatorio|)}
+
+\endinput

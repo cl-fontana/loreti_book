@@ -1,0 +1,870 @@
+% $Id: chapter13.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{La verifica delle ipotesi (II)}
+Nel precedente capitolo \ref{ch:12.veripo} abbiamo esaminato
+varie tecniche che ci permettono di decidere se una
+caratteristica del processo fisico che ha prodotto un
+campione di dati \`e o non \`e confermata dai dati stessi;
+tutte queste tecniche non sono che casi particolari di una
+teoria generale, di cui ora ci occuperemo, senza per\`o
+scendere in profondit\`a nei dettagli.
+
+In sostanza, nei vari casi del capitolo \ref{ch:12.veripo},
+abbiamo formulato una certa ipotesi $H_0$ sulla natura di un
+fenomeno casuale; e, ammesso per assurdo che questa ipotesi
+fosse vera, abbiamo associato un ben definito valore della
+densit\`a di probabilit\`a ad ogni punto $E$ dello spazio
+$\mathcal{S}$ degli eventi.
+
+Se indichiamo con $K$ un valore (arbitrariamente scelto)
+della probabilit\`a, \emph{livello di confidenza} nel
+linguaggio statistico, abbiamo in sostanza diviso
+$\mathcal{S}$ in due sottoinsiemi esclusivi ed esaurienti:
+uno $\mathcal{R}$ di eventi con probabilit\`a complessiva $1
+- K$, ed uno $\mathcal{A} = \mathcal{S} - \mathcal{R}$ di
+eventi con probabilit\`a complessiva $K$.
+
+Per verificare l'ipotesi $H_0$ occorre scegliere a priori un
+valore di $K$ da assumere come il confine che separi, da una
+parte, eventi che riteniamo ragionevole si possano
+presentare nell'ambito di pure fluttuazioni casuali se \`e
+vera $H_0$; e, dall'altra, eventi cos\`\i\ improbabili
+(sempre ammesso che $H_0$ sia vera) da far s\`\i\ che la
+loro effettiva realizzazione debba implicare la falsit\`a
+dell'ipotesi.
+
+Normalmente si sceglie $K = 0.95$ o $K = 0.997$, i
+valori della probabilit\`a che corrispondono a scarti di due
+o tre errori quadratici medi per la distribuzione di Gauss,
+anche se altri valori (come ad esempio $K = 0.999$ o
+$K=0.99$) sono abbastanza comuni; e, una volta fatto
+questo, si \emph{rigetta l'ipotesi} $H_0$ se il dato a
+disposizione (un evento $E$ ottenuto dall'effettivo studio
+del fenomeno in esame) appartiene ad $\mathcal{R}$; e la si
+accetta se appartiene ad $\mathcal{A}$.
+
+In realt\`a nella pratica si presenta in generale la
+necessit\`a di discriminare tra \emph{due} ipotesi, sempre
+mutuamente esclusive, che indicheremo con i simboli $H_0$ ed
+$H_a$ e che, usando la terminologia della statistica, si
+chiamano rispettivamente \emph{ipotesi nulla}%
+\index{ipotesi!nulla}
+ed \emph{ipotesi alternativa};%
+\index{ipotesi!alternativa}
+i casi precedenti corrispondono al caso particolare in cui
+l'ipotesi alternativa coincida con il \emph{non realizzarsi}
+di $H_0$.
+
+Ipotesi nulla ed ipotesi alternativa possono essere entrambe
+eventi semplici, oppure composti (ossia somma logica di
+pi\`u eventualit\`a semplici); e lo scopo di questo capitolo
+\`e quello di mostrare dei criteri sulla base dei quali si
+possa opportunamente definire nello spazio degli eventi una
+\emph{regione di rigetto} $\mathcal{R}$ per l'ipotesi nulla
+(e, in corrispondenza, ovviamente, una regione $\mathcal{A}
+= \mathcal{S} - \mathcal{R}$ nella quale tale ipotesi viene
+accettata).
+
+\`E chiaro che si corre sempre il rischio di sbagliare: o
+rigettando erroneamente ipotesi in realt\`a vere
+(\emph{errori di prima specie})%
+\index{errore!di prima specie}
+o accettando invece ipotesi in realt\`a false (\emph{errori
+di seconda specie});%
+\index{errore!di seconda specie}
+e che, allargando o restringendo la regione di rigetto, si
+pu\`o diminuire la probabilit\`a di uno di questi due tipi
+di errori solo per aumentare la probabilit\`a di quelli
+dell'altra categoria.  Se indichiamo con $P_I$ e $P_{II}$ le
+probabilit\`a degli errori di prima e seconda specie
+rispettivamente, sulla base della definizione risulta
+\begin{align*}
+  P_I \; &= \; \Pr( E \in \mathcal{R} | H_0 )
+  &&\text{e} &
+  P_{II} \; &= \; \Pr( E \in \mathcal{A} | H_a ) \peq .
+\end{align*}
+
+Quello che abbiamo finora chiamato ``livello di confidenza''
+non \`e altro che $1 - P_I$; $P_I$ viene anche indicato col
+simbolo $\alpha$ e chiamato \emph{significanza}%
+\index{significanza}
+del criterio adottato.  Infine, la probabilit\`a di
+\emph{non} commettere un errore di seconda specie, ovvero la
+probabilit\`a di rigettare $H_0$ quando l'ipotesi nulla \`e
+falsa (e quindi quella alternativa \`e vera) si indica col
+simbolo $\beta$ e si chiama \emph{potenza}%
+\index{potenza}
+del criterio adottato; essa vale quindi
+\begin{equation*}
+  \beta \; = \; \Pr( E \in \mathcal{R} | H_a ) \; = \; 1 -
+  P_{II} \peq .
+\end{equation*}
+
+Per fare un esempio concreto, il fisico si trova spesso ad
+esaminare ``eventi'' sperimentali e deve decidere se essi
+sono del tipo desiderato (segnale) o no (fondo): in questo
+caso l'ipotesi nulla $H_0$ consiste nell'appartenenza di un
+evento al segnale, mentre l'ipotesi alternativa $H_a$
+corrisponde invece all'appartenenza dello stesso evento al
+fondo; che in genere non \`e l'intero insieme di eventi
+complementare all'ipotesi nulla, $\ob{H}_0$, ma si sa
+restringere ad una classe ben definita di fenomeni.
+
+Gli errori di prima specie consistono in questo caso nello
+scartare eventi buoni (errori di \emph{impoverimento} del
+segnale), e quelli di seconda specie nell'introduzione nel
+segnale di eventi di fondo (errori di
+\emph{contaminazione}).
+
+I criteri da seguire per definire una regione $\mathcal{R}$
+nella quale rigettare $H_0$ sono dettati dalle
+caratteristiche del processo di generazione: se gli eventi
+di fondo sono preponderanti rispetto al segnale, ad esempio,
+bisogner\`a evitare gli errori di seconda specie per quanto
+possibile; anche al prezzo di scartare in questo modo una
+parte consistente del segnale.
+
+Estendendo al caso generale il metodo seguito nei vari casi
+del capitolo \ref{ch:12.veripo} e prima delineato, se si \`e
+in grado di associare ad ogni punto dello spazio degli
+eventi \emph{due} valori della probabilit\`a (o della
+densit\`a di probabilit\`a nel caso di variabili continue),
+sia ammessa vera l'ipotesi nulla che ammessa invece vera
+l'ipotesi alternativa, si pu\`o pensare di usare \emph{il
+  loro rapporto} per definire la regione di rigetto.
+
+Limitandoci al caso delle variabili continue, insomma, dopo
+aver definito una nuova variabile casuale $\lambda$
+attraverso la
+\begin{equation*}
+  \lambda = \frac{\mathcal{L} (\boldsymbol{x} |
+    H_0)}{\mathcal{L} (\boldsymbol{x} | H_a)} \peq ,
+\end{equation*}
+possiamo scegliere arbitrariamente un numero reale $k$ e
+decidere di accettare l'ipotesi $H_0$ se $\lambda \ge k$ o
+di rifiutarla se $\lambda < k$; in definitiva ad ogni $k$
+ammissibile \`e associata una differente regione di rigetto
+$\mathcal{R}_k$ definita da
+\begin{equation*}
+  \mathcal{R}_k \; \equiv \; \left\{ \lambda =
+    \frac{\mathcal{L} (\boldsymbol{x} | H_0)}{\mathcal{L}
+    (\boldsymbol{x} | H_a)} < k \right\} \peq .
+\end{equation*}
+
+$\mathcal{L}$, nelle espressioni precedenti, \`e la funzione
+di verosimiglianza;%
+\index{funzione!di verosimiglianza|(}
+che rappresenta appunto la densit\`a di probabilit\`a
+corrispondente all'ottenere (sotto una certa ipotesi) un
+campione di $N$ valori $x_1, x_2,\ldots,x_N$ (qui indicato
+sinteticamente come un vettore $\boldsymbol{x}$ a $N$
+componenti).  Ma in base a quale criterio dobbiamo scegliere
+$k$?
+
+\section{Un primo esempio}%
+\label{ch:13.es1}
+Cominciamo con un esempio didattico: supponiamo che i valori
+$x_i$ si sappiano provenienti da una popolazione normale
+$N(x; \mu, \sigma)$ di varianza $\sigma^2$ nota: e che il
+nostro scopo consista nel discriminare tra due possibili
+valori $\mu_1$ e $\mu_2$ per $\mu$; valori che, senza
+perdere in generalit\`a, supponiamo siano 0 e 1 (potendosi
+sempre effettuare un opportuno cambiamento di variabile
+casuale che ci porti in questa situazione).  Riassumendo:
+siano
+\begin{equation*}
+  \begin{cases}
+    \setbox0=\hbox{$H_0$}
+    \makebox[\wd0]{$x$} \sim N(x; \mu, \sigma)
+    &\text{\hspace{2cm}(con $\sigma > 0$ noto)} \\[1ex]
+    H_0 \equiv \{ \mu = 0 \} \\[1ex]
+    H_a \equiv \{ \mu = 1 \}
+  \end{cases}
+\end{equation*}
+le nostre ipotesi.
+
+La densit\`a di probabilit\`a della $x$ vale
+\begin{gather*}
+  N(x; \mu, \sigma) = \frac{1}{\sigma \sqrt{2 \pi}} \, e^{
+    - \frac{1}{2} \left( \frac{x - \mu}{\sigma}
+    \right)^2 } \\
+  \intertext{e, quindi, la funzione di verosimiglianza ed il
+    suo logaritmo valgono}
+  \mathcal{L} (\boldsymbol{x}; \mu, \sigma) =
+    \frac{1}{\bigl( \sigma \sqrt{2 \pi} \bigr)^N}
+    \prod_{i=1}^N e^{- \frac{1}{2 \sigma^2}
+    \left( x_i - \mu \right)^2 }
+\end{gather*}
+e, rispettivamente,
+\begin{align*}
+  \ln \mathcal{L} (\boldsymbol{x}; \mu, \sigma) &= - N \,
+    \ln \bigl( \sigma \sqrt{2 \pi} \bigr) - \frac{1}{2
+    \sigma^2} \sum_{i=1}^N \left( x_i - \mu \right)^2
+    \\[1ex]
+  &= - N \, \ln \bigl( \sigma \sqrt{2 \pi} \bigr) -
+    \frac{1}{2 \sigma^2} \sum_{i=1}^N \left( {x_i}^2 - 2 \mu
+    x_i + \mu^2 \right) \peq ; \\
+\end{align*}
+per cui
+\begin{equation} \label{eq:13.lnlino}
+  \ln \mathcal{L} (\boldsymbol{x}; \mu, \sigma) = - N \, \ln
+    \bigl( \sigma \sqrt{2 \pi} \bigr) - \frac{1}{2
+    \sigma^2} \left( \sum_{i=1}^N {x_i}^2 - 2 N \bar x \mu +
+    N \mu^2 \right) \peq .
+\end{equation}
+Dalla \eqref{eq:13.lnlino} si ricava immediatamente
+\begin{equation*}
+  \ln \lambda \; = \; \ln \mathcal{L} (\boldsymbol{x}; 0,
+    \sigma) - \ln \mathcal{L} (\boldsymbol{x}; 1, \sigma) \;
+    = \; \frac{N}{2 \sigma^2} \left( 1 - 2 \bar x \right)
+\end{equation*}
+e la regione di rigetto $\mathcal{R}_k$ \`e definita dalla
+\begin{gather*}
+  \mathcal{R}_k \; \equiv \; \left\{ \; \ln \lambda =
+    \frac{N}{2 \sigma^2} \left( 1 - 2 \bar x \right) <
+    \ln k \; \right\} \\
+  \intertext{da cui consegue, con facili passaggi,}
+  \mathcal{R}_k \; \equiv \; \left\{ \; \bar x > \frac{N -
+    2 \sigma^2 \ln k}{2 N} = c \; \right\} \peq ;
+\end{gather*}
+ed insomma $H_0$ va rigettata se la media aritmetica del
+campione $\bar x$ risulta superiore a $c$; ed accettata
+altrimenti.
+
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{duegau.pstex_t}
+  } \end{center}
+  \caption[Un esempio: errori di prima e seconda specie]
+    {L'esempio del paragrafo \ref{ch:13.es1}, con delineate
+    (in corrispondenza ad un particolare valore di $c$) le
+    probabilit\`a degli errori di prima e seconda specie; le
+    due curve sono $N(0, \sigma / \sqrt{N})$ e $N(1, \sigma
+    / \sqrt{N})$.}
+  \label{fig:13.duegau}
+\end{figure}
+
+Come si pu\`o scegliere un valore opportuno di $k$ (e quindi
+di $c$)?  Gli errori di prima specie (si faccia riferimento
+anche alla figura \ref{fig:13.duegau}) hanno probabilit\`a
+\begin{gather}
+  P_I \; = \; 1 - \alpha \; = \; \Pr \bigl( \bar x > c | H_0
+    \bigr) \; = \; \int_c^{+\infty} \! N \left( x; 0,
+    \frac{\sigma}{\sqrt{N}} \right) \, \de x
+    \label{eq:13.es1_1} \\
+  \intertext{e quelli di seconda specie}
+  P_{II} \; = \; 1 - \beta \; = \; \Pr \bigl( \bar x < c | H_a
+    \bigr) \; = \; \int_{-\infty}^c \! N \left( x; 1,
+    \frac{\sigma}{\sqrt{N}} \right) \, \de x
+    \label{eq:13.es1_2}
+\end{gather}
+per cui si hanno svariate possibilit\`a: ad esempio, se
+interessa contenere gli errori di prima specie e la
+dimensione del campione \`e nota, si fissa un valore
+opportunamente grande per $\alpha$ e dalla
+\eqref{eq:13.es1_1} si ricava $c$; o, se interessa contenere
+gli errori di seconda specie e la dimensione del campione
+\`e nota, si fissa $\beta$ e si ricava $c$ dalla
+\eqref{eq:13.es1_2}; o, infine, se si vogliono contenere gli
+errori di entrambi i tipi, si fissano sia $\alpha$ che
+$\beta$ e si ricava la dimensione minima del campione
+necessaria per raggiungere lo scopo utilizzando entrambe le
+equazioni \eqref{eq:13.es1_1} e \eqref{eq:13.es1_2}.
+
+\section{Il lemma di Neyman--Pearson}%
+\index{Neyman--Pearson, lemma di|(}
+L'essere ricorsi per la definizione della regione di rigetto
+$\mathcal{R}$ al calcolo del \emph{rapporto} delle funzioni
+di verosimiglianza non \`e stato casuale; esiste infatti un
+teorema (il cosiddetto \emph{lemma di Neyman--Pearson}) il
+quale afferma che
+\begin{quote}
+  \textit{Se si ha a disposizione un campione di $N$ valori
+    indipendenti $x_i$ da utilizzare per discriminare tra
+    un'ipotesi nulla ed un'ipotesi alternativa entrambe
+    semplici, e se \`e richiesto un livello fisso $\alpha$
+    di significanza, la massima potenza del test (ovvero la
+    minima probabilit\`a di errori di seconda specie) si
+    raggiunge definendo la regione di rigetto
+    $\mathcal{R}_k$ attraverso una relazione del tipo}
+\end{quote}
+\begin{equation} \label{eq:13.lambdak}
+  \mathcal{R}_k \; \equiv \; \left\{ \; \lambda =
+    \frac{\mathcal{L} (\boldsymbol{x} | H_0)}{\mathcal{L}
+    (\boldsymbol{x} | H_a)} < k \; \right\} \peq .
+\end{equation}
+
+Infatti, indicando con $f = f(x; \theta)$ la densit\`a di
+probabilit\`a della variabile $x$ (che supponiamo dipenda da
+un solo parametro $\theta$), siano $H_0 \equiv \{ \theta =
+\theta_0 \}$ e $H_a \equiv \{ \theta = \theta_a \}$ le due
+ipotesi (semplici) tra cui decidere; la funzione di
+verosimiglianza vale, come sappiamo,
+\begin{equation*}
+  \mathcal{L} (\boldsymbol{x}; \theta) = \prod_{i=1}^N
+    f(x_i; \theta) \peq .
+\end{equation*}
+Indichiamo con $\Re$ l'insieme di tutte le regioni
+$\mathcal{R}$ per le quali risulti
+\begin{equation} \label{eq:13.explainx}
+  P_I \; = \; \int_\mathcal{R} \! \mathcal{L}
+    (\boldsymbol{x}; \theta_0) \, \de \boldsymbol{x} \; = \;
+    1 - \alpha
+\end{equation}
+con $\alpha$ costante prefissata (nella
+\eqref{eq:13.explainx} abbiamo sinteticamente indicato con
+$\de \boldsymbol{x}$ il prodotto $\de x_1 \, \de x_2 \cdots
+\de x_N$).
+Vogliamo trovare quale di queste regioni rende massima
+\begin{equation*}
+  \beta \; = \; 1 - P_{II} \; = \; \int_\mathcal{R} \!
+    \mathcal{L} (\boldsymbol{x}; \theta_a) \, \de
+    \boldsymbol{x} \peq .
+\end{equation*}
+
+\noindent Ora, per una qualsiasi regione $\mathcal{R} \ne
+\mathcal{R}_k$, valgono sia la
+\begin{gather*}
+  \mathcal{R}_k \; = \; (\mathcal{R}_k \cap \mathcal{R})
+    \cup (\mathcal{R}_k \cap \overbar{\mathcal{R}}\,) \\
+  \intertext{che la}
+  \mathcal{R} \; = \; (\mathcal{R} \cap \mathcal{R}_k) \cup
+    (\mathcal{R} \cap \overbar{\mathcal{R}}_k) \peq ; \\
+  \intertext{e quindi, per una qualsiasi funzione
+    $\phi(\boldsymbol{x})$, risulta sia}
+  \int_{\mathcal{R}_k} \! \phi(\boldsymbol{x}) \, \de
+    \boldsymbol{x} \; = \; \int_{\mathcal{R}_k \cap
+    \mathcal{R}} \phi(\boldsymbol{x}) \, \de \boldsymbol{x}
+    + \int_{\mathcal{R}_k \cap \overbar{\mathcal{R}}}
+    \phi(\boldsymbol{x}) \, \de \boldsymbol{x} \\
+  \intertext{che}
+  \int_{\mathcal{R}} \! \phi(\boldsymbol{x}) \, \de
+    \boldsymbol{x} \; = \; \int_{\mathcal{R} \cap
+    \mathcal{R}_k} \phi(\boldsymbol{x}) \, \de
+    \boldsymbol{x} + \int_{\mathcal{R} \cap
+    \overbar{\mathcal{R}}_k} \phi(\boldsymbol{x}) \, \de
+    \boldsymbol{x}
+\end{gather*}
+e, sottraendo membro a membro,
+\begin{equation} \label{eq:13.neypea2}
+  \int_{\mathcal{R}_k} \! \phi(\boldsymbol{x}) \, \de
+    \boldsymbol{x} - \int_{\mathcal{R}} \!
+    \phi(\boldsymbol{x}) \, \de \boldsymbol{x} \; = \;
+    \int_{\mathcal{R}_k \cap \overbar{\mathcal{R}}}
+    \phi(\boldsymbol{x}) \, \de \boldsymbol{x} -
+    \int_{\mathcal{R} \cap \overbar{\mathcal{R}}_k}
+    \phi(\boldsymbol{x}) \, \de \boldsymbol{x} \peq .
+\end{equation}
+
+\noindent Applicando la \eqref{eq:13.neypea2} alla funzione
+$\mathcal{L}(\boldsymbol{x} | \theta_a)$ otteniamo:
+\begin{multline} \label{eq:13.neypea3}
+  \int_{\mathcal{R}_k} \! \mathcal{L}(\boldsymbol{x} |
+    \theta_a) \, \de \boldsymbol{x} -\int_{\mathcal{R}} \!
+    \mathcal{L}(\boldsymbol{x} | \theta_a) \, \de
+    \boldsymbol{x} \; = \\
+  = \; \int_{\mathcal{R}_k \cap \overbar{\mathcal{R}}}
+    \mathcal{L}(\boldsymbol{x} | \theta_a) \, \de
+    \boldsymbol{x} - \int_{\mathcal{R} \cap
+    \overbar{\mathcal{R}}_k} \mathcal{L}(\boldsymbol{x}
+    | \theta_a) \, \de \boldsymbol{x} \peq ; \qquad
+\end{multline}
+ma, nel primo integrale del secondo membro, essendo la
+regione di integrazione contenuta in $\mathcal{R}_k$, deve
+valere la \eqref{eq:13.lambdak}; e quindi risultare ovunque
+\begin{gather*}
+  \mathcal{L}(\boldsymbol{x} | \theta_a) \; > \; \frac{1}{k}
+    \cdot \mathcal{L}(\boldsymbol{x} | \theta_0) \\
+  \intertext{mentre, per lo stesso motivo, nel secondo
+    integrale}
+  \mathcal{L}(\boldsymbol{x} | \theta_a) \; \le \;
+    \frac{1}{k} \cdot \mathcal{L}(\boldsymbol{x} | \theta_0)
+\end{gather*}
+e quindi la \eqref{eq:13.neypea3} implica che
+\begin{multline*}
+  \int_{\mathcal{R}_k} \! \mathcal{L}(\boldsymbol{x} |
+    \theta_a) \, \de \boldsymbol{x} -\int_{\mathcal{R}} \!
+    \mathcal{L}(\boldsymbol{x} | \theta_a) \, \de
+    \boldsymbol{x} \; > \\
+  > \; \frac{1}{k} \cdot \left[ \int_{\mathcal{R}_k \cap
+    \overbar{\mathcal{R}}} \mathcal{L}(\boldsymbol{x} |
+    \theta_0) \, \de \boldsymbol{x} - \int_{\mathcal{R}
+    \cap \overbar{\mathcal{R}}_k}
+    \mathcal{L}(\boldsymbol{x} | \theta_0) \, \de
+    \boldsymbol{x} \right] \peq .
+\end{multline*}
+Ricordando la \eqref{eq:13.neypea2},
+\begin{equation*}
+  \int_{\mathcal{R}_k} \! \mathcal{L}(\boldsymbol{x} |
+    \theta_a) \, \de \boldsymbol{x} -\int_{\mathcal{R}} \!
+    \mathcal{L}(\boldsymbol{x} | \theta_a) \, \de
+    \boldsymbol{x} \; > \; \frac{1}{k} \cdot \left[
+    \int_{\mathcal{R}_k} \! \mathcal{L}(\boldsymbol{x} |
+    \theta_0) \, \de \boldsymbol{x} -\int_{\mathcal{R}} \!
+    \mathcal{L}(\boldsymbol{x} | \theta_0) \, \de
+    \boldsymbol{x} \right]
+\end{equation*}
+e, se $\mathcal{R} \in \Re$ e quindi soddisfa anch'essa alla
+\eqref{eq:13.explainx},
+\begin{equation*}
+  \int_{\mathcal{R}_k} \! \mathcal{L}(\boldsymbol{x} |
+    \theta_a) \, \de \boldsymbol{x} -\int_{\mathcal{R}} \!
+    \mathcal{L}(\boldsymbol{x} | \theta_a) \, \de
+    \boldsymbol{x} \; > \; \frac{1}{k} \cdot \left[ P_I -
+    P_I \right] \; = \; 0
+\end{equation*}
+che era la nostra tesi.%
+\index{Neyman--Pearson, lemma di|)}
+
+\section{Tests di massima potenza uniforme}
+Consideriamo ora un esempio del tipo di quello del paragrafo
+\ref{ch:13.es1}; e sia sempre disponibile un campione di $N$
+misure indipendenti derivante da una popolazione normale di
+varianza nota.  Assumiamo ancora come ipotesi nulla quella
+che la popolazione abbia un certo valore medio, che
+supponiamo essere 0, ma sostituiamo alla vecchia ipotesi
+alternativa $H_a$ una nuova ipotesi \emph{composta}; ovvero
+quella che il valore medio della popolazione sia positivo:
+\begin{equation*}
+  \begin{cases}
+    \setbox0=\hbox{$H_0$}
+    \makebox[\wd0]{$x$} \sim N(x; \mu, \sigma)
+      &\text{\hspace{2cm}(con $\sigma > 0$ noto)} \\[1ex]
+    H_0 \equiv \{ \mu = 0 \} \\[1ex]
+    H_a \equiv \{ \mu > 0 \}
+  \end{cases}
+\end{equation*}
+(l'ipotesi alternativa \`e dunque somma logica di infinite
+ipotesi semplici del tipo $\mu = \mu_a$ con $\mu_a > 0$).
+
+Dalla \eqref{eq:13.lnlino} ricaviamo immediatamente le
+\begin{gather*}
+  \mathcal{L} ( \boldsymbol{x}; 0, \sigma ) \; = \; - N \,
+    \ln \bigl( \sigma \sqrt{2 \pi} \bigr) - \frac{1}{2
+    \sigma^2} \sum_{i=1}^N {x_i}^2 \\
+  \intertext{e}
+  \mathcal{L} ( \boldsymbol{x}; \mu_a, \sigma ) \; = \; - N
+    \, \ln \bigl( \sigma \sqrt{2 \pi} \bigr) - \frac{1}{2
+    \sigma^2} \left( \sum_{i=1}^N {x_i}^2 - 2 N \bar x \mu_a
+    + N {\mu_a}^2 \right)
+  \intertext{(sempre con $\mu_a > 0$); e, sostituendole
+    nella \eqref{eq:13.lambdak}, che definisce la generica
+    regione di rigetto $\mathcal{R}_k$, otteniamo}
+  \ln \lambda \; = \; \ln \mathcal{L} ( \boldsymbol{x}; 0,
+    \sigma ) - \mathcal{L} ( \boldsymbol{x}; \mu_a, \sigma )
+    \; = \; \frac{N \mu_a}{2 \sigma^2} \left( \mu_a - 2 \bar
+    x \right) \; < \; \ln k \\
+  \intertext{equivalente alla}
+  \mathcal{R}_k \; \equiv \; \left\{ \; \bar x > \frac{N
+      {\mu_a}^2 - 2 \sigma^2 \ln k}{2 N \mu_a} = c \;
+  \right\} \peq .
+\end{gather*}
+
+Si rigetta quindi $H_0$ se la media aritmetica del campione
+\`e superiore a $c$ e la si accetta altrimenti: la
+probabilit\`a di commettere errori di prima specie vale
+\begin{equation*}
+  P_I \; = \; 1 - \alpha \; = \; \int_c^{+\infty} \! N
+    \left( x; 0, \frac{\sigma}{\sqrt{N}} \right) \, \de x
+\end{equation*}
+ed \`e ben definita; ma, al contrario, la probabilit\`a di
+commettere errori di seconda specie dipende dal particolare
+valore di $\mu_a$, e non pu\`o quindi essere calcolata.
+
+Se interessa solo contenere gli errori di prima specie e la
+dimensione del campione \`e nota, si fissa $\alpha$ e si
+ricava il corrispondente valore di $c$ dall'equazione
+precedente; altrimenti occorre fare delle ulteriori ipotesi
+sulla funzione di frequenza dei differenti valori di
+$\mu_a$, e, ad esempio, calcolare la probabilit\`a degli
+errori di seconda specie con tecniche di Montecarlo.
+
+In ogni caso, per\`o, osserviamo che la regione di rigetto
+\`e sempre dello stesso tipo \eqref{eq:13.lambdak} per
+\emph{qualsiasi} $\mu_a > 0$; e quindi un confronto separato
+tra $H_0$ ed ognuna delle differenti ipotesi semplici che
+costituiscono $H_a$ \`e comunque del tipo per cui il lemma
+di Neyman--Pearson garantisce la massima potenza.
+
+Tests di questo tipo, per i quali \emph{la significanza \`e
+  costante e la potenza \`e massima per ognuno dei casi
+  semplici che costituiscono l'ipotesi alternativa}, si
+dicono ``tests di massima potenza uniforme''.
+
+\section{Il rapporto delle massime verosimiglianze}%
+\index{metodo!del rapporto delle massime verosimiglianze|(}
+Nel caso generale in cui sia l'ipotesi nulla che quella
+alternativa siano composte, la situazione \`e pi\`u
+complicata: non esiste normalmente un test di massima
+potenza uniforme, e, tra i vari criteri possibili per
+decidere tra le due ipotesi, bisogna capire quali abbiano
+caratteristiche (significanza e potenza) adeguate; un metodo
+adatto a costruire una regione di rigetto dotata
+asintoticamente (per grandi campioni) di caratteristiche,
+appunto, desiderabili, \`e quello seguente (\emph{metodo del
+  rapporto delle massime verosimiglianze}).
+
+Sia una variabile casuale $x$, la cui densit\`a di
+probabilit\`a supponiamo sia una funzione $f(x; \theta_1,
+\theta_2,\ldots, \theta_M )$ dipendente da $M$ parametri:
+indicando sinteticamente la $M$-pla dei valori dei parametri
+come un vettore $\boldsymbol{\theta}$ in uno spazio a $M$
+dimensioni (\emph{spazio dei parametri}), consista $H_0$
+nell'essere $\boldsymbol{\theta}$ compreso all'interno di
+una certa regione $\Omega_0$ di tale spazio; mentre $H_a$
+consista nell'appartenere $\boldsymbol{\theta}$ alla
+regione $\Omega_a$ complementare a $\Omega_0$: $\Omega_a
+\equiv \ob{H}_0$, cos\`\i\ che $(\Omega_0 \cup
+\Omega_a)$ coincida con l'intero spazio dei parametri
+$\mathcal{S}$.
+
+In particolare, $\Omega_0$ pu\`o estendersi, in alcune delle
+dimensioni dello spazio dei parametri, da $-\infty$ a
+$+\infty$; e, in tal caso, il vincolo sulle $\theta_i$ cui
+corrisponde l'ipotesi nulla riguarder\`a un numero di
+parametri minore di $M$.
+
+Scritta la funzione di verosimiglianza,
+\begin{equation} \label{eq:13.genlik}
+  \mathcal{L} ( \boldsymbol{x}; \boldsymbol{\theta} ) =
+    \prod_{i=1}^N f(x_i; \boldsymbol{\theta} )
+\end{equation}
+indichiamo con $\mathcal{L} (\widehat S)$ il suo massimo
+valore nell'intero spazio dei parametri; e con $\mathcal{L}
+(\widehat R)$ il massimo valore assunto sempre della
+\eqref{eq:13.genlik}, ma con i parametri vincolati a
+trovarsi nella regione $\Omega_0$ (quindi limitatamente a
+quei casi nei quali $H_0$ \`e vera).  Il rapporto
+\begin{equation} \label{eq:13.gelira}
+  \lambda = \frac{\mathcal{L} (\widehat R)}{\mathcal{L} (\widehat
+    S)}
+\end{equation}
+deve essere un numero appartenente all'intervallo $[0,1]$;
+se si fissa un arbitrario valore $k$ ($0<k<1$), esso
+definisce una generica regione di rigetto, $\mathcal{R}_k$,
+attraverso la
+\begin{equation*}
+  \mathcal{R}_k \; \equiv \; \left\{ \; \lambda =
+    \frac{\mathcal{L} (\widehat R)}{\mathcal{L} (\widehat
+      S)} < k \; \right\}
+\end{equation*}
+(ovvero si accetta $H_0$ quando $\lambda \ge k$ e la si
+rigetta quando $\lambda < k$).  Nel caso si sappia
+determinare la densit\`a di probabilit\`a di $\lambda$
+condizionata all'assunzione che $H_0$ sia vera, $g(\lambda |
+H_0)$, la probabilit\`a di un errore di prima specie \`e
+data ovviamente da
+\begin{equation*}
+  P_I \; = \; \alpha \; = \; \Pr \bigl( \lambda \in [0,k] |
+    H_0 \bigr) \; = \; \int_0^k \! g(\lambda | H_0) \, \de
+    \lambda \peq .
+\end{equation*}
+
+L'importanza del metodo sta nel fatto che si pu\`o
+dimostrare il seguente
+\begin{quote}
+  \textsc{Teorema:} \textit{se l'ipotesi nulla $H_0$
+    consiste nell'appartenenza di un insieme di $P \le M$
+    dei parametri $\theta_i$ ad una determinata regione
+    $\Omega_0$, e se l'ipotesi alternativa $H_a$ consiste
+    nel fatto che essi non vi appartengano ($H_a \equiv
+    \ob{H}_0$), allora $- 2 \ln \lambda$, ove $\lambda$ \`e
+    definito dalla \eqref{eq:13.gelira}, ha densit\`a di
+    probabilit\`a che, ammessa vera l'ipotesi nulla,
+    converge in probabilit\`a (all'aumentare di $N$) alla
+    distribuzione del $\chi^2$ a $P$ gradi di libert\`a.}
+\end{quote}%
+\index{metodo!del rapporto delle massime verosimiglianze|)}
+che, dicendoci quale \`e (almeno nel limite di grandi
+campioni) la forma di $g(\lambda | H_0)$, ci mette comunque
+in grado di calcolare la significanza del test.
+
+Illustriamo il metodo con un esempio: disponendo ancora di
+un campione di $N$ determinazioni indipendenti, provenienti
+da una popolazione normale di varianza nota, vogliamo
+applicarlo per discriminare tra l'ipotesi nulla che il valore
+medio abbia valore 0 ($H_0 \equiv \{ \mu = 0 \}$) e quella
+che esso abbia valore differente ($H_a \equiv \{ \mu \ne 0
+\}$).
+
+Il logaritmo della funzione di verosimiglianza \`e ancora
+dato dalla \eqref{eq:13.lnlino}; e gi\`a sappiamo, dal
+paragrafo \ref{ch:11.mepeted}, che $\mathcal{L}$ assume il
+suo massimo valore quando $\mu = \bar x$, per cui
+\begin{gather*}
+  \ln \mathcal{L} (\widehat S) = - N \, \ln \bigl( \sigma
+    \sqrt{2 \pi} \bigr) - \frac{1}{2 \sigma^2} \left(
+    \sum_{i=1}^N {x_i}^2 - N \bar x^2 \right) \peq . \\
+  \intertext{Inoltre $\Omega_0$ si riduce ad un unico punto,
+    $\mu = 0$; per cui}
+  \ln \mathcal{L} (\widehat R) = - N \, \ln \bigl( \sigma
+    \sqrt{2 \pi} \bigr) - \frac{1}{2 \sigma^2} \sum_{i=1}^N
+    {x_i}^2 \peq . \\
+  \intertext{Dalla \eqref{eq:13.gelira} si ricava}
+  \ln \lambda \; = \; \ln \mathcal{L} (\widehat R) - \ln
+    \mathcal{L} (\widehat S) \; = \; - \frac{1}{2 \sigma^2} \, N
+    \bar x^2 \\
+  \intertext{e la regione di rigetto \`e definita dalla $\ln
+    \lambda < \ln k$; ovvero (ricordando che $\ln k < 0$) da}
+  \mathcal{R}_k \; \equiv \; \left\{ \; \bar x^2 > - \frac{2
+    \sigma^2 \ln k}{N} \; \right\} \\
+  \intertext{e, posto}
+  c = \sigma \sqrt{- \frac{2 \ln k}{N}}
+\end{gather*}
+si accetter\`a $H_0$ se $| \bar x | \le c$ (e la si
+rigetter\`a se $| \bar x | > c$).
+
+In questo caso il teorema precedentemente citato afferma che
+\begin{equation*}
+  - 2 \ln \lambda = \frac{\phantom{M} \bar x^2
+    \phantom{M}}{\dfrac{\sigma^2}{N}}
+\end{equation*}
+\`e distribuito asintoticamente come il $\chi^2$ ad un grado
+di libert\`a (cosa che del resto gi\`a sapevamo, vista
+l'espressione di $- 2 \ln \lambda$); per cui, indicando con
+$F(t; N)$ la densit\`a di probabilit\`a della distribuzione
+del $\chi^2$ a $N$ gradi di libert\`a, avremo
+\begin{equation*}
+  P_I \; = \; \alpha \; = \; \int_0^k \! g( \lambda | H_0 )
+    \, \de \lambda \; = \; \int_{- 2 \ln k}^{+\infty} \!
+    F(t; 1) \, \de t
+\end{equation*}
+della quale ci possiamo servire per ricavare $k$ se vogliamo
+che la significanza del test abbia un certo valore: ad
+esempio un livello di confidenza del 95\% corrisponde ad
+$\alpha = 0.05$ e, dalle tabelle della distribuzione del
+$\chi^2$, ricaviamo
+\begin{align*}
+  - 2 \ln k &= 3.84 &&\text{e quindi} & c &= 1.96 \,
+    \frac{\sigma}{\sqrt{N}} \peq .
+\end{align*}
+
+Anche senza dover ricorrere al teorema sul comportamento
+asintotico di $- 2 \ln \lambda$, allo stesso risultato si
+pu\`o pervenire per altra via: in questo caso si conosce
+infatti esattamente $\alpha$, che vale
+\begin{equation*}
+  P_I \; = \; \alpha \; = \; \Pr \Bigl( | \bar x | > c
+    \bigl| H_0 \bigr. \Bigr) \; = \; 2 \int_c^{+\infty} \!
+    N \left( t; 0, \frac{\sigma}{\sqrt{N}} \right) \, \de t
+\end{equation*}
+e, dalle tabelle della distribuzione normale standardizzata,
+si ricava che un'area two-tailed del 5\% corrisponde ad un
+valore assoluto dello scarto normalizzato $t_0 = 1.96$; per
+cui, ancora, si ricaverebbe $| \bar x | > 1.96 ( \sigma /
+\sqrt{N} )$ come test per un livello di confidenza del
+95\%.
+
+\section{Applicazione: ipotesi sulle probabilit\`a}
+Nel paragrafo \ref{ch:11.exampl} abbiamo preso in
+considerazione il caso di un evento casuale che si pu\`o
+manifestare in un numero finito $M$ di modalit\`a, aventi
+ognuna probabilit\`a incognita $p_i$; la stima di massima
+verosimiglianza delle $p_i$ \`e data dal rapporto tra la
+frequenza assoluta di ogni modalit\`a, $n_i$, ed il numero
+totale di prove, $N$.
+
+Vogliamo ora applicare il metodo del rapporto delle massime
+verosimiglianze per discriminare, sulla base di un campione
+di determinazioni indipendenti, l'ipotesi nulla che le
+probabilit\`a abbiano valori noti a priori e l'ipotesi
+alternativa complementare, $H_a \equiv \ob{H}_0$:
+\begin{equation*}
+  \begin{cases}
+    H_0 \; \equiv \; \left\{ p_i = \pi_i \right\} &
+    \hspace{2cm} (\forall  i \in \{ 1, 2,\ldots, M \})
+    \\[1ex]
+    H_a \; \equiv \; \left\{ p_i \ne \pi_i \right\} &
+    \hspace{2cm} (\exists i \in \{ 1, 2,\ldots, M \})
+  \end{cases}
+\end{equation*}
+
+Ricordiamo che la funzione di verosimiglianza, a meno di un
+fattore moltiplicativo costante, \`e data da
+\begin{gather*}
+  \mathcal{L} ( \boldsymbol{n}; \boldsymbol{p} ) =
+    \prod_{i=1}^M {p_i}^{n_i} \\
+  \intertext{e che, essendo la stima di massima
+    verosimiglianza data da}
+  \widehat p_i = \frac{n_i}{N} \\
+  \intertext{il massimo assoluto di $\mathcal{L}$ \`e}
+  \mathcal{L} (\widehat S) \; = \; \prod_{i=1}^M \left(
+    \frac{n_i}{N} \right)^{n_i} \; = \; \frac{1}{N^N}
+    \prod_{i=1}^M {n_i}^{n_i} \peq . \\
+  \intertext{Inoltre, nell'unico punto dello spazio dei
+    parametri che corrisponde ad $H_0$,}
+  \mathcal{L} (\widehat R) = \prod_{i=1}^M {\pi_i}^{n_i} \\
+  \intertext{per cui}
+  \lambda \; = \; \frac{\mathcal{L} (\widehat R)}{\mathcal{L}
+    (\widehat S)} \; = \; N^N \prod_{i=1}^M \left(
+    \frac{\pi_i}{n_i} \right)^{n_i}
+\end{gather*}
+dalla quale si pu\`o, come sappiamo, derivare una generica
+regione di rigetto attraverso la consueta $\mathcal{R}_k
+\equiv \{ \lambda < k \}$.
+
+\begin{equation*}
+  -2 \, \ln \lambda \; = \; -2 \left[ N \, \ln N +
+    \sum_{i=1}^M n_i \left( \ln \pi_i - \ln n_i \right)
+    \right]
+\end{equation*}
+\`e inoltre asintoticamente distribuita come il $\chi^2$ a
+$M-1$ gradi di libert\`a (c'\`e un vincolo: che le $n_i$
+abbiano somma $N$), e questo pu\`o servire a scegliere un
+$k$ opportuno (nota la dimensione del campione) una volta
+fissata $\alpha$.
+
+Il criterio di verifica dell'ipotesi dato in precedenza
+consisteva nel calcolo del valore della variabile casuale
+\begin{equation*}
+  X = \sum_{i=1}^M \frac{ \left( n_i - N \pi_i \right)^2 }{
+    N \pi_i }
+\end{equation*}
+e nel suo successivo confronto con la distribuzione del
+$\chi^2$ a $M-1$ gradi di libert\`a; lo studio del rapporto
+delle massime verosimiglianze porta dunque ad un criterio
+\emph{differente} e, senza sapere nulla della probabilit\`a
+di commettere errori di seconda specie, non \`e possibile
+dire quale dei due risulti migliore (a parit\`a di
+significanza).
+
+\section{Applicazione: valore medio di una
+  popolazione normale}
+Ancora un esempio: sia una popolazione normale $N(x; \mu,
+\sigma)$ dalla quale vengano ottenuti $N$ valori
+indipendenti $x_i$, ma questa volta \emph{la varianza}
+$\sigma$ \emph{sia ignota}; vogliamo discriminare, sulla
+base del campione, tra l'ipotesi nulla che il valore medio
+della popolazione abbia un valore prefissato e l'ipotesi
+alternativa complementare,
+\begin{equation*}
+  \begin{cases}
+    H_0 \; \equiv \; \left\{ \mu = \mu_0 \right\} \\[1ex]
+    H_a \; \equiv \; \left\{ \mu \ne \mu_0 \right\}
+  \end{cases}
+\end{equation*}
+
+Il logaritmo della funzione di verosimiglianza \`e
+\begin{equation} \label{eq:13.likgau}
+  \ln \mathcal{L} ( \boldsymbol{x}; \mu, \sigma ) \; = \;
+    - N \, \ln \sigma - \frac{N}{2} \, \ln ( 2 \pi )
+    - \frac{1}{2 \sigma^2} \sum_{i=1}^N ( x_i - \mu)^2
+\end{equation}
+ed essendo le stime di massima verosimiglianza date, come
+avevamo trovato nel paragrafo \ref{ch:11.exampl}, da
+\begin{align*}
+  \widehat \mu &= \bar x = \frac{1}{N} \sum_{i=1}^N x_i
+   &&\text{e} &
+   \widehat \sigma^2 &= \frac{1}{N} \sum_{i=1}^N \left( x_i
+     - \widehat \mu \right)^2
+\end{align*}
+ne deriva, sostituendo nella \eqref{eq:13.likgau}, che
+\begin{equation*}
+  \ln \mathcal{L} (\widehat S) \; = \; - \frac{N}{2} \ln \left[
+    \sum_{i=1}^N \left( x_i - \bar x \right)^2 \right] +
+    \frac{N}{2} \, \ln N - \frac{N}{2} \, \ln ( 2 \pi ) -
+    \frac{N}{2} \peq .
+\end{equation*}
+
+D'altra parte, ammessa vera $H_0$, abbiamo che
+\begin{gather*}
+  \ln \mathcal{L} ( \boldsymbol{x} | H_0 ) = - N \, \ln
+    \sigma - \frac{N}{2} \, \ln ( 2 \pi ) - \frac{1}{2
+    \sigma^2} \, \sum_{i=1}^N \left( x_i - \mu_0 \right)^2
+    \\
+  \intertext{e, derivando rispetto a $\sigma$,}
+  \frac{\de}{\de \sigma} \, \ln \mathcal{L} ( \boldsymbol{x}
+    | H_0 ) =  - \frac{N}{\sigma} + \frac{1}{\sigma^3}
+    \sum_{i=1}^N \left( x_i - \mu_0 \right)^2 \peq . \\
+  \intertext{Annullando la derivata prima, si trova che
+    l'unico estremante di $\mathcal{L} ( \boldsymbol{x} |
+    H_0 )$ si ha per}
+  \sigma_0 = \frac{1}{N} \sum_{i=1}^N \left( x_i - \mu_0
+    \right)^2 \\
+  \intertext{mentre la derivata seconda vale}
+  \frac{\de^2}{\de \sigma^2} \, \ln \mathcal{L} (
+    \boldsymbol{x} | H_0 ) = \frac{N}{\sigma^2} -
+    \frac{3}{\sigma^4} \sum_{i=1}^N \left( x_i - \mu_0
+    \right)^2 \\
+  \intertext{e, calcolata per $\sigma = \sigma_0$,}
+  \left. \frac{\de^2 (\ln \mathcal{L}) }{\de \sigma^2}
+    \right|_{\sigma = \sigma_0} \; = \; - \frac{2 N^2}{
+    \sum_i \left( x_i - \mu_0 \right)^2 } \; < \; 0 \\
+\end{gather*}
+per cui l'estremante \`e effettivamente un massimo.
+Sostituendo,
+\begin{gather*}
+  \ln \mathcal{L} (\widehat R) \; = \; - \frac{N}{2} \ln \left[
+    \sum_{i=1}^N \left( x_i - \mu_0 \right)^2 \right] +
+    \frac{N}{2} \, \ln N - \frac{N}{2} \, \ln ( 2 \pi ) -
+    \frac{N}{2} \\[1ex]
+  \ln \lambda \; = \; \ln \mathcal{L} (\widehat R) - \ln
+    \mathcal{L} (\widehat S) \; = \; - \frac{N}{2} \left\{ \ln
+    \left[ \sum_{i=1}^N \left( x_i - \mu_0 \right)^2 \right]
+    - \ln \left[ \sum_{i=1}^N \left( x_i - \bar x \right)^2
+    \right] \right\}
+\end{gather*}
+ed infine
+\begin{align*}
+  \ln \lambda &= - \frac{N}{2} \, \ln \left[ \frac{ \sum_i
+    \left( x_i - \mu_0 \right)^2 }{ \sum_i \left( x_i - \bar
+    x \right)^2 } \right] \\[1.5ex]
+  &= - \frac{N}{2} \, \ln \left[ 1 + \frac{N \left( \bar x -
+    \mu_0 \right)^2 }{ \sum_i \left( x_i - \bar x \right)^2
+    } \right] \\[1.5ex]
+  &= - \frac{N}{2} \, \ln \left( 1 + \frac{t^2}{N - 1}
+    \right)
+\end{align*}
+tenendo conto dapprima del fatto che $\sum_i ( x_i - \mu_0
+)^2 = \sum_i ( x_i - \bar x )^2 + N (\bar x - \mu_0 )^2$, e
+definendo poi una nuova variabile casuale
+\begin{equation*}
+  t \; = \; \left( \bar x - \mu_0 \right) \sqrt{ \frac{N (N
+    - 1)}{\sum_i \left( x_i - \bar x \right)^2} } \; = \;
+    \frac{\phantom{t} \bar x - \mu_0 \phantom{t}}{
+    \dfrac{s}{\sqrt{N}} } \peq .
+\end{equation*}
+
+Un qualunque metodo per il rigetto di $H_0$ definito
+confrontando $\lambda$ con un prefissato valore $k$ si
+traduce, in sostanza, in un corrispondente confronto da
+eseguire per $t$:
+\begin{gather*}
+  \mathcal{R}_k \; \equiv \; \bigl\{ \ln \lambda < \ln k
+    \bigr\} \\
+  \intertext{che porta alla}
+  - \frac{N}{2} \, \ln \left( 1 + \frac{t^2}{N - 1}
+    \right) \; < \; \ln k \\
+  \intertext{ed alla condizione}
+  t^2 \; > \; (N - 1) \, \left( k^{- \tfrac{2}{N}} - 1
+    \right) \peq ;
+\end{gather*}
+ovvero si rigetta l'ipotesi nulla se $|t|$ \`e maggiore di
+un certo $t_0$ (derivabile dall'equazione precedente), e la
+si accetta altrimenti.
+
+Ma $t$ (vedi anche l'equazione \eqref{eq:12.xsecond}) segue
+la distribuzione di Student a $N-1$ gradi di libert\`a, e
+quindi accettare o rigettare $H_0$ sotto queste ipotesi si
+riduce ad un test relativo a quella distribuzione: come
+gi\`a si era concluso nel capitolo \ref{ch:12.veripo}.
+Il livello di significanza $\alpha$ \`e legato a $t_0$ dalla
+\begin{equation*}
+  \frac{\alpha}{2} = \int_{t_0}^{+\infty} \! F(t; N-1)
+    \, \de t
+\end{equation*}
+(indicando con $F(t;N)$ la funzione di frequenza di Student
+a $N$ gradi di libert\`a), tenendo conto che abbiamo a che
+fare con un two-tailed test ($\mathcal{R}_k \equiv \bigl\{
+|t| > t_0 \bigr\}$).
+
+Insomma non c'\`e differenza, in questo caso, tra quanto
+esposto nel capitolo precedente e la teoria generale
+discussa in quello presente: nel senso che i due criteri di
+verifica dell'ipotesi portano per questo problema allo
+stesso metodo di decisione (ma, come abbiamo visto nel
+paragrafo precedente, non \`e sempre cos\`\i).%
+\index{funzione!di verosimiglianza|)}
+
+\endinput

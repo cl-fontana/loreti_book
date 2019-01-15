@@ -1,0 +1,59 @@
+hist/del 0
+vect/del *
+set *
+igset *
+opt *
+
+fort/file 66 lognor.eps
+graph/meta 66 -113
+
+opt nbox
+opt utit
+set *fon -130
+set *siz 0.4
+igset txfp -130
+igset chhe 0.4
+
+set hwid 4
+set fwid 2
+zone 1 2
+
+graph/hplot/null 0 10 0 0.8
+set dmod 1
+func/plot 1.99471140*exp(-12.5*((alog(x)-1))**2)/x 0 10 s
+graph/prim/line 7.2 0.64 8.4 0.64
+set dmod 12
+func/plot 1.32980760*exp(-5.5555556*((alog(x)-1))**2)/x 0 10 s
+graph/prim/line 7.2 0.55 8.4 0.55
+set dmod 15
+func/plot 0.79788456*exp(-2*((alog(x)-1))**2)/x 0 10 s
+graph/prim/line 7.2 0.46 8.4 0.46
+
+graph/prim/box 7 10 0.4 0.8
+graph/prim/box 7 10 0.7 0.8
+graph/prim/itx 8.7 0.63 '[s] = 0.2'
+graph/prim/itx 8.7 0.54 '[s] = 0.3'
+graph/prim/itx 8.7 0.45 '[s] = 0.5'
+graph/prim/itx 8.1 0.73 '[m] = 1'
+
+graph/hplot/null 0 10 0 0.8
+set dmod 1
+func/plot 0.39894228*exp(-0.5*(alog(x))**2)/x 0 10 s
+graph/prim/line 7.2 0.64 8.4 0.64
+set dmod 12
+func/plot 0.39894228*exp(-0.5*(alog(x)-1)**2)/x 0 10 s
+graph/prim/line 7.2 0.55 8.4 0.55
+set dmod 15
+func/plot 0.39894228*exp(-0.5*(alog(x)-2)**2)/x 0 10 s
+graph/prim/line 7.2 0.46 8.4 0.46
+
+graph/prim/box 7 10 0.4 0.8
+graph/prim/box 7 10 0.7 0.8
+graph/prim/itx 8.8 0.63 '[m] = 0'
+graph/prim/itx 8.8 0.54 '[m] = 1'
+graph/prim/itx 8.8 0.45 '[m] = 2'
+graph/prim/itx 8.1 0.73 '[s] = 1'
+
+zone
+fort/close 66
+opt htit

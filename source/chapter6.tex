@@ -1,0 +1,761 @@
+% $Id: chapter6.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{Variabili casuali unidimensionali continue}
+Le definizioni di probabilit\`a che abbiamo finora usato
+sono adatte solo per una variabile casuale che possa
+assumere solo valori discreti; vediamo innanzi tutto come il
+concetto di probabilit\`a si possa generalizzare a variabili
+casuali continue, variabili che possono cio\`e assumere
+tutti gli infiniti valori appartenenti ad un insieme
+continuo: tali si suppone generalmente siano i risultati
+delle misure delle grandezze fisiche, per poter applicare ad
+essi il calcolo differenziale ed integrale.
+
+\section{La densit\`a di probabilit\`a}%
+\index{probabilit\`a!densit\`a di|(emidx}
+Definiamo arbitrariamente delle classi di frequenza,
+suddividendo l'asse delle $x$ in intervalli di ampiezze che,
+per semplicit\`a, supponiamo siano tutte uguali; ed
+immaginiamo di fare un certo numero $N$ di misure della
+grandezza fisica $x$.  Come sappiamo, possiamo riportare le
+misure ottenute
+in istogramma%
+\index{istogrammi|(}
+tracciando, al di sopra dell'intervallo che rappresenta ogni
+classe, un rettangolo avente area uguale alla frequenza
+relativa\/\footnote{Non vi \`e alcuna differenza nell'usare
+  frequenze relative o assolute: essendo esse proporzionali
+  l'una all'altra, l'aspetto dell'istogramma \`e il medesimo
+  --- cambia solo la scala dell'asse delle ordinate.} con
+cui una misura \`e caduta in essa; l'altezza dell'istogramma
+in ogni intervallo \`e data quindi da tale frequenza divisa
+per l'ampiezza dell'intervallo di base, e l'area totale
+dell'istogramma stesso vale uno.
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{istgau.pstex_t}
+  } \end{center}
+  \caption[Il comportamento limite delle frequenze
+    relative]{Nella prima figura, l'istogramma della
+    grandezza $x$ per un numero piccolo di misure; nella
+    seconda, lo stesso istogramma per un numero molto
+    grande di misure; nell'ultima, l'istogramma si
+    approssima alla curva limite quando l'intervallo di
+    base tende a zero.}
+\end{figure}
+
+Se immaginiamo di far tendere all'infinito il numero di
+misure effettuate, in base alla legge dei grandi numeri ci
+aspettiamo un ``aggiustamento'' dell'istogramma in modo che
+l'area rappresentata sopra ogni intervallo tenda alla
+\emph{probabilit\`a} che il valore misurato cada entro di
+esso; le altezze tenderanno quindi al rapporto tra questa
+probabilit\`a e l'ampiezza dell'intervallo di base
+dell'istogramma.
+
+Disponendo di un numero infinitamente grande di misure, ha
+senso diminuire l'ampiezza degli intervalli in cui l'asse
+delle $x$ \`e stato diviso, e renderla piccola a piacere.%
+\index{istogrammi|)}
+Se l'intervallo corrispondente ad una data classe di
+frequenza tende a zero, la probabilit\`a che una misura cada
+in esso tende ugualmente a zero; ma se esiste ed \`e finito
+il limite del rapporto tra probabilit\`a $\de p$ ed ampiezza
+$\de x$ dell'intervallo, l'istogramma tender\`a ad una curva
+continua la cui ordinata sar\`a in ogni punto data da tale
+limite.
+
+L'ordinata di questa curva al di sopra di un intervallo
+infinitesimo $\de x$ vale quindi
+\begin{equation*}
+  y \; = \; f(x) \; = \; \frac{\de p}{\de x}
+\end{equation*}
+e le dimensioni della grandezza $y$ sono quelle di una
+probabilit\`a (un numero puro) divise per quelle della
+grandezza $x$; la $y$ prende il nome di \emph{densit\`a di
+  probabilit\`a}, o di \emph{funzione di frequenza}, della
+$x$.
+
+La variabile continua schematizza il caso in cui i valori
+osservabili (sempre discreti per la sensibilit\`a limitata
+degli strumenti) sono molto densi, separati cio\`e da
+intervalli molto piccoli, e assai numerosi.  In questa
+situazione la probabilit\`a di osservare uno solo di tali
+valori \`e anch'essa estremamente piccola --- ed ha
+interesse soltanto la probabilit\`a che venga osservato uno
+tra i molti possibili valori della $x$ che cadono in un dato
+intervallo $ [ x_1 , x_2 ] $ di ampiezza grande rispetto
+alla risoluzione sperimentale.
+
+Se dividiamo tale intervallo in un numero molto grande di
+sottointervalli infinitesimi di ampiezza $\de x$, gli eventi
+casuali consistenti nell'appartenere il risultato della
+misura ad una delle classi di frequenza relative sono
+mutuamente esclusivi; di conseguenza, vista l'equazione
+\eqref{eq:3.protot}, la probabilit\`a che $x$ appartenga
+all'intervallo finito $ [ x_1, x_2 ] $ \`e data dalla somma
+delle probabilit\`a (infinitesime) rispettive $ \de p = f(x)
+\, \de x $: e questa, per definizione, \`e l'integrale di
+$f(x)$ rispetto ad $x$ nell'intervallo $ [ x_1, x_2 ] $.
+
+Insomma, qualunque sia l'intervallo $ [ x_1, x_2 ] $ vale la
+\begin{equation*}
+  \Pr \Bigl(x \in  [x_1,x_2] \Bigr) =
+  \int_{x_1}^{x_2} \! f(x) \, \de x \peq ;
+\end{equation*}
+e, in definitiva:
+\begin{quote}
+  \textit{Per le variabili continue non si pu\`o parlare di
+    probabilit\`a attraverso le definizioni gi\`a esaminate.
+    \`E invece possibile associare ad ogni variabile
+    continua $x$ una funzione ``densit\`a di probabilit\`a''
+    $f(x)$, da cui si pu\`o dedurre la probabilit\`a che la
+    $x$ cada in un qualsiasi intervallo finito prefissato:
+    questa \`e data semplicemente dall'area sottesa dalla
+    curva nell'intervallo in questione.}
+\end{quote}%
+\index{probabilit\`a!densit\`a di|)}
+
+\index{funzione!di distribuzione|(emidx}%
+\label{def:6.fundis}
+Analogamente al concetto sperimentale di frequenza
+cumulativa relativa, introdotto a pagina
+\pageref{def:4.frcure} nel paragrafo \ref{def:4.frcure}, si
+pu\`o definire la \emph{funzione di distribuzione} per una
+variabile continua $x$ come
+\begin{equation*}
+  F(x) = \int_{- \infty}^x \! f(t) \, \de t \peq .
+\end{equation*}
+Essa rappresenta la probabilit\`a di osservare un valore non
+superiore ad $x$, e dovr\`a necessariamente soddisfare la
+$F(+ \infty) \equiv 1$.  Quindi deve valere la cosiddetta
+\begin{quote}
+  \textsc{Condizione di normalizzazione:}%
+  \index{normalizzazione!condizione di|emidx}
+  \textit{l'integrale di una qualunque funzione che
+    rappresenti una densit\`a di probabilit\`a,
+    nell'intervallo $ \left[ -\infty, +\infty \right]$ vale
+    1.}
+\end{quote}
+\begin{equation} \label{eq:6.connor}
+  \int_{- \infty}^{+ \infty} \! f(x) \, \de x \: = \: 1 \peq
+  .
+\end{equation}%
+\index{funzione!di distribuzione|)}
+
+\`E da enfatizzare come il solo fatto che valga la
+condizione di normalizzazione, ossia che converga
+l'integrale \eqref{eq:6.connor}, \`e sufficiente a garantire
+che una qualsiasi funzione che rappresenti una densit\`a di
+probabilit\`a \emph{debba tendere a zero} quando la
+variabile indipendente tende a pi\`u o meno infinito; e
+questo senza alcun riferimento alla particolare natura del
+fenomeno casuale cui essa \`e collegata.  Questo non \`e
+sorprendente, visto che la disuguaglianza
+\eqref{eq:5.bieceb} di Bienaym\'e--\v Ceby\v sef implica che
+a distanze via via crescenti dal valore medio di una
+qualsiasi variabile casuale corrispondano probabilit\`a via
+via decrescenti, e che si annullano asintoticamente.
+
+Al lettore attento non sar\`a sfuggito il fatto che, per
+introdurre il concetto di densit\`a di probabilit\`a, ci si
+\`e ancora una volta basati sul risultato di un esperimento
+reale (l'istogramma delle frequenze relative in un
+campione); e si \`e ipotizzato poi che la rappresentazione
+di tale esperimento si comporti in un determinato modo
+quando alcuni parametri (il numero di misure e la
+sensibilit\`a sperimentale) vengono fatti tendere a limiti
+che, nella pratica, sono irraggiungibili.
+
+Questo \`e in un certo senso analogo all'enfasi che abbiamo
+prima posto sulla definizione empirica della probabilit\`a,
+in quanto pi\`u vicina all'esperienza reale di una
+definizione totalmente astratta come quella assiomatica; per
+un matematico la densit\`a di probabilit\`a di una variabile
+casuale continua \`e invece definita semplicemente come una
+funzione non negativa, integrabile su tutto l'asse reale e
+che obbedisca alla condizione di normalizzazione.  Il passo
+successivo consiste nell'associare ad ogni intervallo
+infinitesimo $\de x$ la quantit\`a $\de p = f(x) \de x$, e
+ad ogni intervallo finito $ [ x_1, x_2 ] $ il corrispondente
+integrale: integrale che, come si pu\`o facilmente
+controllare, soddisfa la definizione assiomatica di
+probabilit\`a.
+
+\section{La speranza matematica per le variabili
+  continue}%
+\index{speranza matematica!per variabili continue|(emidx}%
+\label{ch:6.mevaco}
+Possiamo ora determinare l'espressione della speranza
+matematica di una generica variabile casuale continua $x$;
+questa grandezza, che avevamo gi\`a definito nell'equazione
+\eqref{eq:5.spermat} come
+\begin{equation*}
+  E(x) = \sum \nolimits_i p_i \, x_i
+\end{equation*}
+per una variabile discreta, si dovr\`a ora scrivere per una
+variabile continua
+\begin{equation*}
+  E(x) = \int_{- \infty}^{+ \infty} \! x \cdot f(x) \,
+    \de x \peq ;
+\end{equation*}
+dove per $f(x)$ si intende la funzione densit\`a di
+probabilit\`a della variabile casuale $x$.
+
+Per ricavare questa formula, basta pensare di aver suddiviso
+l'asse delle $x$ in un numero grandissimo di intervalli
+estremamente piccoli di ampiezza $\de x$, ad ognuno dei
+quali \`e associata una probabilit\`a anch'essa estremamente
+piccola che vale $\de p = f(x) \, \de x$; e sostituire poi
+nella formula per variabili discrete.  In base al teorema di
+pagina \pageref{th:5.teoceb} (il teorema di \v Ceby\v sef),%
+\index{Ceby@\v Ceby\v sef!teorema di}
+le medie aritmetiche dei campioni finiti di valori della
+grandezza $x$ tendono proprio a questo $E(x)$ all'aumentare
+indefinito di $N$.
+
+La speranza matematica di una qualsiasi grandezza $W(x)$
+funzione della variabile casuale $x$ sar\`a poi
+\begin{equation} \label{eq:6.mevaco}
+  E \bigl[ W(x) \bigr] \; = \; \int_{- \infty}^{+
+    \infty} \! W(x) \cdot f(x) \, \de x \peq .
+\end{equation}%
+\index{speranza matematica!per variabili continue|)}
+
+\section{I momenti}%
+\index{momenti|(}
+Per qualunque variabile casuale $x$ si possono definire,
+sempre sulla popolazione, i cosiddetti \emph{momenti}: il
+momento di ordine $k$ rispetto all'origine, $\lambda_k$, \`e
+la speranza matematica di $x^k$; ed il momento di ordine $k$
+rispetto alla media, $\mu_k$, \`e la speranza matematica di
+$\bigl[ x - E(x) \bigr]^k$.  In formula (con ovvio
+significato dei simboli):
+\begin{gather*}
+  \lambda_k \; = \; E \bigl( x^k \bigr) \; = \;
+    \sum\nolimits_i p_i \, {x_i}^k \\
+  \intertext{e}
+  \mu_k \; = \; E \left\{ \bigl[ x - E(x) \bigr]^k
+    \right\} \; = \; \sum\nolimits_i p_i \, \bigl[ x_i -
+    E(x) \bigr]^k
+    \intertext{per una variabile discreta (analogamente,
+      usando le frequenze, si possono definire i momenti
+      rispetto all'origine ed alla media aritmetica di un
+      campione); oppure}
+  \lambda_k \; = \; E \bigl( x^k \bigr) \; = \;
+    \int_{-\infty}^{+\infty} \! x^k \, f(x) \, \de x \\
+  \intertext{e}
+  \mu_k \; = \; E \left\{ \bigl[ x - E(x) \bigr]^k
+    \right\} \; = \; \int_{-\infty}^{+\infty} \! \bigl[
+    x - E(x) \bigr]^k \, f(x) \, \de x
+\end{gather*}
+per una variabile continua.
+
+Chiaramente, se la popolazione \`e costituita da un numero
+infinito di elementi (quindi, in particolare, per le
+variabili continue), non \`e detto che i momenti esistano;
+inoltre $E(x) \equiv \lambda_1$ e $\var(x) \equiv \mu_2
+\equiv \lambda_2 - {\lambda_1}^2 $.  Dalla definizione
+consegue immediatamente che, per qualsiasi popolazione per
+cui esista $E(x)$,
+\begin{align*}
+  \mu_1 &= \int_{-\infty}^{+\infty} \! \bigl[ x -
+    E(x) \bigr] \, f(x) \, \de x \\[1ex]
+  &= \int_{-\infty}^{+\infty} \! x \, f(x) \, \de x
+    - E(x) \int_{-\infty}^{+\infty} \! f(x) \, \de x
+    \\[1ex]
+  &= E(x) - E(x) \\[1ex]
+  &\equiv 0 \peq .
+\end{align*}
+
+\`E poi facile dimostrare che, per popolazioni simmetriche
+rispetto alla media, tutti i momenti di ordine dispari
+rispetto ad essa, se esistono, valgono zero: basta
+considerare come, negli integrali, i contributi infinitesimi
+di ognuno degli intervallini si possano associare a due a
+due in modo che si annullino vicendevolmente.  Il valore del
+momento del terzo ordine rispetto alla media aritmetica
+pu\`o quindi essere considerato una sorta di misura
+dell'asimmetria di una distribuzione.
+
+In pratica per\`o si preferisce usare, in luogo di $\mu_3$,
+un parametro adimensionale; definendo il cosiddetto
+\emph{coefficiente di asimmetria}%
+\index{coefficiente!di asimmetria}%
+\index{asimmetria|see{coefficiente di asimmetria}}
+(o \emph{skewness}, in inglese) come
+\begin{equation*}
+  \gamma_1 \; = \; \frac{\mu_3}{\left( \sqrt{\mu_2}
+    \right)^3} \; = \; \frac{\mu_3}{\sigma^3}
+\end{equation*}
+(dove $\sigma = \sqrt{\mu_2}$ \`e la radice quadrata della
+varianza); $\gamma_1$ \`e nullo per densit\`a di
+probabilit\`a simmetriche rispetto alla media, oppure ha
+segno positivo (o negativo) a seconda che i valori della
+funzione di frequenza per la variabile casuale in questione
+si trovino ``sbilanciati'' verso la destra (o verso la
+sinistra) rispetto al valore medio.
+
+Dal momento del quarto ordine rispetto alla media si pu\`o
+ricavare un altro parametro adimensionale talvolta usato per
+caratterizzare una distribuzione: il
+\emph{coefficiente di curt\`osi}%
+\index{coefficiente!di curtosi|(}%
+\index{curtosi|see{coefficiente di curtosi}}
+ $\gamma'_2$, definito come
+\begin{equation} \label{eq:6.curtosi}
+  \gamma'_2 \; = \; \frac{\mu_4}{{\mu_2}^2} \; = \;
+    \frac{\mu_4}{\sigma^4}
+\end{equation}
+e che \`e ovviamente sempre positivo.  Esso misura in un
+certo senso la ``rapidit\`a'' con cui una distribuzione di
+probabilit\`a converge a zero quando ci si allontana dalla
+zona centrale in cui essa assume i valori pi\`u alti
+(individuata dal valore di $E(x) \equiv \lambda_1$): o, se
+si preferisce, l'importanza delle sue ``code'' laterali;
+infatti, quanto pi\`u rapidamente la funzione converge a
+zero in queste code, tanto pi\`u piccolo sar\`a il valore di
+$\gamma'_2$.  Come si potrebbe ricavare integrandone la
+funzione di frequenza (che troveremo pi\`u avanti nel
+paragrafo \ref{ch:8.gauss}), il coefficiente di curtosi
+della distribuzione normale calcolato usando la
+\eqref{eq:6.curtosi} vale 3; per questo motivo si preferisce
+generalmente definirlo in modo differente, usando la
+\begin{equation*}
+  \gamma_2 \; = \; \frac{\mu_4}{\sigma^4} - 3 \peq .
+\end{equation*}
+Questo fa s\`\i\ che esso valga zero per la funzione di
+Gauss, e che assuma poi valori di segno negativo o positivo
+per funzioni che convergano a zero nelle code in maniera
+rispettivamente pi\`u ``rapida'' o pi\`u ``lenta'' della
+distribuzione normale.%
+\index{coefficiente!di curtosi|)}%
+\index{momenti|)}
+
+\section{Funzione generatrice e funzione   caratteristica}%
+\index{funzione!generatrice dei momenti|(}%
+\index{momenti!funzione generatrice|see{funzione generatrice dei momenti}}%
+\label{ch:6.fugeca}
+La speranza matematica della funzione $e^{tx}$ per una
+variabile casuale continua $x$ prende il nome di
+\emph{funzione generatrice dei momenti} della variabile
+stessa; la indicheremo nel seguito col simbolo $M_x(t)$.  Il
+motivo del nome \`e che risulta, indicando con $f(x)$ la
+densit\`a di probabilit\`a di $x$:
+\begin{gather}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    M_x(t) \; = \; E \bigl( e^{tx} \bigr) \; = \;
+      \int_{-\infty}^{+\infty} \! e^{t x} f(x) \, \de x
+      \quad } \label{eq:6.fugemo} \\
+  \intertext{(per una variabile continua, oppure}
+  M_x(t) = \sum\nolimits_i p_i \, e^{t x_i} \notag \\
+  \intertext{per una variabile discreta); e, ricordando sia
+    lo sviluppo in serie di McLaurin della funzione
+    esponenziale}
+  e^{tx} \; = \; \sum_{k=0}^\infty \frac{(tx)^k}{k!}
+    \notag \\
+  \intertext{che la definizione dei momenti rispetto
+    all'origine, \emph{se questi esistono tutti fino a
+    qualsiasi ordine} risulta anche}
+  M_x(t) \; = \; \sum_{k=0}^\infty \frac{t^k}{k!} \,
+    \lambda_k \notag \\
+  \intertext{da cui}
+  \left. \frac{\de^k M_x(t)}{\de t^k} \right|_{t=0} \; =
+    \; \lambda_k \notag
+\end{gather}
+e, in definitiva, derivando successivamente la funzione
+generatrice si possono ricavare tutti i momenti della
+funzione di frequenza da cui essa discende.  Se interessa
+invece uno dei momenti non rispetto all'origine, ma rispetto
+al valore medio $\lambda$, basta considerare l'altra
+funzione
+\begin{gather}
+  \ob{M}_x(t) \; = \; E \left[ e^{t(x - \lambda)}
+    \right] \; = \; e^{-t \lambda} M_x(t)
+    \label{eq:6.fugemm} \\
+  \intertext{e si trova facilmente che risulta}
+  \left. \frac{\de^k \ob{M}_x(t)}{\de t^k}
+    \right|_{t=0} \; = \;\mu_k \peq . \notag
+\end{gather}%
+\index{funzione!generatrice dei momenti|)}
+
+\index{funzione!caratteristica|(}%
+La speranza matematica della funzione $e^{itx}$ si chiama
+invece \emph{funzione caratteristica} della variabile
+casuale $x$, e si indica con $\phi_x(t)$:
+\begin{gather}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    \phi_x(t) \; = \; E \bigl( e^{itx} \bigr) \; = \;
+      \int_{-\infty}^{+\infty} \! e^{itx} f(x) \, \de x
+    \quad } \label{eq:6.funcar} \\
+  \intertext{(per una variabile continua, e}
+  \phi_x(t) \; = \; \sum\nolimits_k p_k \, e^{i t x_k}
+    \label{eq:6.fucadi} \\
+  \intertext{per una variabile discreta); e, se esistono i
+    momenti di qualsiasi ordine rispetto all'origine,
+    risulta anche}
+  \phi_x(t) \; = \; \sum_{k=0}^\infty \frac{(it)^k}{k!}
+    \, \lambda_k \label{eq:6.funcar1} \\
+  \intertext{dalla quale si ricava}
+  \left. \frac{\de^k \phi_x(t)}{\de t^k} \right|_{t=0}
+    \; = \; i^k \lambda_k \peq . \label{eq:6.fucamo}
+\end{gather}%
+\index{funzione!caratteristica|)}
+
+Queste funzioni sono importanti in virt\`u di una serie di
+teoremi, che citeremo qui senza dimostrarli:
+\begin{itemize}
+\item I momenti (se esistono fino a qualunque ordine)
+  caratterizzano univocamente una variabile casuale; se due
+  variabili casuali hanno gli stessi momenti fino a
+  qualsiasi ordine, la loro densit\`a di probabilit\`a \`e
+  identica.
+\item La funzione generatrice esiste solo se esistono i
+  momenti fino a qualsiasi ordine; e anch'essa caratterizza
+  univocamente una variabile casuale, nel senso che se due
+  variabili hanno la stessa funzione generatrice la loro
+  densit\`a di probabilit\`a \`e identica.
+\item La $\phi_x(t)$ prima definita si chiama anche
+  \emph{trasformata di Fourier}%
+  \index{Fourier, trasformata di}
+  della funzione $f(x)$; anch'essa caratterizza univocamente
+  una variabile casuale nel senso su detto.  Le propriet\`a
+  che contraddistinguono una funzione che rappresenti una
+  densit\`a di probabilit\`a implicano poi che la funzione
+  caratteristica, a differenza della funzione generatrice
+  dei momenti, \emph{esista sempre} per qualsiasi variabile
+  casuale; la \eqref{eq:6.fucamo} \`e per\`o valida solo se
+  i momenti esistono fino a qualsiasi ordine.  Inoltre, se
+  \`e nota la $\phi_x(t)$, \emph{la si pu\`o sempre
+    invertire} (riottenendo da essa la $f$) attraverso la
+  \begin{equation} \label{eq:6.trinfo}
+    \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+      f(x) \; = \; \frac{1}{2\pi}
+        \int_{-\infty}^{+\infty} \! e^{-ixt} \phi_x(t)
+        \, \de t \quad }
+  \end{equation}
+  (\emph{trasformata inversa di Fourier}).%
+  \index{Fourier, trasformata di}
+\end{itemize}
+
+Vogliamo infine ricavare una relazione che ci sar\`a utile
+pi\`u avanti: siano le $N$ variabili casuali continue $x_k$
+(che supponiamo tutte statisticamente indipendenti tra
+loro), ognuna delle quali sia associata ad una particolare
+funzione caratteristica $\phi_k(t)$; il problema che
+vogliamo affrontare consiste nel determinare la funzione
+caratteristica della nuova variabile casuale $S$, definita
+come loro somma:
+\begin{equation*}
+  S = \sum_{k=1}^N x_k \peq .
+\end{equation*}
+
+Il valore di ogni $x_k$ sar\`a univocamente definito dai
+possibili risultati di un qualche evento casuale $E_k$; per
+cui la $S$ si pu\`o pensare univocamente definita dalle
+possibili \emph{associazioni} di tutti i risultati di questi
+$N$ eventi --- associazioni che, in sostanza, corrispondono
+alle possibili posizioni di un punto in uno spazio
+cartesiano $N$-dimensionale, in cui ognuna delle variabili
+$x_k$ sia rappresentata su uno degli assi.
+
+\index{funzione!caratteristica!di somme di variabili|(}%
+Visto che i valori $x_k$ sono (per ipotesi) tra loro tutti
+statisticamente indipendenti, la probabilit\`a di ottenere
+una particolare $N$-pla \`e data dal prodotto delle
+probabilit\`a relative ad ogni singolo valore: e, se
+indichiamo con $f_k(x_k)$ la funzione densit\`a di
+probabilit\`a della generica $x_k$, la probabilit\`a di
+ottenere un determinato valore per la $S$ \`e data da
+\begin{equation*}
+  \de P \; \equiv \; g(S) \, \de S \; = \;
+    \prod_{k=1}^N f_k(x_k) \, \de x_k
+\end{equation*}
+($\de S$ rappresenta un intorno (ipercubico) infinitesimo
+del punto $S$, di coordinate cartesiane $\{ x_k \}$ nello
+spazio $N$-dimensionale prima descritto, corrispondente agli
+$N$ intorni unidimensionali $\de x_k$ dei valori assunti
+dalle $N$ variabili casuali $x_k$); e la densit\`a di
+probabilit\`a per la $S$ vale quindi
+\begin{equation*}
+  g(S) = \prod_{k=1}^N f_k(x_k) \peq .
+\end{equation*}
+
+La funzione caratteristica di $S$ \`e, dall'equazione di
+definizione \eqref{eq:6.funcar},
+\begin{align*}
+  \phi_S(t) &= \int_{-\infty}^{+\infty} \! e^{itS} g(S)
+    \, \de S \\[1ex]
+  &= \int_{-\infty}^{+\infty} \prod_{k=1}^N
+    e^{itx_k} f_k(x_k) \, \de x_k
+\end{align*}
+ed infine
+\begin{equation} \label{eq:6.fucacl}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    \phi_S(t) = \prod_{k=1}^N \phi_k(t)
+    \quad }
+\end{equation}
+Quindi \emph{la funzione caratteristica della somma di $N$
+  variabili casuali statisticamente indipendenti \`e pari al
+  prodotto delle loro funzioni caratteristiche}.%
+\index{funzione!caratteristica!di somme di variabili|)}
+
+\subsection{Funzioni caratteristiche di variabili discrete}%
+\index{funzione!caratteristica!per variabili discrete|(}
+Invece della funzione caratteristica definita attraverso la
+\eqref{eq:6.fucadi}, e che \`e una funzione complessa di
+variabile reale, talvolta, per variabili casuali discrete,
+viene usata una rappresentazione equivalente ricorrendo alla
+variabile complessa
+\begin{gather*}
+  z = e^{it} \peq . \\
+  \intertext{Sostituendo questa definizione di $z$ nella
+    \eqref{eq:6.fucadi} si ottiene la \emph{funzione
+      caratteristica di variabile complessa}}
+  \phi_x (z) \; = \; \sum\nolimits_k p_k \, z^{x_k} \; = \;
+  E \bigl( z^x \bigr) \peq ,
+\end{gather*}
+che ha propriet\`a analoghe a quelle della funzione
+caratteristica di variabile reale $\phi_x(t)$.  In
+particolare, definendo una variabile casuale $w$ come somma
+di due altre variabili $x$ e $y$ discrete e tra loro
+indipendenti, la funzione caratteristica di variabile
+complessa $\phi_w(z)$ \`e ancora il prodotto delle due
+funzioni caratteristiche $\phi_x(z)$ e $\phi_y(z)$: infatti
+\begin{align*}
+  \phi_w (z) &= \sum\nolimits_{jk} \Pr ( x_j ) \,
+  \Pr ( y_k ) \, z^{\left( x_j + y_k \right)}
+  \\[1ex]
+  &= \sum\nolimits_j \Pr ( x_j ) \, z^{x_j} \cdot
+  \sum\nolimits_k \Pr ( y_k ) \, z^{y_k} \\[1ex]
+  &= \phi_x(z) \cdot \phi_y(z) \peq ;
+\end{align*}
+e, generalizzando per induzione completa, la somma $S$ di un
+numero prefissato $N$ di variabili casuali discrete e tutte
+tra loro indipendenti
+\begin{gather*}
+  S = \sum_{k=1}^N x_k \\
+  \intertext{\`e anch'essa associata alla funzione
+    caratteristica di variabile complessa}
+  \phi_S (z) = \prod_{k=1}^N \phi_{x_k} (z) \peq .
+\end{gather*}
+Nel caso particolare, poi, in cui le $N$ variabili
+provengano dalla stessa popolazione,
+\begin{equation} \label{eq:6.fixedn}
+  \phi_S (z) = \bigl[ \phi_x (z) \bigr] ^N \peq .
+\end{equation}
+
+\index{somma di un numero casuale di variabili discrete|(}%
+Cosa accade se il numero $N$ di variabili casuali da sommare
+non \`e costante, \emph{ma \`e anch'esso una variabile
+  casuale} (ovviamente discreta)?  In altre parole, vogliamo
+qui di seguito trovare la rappresentazione analitica della
+funzione caratteristica della \emph{somma di un numero
+  casuale di variabili casuali discrete, indipendenti ed
+  aventi tutte la stessa distribuzione}.  Supponiamo che la
+$N$ sia associata ad una funzione caratteristica
+\begin{equation} \label{eq:6.nonly}
+  \phi_N (z) \; = \; E \bigl( z^N \bigr) \; = \;
+  \sum\nolimits_N \Pr (N) \, z^N \peq ;
+\end{equation}
+la probabilit\`a di ottenere un determinato valore per la
+$S$ vale
+\begin{gather*}
+  \Pr (S) = \sum\nolimits_N \Pr (N) \, \Pr (S | N) \\
+  \intertext{e di conseguenza la funzione caratteristica
+    di variabile complessa associata alla $S$ che, per
+    definizione, \`e data dalla}
+  \phi_S (z) \; = \; E \bigl( z^S \bigr) \; = \;
+  \sum\nolimits_S \Pr (S) \, z^S
+\end{gather*}
+si potr\`a scrivere anche
+\begin{align*}
+  \phi_S (z) &= \sum\nolimits_S z^S \cdot \sum\nolimits_N
+  \Pr (N) \, \Pr (S | N) \\[1ex]
+  &= \sum\nolimits_N \Pr (N) \cdot \sum\nolimits_S \Pr
+  (S | N) \, z^S \\[1ex]
+  &= \sum\nolimits_N \Pr (N) \cdot \bigl[ \phi_x (z)
+  \bigr]^N \peq .
+\end{align*}
+Nell'ultimo passaggio si \`e sfruttato il fatto che la
+sommatoria su $S$ rappresenta la speranza matematica di
+$z^S$ \emph{condizionata dall'avere assunto $N$ un
+  determinato valore}; rappresenta quindi la funzione
+caratteristica della $S$ quando $N$ ha un valore costante
+prefissato, che appunto \`e data dalla \eqref{eq:6.fixedn}.
+
+Ricordando poi la \eqref{eq:6.nonly}, la funzione
+caratteristica cercata \`e infine data dalla \emph{funzione
+  di funzione}
+\begin{equation} \label{eq:6.varn}
+  \boxed{ \rule[-5mm]{0mm}{12mm} \quad
+    \phi_S (z) = \phi_N \bigl[ \phi_x (z) \bigr] \quad }
+ \end{equation}
+ \`E immediato riconoscere che, se $N$ non \`e propriamente
+ una variabile casuale e pu\`o assumere un unico valore
+ $N_0$, essendo tutte le $\Pr(N)$ nulle meno $\Pr(N_0) = 1$,
+\begin{gather*}
+  \phi_N (z) = z^{N_0} \\
+  \intertext{e}
+  \phi_S (z) \; = \; \phi_N \bigl[ \phi_x (z) \bigr] \; =
+  \; \bigl[ \phi_x (z) \bigr]^{N_0}
+\end{gather*}
+e la \eqref{eq:6.varn} ridiventa la meno generale
+\eqref{eq:6.fixedn}.%
+\index{somma di un numero casuale di variabili discrete|)}%
+\index{funzione!caratteristica!per variabili discrete|)}
+
+\section{Cambiamento di variabile casuale}%
+\index{cambiamento di variabile casuale|(}
+Supponiamo sia nota la funzione $f(x)$ densit\`a di
+probabilit\`a della variabile casuale $x$; e sia $y$ una
+nuova variabile casuale definita in funzione della $x$
+attraverso una qualche relazione matematica $y=y(x)$.  Ci
+proponiamo di vedere come, da queste ipotesi, si possa
+ricavare la densit\`a di probabilit\`a $g(y)$ della nuova
+variabile $y$.
+
+Supponiamo dapprima che la corrispondenza tra le due
+variabili continue sia \emph{biunivoca}: ossia che la
+$y=y(x)$ sia una funzione monotona in senso stretto,
+crescente o decrescente, e di cui quindi esista la funzione
+inversa che indicheremo con $x = x(y)$; ed inoltre
+supponiamo che la $y(x)$ sia derivabile.  Questo, dovendo
+risultare $y'(x) \ne 0$ in conseguenza dell'ipotesi fatta,
+implica che sia derivabile anche la $x(y)$ e che risulti
+\begin{equation*}
+  x'(y) \; = \; \frac{1}{y' \left[ x(y) \right]} \peq .
+\end{equation*}
+
+L'asserita biunivocit\`a della corrispondenza tra le due
+variabili assicura che, se la prima \`e compresa in un
+intervallo infinitesimo di ampiezza $\de x$ centrato sul
+generico valore $x$, allora e solo allora la seconda \`e
+compresa in un intervallo di ampiezza $\de y = \left| y'(x)
+\right| \de x$ (il valore assoluto tiene conto del fatto che
+la $y(x)$ pu\`o essere sia crescente che decrescente)
+centrato attorno al valore $y=y(x)$.  Questo a sua volta
+implica che le probabilit\`a (infinitesime) degli eventi
+casuali consistenti nell'essere la $x$ o la $y$ appartenenti
+a tali intervalli debbano essere uguali: ossia che risulti
+\begin{gather}
+  f(x) \, \de x \; = \; g(y) \, \de y \; = \; g(y)
+    \left| y'(x) \right| \de x \notag \\
+  \intertext{identicamente per ogni $x$, il che \`e
+    possibile soltanto se}
+  g(y) \; = \; \frac{f(x)}{\left| y'(x) \right|} \; =
+    \; \frac{f \left[ x(y) \right]}{\left| y' \left[
+    x(y) \right] \right|} \; = \; f \left[ x(y) \right]
+    \cdot \left| x'(y) \right| \peq . \label{eq:6.cavaun}
+\end{gather}
+
+Se la relazione che lega $y$ ad $x$ non \`e invece
+biunivoca, i ragionamenti sono pi\`u complicati e devono
+essere fatti tenendo conto della natura della particolare
+funzione in esame; ad esempio, se
+\begin{gather*}
+  y \; = \; x^2 \makebox[50mm]{e quindi} x \; = \; \pm
+    \sqrt{y}\\
+  \intertext{un particolare valore per la $y$
+    corrisponde a \emph{due} eventualit\`a (mutuamente
+    esclusive) per la $x$; perci\`o}
+  g(y) \, \de y \; = \; \bigl[ f ( -\sqrt{y} ) + f( \sqrt{y}
+    ) \bigr] \, \de x \\
+  \intertext{e quindi}
+  g(y) \; = \; \bigl[ f \left( - \sqrt{y} \right) + f
+    \left( \sqrt{y} \right) \bigr] \cdot \bigl| x'(y)
+    \bigr| \; = \; \frac{ f \left( - \sqrt{y} \right)
+    + f \left( \sqrt{y} \right) }{2 \sqrt{y}} \peq .
+\end{gather*}%
+\index{cambiamento di variabile casuale|)}
+
+\index{funzione!generatrice dei momenti!per trasformazioni lineari|(}%
+\index{funzione!caratteristica!per trasformazioni lineari|(}%
+Per quello che riguarda la funzione generatrice dei momenti
+e la funzione caratteristica associate a variabili casuali
+definite l'una in funzione dell'altra, se ci limitiamo a
+considerare una \emph{trasformazione lineare} del tipo
+$y=ax+b$, vale la
+\begin{align*}
+  M_y(t) &= E \left( e^{ty} \right) \\[1ex]
+  &= E \left[ e^{t \left( ax+b \right)} \right] \\[1ex]
+  &= e^{tb} \, E \bigl( e^{tax} \bigr)
+\end{align*}
+da cui infine ricaviamo la
+\begin{gather}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    M_y(t) = e^{tb} \, M_x(at) \quad }
+    \label{eq:6.fgmcav} \\
+  \intertext{per la funzione generatrice dei momenti; e
+    potremmo ricavare l'analoga}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    \phi_y(t) = e^{itb} \, \phi_x(at) \quad }
+    \label{eq:6.fuccav}
+\end{gather}
+per la funzione caratteristica (si confronti anche la
+funzione \eqref{eq:6.fugemm}, prima usata per ricavare i
+momenti rispetto alla media, e che si pu\`o pensare ottenuta
+dalla \eqref{eq:6.fugemo} applicando alla variabile casuale
+una traslazione che ne porti il valore medio nell'origine).%
+\index{funzione!caratteristica!per trasformazioni lineari|)}%
+\index{funzione!generatrice dei momenti!per trasformazioni lineari|)}
+
+\section{I valori estremi di un campione}%
+\index{campione!valori estremi|(emidx}%
+\label{ch:6.estremi}
+Sia $x$ una variabile casuale continua, di cui siano note
+sia la funzione di frequenza $f(x)$ che la funzione di
+distribuzione $F(x)$; e sia disponibile un campione di
+dimensione $N$ di valori \emph{indipendenti} di questa
+variabile casuale.  Supponiamo inoltre, una volta ottenuti
+tali valori, di averli disposti \emph{in ordine crescente}:
+ovvero in modo che risulti $x_1 \le x_2 \le \cdots \le x_N$.
+Vogliamo qui, come esercizio, determinare la funzione di
+frequenza \emph{del generico di questi valori ordinati},
+$x_i$: funzione che verr\`a nel seguito identificata dal
+simbolo $f_i(x)$.
+
+Supponiamo che $x_i$ sia compreso nell'intervallo
+infinitesimo $ [ x, x+\de x ] $; la scelta di un certo $i$
+divide naturalmente il campione (ordinato) in tre
+sottoinsiemi, ovvero:
+\begin{enumerate}
+\item $x_i$ stesso, che pu\`o essere ottenuto (dall'insieme
+  non ordinato dei valori originariamente a disposizione) in
+  $N$ maniere differenti; si sa inoltre che \`e compreso
+  nell'intervallo $[x, x+\de x]$ --- evento, questo, che
+  avviene con probabilit\`a $f(x) \, \de x$.
+\item I primi $(i-1)$ valori: questi possono essere
+  ottenuti, dagli $N-1$ elementi restanti dall'insieme non
+  ordinato dei valori originari, in $C^{N-1}_{i-1}$ modi
+  distinti\/\footnote{$C^N_K$ \`e il numero delle
+    combinazioni di classe $K$ di $N$ oggetti; si veda in
+    proposito il paragrafo \ref{ch:a.combina}.}; ognuno di
+  essi \`e inoltre minore di $x$, e questo avviene con
+  probabilit\`a data da $F(x)$.
+\item I residui $(N-i)$ valori: questi sono univocamente
+  determinati dalle due scelte precedenti; inoltre ognuno di
+  essi \`e maggiore di $x$, e questo avviene con
+  probabilit\`a $\bigl[ 1 - F(x) \bigr]$.
+\end{enumerate}
+In definitiva, applicando i teoremi della probabilit\`a
+totale e della probabilit\`a composta, possiamo affermare
+che risulta
+\begin{equation} \label{eq:6.iesimo}
+  f_i(x) \, \de x \; = \; N \: \binom{N-1}{i-1} \: \bigl[
+  F(x) \bigr]^{i - 1} \, \bigl[ 1 - F(x) \bigr]^{N - i} \,
+  f(x) \,  \de x \peq ;
+\end{equation}
+in particolare, i valori estremi $x_1$ e $x_N$ hanno
+densit\`a di probabilit\`a date da
+\begin{gather*}
+  f_1(x) \; =  \;N \, \bigl[ 1 - F(x) \bigr]^{N - 1} \, f(x)
+  \\
+  \intertext{e da}
+  f_N(x) \; = \; N \, \bigl[ F(x) \bigr]^{N - 1} \, f(x)
+  \peq .
+\end{gather*}%
+\index{campione!valori estremi|)}
+
+\endinput

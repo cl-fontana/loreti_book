@@ -1,0 +1,38 @@
+HIST/DEL 0
+VECT/DEL *
+FORT/FILE 66 MODES.EPS
+GRAPH/META 66 -113                      | -113: Encapsulated PostScript
+OPT UTIT
+
+HIST/CREATE/1D 1 ' ' 16 -1.6 1.6
+HIST/CREATE/1D 2 ' ' 16 -1.6 1.6
+HIST/CREATE/1D 3 ' ' 16 -1.6 1.6
+HIST/CREATE/1D 4 ' ' 16 -1.6 1.6
+VECT/CREATE Y1(16) R _
+        0 0 0 0 1 2 4 6 5 3 1 0 1 0 0 0
+VECT/CREATE Y2(16) R _
+        0 0 0 0 1 2 4 6 6 6 5 3 1 0 0 0
+VECT/CREATE Y3(16) R _
+        0 0 0 0 1 3 5 4 2 5 4 2 1 0 0 0
+VECT/CREATE Y4(16) R _
+        0 0 0 6 4 2 1 1 0 1 2 2 3 5 0 0
+HIST/PUT/CONT 1 Y1
+HIST/PUT/CONT 2 Y2
+HIST/PUT/CONT 3 Y3
+HIST/PUT/CONT 4 Y4
+
+HIST/SET/MAX 1 6.5
+HIST/SET/MAX 2 6.5
+HIST/SET/MAX 3 6.5
+HIST/SET/MAX 4 6.5
+OPT NBOX
+ZONE 2 2
+SET VFON -130                           | Axis values: Times-Roman,
+SET VSIZ 0.4                            |       font height (cm)
+SET NDVX -802
+SET NDVY 205
+
+SET HWID 2
+HISTOGRAM/PLOT 0
+OPT HTIT
+FORT/CLOSE 66

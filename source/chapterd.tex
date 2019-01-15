@@ -1,0 +1,361 @@
+% $Id: chapterd.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{Il modello di Laplace e la funzione di Gauss}%
+\index{distribuzione!normale|(}%
+\label{ch:d.applap}
+Pensiamo di eseguire una misura di una grandezza fisica (il
+cui valore vero indicheremo con il simbolo $x^*$), e sia $x$
+il risultato ottenuto; in generale $x$ \`e diverso da $x^*$
+per la presenza degli errori di misura, che supporremo siano
+di natura puramente casuale.
+
+\index{Laplace!modello di|(}%
+Questi errori casuali di misura possono essere schematizzati
+come un insieme estremamente grande, al limite infinito, di
+disturbi contemporanei molto piccoli, al limite
+infinitesimi, ognuno dei quali tende ad alterare di
+pochissimo il risultato della misura; si considerino in
+particolare le seguenti ipotesi (\emph{modello semplificato
+  di Laplace\thinspace\footnote{Pierre Simon de Laplace
+    visse in Francia dal 1749 al 1827; famoso matematico,
+    fisico ed astronomo, prov\`o la stabilit\`a del sistema
+    solare, svilupp\`o la teoria delle equazioni
+    differenziali e dei potenziali, contribu\`\i\ allo
+    studio del calore e dei fenomeni capillari oltre a
+    gettare le basi matematiche per una teoria
+    dell'elettromagnetismo.  Durante la rivoluzione francese
+    fu uno degli ideatori del sistema metrico decimale; per
+    quel che riguarda la statistica, nel 1812 pubblic\`o il
+    trattato ``Th\'eorie Analytique des Probabilit\'es'' che
+    contiene, tra l'altro, studi sulla distribuzione normale
+    e la derivazione della regola dei minimi quadrati.}%
+  \index{Laplace!Pierre Simon de|emidx}
+  per gli errori di misura}):
+\begin{enumerate}
+\item \textit{Ognuna delle singole cause di disturbo
+    presenti introdurr\`a nella misura una variazione
+    rispetto al valore vero di modulo fisso $\epsilon$, con
+    uguale probabilit\`a in difetto o in eccesso.}
+\item \textit{Ognuna delle variazioni nella misura dovute a
+    queste cause di disturbo \`e statisticamente
+    indipendente dalle altre.}
+\end{enumerate}
+
+Ognuna delle $N$ cause indipendenti di disturbo produce
+quindi la variazione $+\epsilon$ con probabilit\`a $p = 0.5$
+oppure $-\epsilon$ con probabilit\`a $q = 1-p = 0.5$; se $M$
+tra le $N$ perturbazioni sono positive (e le altre $N-M$
+negative), il valore osservato sar\`a
+\begin{equation*}
+  x \; = \;
+    x^* + M \epsilon - (N-M) \epsilon \; = \;
+    x^* + (2M-N) \epsilon \peq .
+\end{equation*}
+
+La probabilit\`a di un dato valore di $M$ sulle $N$ prove
+\`e data dalla distribuzione binomiale (vedi il paragrafo
+\ref{ch:8.binom}, ed in particolare l'equazione
+\eqref{eq:8.binom}), e vale
+\begin{equation*}
+  P(M,N) \; = \; \frac{N!}{M! \, (N-M)!} \,
+    p^M q^{N-M} \peq .
+\end{equation*}
+Il valore medio di $M$ \`e dato da $Np$, e la sua varianza
+da $Npq$; indichiamo poi con il simbolo $\lambda$ lo scarto
+di $M$ dal suo valore medio
+\begin{equation*}
+  M \; = \; Np + \lambda \peq .
+\end{equation*}
+
+In corrispondenza al variare di $M$ tra 0 ed $N$, $\lambda$
+varia tra i limiti $-Np$ e $+Nq$; risulta poi anche
+\begin{gather*}
+  N-M \; = \; N - Np - \lambda \; = \;
+    Nq - \lambda \\
+  \intertext{e la probabilit\`a di ottenere un
+    certo valore di $\lambda$ su $N$ prove vale}
+  P(\lambda,N) \; = \; \frac{N!}{(Np+\lambda)!
+    \: (Nq-\lambda)!} \, p^{Np+\lambda} \,
+    q^{Nq-\lambda} \peq . \\
+  \intertext{Valore medio e varianza di $\lambda$
+    valgono poi}
+  E(\lambda) \; = \; E(M) - Np \; \equiv \; 0 \\
+  \intertext{e}
+  \var (\lambda) \; = \; \var (M) \; = \; Npq \peq .
+\end{gather*}
+
+L'andamento generale della probabilit\`a in funzione di $M$
+si pu\`o trovare considerando il rapporto tra i valori di
+$P$ che corrispondono a due valori successivi di $M $:
+\begin{align*}
+  \frac{P(M+1, N)}{P(M, N)} &=
+    \frac{N! \, p^{M+1} \, q^{N-M-1}}{(M+1)!
+    \, (N-M-1)!} \: \frac{M! \, (N-M)!}{N!
+    \, p^M \, q^{N-M}} \\[1ex]
+  &= \frac{N-M}{M+1} \, \frac{p}{q}
+\end{align*}
+e $P(M, N)$ risulter\`a minore, uguale o maggiore di $P(M+1,
+N)$ a seconda che $(M+1)q$ risulti minore, uguale o maggiore
+di $(N-M)p$; ossia, essendo $p+q=1$, a seconda che $M$ sia
+minore, uguale o maggiore di $Np-q$.
+
+Insomma, chiamato $\mu = \lceil Np-q \rceil$ il pi\`u
+piccolo intero non minore di $Np-q$, la sequenza di valori
+$P(0, N), P(1, N),\ldots, P(\mu, N)$ \`e crescente, mentre
+quella dei valori $P(\mu+1, N), P(\mu+2, N),\ldots, P(N, N)$
+\`e decrescente.  Il massimo valore della probabilit\`a si
+ha in corrispondenza ad un intero $\mu$ che soddisfi la
+\begin{equation*}
+  Np-q \; \le \; \mu \; \le \; Np-q+1 \; = \; Np+p
+\end{equation*}
+e che \`e unico, salvo il caso che i due estremi
+dell'intervallo siano entrambi numeri interi: in questo caso
+si hanno due valori massimi, uguali, in corrispondenza di
+entrambi.  Concludendo: il caso pi\`u probabile \`e che
+l'evento $E$ si presenti in una sequenza di $N$ prove $Np$
+volte, ed il valore di $\lambda$ con la massima
+probabilit\`a di presentarsi \`e 0.
+
+Cerchiamo ora di determinare se esiste e quanto vale il
+limite della probabilit\`a di ottenere un certo risultato al
+crescere indefinito del numero delle prove.  Per ottenere
+questo, introduciamo la \emph{formula approssimata di de
+  Moivre e Stirling}\thinspace\footnote{Per la
+  dimostrazione, vedi ad esempio: G. Castelnuovo -- Calcolo
+  delle probabilit\`a (Zanichelli), in appendice.  La
+  formula \`e dovuta al solo Stirling,%
+  \index{Stirling, James}
+  che la pubblic\`o nel suo libro ``Methodus
+  Differentialis'' del 1730; ma non divenne nota nel mondo
+  scientifico fino a quando de Moivre%
+  \index{de Moivre!Abraham}
+  non la us\`o --- da qui il nome comunemente adottato.}
+per il fattoriale:
+\begin{gather*}%
+  \index{de Moivre!e Stirling, formula di}
+  N! \; = \; N^N e^{-N} \sqrt{2 \pi N} \, ( 1 +
+    \epsilon_N ) \; \approx \; \sqrt{ 2 \pi} \,
+    N^{\left( N+\frac{1}{2} \right)} e^{-N} \\
+  \intertext{con}
+  0 \; \le \; \epsilon_N \; < \; \frac{1}{11 \cdot N} \peq .
+\end{gather*}
+
+\`E lecito trascurare il resto $\epsilon_N$ quando
+l'argomento del fattoriale \`e elevato: per $N=10$ l'errore
+commesso \`e gi\`a inferiore all'1\%.  Per usare la formula
+di de Moivre e Stirling nel nostro caso, sviluppiamo
+\begin{align*}
+  (Np+\lambda)! &\approx \sqrt{2 \pi}
+    \, (Np+\lambda)^{\left( Np+\lambda + \frac{1}{2}
+    \right)} e^{\left( -Np -\lambda \right)} \\[1ex]
+  &= \sqrt{2 \pi}
+    \left( 1 + \frac{\lambda}{Np} \right) ^{\left( Np
+    +\lambda +\frac{1}{2} \right)} e^{\left( -Np -
+    \lambda \right)} (Np)^{\left( Np +\lambda
+    +\frac{1}{2} \right)}
+\end{align*}
+e, similmente,
+\begin{equation*}
+  (Nq-\lambda)! \approx \sqrt{2 \pi}
+    \left( 1 - \frac{\lambda}{Nq} \right)
+    ^{\left( Nq -\lambda +\frac{1}{2} \right)}
+    e^{\left( -Nq +\lambda \right)}
+    (Nq)^{\left( Nq -\lambda +\frac{1}{2} \right)} \peq .
+\end{equation*}
+
+Queste approssimazioni sono valide quando gli argomenti dei
+fattoriali, $Np + \lambda$ e $Nq - \lambda$, sono abbastanza
+grandi: cio\`e quando $\lambda$ non \`e vicino ai valori
+limite $-Np$ e $Nq$; accettata la loro validit\`a (e
+ritorneremo su questo punto tra poco), sostituendo si ha
+\begin{equation*}
+  P(\lambda, N) \; = \; \frac{1}{\sqrt{ 2 \pi N p q }}
+    \left( 1 + \frac{\lambda}{Np} \right)
+    ^{- \left( Np +\lambda +\frac{1}{2}
+    \right)} \left( 1 - \frac{\lambda}{Nq} \right)
+    ^{ - \left( Nq -\lambda +\frac{1}{2} \right)} \peq .
+\end{equation*}
+
+Questa espressione \`e certamente valida quando $|\lambda|$
+non \`e troppo grande, e per $\lambda=0$ fornisce la
+probabilit\`a del valore medio di $M$ ($M=Np$), che risulta
+\begin{equation*}
+  P(0, N) = \frac{1}{\sqrt{2 \pi N p q}} \peq .
+\end{equation*}
+
+Questa probabilit\`a tende a zero come $1/\sqrt{N}$ al
+crescere di $N$; dato che la somma delle probabilit\`a
+relative a tutti i casi possibili deve essere 1, si deve
+concludere che il numero di valori di $\lambda$ per cui la
+probabilit\`a non \`e trascurabile rispetto al suo massimo
+deve divergere come $\sqrt{N}$ al crescere di $N$, sebbene
+il numero di tutti i possibili valori (che \`e $N+1$)
+diverga invece come $N$.
+
+L'espressione approssimata di $P(\lambda, N)$ non \`e valida
+per valori di $\lambda$ prossimi agli estremi $\lambda=-Np$
+e $\lambda=Nq$ (\`e infatti divergente); tuttavia tali
+valori hanno probabilit\`a infinitesime di presentarsi al
+crescere di $N$.  Infatti $P(-Np, N) = q^N$ e $P(Nq, N) =
+p^N$, ed entrambi tendono a zero quando $N$ tende
+all'infinito essendo sia $p$ che $q$ inferiori all'unit\`a.
+
+Concludendo: la formula approssimata da noi ricavata \`e
+valida gi\`a per valori relativamente piccoli di $N$, e per
+$N$ molto grande si pu\`o ritenere esatta per tutti i valori
+dello scarto $\lambda$ con probabilit\`a non trascurabile di
+presentarsi, valori che sono mediamente dell'ordine
+dell'errore quadratico medio $\sqrt{Npq}$ e che quindi
+divergono solo come $\sqrt{N}$.  Consideriamo ora il fattore
+\begin{gather*}
+  \kappa = \left( 1+ \frac{\lambda}{Np} \right) ^{- \left(
+      Np +\lambda +\frac{1}{2} \right)} \left( 1
+    -\frac{\lambda}{Nq} \right) ^{-
+    \left( Nq -\lambda +\frac{1}{2} \right)} \\
+  \intertext{che nell'espressione approssimata di
+    $P(\lambda, N)$ moltiplica il valore massimo $P(0, N)$,
+    e se ne prenda il logaritmo naturale:} \ln \kappa \; =
+  \; - \left( Np +\lambda +\frac{1}{2} \right) \ln \left( 1
+    +\frac{\lambda}{Np} \right) \; - \; \left( Nq -\lambda
+    +\frac{1}{2} \right) \ln \left( 1 -\frac{\lambda}{Nq}
+  \right) \peq .
+\end{gather*}
+
+Ora, poich\'e sia $\lambda / Np$ che $\lambda /Nq$ sono in
+modulo minori dell'unit\`a (salvi i due casi estremi, di
+probabilit\`a come sappiamo infinitesima), si possono
+sviluppare i due logaritmi in serie di McLaurin:
+\begin{equation*}
+  \ln (1+x) \; = \; x -\frac{x^2}{2} + \frac{x^3}{3}
+    - \frac{x^4}{4} + \cdots \peq .
+\end{equation*}
+Il primo termine di $\ln \kappa$ diventa
+\begin{equation*}
+  \begin{split}
+    - \biggl( Np +\lambda &+ \frac{1}{2} \biggr)
+      \left( \frac{\lambda}{Np} -
+      \frac{\lambda^2}{2 \, N^2 p^2}
+      +\frac{\lambda^3}{3 \, N^3 p^3} - \cdots
+      \right) \; = \\[1ex]
+    &= - \lambda + \left( \frac{\lambda^2}{2 \, Np}
+      - \frac{\lambda^2}{Np} \right)
+      - \left( \frac{\lambda^3}{3 \, N^2 p^2}
+      - \frac{\lambda^3}{2 \, N^2 p^2}
+      + \frac{\lambda}{2 \, Np} \right)
+      + \cdots \\[1ex]
+    &= - \, \lambda - \frac{\lambda^2}{2 \, Np} -
+      \frac{\lambda}{2 \, Np} +
+      \frac{\lambda^3}{6 \, N^2 p^2} + \cdots
+  \end{split}
+\end{equation*}
+ed il secondo
+\begin{multline*}
+  - \left( Nq - \lambda + \frac{1}{2} \right)
+    \left( - \frac{\lambda}{Nq} -
+    \frac{\lambda^2}{2 \, N^2 q^2} -
+    \frac{\lambda^3}{3 \, N^3 q^3} -
+    \cdots \right) \; = \\[1ex]
+  = \lambda - \frac{\lambda^2}{2 \, Nq} +
+    \frac{\lambda}{2 \, Nq} -
+    \frac{\lambda^3}{6 \, N^2 q^2} - \cdots
+\end{multline*}
+e sommando si ottiene
+\begin{equation*}
+  \ln \kappa = - \frac{\lambda^2}{2 \, Npq} -
+    \frac{\lambda}{2 \, N} \left(
+    \frac{1}{p} - \frac{1}{q} \right)
+    + \frac{\lambda^3}{6 \, N^2} \left(
+    \frac{1}{p^2} - \frac{1}{q^2} \right)
+    + \cdots \peq .
+\end{equation*}
+
+Da questo sviluppo risulta che il solo termine che si
+mantiene finito al divergere di $N$, e per valori di
+$\lambda$ dell'ordine di $\sqrt{Npq}$, \`e il primo; gli
+altri due scritti convergono a zero come $1/\sqrt{N}$, e
+tutti gli altri omessi almeno come $1/N$.  In conclusione,
+per valori dello scarto per cui la probabilit\`a non \`e
+trascurabile (grosso modo $ |\lambda| < 3 \sqrt{Npq} $), al
+divergere di $N$ il logaritmo di $\kappa$ \`e bene
+approssimato da
+\begin{gather*}
+  \ln \kappa \; \approx \; - \,
+    \frac{\lambda^2}{2 \, Npq} \\
+  \intertext{e la probabilit\`a dello scarto dalla
+    media $\lambda$ da}
+  P (\lambda) \; \approx \; \frac{1}{\sqrt{ 2 \pi
+    N p q}} \, e^{- \frac{1}{2}
+    \frac{\lambda^2}{Npq} } \peq ; \\
+  \intertext{per la variabile $M$ sar\`a invece}
+  P(M) \; \approx  \;\frac{1}{\sqrt{2 \pi N p q}} \,
+    e^{- \frac{1}{2} \frac{(M-Np)^2}{Npq} } \peq .
+\end{gather*}
+
+Nel caso particolare del modello semplificato di Laplace per
+gli errori di misura, $p=q=0.5$ e pertanto i termini di
+ordine $1/\sqrt{N}$ sono identicamente nulli:
+l'approssimazione \`e gi\`a buona per $N \ge 25$; nel caso
+generale $p \neq q$, essa \`e invece accettabile per $Npq
+\ge 9$.  Introducendo lo scarto quadratico medio di $M$ e di
+$\lambda$
+\begin{gather*}
+  \sigma = \sqrt{Npq} \\
+  \intertext{l'espressione si pu\`o scrivere}
+  P(\lambda) \; \approx \; \frac{1}{\sigma
+    \sqrt{2 \pi}} \, e^{- \frac{\lambda^2}{2 \sigma^2} }
+\end{gather*}
+che \`e la celebre \emph{legge normale} o \emph{legge di
+  Gauss}.
+
+Tornando ancora al modello semplificato di Laplace per gli
+errori di misura, il risultato $x$ ha uno scarto dal valore
+vero che vale
+\begin{gather*}
+  x - x^* \; = \;
+    \epsilon \, (2M-N) \; = \;
+    \epsilon \, (2Np +2\lambda -N) \; = \;
+    2 \epsilon \lambda \\
+  \intertext{e possiede varianza}
+  {\sigma_x}^2 \; \equiv \;
+    \var \left( x - x^* \right) \; = \;
+    4 \, \epsilon^2 \, \var (\lambda) \; = \;
+    4 \epsilon^2 \sigma^2 \peq . \\
+  \intertext{La probabilit\`a di un certo
+    risultato $x = x^* + 2 \epsilon \lambda $
+    vale infine}
+  P(x) \; = \; P(\lambda) \; \approx \;
+    \frac{1}{\sigma \sqrt{2 \pi} } \,
+     e^{- \frac{1}{2}
+    \frac{\lambda^2}{\sigma^2}} \; = \;
+    \frac{2 \epsilon}{\sigma_x \sqrt{2 \pi}}
+    \, e^{- \frac{1}{2} \bigl(
+    \frac{x - x^*}{\sigma_x} \bigr) ^2 } \peq .
+\end{gather*}%
+\index{Laplace!modello di|)}
+
+La $x$ \`e una grandezza discreta che varia per multipli di
+$\epsilon$; nel limite su accennato diventa una variabile
+continua, e $P(x)$ \`e infinitesima con $\epsilon$ perdendo
+cos\`\i\ significato; si mantiene invece finita la densit\`a
+di probabilit\`a, che si ottiene dividendo $P(x)$ per
+l'ampiezza $2 \epsilon$ dell'intervallo che separa due
+valori contigui di $x$:
+\begin{equation*}
+  f(x) \; = \;
+    \frac{P(x)}{2 \epsilon} \; = \;
+    \frac{1}{\sigma_x \sqrt{2 \pi}} \,
+    e^{- \frac{1}{2} \bigl(
+    \frac{x-x^*}{\sigma_x} \bigr) ^2 }
+\end{equation*}
+ed ha infatti le dimensioni fisiche di $1/\sigma_x$, ovvero
+di $1/x$.
+
+Al medesimo risultato per $f(x)$ si perverrebbe anche
+nell'ipotesi pi\`u generale che gli errori elementari siano
+distribuiti comunque, ed anche diversamente l'uno
+dall'altro, purch\'e ciascuno abbia una varianza dello
+stesso ordine di grandezza degli altri ed infinitesima al
+divergere del numero delle cause di errore.%
+\index{distribuzione!normale|)}
+
+\endinput

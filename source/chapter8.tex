@@ -1,0 +1,2090 @@
+% $Id: chapter8.tex,v 1.2 2006/02/20 11:28:27 loreti Exp $
+
+\chapter{Esempi di distribuzioni teoriche}
+In questo capitolo presentiamo alcune funzioni teoriche che
+rappresentano densit\`a di probabilit\`a di variabili
+casuali unidimensionali (continue e discrete) che hanno
+importanza per la fisica.
+
+\section{La distribuzione uniforme}%
+\index{distribuzione!uniforme|(emidx}%
+\label{ch:8.distun}
+Il caso pi\`u semplice, dal punto di vista teorico, \`e
+quello di una variabile casuale $x$ che possa assumere solo
+valori compresi in un intervallo finito avente estremi
+costanti prefissati, $[ a, b ]$; e ivi con probabilit\`a
+uguale per ogni punto\/\footnote{La frase \`e intuitiva, ma
+  impropria; si intende qui che la probabilit\`a, per la
+  variabile casuale, di cadere in un intervallino di
+  ampiezza (infinitesima) prefissata $\de x$ e centrato su
+  un qualsivoglia punto del dominio di definizione, ha
+  sempre lo stesso valore.}.
+
+Questo implica che la densit\`a di probabilit\`a $f(x)$ di
+questa variabile debba essere definita come
+\begin{equation*}
+  \begin{cases}
+    f(x) = 0 & \quad\text{per $x<a$ e per $x>b$;}
+      \\[1.5ex]
+    f(x) = \dfrac{1}{b-a} = \mathrm{cost.} &
+      \quad\text{per $a \leq x \leq b$.}
+  \end{cases}
+\end{equation*}
+(il valore costante di $f(x)$ quando $x \in [ a, b ]$ \`e
+fissato dalla condizione di normalizzazione).  La funzione
+di distribuzione $F(x)$ della $x$ \`e data da
+\begin{equation*}
+  F(x) \; = \; \int_{-\infty}^x \! f(t) \, \de t \; =
+  \;
+  \begin{cases}
+    0 & \text{per $x<a$;} \\[2ex]
+    \dfrac{x-a}{b-a} & \text{per $a \leq x \leq b$;}
+    \\[2ex]
+    1 & \text{per $x>b$.}
+  \end{cases}
+\end{equation*}
+I valori della media e della varianza della variabile
+casuale $x$, come si pu\`o facilmente calcolare, valgono
+\begin{equation} \label{eq:8.mevaun}
+  \begin{cases}
+    E(x) \; = \; \dfrac{a+b}{2} \\[2ex]
+    \var(x) \; = \; \dfrac{\left( b-a \right)^2}{12}
+    \end{cases}
+\end{equation}%
+\index{distribuzione!uniforme|)}
+
+Per vedere una prima applicazione pratica della
+distribuzione uniforme, supponiamo di misurare una grandezza
+fisica  usando uno strumento \emph{digitale}: ad esempio una
+bilancia con sensibilit\`a inversa di  1 grammo.  Se, per
+semplicit\`a, escludiamo la presenza di errori sistematici,
+il fatto che il display digitale indichi (ad esempio) $10$
+grammi significa solo che la massa dell'oggetto pesato \`e
+maggiore o uguale a questo valore e minore di $11$
+grammi\/\footnote{La maggior parte degli strumenti digitali
+  \emph{tronca} il valore mostrato e si comporta appunto in
+  questo modo; altri invece \emph{arrotondano} il risultato
+  e, se questo fosse il caso, vorrebbe dire che la massa
+  dell'oggetto pesato \`e maggiore o uguale a $9.5$\un{g} e
+  minore di $10.5$\un{g}.}; e tutti i valori interni a
+questo intervallo ci appaiono inoltre come ugualmente
+plausibili.  Per questo motivo, viste le
+\eqref{eq:8.mevaun}, in casi di questo genere si attribuisce
+all'oggetto pesato una massa di $10.5$\un{g} con un errore
+di $1 / \sqrt{12} \approx 0.3 \un{g}$.
+
+\subsection[Applicazione: decadimento del
+    $\pi^0$]{Applicazione: decadimento del
+    $\boldsymbol{\pi}^{\boldsymbol{0}}$}
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{polar.pstex_t}
+  } \end{center}
+  \caption[Le aree elementari sulla superficie di una
+    sfera di raggio $R$]{Le aree elementari sulla superficie
+    di una sfera di raggio $R$ (in coordinate polari).}
+  \label{fig:8.sfera}
+\end{figure}
+
+Esistono, nella fisica, variabili casuali che seguono la
+distribuzione uniforme: ad esempio, se una particella
+instabile non dotata di momento angolare intrinseco (come il
+mesone $\pi^0$), originariamente in quiete in un punto (che
+supporremo sia l'origine degli assi coordinati), decade, i
+prodotti di decadimento si distribuiscono uniformemente tra
+le varie direzioni possibili; sostanzialmente per motivi di
+simmetria, perch\'e non esiste nessuna direzione
+privilegiata nel sistema di riferimento considerato
+(ovverosia nessuna caratteristica intrinseca del fenomeno
+che possa servire per definire uno, o pi\`u d'uno, degli
+assi coordinati).
+
+Con riferimento alla figura \ref{fig:8.sfera}, pensiamo
+introdotto un sistema di coordinate polari $\{ R, \theta,
+\varphi \}$: l'elemento infinitesimo di area, $\de S$, sulla
+sfera di raggio $R$, che corrisponde a valori della
+\emph{colatitudine} compresi tra $\theta$ e $\theta + \de
+\theta$, e dell'\emph{azimuth} compresi tra $\varphi$ e
+$\varphi + \de \varphi$, \`e uno pseudorettangolo di lati $R
+\, \de\theta$ ed $R \sin\theta \, \de\varphi$; quindi, a
+meno del segno,
+\begin{gather*}
+  \left| \de S \right| \; = \; R^2 \sin\theta \,
+    \de\theta \, \de\varphi \; = \; - R^2 \,
+    \de(\cos\theta) \, \de\varphi \\
+  \intertext{mentre l'angolo solido corrispondente
+    vale}
+  \de\Omega \; = \; \frac{\left| \de S \right|}{R^2} \;
+    = \; \sin\theta \, \de\theta \, \de\varphi \; = \;
+    - \de(\cos\theta) \, \de\varphi \peq .
+\end{gather*}
+
+L'asserita uniformit\`a nell'emissione dei prodotti di
+decadimento si traduce nella condizione che la
+probabilit\`a, per essi, di essere contenuti in un qualsiasi
+angolo solido, sia proporzionale all'ampiezza di
+quest'ultimo:
+\begin{equation*}
+  \de P \; = \; K \, \de \Omega \; = \; K' \, \de (\cos
+  \theta) \, \de \varphi
+\end{equation*}
+(ove $K$ e $K'$ sono due opportune costanti); ovverosia
+richiede che le due variabili casuali
+\begin{align*}
+  u &= \cos\theta &&\text{e} & v &= \varphi
+\end{align*}
+abbiano distribuzione uniforme, e siano inoltre
+statisticamente indipendenti tra loro (questo in conseguenza
+dell'equazione \eqref{eq:6.instmu}).
+
+\subsection{Applicazione: generazione di numeri casuali
+  con distribuzione data}%
+\index{pseudo-casuali, numeri|(}
+Supponiamo che la variabile casuale $x$ abbia densit\`a di
+probabilit\`a $f(x)$ e funzione di distribuzione%
+\index{funzione!di distribuzione|(}
+$F(x)$: vogliamo ora dimostrare che la variabile casuale $y
+= F(x)$ \`e distribuita uniformemente nell'intervallo $[ 0,
+1 ]$ \emph{qualunque} siano $f(x)$ e $F(x)$.  Chiaramente
+$y$ pu\`o appartenere solo a tale intervallo; ed inoltre,
+essendo funzione integrale di $f(x)$, \`e dotata della
+propriet\`a di essere continua e derivabile in tutto
+l'insieme di definizione e con derivata prima data da
+\begin{gather*}
+  y' \; = \; F'(x) \; = \; f(x) \\
+  \intertext{cos\`\i\ che, ricordando l'equazione
+    \eqref{eq:6.cavaun}, la densit\`a di probabilit\`a
+    della nuova variabile $y$ \`e data (ove $f(x)$ non
+    sia nulla) dalla}
+  g(y) \; = \; \frac{f(x)}{y'(x)} \; = \;
+    \frac{f(x)}{f(x)} \; \equiv \; 1
+\end{gather*}
+come volevamo dimostrare.%
+\index{funzione!di distribuzione|)}
+
+Supponiamo sia nota la densit\`a di probabilit\`a $f(x)$ di
+una qualche variabile casuale $x$; e che si vogliano
+ottenere dei numeri che si presentino secondo una legge di
+probabilit\`a data appunto da questa $f(x)$.  I moderni
+calcolatori numerici sono in grado di generare sequenze di
+numeri casuali\/\footnote{O meglio \emph{pseudo-casuali}:
+  ovverosia prodotti da un algoritmo ripetibile, quindi non
+  propriamente ``imprevedibili''; ma in modo tale che le
+  loro propriet\`a statistiche siano indistinguibili da
+  quelle di una sequenza casuale propriamente detta.}  che
+hanno distribuzione uniforme in un intervallo dipendente
+dall'implementazione dell'algoritmo, e che possono a loro
+volta essere usati per produrre numeri casuali con
+distribuzione uniforme nell'intervallo $[0,1]$; se $y$ \`e
+uno di tali numeri, e se si \`e in grado di invertire,
+numericamente od analiticamente, la funzione di
+distribuzione $F(x)$ della variabile casuale $x$, i numeri
+\begin{equation*}
+  x \; = \; F^{-1}(y)
+\end{equation*}
+hanno densit\`a di probabilit\`a data da $f(x)$, come
+appunto richiesto.
+
+Generalmente le funzioni di distribuzione $F(x)$ non si
+sanno invertire per via analitica; un metodo numerico spesso
+impiegato, e che richiede la sola preventiva conoscenza
+della $f(x)$ (quindi non bisogna nemmeno saper calcolare la
+$F(x)$, per non parlare della sua inversa) \`e illustrato
+qui di seguito (\emph{metodo
+dei rigetti}).%
+\index{metodo!dei rigetti|(}
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{riget.pstex_t}
+  } \end{center}
+  \caption[Il metodo dei rigetti --- esempio]
+    {La scelta di un numero a caso con distribuzione
+    prefissata mediante tecniche numeriche (la densit\`a di
+    probabilit\`a \`e la stessa della figura
+    \ref{fig:4.maxbol}); la funzione maggiorante \`e una
+    spezzata (superiormente) o la retta $y=0.9$
+    (inferiormente).}
+  \label{fig:8.maxbol}
+\end{figure}
+Si faccia riferimento alla figura \ref{fig:8.maxbol}: sia
+$x$ limitata in un intervallo chiuso $[x_{\min}, x_{\max}]$
+(nella figura, $x_{\min} = 0$ e $x_{\max} = 3$); e si
+conosca una funzione $y=\varphi(x)$ \emph{maggiorante} della
+$f(x)$, ossia una funzione che risulti comunque non
+inferiore alla $f$ per qualunque $x \in [x_{\min},
+x_{\max}]$.
+
+Nel caso si sappia scegliere, sul piano $\{ x,y \}$, un
+punto con distribuzione uniforme nella parte di piano
+limitata inferiormente dall'asse delle ascisse,
+superiormente dalla funzione $y=\varphi(x)$, e,
+lateralmente, dalle due rette di equazione $x = x_{\min}$ ed
+$x = x_{\max}$, basta accettare tale punto se la sua
+ordinata risulta non superiore alla corrispondente $f(x)$; e
+rigettarlo in caso contrario, iterando il procedimento fino
+a che la condizione precedente non \`e soddisfatta: le
+ascisse $x$ dei punti accettati seguono la funzione di
+distribuzione $f(x)$.
+
+Infatti, i punti accettati saranno distribuiti uniformemente
+nella parte di piano limitata dalla $y=f(x)$; quindi, in un
+intervallino infinitesimo centrato su una particolare $x$,
+vi sar\`a un numero di punti accettati proporzionale
+all'altezza della curva sopra di esso --- ovverosia ogni
+ascissa $x$ viene accettata con densit\`a di probabilit\`a
+che \`e proprio $f(x)$.
+
+La scelta, infine, di un punto che sia distribuito
+uniformemente nella parte di piano limitata dalla funzione
+$y=\varphi(x)$ si sa sicuramente effettuare se $\varphi(x)$
+\`e stata scelta in modo che si sappia invertire la sua
+funzione integrale
+\begin{equation*}
+  \Phi(x) = \int_{-\infty}^x \! \varphi(t) \, \de t
+\end{equation*}
+cos\`\i\ che si possa associare, a qualsiasi valore $A$
+compreso tra 0 e $\Phi(+\infty)$, quella $x = \Phi^{-1}(A)$
+che lascia alla propria sinistra un'area $A$ al di sotto
+della funzione $y=\varphi(x)$ (una scelta banale \`e quella
+di prendere come maggiorante una retta, o meglio una
+spezzata --- come illustrato nella figura
+\ref{fig:8.maxbol}).
+
+In tal caso basta scegliere un numero $A$ con distribuzione
+uniforme tra i limiti $\Phi(x_{\min})$ e $\Phi(x_{\max})$;
+trovare la $x = \Phi^{-1}(A)$ che soddisfa la condizione
+precedente; ed infine scegliere una $y$ con distribuzione
+uniforme tra 0 e $\varphi(x)$.  Non \`e difficile rendersi
+conto che il punto $(x,y)$ soddisfa alla condizione
+richiesta di essere distribuito uniformemente nella parte
+del semipiano $y>0$ limitata superiormente dalla funzione
+$y=\varphi(x)$: a questo punto non rimane che calcolare la
+$f(x)$ ed accettare $x$ se $y \leq f(x)$.
+
+Se proprio non si \`e in grado di effettuare una scelta
+migliore, anche una retta del tipo $y=\mathrm{cost.}$ pu\`o
+andar bene; basta tener presente che l'algoritmo viene
+sfruttato tanto pi\`u efficacemente quanto pi\`u
+$y=\varphi(x)$ \`e vicina alla $f(x)$ (in tal caso il numero
+di rigetti \`e minore).
+
+Per questo motivo, una scelta del tipo
+$\varphi(x)=\mathrm{cost.}$ \`e assolutamente da evitare se
+la $f(x)$ \`e sensibilmente diversa da zero solo in una
+parte ristretta dell'intervallo di definizione (perch\'e in
+tal caso la scelta uniforme di $x$ all'interno dell'area su
+detta ci farebbe trascorrere gran parte del tempo ad
+esaminare valori poco probabili rispetto alla $\varphi(x)$,
+che vengono in conseguenza quasi sempre rifiutati).%
+\index{metodo!dei rigetti|)}%
+\index{pseudo-casuali, numeri|)}
+
+\subsection{Esempio: valori estremi di un campione di dati a
+  distribuzione uniforme}
+\index{campione!valori estremi|(}%
+\label{ch:8.estremi}
+Come ulteriore esempio, applichiamo le conclusioni dei
+paragrafi \ref{ch:6.estremi} e \ref{ch:7.estremi} ad un
+campione di valori proveniente da una distribuzione
+uniforme.  Usando le espressioni per $f(x)$ e $F(x)$ che
+conosciamo, ed essendo\/\footnote{All'interno
+  dell'intervallo $[a,b]$; per brevit\`a ometteremo, qui e
+  nel seguito, di specificare che, al di fuori di questo
+  intervallo, le densit\`a di probabilit\`a sono
+  identicamente nulle e le funzioni di distribuzione valgono
+  o zero od uno.}
+\begin{equation*}
+  1 - F(x) \; = \; \frac{b - x}{b - a} \peq ,
+\end{equation*}
+la \eqref{eq:6.iesimo} diventa
+\begin{equation*}
+  f_i(x) \; = \; N \, \binom{N - 1}{i - 1} \: \frac{(x -
+    a)^{i - 1} \, (b - x)^{N - i}}{(b - a)^N}
+\end{equation*}
+e, in particolare, per i due valori minimo e massimo
+presenti nel campione le densit\`a di probabilit\`a si
+scrivono
+\begin{gather*}
+  f_1(x) \; = \; N \, \frac{(b - x)^{N - 1}}{(b - a)^N} \\
+  \intertext{e}
+  f_N(x) \; = \; N \, \frac{(x - a)^{N - 1}}{(b - a)^N} \peq
+  .
+\end{gather*}
+Come conseguenza, la speranza matematica di $x_N$ vale
+\begin{align*}
+  E ( x_N ) &= \int_a^b \! x \cdot f_N(x) \, \de x \\[1ex]
+  &= \frac{N}{(b - a)^N} \int_a^b \bigl[ a + (x - a)
+  \bigr] \, (x - a)^{N - 1} \, \de x \\[1ex]
+  &= \frac{N}{(b - a)^N}\:  \left[ a \, \frac{(x - a)^N}{N}
+    + \frac{(x - a)^{N + 1}}{N + 1} \right]_a^b \\[1ex]
+  &= a + \frac{N}{N + 1} \, (b - a) \\[1ex]
+  &= b - \frac{1}{N + 1} \, (b - a) \peq .
+\end{align*}
+Allo stesso modo si troverebbe
+\begin{gather*}
+  E ( x_1 ) \; = \; a + \frac{1}{N + 1} \, (b - a) \peq ; \\
+  \intertext{e, per il generico $x_i$,}
+  E ( x_i ) \; = \; a + \frac{i}{N + 1} \, (b - a) \peq . \\
+  \intertext{Dopo gli opportuni calcoli, si potrebbero
+    ricavare anche le varianze rispettive: che valgono}
+  \var( x_1 ) \; = \; \var( x_N ) \; = \; \frac{N}{(N +
+    1)^2 \, (N + 2)} \, (b - a)^2 \\
+  \intertext{e}
+  \var( x_i ) \; = \; \frac{i \cdot (N - i + 1)}{(N + 1)^2
+    \, (N + 2)} \, (b - a)^2 \peq .
+\end{gather*}
+
+\`E immediato calcolare la speranza matematica della
+semisomma del pi\`u piccolo e del pi\`u grande valore
+presenti nel campione
+\begin{gather*}
+  d \; = \; \frac{x_1 + x_N}{2} \\
+  \intertext{che vale}
+  E(d) \; = \; \frac{ E(x_1) + E(x_N) }{2} \; = \;
+  \frac{a+b}{2} \peq ; \\
+  \intertext{come pure quella del cosiddetto \emph{range},%
+    \index{distribuzione!uniforme!range|(}%
+    }
+  R \; = \; x_N - x_1 \\
+  \intertext{per il quale}
+  E(R) \; = \; E(x_N) - E(x_1) \; = \; (b - a) \left( 1 -
+    \frac{2}{N + 1} \right) \peq . \\
+  \intertext{Per il calcolo delle varianze, invece, si deve
+    ricorrere alla distribuzione congiunta
+    \eqref{eq:7.estremi}, dalla quale si pu\`o ricavare}
+  \var(d) \; = \; \frac{(b - a)^2}{2 \, (N + 1) \, ( N + 2)}
+  \\
+  \intertext{e}
+  \var(R) \; = \; \frac{2 \: (N - 1)}{(N + 1)^2 \, (N + 2)}
+  \, (b - a)^2 \peq .
+\end{gather*}%
+\index{distribuzione!uniforme!range|)}%
+\index{campione!valori estremi|)}
+
+\section{La distribuzione normale}%
+\index{distribuzione!normale|(emidx}%
+\label{ch:8.gauss}
+La \emph{funzione normale} (o \emph{funzione di Gauss}), che
+esamineremo poi in dettaglio nel prossimo capitolo mettendo
+l'accento sui suoi legami con le misure ripetute delle
+grandezze fisiche, \`e una funzione di frequenza per la $x$
+che dipende da due parametri $\mu$ e $\sigma$ (con la
+condizione $\sigma > 0$) definita come
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{gauss.pstex_t}
+  } \end{center}
+  \caption[La distribuzione normale standardizzata]
+    {L'andamento della funzione $N(x;0,1)$ per la
+    \emph{variabile normale standardizzata} (ossia con media
+    0 e varianza 1).}
+  \label{fig:8.gauss}
+\end{figure}
+\begin{equation*}
+  f(x) \; \equiv \; N(x; \mu, \sigma) \; = \;
+    \frac{1}{\sigma \sqrt{2 \pi}} \, e^{ - \frac{1}{2}
+    \left( \frac{x - \mu}{\sigma} \right)^2} \peq .
+\end{equation*}
+
+L'andamento della funzione normale \`e quello delineato
+nella figura \ref{fig:8.gauss}: quando $x = \mu$ si ha un
+punto di massimo, nel quale la funzione ha il valore
+$\widehat y = ( \sigma \sqrt{2 \pi} )^{-1} \approx 0.4 /
+\sigma$.  La \emph{larghezza a met\`a
+  altezza}\thinspace\footnote{In genere indicata con la
+  sigla FWHM, acronimo di \emph{full width at half maximum};
+  \`e un parametro talvolta usato nella pratica per
+  caratterizzare una curva, perch\'e facile da misurare su
+  un oscilloscopio.}  \`e pari all'ampiezza dell'intervallo
+che separa i due punti $x_1$ ed $x_2$ di ascissa $\mu \pm
+\sigma \sqrt{2 \, \ln 2}$ e di ordinata $y_1 = y_2 =
+\widehat y / 2$: e vale quindi $2 \sigma \sqrt{2 \, \ln 2}
+\approx 2.35 \sigma$.
+
+La funzione generatrice dei momenti \`e definita attraverso
+l'equazione \eqref{eq:6.fugemo} e, nel caso della
+distribuzione normale, abbiamo
+\begin{align*}
+  M_x(t) &= \int_{-\infty}^{+\infty} \! e^{
+    tx} \frac{1}{\sigma \sqrt{2 \pi}} \,
+    e^{ - \frac{1}{2} \left( \frac{x -
+    \mu}{\sigma} \right)^2} \de x \\[2ex]
+  &= \frac{e^{ t \mu}}{\sigma \sqrt{2
+    \pi}} \int_{-\infty}^{+\infty} \! e^{
+    t (x - \mu)} e^{ - \frac{1}{2} \left(
+    \frac{x - \mu}{\sigma} \right)^2} \de x \\[2ex]
+  &= \frac{e^{ t \mu}}{\sigma \sqrt{2
+    \pi}} \int_{-\infty}^{+\infty} \! e^{
+    \left[ \frac{\sigma^2 t^2}{2} - \frac{(x - \mu -
+    \sigma^2 t)^2}{2 \sigma^2} \right]} \, \de x
+    \\[2ex]
+  &= e^{ \left( t \mu + \frac{\sigma^2
+    t^2}{2} \right)} \int_{-\infty}^{+\infty}
+    \frac{1}{\sigma \sqrt{2 \pi}} \, e^{ -
+    \frac{1}{2} \bigl[ \frac{x - ( \mu + \sigma^2 t
+    )}{\sigma} \bigr] ^2} \de x \peq .
+\end{align*}
+
+Riconoscendo nell'argomento dell'integrale la funzione
+$N(x;\mu+\sigma^2 t,\sigma)$, ovverosia la funzione normale
+relativa ai parametri $\mu + \sigma^2 t$ e $\sigma$, \`e
+immediato capire che esso vale 1 in conseguenza della
+condizione di normalizzazione; quindi la funzione
+generatrice dei momenti, per la distribuzione normale, \`e
+data da
+\begin{equation} \label{eq:8.fgmodn}
+  M_x(t) \; = \; e^{\left( t \mu + \frac{\sigma^2
+    t^2}{2} \right)}
+\end{equation}
+e, con passaggi simili, si potrebbe trovare la funzione
+caratteristica della distribuzione normale: che vale
+\begin{equation} \label{eq:8.fucadn}
+  \phi_x(t) \; = \; e^{\left( i t \mu - \frac{\sigma^2
+    t^2}{2} \right)} \peq .
+\end{equation}
+
+Sfruttando la \eqref{eq:8.fgmodn} \`e facile calcolare la
+speranza matematica della distribuzione normale:
+\begin{equation*}
+  E(x) \; = \; \left. \frac{\de \, M_x(t)}{\de t}
+    \right|_{t=0} \; = \; \mu \peq ;
+\end{equation*}
+la funzione generatrice dei momenti rispetto alla media
+$\mu$ vale allora
+\begin{equation} \label{eq:8.fgmmdn}
+  \ob{M}_x (t) \; = \; e^{- t \mu} M_x(t) \; = \;
+    e^{ \frac{\sigma^2 t^2}{2} }
+\end{equation}
+e dalla \eqref{eq:8.fgmmdn} si ricava poi la varianza
+della $x$,
+\begin{equation*}
+  \var(x) \; = \; \left. \frac{\de^2 \ob{M}_x
+    (t)}{\de t^2} \right|_{t=0} \; = \; \sigma^2 \peq .
+\end{equation*}
+
+Vista la simmetria della funzione, tutti i suoi momenti di
+ordine dispari rispetto alla media sono nulli; mentre quelli
+di ordine pari soddisfano alla formula generale (valida per
+qualsiasi intero $k$)
+\begin{gather}
+  \mu_{2k} \; = \; E \left\{ \bigl[ x - E(x)
+    \bigr]^{2k} \right\} \; = \; \frac{(2k)!}{2^k \,
+    k!} \, {\mu_2} ^k \label{eq:8.mopaga} \\
+  \intertext{con}
+  \mu_2 \; = \; E \left\{ \bigl[ x - E(x) \bigr]^2
+    \right\} \; = \sigma^2 \peq . \notag
+\end{gather}
+
+Nel caso particolare di una variabile normale con valore
+medio $\mu=0$ e varianza $\sigma^2=1$ (\emph{variabile
+  normale standardizzata}), la funzione generatrice dei
+momenti diventa
+\begin{gather*}
+  M_x(t) \; \equiv \;  \ob{M}_x(t) \; = \;
+    e^{\frac{t^2}{2}} \\
+  \intertext{e la funzione caratteristica}
+  \phi_x(t) \; = \; e^{- \frac{t^2}{2}} \peq .
+\end{gather*}
+
+Dimostriamo ora il seguente importante
+\begin{quote}
+  \textsc{Teorema:}%
+  \index{combinazioni lineari!di variabili normali|(}%
+  \label{th:8.colino}
+  \textit{combinazioni lineari di variabili casuali normali
+    e tutte statisticamente indipendenti tra loro sono
+    ancora distribuite secondo la legge normale.}
+\end{quote}
+Siano $N$ variabili normali $x_k$ (con $k=1,\ldots,N$), e
+siano $\mu_k$ e ${\sigma_k}^2$ i loro valori medi e le loro
+varianze rispettivamente; consideriamo poi la nuova
+variabile casuale $y$ definita dalla
+\begin{gather*}
+  y = \sum_{k=1}^N a_k \, x_k \\
+  \intertext{(ove le $a_k$ sono coefficienti costanti). La
+    funzione caratteristica di ognuna delle $x_k$ \`e, dalla
+    \eqref{eq:8.fucadn},}
+  \phi_{x_k}(t) = e^{\left( i t \mu_k -
+    \frac{{\sigma_k}^2 t^2}{2} \right)} \\
+  \intertext{e quella della variabile ausiliaria $\xi_k =
+    a_k x_k$, dall'equazione \eqref{eq:6.fuccav},}
+  \phi_{\xi_k}(t) \; = \; \phi_{x_k}(a_k t) \; =
+    \;e^{\left( i a_k t \mu_k - \frac{{\sigma_k}^2
+    {a_k}^2 t^2}{2} \right)} \peq . \\
+  \intertext{Infine, la funzione caratteristica della
+    $y$ vale, essendo}
+  y = \sum_{k=1}^N \xi_k
+\end{gather*}
+e ricordando l'equazione \eqref{eq:6.fucacl}, applicabile
+perch\'e anche le $\xi_k$ sono indipendenti tra loro,
+otteniamo
+\begin{align*}
+  \phi_y(t) &= \prod_{k=1}^N \phi_{\xi_k}(t) \\[1ex]
+  &= \prod_{k=1}^N e^{\left( i t a_k \mu_k -
+    \frac{1}{2} t^2 {a_k}^2 {\sigma_k}^2 \right)} \\[1ex]
+  &= e^{\left[ i t \left( \sum_k a_k \mu_k \right) -
+    \frac{1}{2} t^2 \left( \sum_k {a_k}^2 {\sigma_k}^2
+    \right) \right]} \\[1ex]
+  &= e^{\left( i t \mu - \frac{t^2 \sigma^2}{2}
+    \right)}
+\end{align*}
+ove si \`e posto
+\begin{align*}
+  \mu &= \sum_{k=1}^N a_k \, \mu_k &&\text{e} &
+    \sigma^2 &= \sum_{k=1}^N {a_k}^2 {\sigma_k}^2 \peq .
+\end{align*}
+Questa \`e appunto la funzione caratteristica di una nuova
+distribuzione normale; e, in virt\`u di uno dei teoremi
+enunciati nel paragrafo \ref{ch:6.fugeca}, quanto dimostrato
+prova la tesi.%
+\index{combinazioni lineari!di variabili normali|)}%
+\index{distribuzione!normale|)}
+
+\section{La distribuzione di Cauchy}%
+\index{distribuzione!di Cauchy|(emidx}%
+\index{distribuzione!di Breit--Wigner|see{distribuzione di Cauchy}}%
+\label{ch:8.cauchy}
+La distribuzione di Cauchy (o \emph{distribuzione di
+  Breit--Wigner}, nome con il quale \`e pi\`u nota nel mondo
+della fisica) \`e definita da una densit\`a di probabilit\`a
+che corrisponde alla funzione, dipendente da due parametri
+$\theta$ e $d$ (con la condizione $d > 0$),
+\begin{equation} \label{eq:8.cauchy}
+  f(x;\theta, d) \; = \; \frac{1}{\pi d} \, \frac{1}{1
+    + \left( \frac{x - \theta}{d} \right)^2} \peq .
+\end{equation}
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{cauchy.pstex_t}
+  } \end{center}
+  \caption[La distribuzione di Cauchy]
+    {L'andamento della distribuzione di Cauchy,
+    per $\theta = 0$ e $d = 1$.}
+  \label{fig:8.cauchy}
+\end{figure}
+Anche se la \eqref{eq:8.cauchy} \`e integrabile, e la sua
+funzione integrale, ovverosia la funzione di distribuzione
+della $x$, vale
+\begin{equation*}
+  F(x;\theta, d) \; = \; \int_{-\infty}^x \! f(t) \,
+    \de t \; = \; \frac{1}{2} + \frac{1}{\pi} \arctan
+    \left( \frac{x - \theta}{d} \right)
+\end{equation*}
+\emph{nessuno dei momenti esiste}, nemmeno la media.
+
+$\theta$ \`e la mediana della distribuzione e $d$ ne misura
+la larghezza a met\`a altezza, come \`e rilevabile ad
+esempio dalla figura \ref{fig:8.cauchy}.  La funzione
+caratteristica della distribuzione di Cauchy \`e la
+\begin{gather*}
+  \phi_x (t; \theta, d) = e^{ i \theta t - |t| \, d } \peq ;
+  \\
+  \intertext{per la cosiddetta \emph{variabile
+      standardizzata},}
+  u = \frac{ x - \theta }{ d }
+\end{gather*}
+funzione di frequenza, funzione di distribuzione e funzione
+caratteristica valgono rispettivamente
+\begin{equation*}
+  \begin{cases}
+    f(u) \; = \; \dfrac{ 1 }{ \pi \left( 1 + u^2 \right) }
+    \\[3ex]
+    F(u) \; = \; \dfrac{1}{2} + \dfrac{1}{\pi} \, \arctan u
+    \\[3ex]
+    \phi_u (t) \; = \; \displaystyle e^{ - |t| }
+  \end{cases}
+\end{equation*}
+
+Secondo la funzione \eqref{eq:8.cauchy} sono, ad esempio,
+distribuite le intensit\`a nelle righe spettrali di
+emissione e di assorbimento degli atomi (che hanno una
+ampiezza non nulla); e la massa invariante delle risonanze
+nella fisica delle particelle elementari.  \`E evidente
+per\`o come nella fisica la distribuzione di Cauchy possa
+descrivere questi fenomeni solo in prima approssimazione:
+infatti essa si annulla solo per $x \to \pm \infty$, ed \`e
+chiaramente priva di significato fisico una probabilit\`a
+non nulla di emissione spettrale per frequenze negative, o
+di masse invarianti anch'esse negative nel caso delle
+risonanze.
+
+Per la distribuzione di Cauchy \emph{troncata}, ossia quella
+descritta dalla funzione di frequenza (per la variabile
+standardizzata)
+\begin{equation*}
+  f(u | -K \le u \le K) =
+  \begin{cases}
+    0 & \quad |u| > K \\[1ex]
+    \dfrac{1}{2 \, \arctan K} \, \dfrac{1}{\left( 1 + u^2
+      \right)} & \quad |u| \le K
+  \end{cases}
+\end{equation*}
+(\emph{discontinua} in $u = \pm K$), esistono invece i
+momenti: i primi due valgono
+\begin{align*}
+  E(u | -K \le u \le K) &= 0 \\
+  \intertext{e}
+  \var(u | -K \le u \le K) &= \frac{K}{\arctan K} - 1
+\end{align*}
+
+\index{combinazioni lineari!di variabili di Cauchy|(}%
+Se le $x_k$ sono $N$ variabili casuali indipendenti che
+seguono la distribuzione di Cauchy con parametri $\theta_k$
+e $d_k$, una generica loro combinazione lineare
+\begin{gather*}
+  y = \sum_{k=1}^N a_k \, x_k \\
+  \intertext{segue la stessa distribuzione: infatti la
+    funzione generatrice per le $x_k$ \`e}
+  \phi_{x_k} (t) = e^{ i \theta_k t - |t| d_k } \\
+  \intertext{e, definendo $\xi_k = a_k x_k$ e ricordando la
+    \eqref{eq:6.fuccav},}
+  \phi_{\xi_k} (t) \; = \; \phi_{x_k} (a_k t) \; = \; e^{ i
+    a_k \theta_k t - |t| \cdot | a_k | \, d_k } \peq ; \\
+  \intertext{infine, applicando la \eqref{eq:6.fucacl},}
+  \phi_y (t) \; = \; \prod_{k=1}^N \phi_{\xi_k} (t) \; = \;
+  e^{ i \theta_y t - |t| d_y } \\
+  \intertext{ove si \`e posto}
+  \theta_y = \sum_{k=1}^N a_k \theta_k
+  \makebox[40mm]{e}
+  d_y = \sum_{k=1}^N |a_k| d_k \peq .
+\end{gather*}%
+\index{combinazioni lineari!di variabili di Cauchy|)}
+
+Una conseguenza importante \`e che il valore medio di un
+campione di misure proveniente da una popolazione che segua
+la distribuzione di Cauchy con certi parametri $\theta$ e
+$d$ (in questo caso tutte le $a_k$ sono uguali e valgono
+$1/N$) \`e distribuito anch'esso secondo Cauchy \emph{e con
+  gli stessi parametri}; in altre parole \emph{non si
+  guadagna nessuna informazione} accumulando pi\`u di una
+misura (e calcolando la media aritmetica del
+campione)\/\footnote{Esistono altre tecniche, basate per\`o
+  sull'uso della mediana, che permettono di migliorare la
+  conoscenza del valore di $\theta$ disponendo di pi\`u
+  di una misura.}.%
+\index{distribuzione!di Cauchy|)}
+
+\subsection{Il rapporto di due variabili normali}%
+\index{rapporto di variabili!normali|(}
+Siano due variabili casuali $x$ ed $y$ che seguano la
+distribuzione normale standardizzata $N(0,1)$; e sia inoltre
+la $y$ definita su tutto l'asse reale ad eccezione
+dell'origine ($y \ne 0$).  La densit\`a di probabilit\`a
+congiunta di $x$ e $y$ \`e la
+\begin{gather*}
+  f(x,y) \; = \; N(x; 0, 1) \cdot N(y; 0, 1) \; = \;
+  \frac{1}{2 \pi} \, e^{- \frac{1}{2} x^2 } e^{ -
+    \frac{1}{2} y^2 } \peq ; \\
+  \intertext{definendo}
+  u = \frac{x}{y} \makebox[30mm]{e} v = y
+\end{gather*}
+e ricordando la \eqref{eq:7.rapvar}, la densit\`a di
+probabilit\`a $\varphi(u)$ della $u$ \`e la
+\begin{align*}
+  \varphi(u) &= \frac{1}{2 \pi} \int_{-\infty}^{+\infty} \!
+  e^{- \frac{1}{2} \, u^2 v^2} e^{- \frac{1}{2} \, v^2} \,
+  |v| \, \de v \\[1ex]
+  &= \frac{1}{\pi} \int_0^{+\infty} \! e^{- \frac{1}{2} \,
+    v^2 \left( 1 + u^2 \right) } \, v \, \de v \\[1ex]
+  &= \frac{1}{\pi \left( 1 + u^2 \right)} \int_0^{+\infty}
+  \! e^{-t} \, \de t \\[1ex]
+  &= \frac{1}{\pi \left( 1 + u^2 \right)} \left[ - e^{-t}
+  \right]_0^{+\infty} \\[1ex]
+  &= \frac{1}{\pi \left( 1 + u^2 \right)}
+\end{align*}
+Per eseguire l'integrazione si \`e effettuata la
+sostituzione
+\begin{equation*}
+  t = \frac{1}{2} \, v^2 \left( 1 + u^2 \right)
+  \makebox[40mm]{$\Longrightarrow$}
+  \de t = \left( 1 + u^2 \right) v \, \de v
+\end{equation*}
+e si riconosce immediatamente nella $\varphi(u)$ la
+densit\`a di probabilit\`a di una variabile (standardizzata)
+di Cauchy: \emph{il rapporto tra due variabili normali segue
+  la distribuzione di Cauchy}.%
+\index{rapporto di variabili!normali|)}
+
+\section{La distribuzione di Bernoulli}%
+\index{distribuzione!di Bernoulli|(}%
+\index{binomiale, distribuzione|see{distribuzione di Bernoulli}}%
+\label{ch:8.binom}
+Consideriamo un evento casuale ripetibile $E$, avente
+probabilit\`a costante $p$ di verificarsi; indichiamo con $q
+= 1 - p$ la probabilit\`a del non verificarsi di $E$ (cio\`e
+la probabilit\`a dell'evento complementare \ob{E}\,).
+Vogliamo ora determinare la probabilit\`a $P(x;N)$ che in
+$N$ prove ripetute $E$ si verifichi esattamente $x$ volte
+(deve necessariamente risultare $0 \le x \le N$).
+
+L'evento casuale costituito dal presentarsi di $E$ per $x$
+volte (e quindi dal presentarsi di \ob{E}\ per le restanti
+$N - x$) \`e un evento complesso che pu\`o verificarsi in
+diverse maniere, corrispondenti a tutte le diverse possibili
+sequenze di successi e fallimenti; queste sono ovviamente
+mutuamente esclusive, ed in numero pari a quello delle
+possibili combinazioni di $N$ oggetti a $x$ a $x$, che vale
+\begin{equation*}
+  C^N_x \; = \; \binom{N}{x} \; = \; \frac{N!}{x! \,
+    (N-x)!} \peq .
+\end{equation*}
+
+Essendo poi ognuna delle prove statisticamente indipendente
+dalle altre (infatti la probabilit\`a di $E$ non cambia di
+prova in prova), ognuna delle possibili sequenze di $x$
+successi ed $N-x$ fallimenti ha una probabilit\`a di
+presentarsi che vale $p^x q^{N-x}$; in definitiva
+\begin{equation} \label{eq:8.binom}
+  P(x;N) \; = \; \frac{N!}{x! \, (N-x)!} \,
+    p^x q^{N-x} \peq .
+\end{equation}
+
+Questa distribuzione di probabilit\`a $ P(x;N) $ per una
+variabile casuale discreta $x$ si chiama \emph{distribuzione
+  binomiale} o \emph{di Bernoulli}\thinspace\footnote{I
+  Bernoulli furono una famiglia originaria di Anversa poi
+  trasferitasi a Basilea, numerosi membri della quale ebbero
+  importanza per le scienze del diciassettesimo e del
+  diciottesimo secolo; quello cui vanno attribuiti gli studi
+  di statistica ebbe nome Jacob (o Jacques), visse dal 1654
+  al 1705, e fu zio del pi\`u noto Daniel (cui si deve il
+  teorema di Bernoulli della dinamica dei fluidi).};%
+\index{Bernoulli!Jacob (o Jacques)}
+vogliamo ora determinarne alcune costanti caratteristiche.
+
+Verifichiamo per prima cosa che vale la condizione di
+normalizzazione: sfruttando la formula per lo sviluppo delle
+potenze del binomio, risulta
+\begin{equation*}
+  \sum_{x=0}^N P(x;N) \; = \;
+    \sum_{x=0}^N \frac{N!}{x! \, (N-x)!}
+    \, p^x q^{N-x} \; = \;
+    {(p+q)}^N \; \equiv \; 1 \peq .
+\end{equation*}
+
+Vogliamo ora calcolare la speranza matematica della
+variabile $x$ (ossia il numero di successi attesi, in media,
+in $N$ prove): per questo useremo la stessa variabile
+casuale ausiliaria gi\`a considerata nel paragrafo
+\ref{ch:5.teober}, $y$, che rappresenta il numero di
+successi nella generica delle $N$ prove eseguite.
+
+Avevamo a suo tempo gi\`a calcolato, sempre nel paragrafo
+\ref{ch:5.teober}, la speranza matematica della $y$
+\begin{gather}
+  E ( y ) \; = \; 1 \cdot p + 0 \cdot q \;
+    = \; p \peq ; \notag \\
+  \intertext{e, osservando che anche $y^2$
+    pu\`o assumere i due soli valori 1 e 0, sempre
+    con le probabilit\`a rispettive $p$ e $q$,}
+  E \bigl( y^2 \bigr) \; = \; 1 \cdot p + 0
+  \cdot q \; = \; p \notag \\
+  \intertext{e quindi la varianza della $y$ esiste e vale}
+  \var ( y ) \; = \; E \bigl( y^2
+    \bigr) - \bigl[ E ( y ) \bigr] ^2
+    \; = \; p - p^2 \; = \; p \, (1-p) \;= \; pq \peq
+    \label{eq:8.varber} .
+\end{gather}
+
+Il numero totale $x$ di successi nelle $N$ prove \`e legato
+ai valori $y_i$ della $y$ in ognuna di esse dalla
+\begin{gather*}
+  x = \sum_{i=1}^N y_i \\
+  \intertext{e risulta quindi, per speranza matematica e
+    varianza della distribuzione binomiale,}
+  E(x) \; = \; E \left( \, \sum_{i=1}^N y_i
+    \right) \; = \; \sum_{i=1}^N E \left( y_i
+    \right) \; = \; Np \\[1ex]
+  \var (x) \; = \; {\sigma_x}^2 \; = \;
+    \var \left( \, \sum_{i=1}^N y_i \right) \; = \;
+    \sum_{i=1}^N \var \left( y_i \right) \; = \;
+    Npq \peq .
+\end{gather*}
+
+\begin{figure}[hbtp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{binom.pstex_t}
+  } \end{center}
+  \caption[La distribuzione binomiale]
+    {La distribuzione binomiale, per un numero
+    di prove $N=50$ e due differenti valori della
+    probabilit\`a $p$.}
+  \label{fig:8.figbin}
+\end{figure}
+
+\index{distribuzione!di Bernoulli!e distribuzione normale|(}%
+Come \`e evidente dalla figura \ref{fig:8.figbin}, la forma
+della distribuzione binomiale \`e molto simile a quella di
+una curva di Gauss; si pu\`o in effetti dimostrare che
+quando $N$ tende all'infinito la distribuzione di
+probabilit\`a dei possibili valori tende ad una
+distribuzione normale avente la stessa media $Np$ e la
+stessa varianza $Npq$.  Infatti la funzione generatrice dei
+momenti della distribuzione di Bernoulli \`e
+\begin{align*}
+  M_x(t) &= E \bigl( e^{tx} \bigr) \\[1ex]
+  &= \sum_{x=0}^N e^{tx} \, \binom{N}{x} \, p^x q^{N-x}
+    \\[1ex]
+  &= \sum_{x=0}^N \binom{N}{x} \! \bigl( p e^t
+    \bigr)^x \! q^{N-x} \\[1ex]
+  &= \bigl( p e^t + q \bigr)^N \\
+  \intertext{o anche, ricordando che $q=1-p$,}
+  M_x(t) &= \left[ 1 + p \bigl( e^t - 1 \bigr)
+    \right]^N
+\end{align*}
+e se, per semplificare i calcoli, ci riferiamo alla
+\emph{variabile standardizzata}
+\begin{gather*}
+  z \; = \; \frac{x - E(x)}{\sigma_x} \; = \; \frac{x -
+    Np}{\sqrt{Npq}} \; = \; ax+b \\
+  \intertext{ove si \`e posto}
+  a \; = \; \frac{1}{\sqrt{Npq}} \makebox[35mm]{e} b \;
+    = \; - \, \frac{Np}{\sqrt{Npq}} \\
+\end{gather*}
+applicando la \eqref{eq:6.fgmcav} si trova
+\begin{align*}
+  M_z(t) &= e^{tb} \, M_x(at) \\[1ex]
+  &= e^{- \frac{Np}{\sqrt{Npq}} t} \left[ 1 + p
+    \left( e^{\frac{t}{\sqrt{Npq}}} - 1 \right)
+    \right]^N
+\end{align*}
+da cui, passando ai logaritmi naturali,
+
+\begin{align*}
+  \ln M_z(t) &= - \, \frac{Np}{\sqrt{Npq}} \, t + N \,
+    \ln \left[ 1 + p \left( e^{\frac{t}{\sqrt{Npq}}} -
+    1 \right) \right] \\[1ex]
+  &= - \, \frac{Np}{\sqrt{Npq}} \, t + N \left[ p
+    \left( e^{\frac{t}{\sqrt{Npq}}} - 1 \right) -
+    \frac{p^2}{2} \left( e^{\frac{t}{\sqrt{Npq}}} - 1
+    \right)^2 + \right. \\[1ex]
+  & \qquad \left. + \frac{p^3}{3} \left(
+      e^{\frac{t}{\sqrt{Npq}}} - 1 \right)^3
+    +\cdots\right] \\[1ex]
+  &= - \, \frac{Np}{\sqrt{Npq}} \, t + N \left\{ p
+    \left[ \frac{t}{\sqrt{Npq}} + \frac{1}{2} \,
+    \frac{t^2}{Npq} + \frac{1}{6} \,
+    \frac{t^3}{(Npq)^\frac{3}{2}} +\cdots\right] -
+    \right. \\[1ex]
+  & \qquad - \frac{p^2}{2} \left[ \frac{t}{\sqrt{Npq}}
+    + \frac{1}{2} \, \frac{t^2}{Npq} + \frac{1}{6} \,
+    \frac{t^3}{(Npq)^\frac{3}{2}} +\cdots\right]^2 +
+    \\[1ex]
+  & \qquad \left. + \frac{p^3}{3} \left[
+    \frac{t}{\sqrt{Npq}} + \frac{1}{2} \,
+    \frac{t^2}{Npq} + \frac{1}{6} \,
+    \frac{t^3}{(Npq)^\frac{3}{2}} +\cdots\right]^3
+    +\cdots\right\} \\[1ex]
+  &= N \left\{ p \left[ \frac{1}{2} \, \frac{t^2}{Npq}
+    + \frac{1}{6} \, \frac{t^3}{(Npq)^\frac{3}{2}}
+    +\cdots\right] - \right. \\[1ex]
+  & \qquad \left. - \frac{p^2}{2} \left[
+    \frac{t^2}{Npq} + \frac{t^3}{(Npq)^\frac{3}{2}}
+    +\cdots\right] + \frac{p^3}{3} \left[
+    \frac{t^3}{(Npq)^\frac{3}{2}} +\cdots\right]
+    \right\} \\[1ex]
+  &= N \left[ \frac{1}{2} \, \frac{t^2}{Npq} \, p(1-p)
+    + \frac{t^3}{(Npq)^\frac{3}{2}} \left( \frac{p}{6}
+    - \frac{p^2}{2} + \frac{p^3}{3} \right) +
+    \mathcal{O} \bigl( t^4 N^{-2} \bigr) \right] \\[1ex]
+  &= \frac{1}{2} \, t^2 + \mathcal{O} \bigl( t^3
+    N^{-\frac{1}{2}} \bigr)
+\end{align*}
+ove si \`e sviluppato in serie di McLaurin prima
+\begin{gather*}
+  \ln(1+x) \; = \; x - \frac{x^2}{2} + \frac{x^3}{3}
+    +\cdots \\
+  \intertext{e poi}
+  e^x \; = \; 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!}
+    +\cdots
+\end{gather*}
+e si sono svolti i prodotti tenendo solo i termini dei primi
+ordini.
+
+Chiaramente quando $N$ viene fatto tendere all'infinito
+tutti i termini eccetto il primo tendono a zero, per cui
+\begin{equation*}
+  \lim_{N \to \infty} M_z(t) \; = \; e^\frac{t^2}{2}
+\end{equation*}
+e $M_z(t)$ tende quindi alla funzione generatrice dei
+momenti di una distribuzione normale standardizzata; in
+conseguenza si \`e effettivamente provato, visto uno dei
+teoremi citati nel paragrafo \ref{ch:6.fugeca}, che la
+distribuzione binomiale tende ad una distribuzione normale.
+
+In pratica, quando il numero di prove $N$ \`e elevato e la
+probabilit\`a $p$ non \`e troppo vicina ai valori estremi 0
+ed 1, la distribuzione binomiale \`e bene approssimata da
+una distribuzione normale; in generale si ritiene che
+l'approssimazione sia accettabile quando entrambi i prodotti
+$Np$ e $Nq$ hanno valore non inferiore a 5.%
+\index{distribuzione!di Bernoulli!e distribuzione normale|)}%
+\index{distribuzione!di Bernoulli|)}
+
+\subsection{Applicazione: decadimenti radioattivi}
+Se la probabilit\`a $\Lambda_t$ per un singolo nucleo
+instabile di decadere in un intervallo di tempo $t$ \`e
+costante, la probabilit\`a di avere un numero prefissato di
+decadimenti nel tempo $t$ in un insieme di $N$ nuclei \`e
+data dalla distribuzione binomiale; in particolare, il
+numero medio di decadimenti in $N$ nuclei e nel tempo $t$
+\`e $N \Lambda_t$.
+
+Se si ammette poi che $\Lambda_t$ sia proporzionale al
+tempo\/\footnote{Questa ipotesi pu\`o evidentemente essere
+  soddisfatta solo in prima approssimazione: basta pensare
+  al fatto che $\Lambda_t$ deve raggiungere l'unit\`a solo
+  dopo un tempo infinito.  In particolare, la probabilit\`a
+  per un nucleo di decadere in un tempo $2t$ vale $
+  \Lambda_{2t} = \Lambda_t + \left( 1 - \Lambda_t \right)
+  \cdot \Lambda_t = 2 \Lambda_t - {\Lambda_t}^2$; e
+  l'ipotesi fatta \`e in effetti valida solo se $\Lambda_t$
+  \`e infinitesimo, o (in pratica) se l'osservazione
+  riguarda un lasso di tempo trascurabile rispetto alla vita
+  media.} $t$, indicando con $\lambda$ la probabilit\`a di
+decadimento nell'unit\`a di tempo avremo $\Lambda_t =
+\lambda t$; in un tempo infinitesimo $\de t$, il numero di
+atomi $N(t)$ presente al tempo $t$ varia mediamente di
+\begin{equation*}
+  \de N \; = \; - N \, \lambda \:
+  \de t \peq .
+\end{equation*}
+
+Separando le variabili ed integrando, il numero \emph{medio}
+di atomi presenti al tempo $t$, dopo il decadimento di una
+parte di quelli $N_0$ presenti all'istante iniziale $t = 0$,
+\`e dato dalla
+\begin{gather}
+  N(t) \; = \; N_0 \, e^{- \lambda t} \label{eq:8.nt1}
+    \\
+  \intertext{ed il numero medio di decadimenti dalla}
+  N_0 - N(t) \; = \; N_0 \bigl( 1 - e^{- \lambda t}
+    \bigr) \peq . \notag
+\end{gather}
+
+La \emph{vita media}%
+\index{vita media}
+$\tau$ di una sostanza radioattiva si pu\`o definire come il
+tempo necessario perch\'e il numero originario di nuclei si
+riduca mediamente di un fattore $1/e$; quindi $ \tau = 1 /
+\lambda $, e la \eqref{eq:8.nt1} si pu\`o riscrivere
+\begin{equation} \label{eq:8.nt2}
+  N(t) \; = \; N_0 \, e^{- \frac{t}{\tau}} \peq .
+\end{equation}
+
+\subsection{Applicazione: il rapporto di asimmetria}%
+\index{rapporto di asimmetria|see{asimmetria, rapporto di}}%
+\index{asimmetria, rapporto di|(}%
+\label{ch:8.rasim1}
+Frequentemente, nella fisica, si devono considerare
+esperimenti in cui si cerca di mettere in evidenza delle
+\emph{asimmetrie}; ovvero, la non invarianza della funzione
+di frequenza di una qualche variabile casuale per
+riflessione rispetto ad un piano.  Supponiamo, come esempio,
+di considerare la possibilit\`a che un dato fenomeno abbia
+una diversa probabilit\`a di presentarsi \emph{in avanti} o
+\emph{all'indietro} rispetto ad una opportuna superficie di
+riferimento; e di raccogliere $N$ eventi sperimentali
+dividendoli in due sottoinsiemi (mutuamente esclusivi ed
+esaurienti) collegati a queste due categorie, indicando con
+$F$ e $B$ (iniziali delle due parole inglesi \emph{forward}
+e \emph{backward}) il loro numero: ovviamente dovr\`a
+risultare $N = F + B$.
+
+Il cosiddetto \emph{rapporto di asimmetria}, $R$, si
+definisce come
+\begin{equation} \label{eq:8.rapasi}
+  R \; = \; \frac{F - B}{F + B} \; = \; \frac{F - B}{N} \; =
+  \; \frac{2F}{N} - 1 \peq :
+\end{equation}
+\`e ovvio sia che $-1 \leq R \leq 1$, sia che soltanto due
+dei quattro valori $N$, $F$, $B$ ed $R$ sono indipendenti;
+e, volendo, dall'ultima forma della \eqref{eq:8.rapasi} si
+possono ricavare le espressioni di $F$ e $B$ in funzione di
+$N$ ed $R$, ovvero
+\begin{align*}
+  F &= \frac{N (1 + R)}{2} &&\text{e} & B &= \frac{N (1 -
+    R)}{2} \peq .
+\end{align*}
+
+Se indichiamo con $p$ la probabilit\`a di un evento in
+avanti (e con $q = 1 - p$ quella di uno all'indietro), il
+trovare esattamente $F$ eventi in avanti su un totale di $N$
+ha probabilit\`a data dalla distribuzione binomiale: ovvero
+\begin{gather*}
+  \Pr(F) = \binom{N}{F} \, p^F (1 - p)^{N - F} \\
+  \intertext{con, inoltre,}
+  E(F) = Np \makebox[40mm]{e} \var(F) = N p \, (1 - p) \peq
+  . \\
+  \intertext{Ma, per quanto detto, c'\`e una corrispondenza
+    biunivoca tra i valori di $N$ ed $F$ da una parte, e
+    quello di $R$; cos\`\i\ che}
+  \Pr(R) = \binom{N}{\frac{N (1 + R)}{2}} \, p^{\frac{N (1
+      + R)}{2}} \, (1 - p)^{\frac{N (1 - R)}{2}} \peq ,
+  \\[1ex]
+  E(R) = \frac{2}{N} \, E(F) - 1 = 2 p - 1 \\
+  \intertext{e}
+  \var(R) = \frac{4}{N^2} \, \var(F) = \frac{4 p ( 1 -
+    p)}{N} \peq .
+\end{gather*}
+
+\emph{Se il numero di eventi nel campione \`e elevato} e $p$
+lontano dai valori estremi, cos\`\i\ da potere sia sfruttare
+l'approssimazione normale alla distribuzione di Bernoulli,
+sia pensare che risulti
+\begin{align*}
+  p &\simeq \frac{F}{N} &&\text{che} & q &\simeq \frac{B}{N}
+  \peq ,
+\end{align*}
+come conseguenza anche la distribuzione di $R$ sar\`a
+approssimativamente normale; e con i primi due momenti dati
+da
+\begin{align*}
+  E(R) &\simeq 2 \, \frac{F}{N} - 1 &&\text{e} & \var(R)
+  &\simeq 4 \, \frac{F B}{N^3} \peq .
+\end{align*}
+
+Del rapporto di asimmetria parleremo ancora pi\`u avanti,
+nel corso di questo stesso capitolo: pi\`u esattamente nel
+paragrafo \ref{ch:8.rasim2}.%
+\index{asimmetria, rapporto di|)}
+
+\subsection{La distribuzione binomiale negativa}%
+\index{distribuzione!binomiale negativa|(}%
+\index{binomiale negativa,
+  distribuzione|see{distribuzione binomiale negativa}}
+Consideriamo ancora un evento casuale $E$ ripetibile, avente
+probabilit\`a costante $p$ di presentarsi (e quindi
+probabilit\`a $q = 1 - p$ di non presentarsi) in una singola
+prova; in pi\`u prove successive l'evento seguir\`a dunque
+la statistica di Bernoulli.  Vogliamo ora calcolare la
+probabilit\`a $f(x; N, p)$ che, prima che si verifichi
+l'$N$-esimo successo, si siano avuti esattamente $x$
+insuccessi; o, se si preferisce, la probabilit\`a che
+l'$N$-simo successo si presenti nella $(N+x)$-sima prova.
+
+L'evento casuale considerato si realizza se e solo se nelle
+prime $N + x - 1$ prove si \`e presentata una delle
+possibili sequenze di $N - 1$ successi e $x$ fallimenti; e
+se poi, nella prova successiva, si ha un ulteriore successo.
+La prima condizione, applicando la \eqref{eq:8.binom}, ha
+probabilit\`a
+\begin{equation*}
+  \binom{N + x - 1}{N - 1} \, p^{N - 1} \, q^x \peq ;
+\end{equation*}
+e, vista l'indipendenza statistica delle prove tra loro,
+risulta dunque
+\begin{equation} \label{eq:8.bineg}
+  f(x; N, p) \; = \; \binom{N + x - 1}{N - 1} \, p^N \, q^x
+  \; = \; \binom{N + x - 1}{x} \, p^N \, q^x \peq .
+\end{equation}
+(nell'ultimo passaggio si \`e sfruttata la propriet\`a dei
+coefficienti binomiali $\binom{N}{K} \equiv \binom{N}{N -
+  K}$; vedi in proposito il paragrafo \ref{ch:a.combina}).
+
+Questa distribuzione di probabilit\`a prende il nome di
+\emph{distribuzione binomiale
+  negativa}\thinspace\footnote{La distribuzione binomiale
+  negativa \`e talvolta chiamata anche \emph{distribuzione
+    di Pascal} o \emph{di P\'olya}.}; il motivo di tale nome
+\`e che l'equazione \eqref{eq:8.bineg} pu\`o essere
+riscritta in forma compatta sfruttando una ``estensione''
+dei coefficienti binomiali che permette di definirli anche
+per valori negativi di $N$.  La funzione generatrice dei
+momenti \`e
+\begin{gather*}
+  M_x(t) \; = \; E \bigl( e^{tx} \bigr) \; = \; \left(
+    \frac{p}{1 - q e^t} \right)^N \peq ; \\
+  \intertext{da questa si possono poi ricavare la speranza
+    matematica}
+  E(x) = \frac{N q}{p} \peq , \\
+  \intertext{e la varianza}
+  \var(x) = N \, \frac{q}{p^2} \peq .
+\end{gather*}
+
+La distribuzione binomiale negativa con $N = 1$ prende il
+nome di \emph{distribuzione geometrica};%
+\index{distribuzione!geometrica|(}
+la probabilit\`a \eqref{eq:8.bineg} diventa
+\begin{equation*}
+  f(x; p) = p q^x \peq ,
+\end{equation*}
+ed \`e quella dell'evento casuale consistente nell'ottenere
+il primo successo dopo esattamente $x$ insuccessi; ponendo
+$N = 1$ nelle formule precedenti, speranza matematica e
+varianza della distribuzione geometrica sono rispettivamente
+\begin{equation*}
+  E(x) = \frac{q}{p} \makebox[35mm]{e} \var(x) =
+  \frac{q}{p^2} \peq .
+\end{equation*}%
+\index{distribuzione!geometrica|)}%
+\index{distribuzione!binomiale negativa|)}
+
+\section{La distribuzione di Poisson}%
+\index{distribuzione!di Poisson|(}%
+\index{Poisson!distribuzione di|see{distribuzione di Poisson}}%
+\label{ch:8.poisson}
+Sia $E$ un evento casuale che avvenga rispettando le
+seguenti ipotesi:
+\begin{enumerate}
+\item La probabilit\`a del verificarsi dell'evento $E$ in un
+  intervallo di tempo\/\footnote{Sebbene ci si riferisca,
+    per esemplificare le nostre considerazioni, ad un
+    processo \emph{temporale} (e si faccia poi l'esempio del
+    numero di decadimenti in un intervallo costante di tempo
+    per una sostanza radioattiva come quello di una
+    variabile casuale che segue la distribuzione di
+    Poisson), gli stessi ragionamenti naturalmente si
+    applicano anche a fenomeni fisici riferiti ad intervalli
+    di differente natura, per esempio di spazio.
+
+    Cos\`\i\ anche il numero di urti per unit\`a di
+    lunghezza delle molecole dei gas segue la distribuzione
+    di Poisson (se si ammette che la probabilit\`a di un
+    urto nel percorrere un intervallo infinitesimo di spazio
+    sia proporzionale alla sua lunghezza, ed analogamente
+    per le altre ipotesi).} molto piccolo (al limite
+  infinitesimo) $\de t$ \`e proporzionale alla durata di
+  tale intervallo;
+\item\label{it:pois2} Il verificarsi o meno dell'evento in
+  un certo intervallo temporale \`e indipendente dal
+  verificarsi o meno dell'evento prima o dopo di esso;
+\item La probabilit\`a che pi\`u di un evento si
+  verifichi in un tempo infinitesimo $\de t$ \`e
+  infinitesima di ordine superiore rispetto a $\de t$.
+\end{enumerate}
+vogliamo ora ricavare la probabilit\`a $P(x;t)$ che in un
+intervallo di tempo finito, di durata $t$, si verifichi
+esattamente un numero prefissato $x$ di eventi $E$.  Usando
+questa simbologia, la prima ipotesi fatta sul processo
+casuale in esame si scrive
+\begin{align*}
+  P (1; \de t) \; &= \; \lambda \, \de t
+  && \Longrightarrow &
+  P (0; \de t) \; &= \; 1 - \lambda \, \de t
+\end{align*}
+e, viste le altre ipotesi ed applicando in conseguenza i
+teoremi delle probabilit\`a totali e composte, la
+probabilit\`a di avere $x$ eventi in un intervallo di tempo
+lungo $t+\de t$ \`e data, a meno di infinitesimi di ordine
+superiore, da
+\begin{align*}
+  P(x; t+\de t) &= P(x-1;t) \cdot
+    P(1;\de t) + P(x;t) \cdot P(0; \de t)
+    \\[1ex]
+  &= P(x-1; t) \, \lambda \, \de t +
+    P(x;t) \, (1 - \lambda \, \de t)
+\end{align*}
+cio\`e
+\begin{equation*}
+  \frac{P(x;t+\de t) - P(x;t)}{\de t} \; \equiv \;
+    \frac{\de}{\de t} \, P(x;t) \; = \;
+    - \lambda \, P(x;t) \, + \, \lambda \, P(x-1;t) \peq .
+\end{equation*}
+
+Ora, quando $x=0$, essendo chiaramente nulla la
+probabilit\`a di avere un numero negativo di eventi $E$ in
+un tempo qualsiasi, risulta in particolare
+\begin{gather*}
+  \frac{\de}{\de t} \, P(0;t) =
+    - \lambda \, P(0;t) \\
+  \intertext{da cui}
+  P(0;t) = e^{- \lambda t}
+\end{gather*}
+(la costante di integrazione si determina imponendo che
+$P(0;0)=1 $).  Da questa relazione si pu\`o ricavare
+$P(1;t)$ e, con una serie di integrazioni successive,
+$P(x;t)$: risulta
+\begin{equation} \label{eq:8.poisson}
+  P(x;t) = \frac{ (\lambda t)^x }{ x! } \,
+    e^{-\lambda t} \peq .
+\end{equation}
+
+In questa espressione $x$ \`e l'unica variabile casuale, e
+$t$ funge da parametro: se introduciamo la nuova grandezza
+$\alpha = \lambda t$, possiamo scrivere
+\begin{equation} \label{eq:8.poiss2}
+  P(x;\alpha) = \frac{\alpha^x}{x!} \, e^{-\alpha} \peq .
+\end{equation}
+
+Questa distribuzione di probabilit\`a per una variabile
+casuale (discreta) $x$ prende il nome di \emph{distribuzione
+  di Poisson}\thinspace\footnote{Sim\'eon Denis Poisson
+  visse in Francia dal 1781 al 1840; matematico e fisico di
+  valore, si occup\`o della teoria degli integrali e delle
+  serie, di meccanica, elettricit\`a, magnetismo ed
+  astronomia.  Gli studi sulla distribuzione che porta il
+  suo nome compaiono nel trattato del 1837 ``Recherches sur
+  la probabilit\'e des jugements\ldots''.};%
+\index{Poisson!Sim\'eon Denis} da essa si pu\`o ottenere, ad
+esempio, la probabilit\`a di ottenere $x$ decadimenti in una
+massa nota di sostanza radioattiva nel tempo $t$: infatti
+per questo tipo di processi fisici risultano soddisfatte le
+tre ipotesi di partenza.
+
+\index{distribuzione!di Poisson!e distribuzione di Bernoulli|(}%
+Pi\`u esattamente, la probabilit\`a di avere precisamente
+$x$ decadimenti radioattivi nel tempo $t$ \`e data dalla
+distribuzione binomiale; la distribuzione di Poisson \`e una
+approssimazione alla distribuzione binomiale che si pu\`o
+ritenere valida qualora si considerino eventi casuali di
+probabilit\`a estremamente piccola, e che ci \`e possibile
+vedere solo perch\'e si compiono osservazioni su un numero
+molto elevato di essi: in formula, quando
+\begin{equation} \label{eq:8.poival}
+  p^2 \ll p \makebox[30mm]{e} p \ll Np \ll N
+\end{equation}
+(\emph{eventi rari su larga base statistica}).
+
+Anche se la distribuzione di Poisson \`e, come nel caso dei
+decadimenti radioattivi, una approssimazione di quella
+binomiale, si preferisce per\`o sempre usarla nella pratica
+al posto di quest'ultima quando le \eqref{eq:8.poival} siano
+approssimativamente verificate: infatti se $N$ \`e grande i
+fattoriali e le potenze presenti nella \eqref{eq:8.binom}
+rendono generalmente l'espressione difficile da calcolare.%
+\index{distribuzione!di Poisson!e distribuzione di Bernoulli|)}
+Verifichiamo ora la condizione di normalizzazione:
+\begin{equation*}
+  \sum_{x=0}^{+ \infty} P(x) \; = \;
+     e^{-\alpha} \sum_{x=0}^{+ \infty}
+     \frac{\alpha^x}{x!} \; = \;
+     e^{-\alpha} e^{\alpha} \; \equiv \; 1
+\end{equation*}
+(riconoscendo nella sommatoria l'espressione di uno sviluppo
+in serie di McLaurin della funzione esponenziale).
+Calcoliamo poi la speranza matematica di $x $:
+\begin{align*}
+  E(x) &= \sum_{x=0}^{+ \infty} x \,
+  \frac{\alpha^x}{x!} \, e^{-\alpha} \\[1ex]
+  &= \sum_{x=1}^{+ \infty} x \,
+  \frac{\alpha^x}{x!} \, e^{-\alpha} \\[1ex]
+  &= \alpha \, e^{-\alpha} \sum_{x=1}^{+ \infty}
+  \frac{\alpha^{x-1}}{(x-1)!} \\[1ex]
+  &= \alpha \, e^{-\alpha} \sum_{y=0}^{+ \infty}
+  \frac{\alpha^y}{y!} \\[1ex]
+  &= \alpha \, e^{-\alpha} e^\alpha \\[1ex]
+  &= \alpha \peq .
+\end{align*}
+
+Nei passaggi si \`e prima osservato che il primo termine
+della sommatoria ($x = 0$) \`e nullo, e si \`e poi
+introdotta la nuova variabile $y = x - 1$.  Troviamo ora la
+speranza matematica di $x^2$: con passaggi analoghi, si
+ottiene
+\begin{align*}
+  E(x^2) &= \sum_{x=0}^{+ \infty} x^2
+    \frac{\alpha^x}{x!} \, e^{-\alpha} \\[1ex]
+  &= \alpha \sum_{x=1}^{+ \infty} x \,
+    \frac{\alpha^{x-1}}{(x-1)!}
+    \, e^{-\alpha} \\[1ex]
+  &= \alpha \sum_{x=1}^{+ \infty}
+    \bigl[ (x-1)+1 \bigr]
+    \, \frac{\alpha^{x-1}}{(x-1)!} \, e^{-\alpha}
+    \\[1ex]
+  &= \alpha \left[ \,
+    \sum_{y=0}^{+ \infty} y \,
+    \frac{\alpha^y}{y!} \, e^{-\alpha} \; + \;
+    \sum_{y=0}^{+ \infty} \frac{\alpha^y}{y!} \,
+    e^{-\alpha} \right] \\[1ex]
+  &= \alpha \left[ \,
+    \sum_{y=0}^{+ \infty} y \, P(y) \; + \;
+    \sum_{y=0}^{+ \infty} P(y) \right] \\[1ex]
+  &= \alpha \, (\alpha + 1)
+\end{align*}
+e la varianza di $x$ risulta allora anch'essa data da
+\begin{equation*}
+  \var (x) \; = \;
+    E \bigl( x^2 \bigr) - \bigl[ E(x) \bigr]^2
+    \; = \; \alpha \, (\alpha+1) - \alpha^2 \; = \;
+    \alpha \peq .
+\end{equation*}
+\begin{figure}[hbtp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{poisson.pstex_t}
+  } \end{center}
+  \caption[La distribuzione di Poisson]
+    {La distribuzione di
+    Poisson, per tre diversi valori del parametro
+    $\alpha$.}
+  \label{fig:8.poissn}
+\end{figure}
+
+La funzione generatrice dei momenti, come si potrebbe
+facilmente ottenere dalla definizione, \`e la
+\begin{gather}
+  M_x(t) \; = \; e^{- \alpha} e^{\alpha e^t} \; = \;
+  e^{\alpha \left( e^t - 1 \right)} \peq ;
+  \label{eq:8.fgmpoi} \\
+  \intertext{la funzione caratteristica di variabile reale}
+  \phi_x (t) = e^{\alpha \left( e^{it} - 1
+    \right)} \peq , \notag \\
+  \intertext{e la funzione caratteristica di variabile
+    complessa}
+  \phi_x (z) = e^{\alpha (z - 1)} \peq .
+  \label{eq:8.fcapoi}
+\end{gather}
+Da esse potrebbero essere ricavati tutti i momenti
+successivi; i primi quattro valgono
+\begin{align*}
+  &\begin{cases}
+    \lambda_1 \; \equiv \; E(x) \; = \; \alpha \\[1ex]
+    \lambda_2 \; \equiv \; E \bigl( x^2 \bigr) \; = \;
+    \alpha \, ( \alpha + 1 ) \\[1ex]
+    \lambda_3 \; = \; \alpha \, \bigl[ (\alpha + 1)^2 +
+    \alpha \bigr] \\[1ex]
+    \lambda_4 \; =  \;\alpha \, \bigl[ \alpha^3 + 6 \alpha^2
+    + 7 \alpha + 1 \bigr]
+  \end{cases}
+  &&\begin{cases}
+    \mu_1 \; \equiv \; 0 \\[1ex]
+    \mu_2 \; \equiv \; \var(x) \; = \; \alpha \\[1ex]
+    \mu_3 \; = \; \alpha \\[1ex]
+    \mu_4 \; = \; \alpha \, ( 3 \alpha + 1 )
+  \end{cases}
+\end{align*}
+
+Un'altra conseguenza della \eqref{eq:8.fgmpoi} \`e che la
+somma $w = x + y$ di due variabili casuali indipendenti che
+seguano la distribuzione di Poisson (con valori medi $\xi$
+ed $\eta$) segue anch'essa tale distribuzione (con valore
+medio pari a $\xi + \eta$):
+\begin{equation} \label{eq:8.sumpoi}
+  M_w(t) \; = \; e^{ \xi \left( e^t - 1 \right) } \, e^{
+    \eta \left( e^t - 1 \right) } \; = \; e^{ (\xi + \eta)
+    \left( e^t - 1 \right) } \peq .
+\end{equation}
+
+\index{distribuzione!di Poisson!e distribuzione normale|(}%
+Anche la distribuzione di Poisson, come si vede dai grafici
+di figura \ref{fig:8.poissn}, \`e bene approssimata da una
+distribuzione normale quando $\alpha$ \`e abbastanza
+elevato; questo non deve stupire, visto lo stretto legame
+che esiste tra la distribuzione di Poisson e quella di
+Bernoulli --- il cui limite per grandi $N$ \`e appunto la
+funzione di Gauss.  Volendo, si potrebbe ripetere per la
+funzione generatrice \eqref{eq:8.fgmpoi} una analisi analoga
+a quella a suo tempo compiuta per la distribuzione
+binomiale; in questo modo si proverebbe rigorosamente il
+fatto che anche la distribuzione di Poisson, per grandi
+$\alpha$, tende a quella normale.
+
+In genere si ritiene che, per valori medi $\alpha \gtrsim
+8$, si possa ritenere soddisfacente l'approssimazione
+normale alla distribuzione di Poisson.%
+\index{distribuzione!di Poisson!e distribuzione normale|)}%
+\index{distribuzione!di Poisson|)}
+
+\subsection{Applicazione: esperimenti ``negativi''}
+Si osserva un numero $N_0$ di protoni per un tempo $t$, e
+non si registra alcun decadimento.  Quale \`e il limite
+inferiore che si pu\`o dare sulla vita media del protone,
+$\tau$, con una probabilit\`a (\emph{livello di confidenza})
+del 95\%?
+
+L'evento casuale consistente nel non avere osservato alcun
+decadimento \`e somma logica di altri due eventi mutuamente
+esclusivi: o il protone \`e stabile (e non pu\`o quindi
+decadere); o il protone \`e instabile, e si sono inoltre
+verificati 0 decadimenti nel tempo di osservazione
+(supponiamo per semplicit\`a che ognuno di essi abbia poi
+probabilit\`a 1 di essere osservato).
+
+In questa seconda eventualit\`a, dalla \eqref{eq:8.nt2} si
+pu\`o ricavare il numero medio di decadimenti attesi nel
+tempo $t$, che \`e
+\begin{equation*}
+  \alpha \; = \; N_0 \left( 1 -
+    e^{-\frac{t}{\tau}} \right) \; \approx
+    \; N_0 \, \frac{t}{\tau}
+\end{equation*}
+(supponendo che $\tau$ sia molto maggiore del periodo di
+osservazione $t$); e da esso la probabilit\`a di osservare 0
+eventi sempre nel tempo $t$, che \`e data dalla statistica
+di Poisson e vale
+\begin{equation*}
+  P(0) \; = \; \frac{\alpha^0}{0!} \,
+    e^{-\alpha} \; = \; e^{-\alpha} \peq .
+\end{equation*}
+
+Quello che si domanda \`e di calcolare, assumendo come certa
+l'ipotesi che il protone sia instabile, il valore minimo che
+deve avere la sua vita media perch\'e la probabilit\`a di
+non osservare nulla sia almeno del 95\%: e questo avviene
+quando
+\begin{gather*}
+  P(0) \; = \; e^{-\alpha} \; \approx \;
+    e^{-N_0 \, \frac{t}{\tau}} \; \ge \;
+    0.95 \\[1ex]
+  - \, N_0 \, \frac{t}{\tau} \; \ge \;
+    \ln 0.95 \\[1ex]
+  \tau \; \ge \; - \, \frac{N_0 \, t}{\ln 0.95}
+\end{gather*}
+(abbiamo invertito il segno della disuguaglianza nell'ultimo
+passaggio perch\'e $\ln 0.95 \approx -0.0513$ \`e un numero
+negativo).
+
+\subsection{Applicazione: ancora il rapporto di asimmetria}%
+\index{asimmetria, rapporto di|(}%
+\label{ch:8.rasim2}
+
+Nel paragrafo \ref{ch:8.rasim1} abbiamo supposto che il
+numero $N$ di osservazioni effettuate sia noto a priori e
+costante: per\`o questo non \`e in generale corretto; e,
+nella realt\`a, il numero di volte in cui un certo fenomeno
+fisico si presenter\`a \`e di norma esso stesso una
+variabile casuale.  Continuiamo la nostra analisi supponendo
+che si tratti di un fenomeno nel quale $N$ segua la
+distribuzione di Poisson con valore medio $\nu$.
+
+Continuando ad usare gli stessi simboli del paragrafo
+\ref{ch:8.rasim1}, la probabilit\`a congiunta di osservare
+$N$ eventi dei quali $F$ in avanti \`e in realt\`a
+\begin{align*}
+  \Pr(F, N) &= \frac{\nu^N}{N!} \, e^{- \nu} \cdot
+  \frac{N!}{F! \, (N - F)!} \, p^F q^{N-F} \\[1ex]
+  &= \frac{ p^F q^{N-F} }{F! \, (N - F)!} \, \nu^N e^{- \nu}
+  \peq ;
+\intertext{o anche, cambiando coppia di variabili casuali
+  passando da $\{ F, N \}$ a $\{ F, B \}$:}
+  \Pr(F, B) &= \frac{p^F q^B}{F! \, B!} \, \nu^{F + B} e^{-
+    \nu} \\[1ex]
+  &= \frac{(\nu p)^F (\nu q)^B}{F! \, B!} \, e^{- \nu}
+  \\[1ex]
+  &= \frac{(\nu p)^F}{F!} \, e^{- \nu p} \cdot \frac{(\nu
+    q)^B}{B!} \, e^{- \nu q} \peq .
+\end{align*}
+che \`e il \emph{prodotto di due funzioni di frequenza di
+  Poisson}.
+
+In definitiva abbiamo scoperto che la composizione di un
+processo di Poisson e di un processo di Bernoulli equivale
+al prodotto di due Poissoniane: il numero $N$ di eventi
+osservato segue la statistica di Poisson; la scelta dello
+stato finale $F$ o $B$ quella binomiale; ma tutto avviene
+come se i decadimenti dei due tipi, in avanti ed
+all'indietro, si verificassero \emph{separatamente} ed
+\emph{indipendentemente} secondo la statistica di Poisson.
+
+Accettato questo fatto appena dimostrato (ancorch\'e
+inaspettato), e pensando sia ad $F$ che a $B$ come variabili
+casuali statisticamente indipendenti tra loro e che seguono
+singolarmente la statistica di Poisson, per il rapporto di
+asimmetria \emph{asintoticamente} (ovvero per grandi $N$) si
+ricava:
+\begin{gather*}
+  \var(F) \; = \; E(F) \; \simeq \; F \\[1ex]
+  \var(B) \; = \; E(B) \; \simeq \; B
+\end{gather*}
+e, per il rapporto di asimmetria $R$:
+\begin{align*}
+  R &= \frac{F - B}{F + B} \\[1ex]
+  &\simeq \frac{E(F) - E(B)}{E(F) + E(B)} + \frac{\partial
+    R}{\partial F} \, \bigl[ F - E(F) \bigr] +
+  \frac{\partial R}{\partial B} \, \bigl[ B - E(B) \bigr]
+  \peq ; \\
+  \intertext{visto che la speranza matematica degli ultimi
+    due termini \`e nulla,}
+  E(R) &\simeq \frac{E(F) - E(B)}{E(F) + E(B)} \\[1ex]
+  &= \frac{2 F}{N} - 1 \peq ; \\[1ex]
+  \var(R) &\simeq \left( \frac{\partial R}{\partial F}
+  \right)^2 \var(F) + \left( \frac{\partial R}{\partial B}
+  \right)^2 \var(B) \\[1ex]
+  &= \frac{4}{(F + B)^4} \left[ B^2 \var(F) + F^2 \var(B)
+  \right] \\[1ex]
+  &= \frac{4 F B}{(F + B)^3} \\[1ex]
+  &= 4 \, \frac{F B}{N^3} \peq ,
+\end{align*}
+e le cose, di fatto, non cambiano (almeno nel limite dei
+grandi $N$) rispetto alla precedente analisi del paragrafo
+\ref{ch:8.rasim1}.%
+\index{asimmetria, rapporto di|)}
+
+\subsection{La distribuzione esponenziale}%
+\index{distribuzione!esponenziale|(}
+Alla distribuzione di Poisson ne \`e strettamente legata
+un'altra, quella \emph{esponenziale}: sia infatti un
+fenomeno casuale qualsiasi che segua la distribuzione di
+Poisson, ovvero tale che la probabilit\`a di osservare $x$
+eventi nell'intervallo finito di tempo $t$ sia data dalla
+\eqref{eq:8.poisson}; definiamo una nuova variabile casuale,
+$\delta$, come l'intervallo di tempo che intercorre tra due
+eventi successivi.
+
+Visto che in un tempo $\delta$ nessun evento deve venire
+osservato, la probabilit\`a che $\delta$ risulti maggiore di
+un valore predeterminato $d$ coincide con la probabilit\`a
+di osservare zero eventi nel tempo $d$:
+\begin{gather*}
+  \Pr (\delta > d) \; \equiv \; \Pr (0;d) \; = \; e^{-
+    \lambda d} \\
+  \intertext{e quindi la \emph{funzione di distribuzione} di
+    $\delta$ \`e la}
+  F(d) \; = \; \Pr (\delta \le d) \; = \; 1 - e^{- \lambda
+    d}
+\end{gather*}
+Come conseguenza, la funzione di frequenza \`e
+\emph{esponenziale}:
+\begin{equation} \label{eq:8.expon}
+  f(\delta) \; = \; \frac{\de \, F(\delta)}{\de \delta} \; =
+  \; \lambda \, e^{- \lambda \delta} \peq ;
+\end{equation}
+e, volendo, da essa si pu\`o ricavare la funzione
+caratteristica --- che vale
+\begin{equation*}
+  \phi_\delta (t) = \frac{\lambda}{\lambda - i t} \peq .
+\end{equation*}
+
+I momenti successivi della distribuzione esponenziale si
+possono ottenere o integrando direttamente la funzione
+densit\`a di probabilit\`a (moltiplicata per potenze
+opportune di $\delta$) o derivando successivamente la
+funzione caratteristica; troviamo i primi due momenti,
+speranza matematica e varianza, usando questo secondo
+metodo:
+\begin{gather*}
+  \frac{\de \, \phi_\delta (t)}{\de t} \; = \;
+  \frac{\de}{\de t} \left( \frac{ \lambda }{ \lambda - i t
+      } \right) \; = \; \frac{ i \lambda }{ (\lambda - i
+    t)^2 } \\[2ex]
+  \left. \frac{\de \, \phi_\delta (t)}{\de t} \right|_{t=0}
+  \; = \; \frac{i}{\lambda} \; \equiv \; i \cdot E(\delta)
+  \\
+  \intertext{per cui la speranza matematica di $\delta$
+    vale}
+  E(\delta) = \frac{1}{\lambda} \peq ; \\
+  \intertext{poi}
+  \frac {\de^2 \, \phi_\delta (t)}{\de t^2} \; = \; \frac{-i
+    \lambda \cdot 2 (\lambda - it)(- i)}{(\lambda - it)^4}
+  \; = \; - \frac{2 \lambda}{(\lambda - it)^3} \\[2ex]
+  \left. \frac {\de^2 \, \phi_\delta (t)}{\de t^2}
+  \right|_{t=0} \; = \; - \frac{2}{\lambda^2} \; \equiv \;
+  i^2 \, E \bigl( \delta^2 \bigr) \; = \; - E \bigl(
+  \delta^2 \bigr) \peq , \\
+  \intertext{ed infine la varianza \`e}
+  \var (\delta) \; = \; E \bigl( \delta^2 \bigr) - \bigl[
+  E(\delta) \bigr]^2 \; = \; \frac{1}{\lambda^2} \peq .
+\end{gather*}
+
+Se una variabile casuale $t$ rappresenta il tempo trascorso
+tra due eventi casuali successivi che seguono una
+distribuzione di Poisson, $t$ necessariamente ha una
+distribuzione di probabilit\`a di tipo esponenziale data
+dalla \eqref{eq:8.expon}; vogliamo ora calcolare la
+probabilit\`a che $t$ sia maggiore di una quantit\`a $t_0 +
+\Delta t$, \emph{condizionata} per\`o dal sapere in anticipo
+che $t$ \`e sicuramente maggiore di $t_0$.  Sfruttando la
+\eqref{eq:3.leprco}, abbiamo:
+\begin{align*}
+  \Pr( t > t_0 + \Delta t \, | \, t > t_0 ) &= \frac{ \Pr(
+    t > t_0 + \Delta t ) }{ \Pr( t > t_0 ) } \\[2ex]
+  &= \frac{ \int_{t_0 + \Delta t}^{+ \infty} e^{- \lambda t}
+    \, \de t }{ \int_{t_0}^{+ \infty} e^{- \lambda t} \, \de
+    t } \\[2ex]
+  &= \frac{ \left[ -e^{-\lambda t} \right]_{t_0 + \Delta
+      t}^{+ \infty} }{ \left[ -e^{-\lambda t}
+    \right]_{t_0}^{+ \infty} } \\[2ex]
+  &= \frac{ e^{-\lambda ( t_0 + \Delta t )} }{ e^{-\lambda
+      t_0} } \\[2ex]
+  &= e^{-\lambda \, \Delta t} \\[1ex]
+  &\equiv \Pr \left( t > \Delta t \right) \peq .
+\end{align*}
+
+In conclusione, la distribuzione esponenziale (ovvero la
+cadenza temporale di eventi casuali che seguono la
+statistica di Poisson) \emph{non ricorda la storia
+  precedente}: il presentarsi o meno di uno di tali eventi
+in un tempo $\Delta t$ non dipende in alcun modo da quello
+che \`e accaduto nell'arbitrario intervallo di tempo $t_0$
+precedente; cos\`\i\ come ci dovevamo aspettare, vista
+l'ipotesi numero \ref{it:pois2} formulata a pagina
+\pageref{it:pois2}.%
+\index{distribuzione!esponenziale|)}
+
+\subsection{La distribuzione di Erlang}%
+\index{distribuzione!di Erlang|(}%
+\index{Erlang!distribuzione di|see{distribuzione di Erlang}}
+La funzione di frequenza esponenziale \eqref{eq:8.expon} si
+pu\`o considerare come un caso particolare di un'altra
+funzione di frequenza, detta \emph{di
+  Erlang}\thinspace\footnote{Agner Krarup Erlang fu un
+  matematico danese vissuto dal 1878 al 1929; si occup\`o di
+  analisi e di fisica oltre che di statistica.  Dette
+  notevoli contributi alla tabulazione di varie funzioni, ed
+  applic\`o in particolare la statistica a numerosi problemi
+  relativi al traffico
+  telefonico.}.%
+\index{Erlang!Agner Krarup}
+Supponiamo di voler trovare la densit\`a di probabilit\`a
+$f_n(t; \lambda)$ dell'evento casuale consistente nel
+presentarsi, dopo un tempo $t$, dell'$n$-esimo di una serie
+di altri eventi che seguano la statistica di Poisson con
+costante di tempo $\lambda$; la \eqref{eq:8.expon} \`e
+ovviamente la prima di esse, $f_1(t; \lambda) = \lambda \,
+e^{-\lambda t}$.
+
+Il secondo evento si manifesta dopo un tempo $t$ con
+densit\`a di probabilit\`a data da
+\begin{align*}
+  f_2(t; \lambda) &= \int_0^t f_1(x; \lambda) \, f_1(t-x;
+  \lambda) \, \de x \\[1ex]
+  &= \lambda^2 \int_0^t e^{ -\lambda x } \, e^{ -\lambda
+    (t-x) } \, \de x \\[1ex]
+  &= \lambda^2 \, e^{ -\lambda t} \int_0^t \! \de x \\[1ex]
+  &= \lambda^2 \, t \, e^{ -\lambda t } \peq ;
+\end{align*}
+si \`e infatti supposto che il primo dei due eventi si sia
+presentato dopo un tempo $x$ (con $0 < x < t$), si \`e
+sfruttata l'indipendenza statistica degli eventi casuali tra
+loro ed infine si \`e sommato su tutti i possibili valori di
+$x$.  Allo stesso modo
+\begin{align*}
+  f_3(t; \lambda) &= \int_0^t f_2(x; \lambda) \, f_1(t-x;
+  \lambda) \, \de x \\[1ex]
+  &= \lambda^3 \int_0^t x \, e^{ -\lambda x } \, e^{
+    -\lambda (t-x) } \de x \\[1ex]
+  &= \lambda^3 \, e^{ -\lambda t} \int_0^t x \, \de x
+  \\[1ex]
+  &= \frac{ t^2 }{ 2 } \, \lambda^3 \, e^{ -\lambda t }
+  \peq ;
+\end{align*}
+la formula generale (appunto la \emph{funzione di frequenza
+  di Erlang}) \`e la
+\begin{gather*}
+  f_n(t; \lambda) = \frac{ t^{n-1} }{ (n-1)! } \, \lambda^n
+  \, e^{ -\lambda t } \peq ,
+  \intertext{con speranza matematica}
+  E(t) = \frac{n}{\lambda}
+  \intertext{e varianza}
+  \var(t) = \frac{n}{\lambda^2} \peq .
+\end{gather*}%
+\index{distribuzione!di Erlang|)}
+
+\subsection{La distribuzione composta di Poisson}%
+\index{distribuzione!di Poisson!composta|(}
+La \emph{distribuzione composta di Poisson} \`e quella
+seguita da una variabile che sia somma \emph{di un numero
+  casuale} $N$ di valori di un'altra variabile casuale $x$,
+quando sia $N$ che $x$ seguono singolarmente delle
+distribuzioni di Poisson.  Indichiamo con $\nu$ e $\xi$ i
+valori medi delle popolazioni delle variabili $N$ e $x$
+rispettivamente; le funzioni caratteristiche (di variabile
+complessa) ad esse associate sono date, come sappiamo, dalla
+\eqref{eq:8.fcapoi}:
+\begin{gather*}
+  \phi_N (z) = e^{ \nu (z -1)} \makebox[40mm]{e}
+  \phi_x (z) = e^{ \xi (z -1)} \peq ; \\
+  \intertext{ricordando la \eqref{eq:6.varn}, la variabile
+    casuale}
+  S = \sum_{i=1}^N x_i \\
+  \intertext{ha funzione caratteristica di variabile
+    complessa}
+  \phi_S (z) \; = \; \phi_N \bigl[ \phi_x (z) \bigr] \; = \;
+  e^{ \nu \left[ e^{\xi (z - 1)} - 1 \right] }
+  \\
+  \intertext{e funzione caratteristica di variabile reale}
+  \phi_S (t) = e^{ \nu \left[ e^{\xi (e^{it} - 1)} - 1
+    \right] } \peq ; \\
+  \intertext{da quest'ultima poi si ricava}
+  \frac{\de \, \phi_S (t)}{\de t} = \phi_S (t) \cdot \nu \,
+  e^{\xi (e^{it} - 1)} \cdot \xi \, e^{it} \cdot i \\
+  \intertext{ed infine}
+  \left. \frac{\de \, \phi_S (t)}{\de t} \right|_{t=0} = i
+  \nu \xi \peq .
+  \intertext{La speranza matematica di una variabile che
+    segua la distribuzione composta di Poisson vale quindi}
+  E(S) = \nu \xi \peq , \\
+  \intertext{e, similmente, si potrebbero ottenere}
+  \var(S) = \nu \xi (1 + \xi) \\
+  \intertext{per la varianza, e}
+  \Pr (S) = \sum_{N=0}^\infty \left[ \frac{ (N \xi)^S }{ S!
+      } \, e^{- N \xi} \cdot \frac{ \nu^N }{ N! } \, e^{-
+      \nu} \right]
+\end{gather*}
+per la funzione di frequenza.
+
+Quest'ultima formula non sorprende: \`e la somma (su tutti i
+valori ammissibili) della probabilit\`a di ottenere un
+determinato $N$, moltiplicata per la probabilit\`a di
+ottenere il valore di $S$ condizionato da quello di $N$;
+infatti la somma di $N$ variabili indipendenti distribuite
+secondo Poisson con valore medio $\xi$ \`e ancora, in base a
+quanto dedotto dall'equazione \eqref{eq:8.sumpoi}, una
+variabile distribuita secondo Poisson e con valore medio $N
+\xi$.%
+\index{distribuzione!di Poisson!composta|)}
+
+\subsection{Esempio: l'osservazione di un quark isolato}
+Un esempio classico di applicazione delle formule precedenti
+\`e la discussione di un articolo del
+1969\/\footnote{McCusker e Cairns: Evidence of quarks in
+  air-shower cores; Phys.~Rev.~Lett.~\textbf{23} (1969),
+  pagg.~658--659.} in cui veniva annunciata l'osservazione
+di un quark isolato; l'esperienza ivi descritta consisteva
+nell'analizzare foto esposte in una camera a nebbia,
+attraversata da un fascio di particelle (aventi carica
+unitaria) che generavano tracce con un numero medio di gocce
+per unit\`a di lunghezza $\alpha = 229$: su $55\updot 000$
+tracce osservate ce ne era una con un numero di gocce per
+unit\`a di lunghezza $n = 110$.
+
+Questa traccia apparteneva indiscutibilmente al fascio di
+particelle; la probabilit\`a che venisse osservato un numero
+di gocce per unit\`a di lunghezza pari (o inferiore) a 110,
+se il fenomeno \`e descritto da una distribuzione di Poisson
+con media $229$, \`e data da
+\begin{equation*}
+  \Pr (n \le 110) \; = \; \sum_{k=0}^{110} \frac{ 229^k }{
+    k! } \, e^{- 229} \; \approx \; 1.6 \times 10^{-18}
+\end{equation*}
+e risulta ben inferiore (per 13 ordini di grandezza!) alla
+frequenza osservata $f = 1/55\updot 000 \approx 2 \times
+10^{-5}$.  Per questo motivo gli autori sostenevano di avere
+osservato una particella con carica frazionaria (un quark),
+e che causava in conseguenza una ionizzazione assai
+inferiore alle altre.
+
+Una prima obiezione\/\footnote{Adair e Kasha: Analysis of
+  some results of quark searches;
+  Phys.~Rev.~Lett.~\textbf{23} (1969), pagg.~1355--1358.} fu
+che, in ogni urto elementare tra le particelle del fascio e
+le molecole di gas della camera, vengono generati in media
+$\nu=4$ prodotti ionizzati indipendenti: e quindi 4 gocce.
+Il numero medio effettivo di urti per unit\`a di lunghezza
+era $229/4 = 57.25$, mentre la traccia osservata ne aveva
+invece $\lambda = 110/4 = 27.5$; la probabilit\`a di
+ottenere, per motivi puramente casuali, una fluttuazione
+almeno pari a quella osservata doveva essere quindi
+calcolata come probabilit\`a di avere meno di 28 eventi da
+una distribuzione di Poisson con valore medio 57.25, che
+vale
+\begin{equation*}
+  \Pr (n \le 110) \; = \; \sum_{k=0}^{27} \frac{ 57.25^k }{
+    k! } \, e^{- 57.25} \; \approx \; 6.7 \times 10^{-6}
+\end{equation*}
+ed \`e quindi assai maggiore di quanto venisse ipotizzato
+all'inizio dai due autori (pur mantenendosi pi\`u di 33
+volte superiore alla frequenza osservata).
+
+L'analisi del fenomeno \`e per\`o ancora pi\`u
+complessa\/\footnote{Eadie, Drijard, James, Roos e Sadoulet:
+  Statistical Methods in Experimental Physics; North-Holland
+  Publishing Co.\ (1971), pag.~53.}: il numero $u$ di urti
+elementari per unit\`a di lunghezza segue la distribuzione
+di Poisson con valore medio $\lambda=57.25$, ed ogni urto
+genera un numero di gocce che non \`e costante, ma segue
+anch'esso la distribuzione di Poisson con valore medio
+$\nu=4$; quindi il numero complessivo di gocce segue una
+legge di distribuzione che \`e quella \emph{composta di
+  Poisson}.
+
+La probabilit\`a di osservare $k$ gocce per unit\`a di
+lunghezza \`e quindi
+\begin{gather*}
+  \Pr(k) \; = \; \sum_{u=0}^\infty \left[ \frac{ (u \nu)^k
+      }{ k! } \, e^{- u \nu} \cdot \frac{ \lambda^u }{ u! }
+    e^{- \lambda} \right] \peq , \\
+  \intertext{e la probabilit\`a cercata vale}
+  \Pr (k \le 110) \; = \; \sum_{k=0}^{110} \Pr(k) \; \approx
+  \; 4.7 \times 10^{-5}
+\end{gather*}
+(ben compatibile quindi con quanto osservato).
+
+\subsection{Applicazione: segnale e fondo}
+Supponiamo di osservare sperimentalmente un processo fisico,
+per il quale il numero di eventi $s$ che potrebbero
+presentarsi in un intervallo temporale prefissato (eventi di
+\emph{segnale}) segua una distribuzione di Poisson con valore
+medio $S$, e che indicheremo col simbolo $P(s; S)$;
+\begin{equation*}
+  \Pr(s) \; = \; P(s; S) \; = \; \frac{S^s}{s!} \, e^{-S}
+  \peq :
+\end{equation*}
+in generale $S$ \`e ignoto, e ci si propone appunto di
+determinarlo dall'esperimento.  Questo problema verr\`a poi
+trattato anche nel paragrafo \ref{ch:11.stisuf} a pagina
+\pageref{ch:11.stisuf}, usando altri metodi; qui vogliamo
+solo vedere come, partendo dal dato di fatto consistente
+nell'osservazione effettiva di $N$ eventi in un singolo
+esperimento, si possa ricavare un \emph{limite superiore}
+sui possibili valori di $S$.
+
+Fissato arbitrariamente un valore della probabilit\`a
+$\epsilon$, si tratta di trovare il valore $S_u$ per il
+quale la probabilit\`a di osservare un numero di eventi non
+superiore ad $N$ vale proprio $\epsilon$: vale a dire,
+risolvere rispetto a $S_u$ l'equazione
+\begin{equation*}
+  \sum_{s=0}^N P(s; S_u) = \epsilon \peq ;
+\end{equation*}
+e diremo poi di poter affermare che $S \leq S_u$ con un
+\emph{livello di confidenza} $\epsilon$.  Il significato
+esatto della frase \`e che, se risultasse realmente $S \leq
+S_u$, in una frazione pari almeno ad $\epsilon$ di
+esperimenti analoghi a quello i cui risultati stiamo
+esaminando ci aspetteremmo di ottenere al massimo $N$ eventi
+come in esso.
+
+Le cose si complicano in presenza di processi fisici che
+possono produrre risultati che simulano il segnale: processi
+fisici che indicheremo col nome complessivo di \emph{fondo}.
+Se il fondo \`e presente, se \`e inoltre indipendente dal
+segnale e se segue la distribuzione di Poisson con valore
+medio \emph{noto} $F$, gi\`a sappiamo che la probabilit\`a
+di osservare $N$ eventi in tutto \emph{tra fondo e segnale}
+segue ancora la distribuzione di Poisson, con valore medio
+$F+S$:
+\begin{equation*}
+  \Pr(N) \; \equiv \; P(N; F + S) \; = \; \frac{\left( F + S
+    \right)^N}{N!} \, e^{- \left( F + S \right)} \peq .
+\end{equation*}
+
+Se sono stati realmente osservati $N$ eventi, si pu\`o
+ancora determinare un \emph{limite superiore per $S$};
+questo calcolando il valore $S_u$ per il quale la
+probabilit\`a di osservare un numero di eventi (tra fondo e
+segnale) non superiore a $N$ \emph{e condizionato all'avere
+  ottenuto un numero di eventi di fondo che non pu\`o
+  superare $N$} vale una quantit\`a predeterminata
+$\epsilon$.  Insomma, si tratta di risolvere, rispetto a
+$S_u$, l'equazione
+\begin{equation} \label{eq:8.poisint}
+  \frac{\sum\limits_{n=0}^N P(n; F +
+    S_u)}{\sum\limits_{f=0}^N P(f; F)} = \epsilon \peq ;
+\end{equation}
+e, con lo steso significato della frase prima evidenziato,
+potremo allora affermare che risulta $S \leq S_u$ con un
+libello di confidenza $\epsilon$.
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} \input poisint.pstex_t \end{center}
+  \caption[Limiti superiori sul segnale in presenza di fondo
+    noto]{I limiti superiori sul segnale, ad un livello di
+    confidenza fisso $\epsilon = 90\%$, in presenza di fondo noto.}
+  \label{fig:8.poisint}
+\end{figure}
+
+Nella figura \ref{fig:8.poisint}, che \`e tratta dal
+libretto pubblicato annualmente dal ``Particle Data Group''
+(vedi la bibliografia), si possono trovare gi\`a
+calcolate e rappresentate da curve continue le soluzioni
+dell'equazione \eqref{eq:8.poisint} relative ad un livello
+di confidenza fisso del 90\%.
+
+\section{La distribuzione log-normale}%
+\index{distribuzione!log-normale|(}
+Sia una variabile casuale $y$ avente distribuzione normale
+con media $\mu$ e varianza $\sigma^2$: la sua densit\`a di
+probabilit\`a sia insomma data dalla funzione
+\begin{gather*}
+  g(y) \; = \; N(y; \mu, \sigma) \; = \; \frac{1}{\sigma
+    \sqrt{2\pi}} \, e^{- \frac{1}{2 \sigma^2} \left( y - \mu
+    \right)^2 } \peq ; \\
+  \intertext{definiamo poi una nuova variabile casuale $x$
+    attraverso la relazione}
+  x = e^y \makebox[30mm]{$\Longleftrightarrow$} y = \ln x \\
+  \intertext{(la corrispondenza tra $x$ ed $y$ \`e
+    ovviamente biunivoca).  Il dominio di definizione della
+    $x$ \`e il semiasse $x > 0$ e, in base alla
+    \eqref{eq:6.cavaun}, la sua densit\`a di probabilit\`a
+    $f(x)$ sar\`a data da}
+  f(x) = \frac{1}{\sigma \sqrt{2\pi}} \, \frac{1}{x} \, e^{-
+    \frac{1}{2 \sigma^2} \left( \ln x - \mu \right)^2 } \peq
+  .
+\end{gather*}
+
+Questa funzione di frequenza si chiama \emph{log-normale};
+sfruttando l'identit\`a
+\begin{align*}
+  \frac{\left( y - \mu - k \sigma^2 \right)^2}{2 \sigma^2} -
+  k \mu - \frac{1}{2} k^2 \sigma^2 &= \frac{1}{2 \sigma^2}
+  \Bigl( y^2 + \mu^2 + k^2 \sigma^4 - 2 \mu y \\[1ex]
+  & \qquad  - 2 k \sigma^2 y + 2 k \mu \sigma^2 - 2 k \mu
+  \sigma^2 - k^2 \sigma^4 \Bigr) \\[1ex]
+  &= \frac{1}{2 \sigma^2} \left[ \left( y^2 - 2 \mu y +
+      \mu^2 \right) - 2 k \sigma^2 y \right] \\[1ex]
+  &= \frac{\left( y - \mu \right)^2}{2 \sigma^2} - k y
+\end{align*}
+se ne possono facilmente calcolare i momenti rispetto
+all'origine, che valgono
+\begin{align*}
+  \lambda_k &= \int_0^{+\infty} \! x^k \, f(x) \, \de x
+  \\[1ex]
+  &= \int_{-\infty}^{+\infty} \! e^{k y} \, g(y) \, \de y
+  \\[1ex]
+  &= \int_{-\infty}^{+\infty} \! \frac{1}{\sigma \sqrt{2
+      \pi}} \, e^{- \left[ \frac{\left( y - \mu \right)^2}{2
+      \sigma^2} - k y \right]} \, \de y \\[1ex]
+  &= e^{\left( k \mu + \frac{1}{2} k^2 \sigma^2 \right)}
+  \int_{-\infty}^{+\infty} \! \frac{1}{\sigma \sqrt{2 \pi}}
+  \, e^{- \frac{\left( y - \mu - k \sigma^2 \right)^2}{2
+      \sigma^2}} \, \de y \\[1ex]
+  &= e^{\left( k \mu + \frac{1}{2} k^2 \sigma^2 \right)}
+\end{align*}
+(infatti l'integrale \`e quello di una distribuzione normale
+avente $\mu + k \sigma^2$ come valore medio e $\sigma$ come
+varianza --- e vale dunque uno).
+
+In particolare
+\begin{align*}
+  E(x) &\equiv \lambda_1 \; = \; e^{\left( \mu +
+    \frac{\sigma^2}{2} \right)} \\[1ex]
+  E(x^2) &\equiv \lambda_2 \; = \; e^{\left( 2 \mu + 2
+      \sigma^2 \right) } \\[1ex]
+  \var(x) &= \lambda_2 - {\lambda_1}^2 \; = \; e^{\left( 2
+      \mu + \sigma^2 \right)} \left( e^{\sigma^2} - 1
+  \right)
+\end{align*}
+
+\begin{figure}[hbtp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{lognor.pstex_t}
+  } \end{center}
+  \caption[La distribuzione log-normale]
+    {La distribuzione log-normale, per vari valori dei
+    parametri ($\mu$ e $\sigma$) della funzione normale
+    di partenza.}
+  \label{fig:8.lognor}
+\end{figure}
+
+Nella figura \ref{fig:8.lognor} ci sono i grafici di alcune
+distribuzioni log-normali corrispondenti a vari valori dei
+parametri $\mu$ e $\sigma$ della funzione normale di
+partenza (\emph{non} della funzione di frequenza esaminata);
+per finire notiamo che, analogamente a quanto ricavato nel
+teorema di pagina \pageref{th:8.colino} per quanto attiene
+alle somme, si pu\`o dimostrare che il \emph{prodotto} di
+variabili casuali \emph{log-normali ed indipendenti} debba
+seguire \emph{una distribuzione log-normale}.%
+\index{distribuzione!log-normale|)}
+
+\section{La distribuzione normale in pi\`u dimensioni}%
+\index{distribuzione!normale bidimensionale|(}
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} \input bigau2.pstex_t \end{center}
+  \caption[Funzione normale bidimensionale]{La funzione
+    normale in due dimensioni, nel piano $\{ u, v \}$ delle
+    variabili standardizzate e per un coefficiente di
+    correlazione $r = 0.8$.}
+  \label{fig:8.bigau2}
+\end{figure}
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} \input bigau1.pstex_t \end{center}
+  \caption[Funzione normale bidimensionale (curve di
+    livello)]{La sole curve di livello della stessa funzione
+      rappresentata nella figura \ref{fig:8.bigau2}.}
+  \label{fig:8.bigau1}
+\end{figure}
+
+Accenniamo solo brevemente alla cosiddetta
+\emph{distribuzione normale bidimensionale}: per essa la
+densit\`a di probabilit\`a congiunta delle due variabili $x$
+ed $y$ \`e, nel caso generale, data dalla
+\begin{equation*}
+  f(x, y) = \frac{ e^{ \left\{ - \frac{1}{2 (1 - r^2)}
+        \left[ \left( \frac{x - \mu_x}{ \sigma_x }
+          \right)^2 - 2 r \frac{(x - \mu_x) (y - \mu_y
+            )}{\sigma_x  \,\sigma_y} + \left( \frac{y -
+              \mu_y}{ \sigma_y } \right)^2 \right]
+      \right\} } }{2 \pi \, \sigma_x \, \sigma_y \sqrt{1 -
+      r^2}}
+\end{equation*}
+o, espressa in funzione delle \emph{variabili
+  standardizzate}
+\begin{align*}
+  u &= \frac{x - E(x)}{\sigma_x} &&\text{e} & v &= \frac{y
+      - E(y)}{\sigma_y} \peq ,
+\end{align*}
+dalla
+\begin{equation*}
+  f(u,v) = \frac{ e^{ - \frac{1}{2} \frac{u^2 -2ruv +
+        v^2}{1 - r^2} } }{ 2 \pi \sqrt{1 - r^2} } \peq ;
+\end{equation*}
+un esempio \`e dato dalle figure \ref{fig:8.bigau2} e
+\ref{fig:8.bigau1}.
+
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} \input bigau3.pstex_t \end{center}
+  \caption[Funzione normale bidimensionale (probabilit\`a
+  condizionate)]{Le sezioni della figura \ref{fig:8.bigau2}
+    con due piani di equazione $y=1$ e $y=2$
+    rispettivamente: ovvero (a parte la normalizzazione) le
+    densit\`a di probabilit\`a condizionate $\pi(x | y=1)$ e
+    $\pi(x | y=2)$.}
+  \label{fig:8.bigau3}
+\end{figure}
+$r$ \`e il coefficiente di correlazione lineare tra $x$ ed
+$y$; $r = 0$ \`e condizione \emph{necessaria e sufficiente}
+perch\'e le due variabili siano statisticamente indipendenti
+tra loro.  Le due distribuzioni marginali $g(x)$ e $h(y)$
+sono due funzioni normali, aventi speranza matematica e
+varianza $\mu_x$ e ${\sigma_x}^2$ la prima, e $\mu_y$ e
+${\sigma_y}^2$ la seconda:
+\begin{align*}
+  g(x) &= N(x; \mu_x, \sigma_x) &&\text{e} &
+  h(y) &= N(y; \mu_y, \sigma_y) \peq .
+\end{align*}
+Le densit\`a di probabilit\`a condizionate sono anch'esse
+sempre delle funzioni normali; come esempio, nella figura
+\ref{fig:8.bigau3} si mostrano due di queste funzioni per
+la stessa distribuzione di figura \ref{fig:8.bigau2}.%
+\index{distribuzione!normale bidimensionale|)}
+
+Nel caso pi\`u generale, la densit\`a di probabilit\`a di
+una distribuzione di Gauss $N$-dimensionale \`e del tipo
+\begin{equation} \label{eq:8.multigauss}
+  f(x_1, x_2, \ldots, x_N) = K e^{- \frac{1}{2} H(x_1,
+    x_2, \ldots, x_N)} \peq ,
+\end{equation}
+ove $H$ \`e una \emph{forma quadratica} nelle variabili
+standardizzate
+\begin{equation*}
+  t_i = \frac{x_i - E(x_i)}{\sigma_i}
+\end{equation*}
+nella quale per\`o i coefficienti dei termini quadratici
+sono \emph{tutti uguali}; le $t_i$ non sono generalmente
+indipendenti tra loro, e quindi $H$ contiene anche i termini
+rettangolari del tipo $t_i \cdot t_j$.
+
+$K$, nella \eqref{eq:8.multigauss}, \`e un fattore di
+normalizzazione che vale
+\begin{equation*}
+  K = \sqrt{ \frac{ \Delta }{ ( 2 \pi )^N } } \peq ;
+\end{equation*}
+a sua volta, $\Delta$ \`e il determinante della matrice
+(\emph{simmetrica}) dei coefficienti della forma quadratica
+$H$.  La condizione, poi, che la $f$ di equazione
+\eqref{eq:8.multigauss} debba essere integrabile implica che
+le ipersuperfici di equazione $H = \mathrm{cost.}$ siano
+tutte al finito, e siano quindi \emph{iperellissi} nello
+spazio $N$-dimensionale dei parametri; le funzioni di
+distribuzione marginali e condizionate di \emph{qualsiasi}
+sottoinsieme delle variabili sono ancora \emph{sempre
+  normali}.
+
+Si pu\`o inoltre dimostrare che \emph{esiste sempre} un
+cambiamento di variabili $x_i \to y_k$ che muta $H$ nella
+cosiddetta \emph{forma canonica} (senza termini
+rettangolari); in tal caso
+\begin{gather*}
+  \Delta = \left[ \prod_{k=1}^N \var(y_k) \right]^{-1}
+  \intertext{e}
+  f(y_1,\ldots,y_k) = \frac{1}{\sqrt{\prod\limits_{k=1}^N
+      \left[ 2 \pi \var(y_k) \right] }} \, e^{- \frac{1}{2}
+    \sum\limits_{k=1}^N \frac{\left[ y_k - E(y_k)
+      \right]^2}{\var(y_k)} } \peq :
+\end{gather*}
+e le $y_k$ sono quindi tutte \emph{statisticamente
+  indipendenti} (oltre che normali).
+
+\endinput

@@ -1,0 +1,29 @@
+hist/del 0
+vect/del *
+set *
+igset *
+opt *
+fort/file 66 cauchy.eps
+graph/meta 66 -113
+opt nbox
+set *fon -130
+set *siz 0.4
+igset txfp -130
+igset txal 0
+set ndvx -210
+set ndvy -50204
+graph/hplot/null -10 10 0 0.4
+set dmod 1
+set fwid 2
+func/plot 0.3183098861*(1/(1+x*x)) -11 11 s
+set ltyp 12
+graph/prim/line 0 0 0 0.4
+graph/prim/line -1 0 -1 0.1591549431
+graph/prim/line -1 0.1591549431 1 0.1591549431
+graph/prim/line 1 0.1591549431 1 0
+set ltyp 15
+graph/prim/line -10 0.3183098861 10 0.3183098861
+graph/prim/line -10 0.1591549431 -1 0.1591549431
+graph/prim/line 1 0.1591549431 10 0.1591549431
+fort/close 66
+opt htit

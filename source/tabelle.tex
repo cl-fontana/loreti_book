@@ -1,0 +1,72 @@
+% $Id: tabelle.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{Tabelle}%
+\label{ch:f.tabelle}
+Nelle pagine seguenti sono riportati alcuni valori tabulati
+relativi alle distribuzioni normale, di Student, del
+$\chi^2$ e di Fisher.
+
+Per le tabelle della distribuzione normale, per i valori
+dell'ascissa compresi tra $0$ e $4$ sono state calcolate sia
+l'ordinata della funzione di Gauss standardizzata
+\begin{equation*}
+  y = f(x) = \frac{1}{\sqrt{2\pi}} \,
+    e^{-\frac{x^2}{2}}
+\end{equation*}
+che i valori $I_1$ ed $I_2$ di due differenti funzioni
+integrali:
+\begin{align*}
+  I_1 &= \int_{-x}^x \! f(t) \, \de t &&\text{e} &
+  I_2 &= \int_{-\infty}^x \! f(t) \, \de t \; .
+\end{align*}
+
+Per la distribuzione di Student, facendo variare il numero
+di gradi di libert\`a $N$ (nelle righe della tabella) da $1$
+a $40$, sono riportati i valori dell'ascissa $x$ che
+corrispondono a differenti aree $P$ (nelle colonne della
+tabella): in modo che, indicando con $S(t)$ la funzione di
+frequenza di Student,
+\begin{equation*}
+  P = \int_{-\infty}^x \! S(t) \, \de t \; .
+\end{equation*}
+
+Per la distribuzione del $\chi^2$, poi, e sempre per diversi
+valori di $N$, sono riportati i valori dell'ascissa $x$
+corrispondenti ad aree determinate $P$, cos\`\i\ che
+(indicando con $C(t)$ la funzione di frequenza del $\chi^2$)
+risulti
+\begin{equation*}
+  P = \int_0^x \! C(t) \, \de t \; .
+\end{equation*}
+
+Per la distribuzione di Fisher, infine, per i soli due
+valori 0.95 e 0.99 del livello di confidenza $P$, sono
+riportati (per differenti gradi di libert\`a $M$ ed $N$) le
+ascisse $x$ che corrispondono ad aree uguali al livello di
+confidenza prescelto; ossia (indicando con $F(w)$ la
+funzione di Fisher) tali che
+\begin{equation} \label{eq:tabfish}
+  P = \int_0^x \! F(w) \, \de w \; .
+\end{equation}
+
+Per calcolare i numeri riportati in queste tabelle si \`e
+usato un programma in linguaggio \verb|C| che si serve delle
+costanti matematiche e delle procedure di calcolo numerico
+della \emph{GNU Scientific Library} (GSL); chi volesse
+maggiori informazioni al riguardo le pu\`o trovare sul sito
+web della \emph{Free Software Foundation}, sotto la URL
+\verb|http://www.gnu.org/software/gsl/|.
+
+La GSL contiene procedure per il calcolo numerico sia delle
+funzioni di frequenza che di quelle cumulative per tutte le
+funzioni considerate in questa appendice; e per tutte, meno
+che per la funzione di Fisher, anche procedure per invertire
+le distribuzioni cumulative.  Per trovare l'ascissa $x$ per
+cui l'integrale \eqref{eq:tabfish} raggiunge un valore
+prefissato si \`e usato il pacchetto della GSL che permette
+di trovare gli zeri di una funzione definita dall'utente in
+un intervallo arbitrario.
+
+\clearpage
+\input tabout
+\endinput

@@ -1,0 +1,521 @@
+\indexentry{metodo!scientifico|(}{2}
+\indexentry{metodo!scientifico|)}{3}
+\indexentry{misure!dirette}{5}
+\indexentry{misure!indirette}{5}
+\indexentry{unit\`a di misura!fondamentali e derivate|(}{6}
+\indexentry{Sistema Internazionale}{6}
+\indexentry{dimensioni (delle grandezze fisiche)|(}{6}
+\indexentry{dimensioni (delle grandezze fisiche)|)}{7}
+\indexentry{Planck, Max Karl Ernst Ludwig}{7}
+\indexentry{unit\`a di misura!naturali}{7}
+\indexentry{unit\`a di misura!fondamentali e derivate|)}{9}
+\indexentry{strumenti di misura|(}{9}
+\indexentry{strumenti di misura!caratteristiche|(}{10}
+\indexentry{strumenti di misura!caratteristiche|)}{11}
+\indexentry{strumenti di misura|)}{12}
+\indexentry{errori di misura!casuali}{12}
+\indexentry{errori di misura!sistematici|(emidx}{12}
+\indexentry{pendolo, periodo del|(}{14}
+\indexentry{pendolo, periodo del|)}{15}
+\indexentry{errori di misura!sistematici|)}{16}
+\indexentry{errori di misura!casuali|(emidx}{16}
+\indexentry{errori di misura!casuali|)}{17}
+\indexentry{cifre significative|(emidx}{17}
+\indexentry{arrotondamenti|see{cifre significative}}{17}
+\indexentry{cifre significative|)}{18}
+\indexentry{errore!relativo|(}{18}
+\indexentry{errore!relativo|)}{18}
+\indexentry{casuali!eventi|(}{19}
+\indexentry{casuali!eventi|)}{20}
+\indexentry{casuali!variabili|(emidx}{20}
+\indexentry{casuali!variabili|)}{20}
+\indexentry{probabilit\`a!definizione!classica}{20}
+\indexentry{von Mises, Richard}{21}
+\indexentry{probabilit\`a!definizione!empirica|(}{21}
+\indexentry{frequenza!relativa}{21}
+\indexentry{frequenza!assoluta}{21}
+\indexentry{probabilit\`a!definizione!empirica|)}{21}
+\indexentry{complementare, evento}{22}
+\indexentry{probabilit\`a!totale (teorema della)|(}{23}
+\indexentry{probabilit\`a!totale (teorema della)|)}{23}
+\indexentry{probabilit\`a!condizionata}{24}
+\indexentry{probabilit\`a!composta (teorema della)|(}{24}
+\indexentry{statistica!indipendenza|(}{24}
+\indexentry{statistica!indipendenza|)}{24}
+\indexentry{probabilit\`a!composta (teorema della)|)}{24}
+\indexentry{statistica!indipendenza|(}{24}
+\indexentry{de Moivre!Abraham}{24}
+\indexentry{statistica!indipendenza|)}{25}
+\indexentry{Bayes, teorema di|(}{25}
+\indexentry{Bayes, teorema di|)}{26}
+\indexentry{probabilit\`a!definizione!assiomatica|(}{27}
+\indexentry{probabilit\`a!definizione!assiomatica|)}{27}
+\indexentry{Kolmogorov, Andrei Nikolaevich}{27}
+\indexentry{probabilit\`a!totale (teorema della)}{28}
+\indexentry{probabilit\`a!condizionata}{28}
+\indexentry{probabilit\`a!composta (teorema della)}{28}
+\indexentry{statistica!convergenza|(}{28}
+\indexentry{limite debole|see{statistica, convergenza}}{28}
+\indexentry{grandi numeri, legge dei|(}{28}
+\indexentry{grandi numeri, legge dei|)}{29}
+\indexentry{statistica!convergenza|)}{29}
+\indexentry{istogrammi|(emidx}{31}
+\indexentry{classi di frequenza|emidx}{32}
+\indexentry{istogrammi|)}{33}
+\indexentry{frequenza!cumulativa|(}{33}
+\indexentry{frequenza!cumulativa|)}{33}
+\indexentry{stime!di tendenza centrale|(}{33}
+\indexentry{grandi numeri, legge dei}{33}
+\indexentry{moda|(}{35}
+\indexentry{moda|)}{35}
+\indexentry{mediana|(}{35}
+\indexentry{mediana|)}{37}
+\indexentry{media!aritmetica!come stima di tendenza centrale|(}{37}
+\indexentry{media!aritmetica!propriet\`a matematiche|(}{37}
+\indexentry{media!aritmetica!propriet\`a matematiche|)}{38}
+\indexentry{media!aritmetica!come stima di tendenza centrale|)}{38}
+\indexentry{stime!di tendenza centrale|)}{38}
+\indexentry{media!geometrica}{38}
+\indexentry{media!armonica}{38}
+\indexentry{media!quadratica}{38}
+\indexentry{distribuzione!di Maxwell--Boltzmann}{40}
+\indexentry{media!aritmetica!come stima del valore vero|(}{40}
+\indexentry{media!aritmetica!come stima del valore vero|)}{41}
+\indexentry{media!pesata|(}{41}
+\indexentry{media!pesata|)}{41}
+\indexentry{media!aritmetica!propriet\`a matematiche|(}{41}
+\indexentry{media!aritmetica!come stima del valore vero}{41}
+\indexentry{media!aritmetica!propriet\`a matematiche|)}{42}
+\indexentry{stime!di dispersione|(}{42}
+\indexentry{semidispersione massima|(}{42}
+\indexentry{dispersione massima|see{semidispersione massima}}{42}
+\indexentry{range}{42}
+\indexentry{semidispersione massima|)}{42}
+\indexentry{quantili|(}{42}
+\indexentry{quartili|see{quantili}}{42}
+\indexentry{decili|see{quantili}}{42}
+\indexentry{percentili|see{quantili}}{42}
+\indexentry{quantili|)}{43}
+\indexentry{errore!medio|(}{43}
+\indexentry{deviazione media assoluta|see{errore medio}}{43}
+\indexentry{errore!medio|)}{43}
+\indexentry{varianza|(}{43}
+\indexentry{errore!quadratico medio|(}{43}
+\indexentry{varianza!propriet\`a matematiche|(}{44}
+\indexentry{varianza!propriet\`a matematiche|)}{44}
+\indexentry{errore!quadratico medio|)}{44}
+\indexentry{varianza|)}{44}
+\indexentry{stime!di dispersione|)}{44}
+\indexentry{media!aritmetica!come stima del valore vero|(}{44}
+\indexentry{Gauss, Karl Friedrich}{44}
+\indexentry{errore!della media|(}{45}
+\indexentry{errore!della media|)}{45}
+\indexentry{media!aritmetica!come stima del valore vero|)}{45}
+\indexentry{campione}{47}
+\indexentry{popolazione}{47}
+\indexentry{casuali!variabili|(}{48}
+\indexentry{casuali!variabili|)}{48}
+\indexentry{speranza matematica|(}{49}
+\indexentry{distribuzione!di Cauchy}{49}
+\indexentry{speranza matematica|)}{49}
+\indexentry{varianza!della popolazione|(emidx}{49}
+\indexentry{varianza!della popolazione|)}{50}
+\indexentry{grandi numeri, legge dei}{50}
+\indexentry{speranza matematica!di combinazioni lineari|(}{50}
+\indexentry{combinazioni lineari!speranza matematica|(}{50}
+\indexentry{combinazioni lineari!speranza matematica|)}{51}
+\indexentry{speranza matematica!di combinazioni lineari|)}{51}
+\indexentry{speranza matematica!della media aritmetica|(}{51}
+\indexentry{speranza matematica!della media aritmetica|)}{51}
+\indexentry{varianza!di combinazioni lineari!di variabili indipendenti|(}{51}
+\indexentry{combinazioni lineari!varianza!di variabili indipendenti|(}{51}
+\indexentry{combinazioni lineari!varianza!di variabili indipendenti|)}{54}
+\indexentry{varianza!di combinazioni lineari!di variabili indipendenti|)}{54}
+\indexentry{varianza!della media aritmetica|(}{54}
+\indexentry{varianza!della media aritmetica|)}{54}
+\indexentry{grandi numeri, legge dei|(emidx}{55}
+\indexentry{Bienaym\'e--\v Ceby\v sef, disuguaglianza di|(}{55}
+\indexentry{Bienaym\'e, Ir\'en\'ee-Jules}{55}
+\indexentry{Ceby@\v Ceby\v sef!Pafnuty Lvovi\v c}{55}
+\indexentry{Bienaym\'e--\v Ceby\v sef, disuguaglianza di|)}{56}
+\indexentry{Gauss, Karl Friedrich}{56}
+\indexentry{Ceby@\v Ceby\v sef!teorema di|(emidx}{57}
+\indexentry{Ceby@\v Ceby\v sef!teorema di|)}{57}
+\indexentry{Bernoulli!teorema di|(}{57}
+\indexentry{Bernoulli!teorema di|)}{58}
+\indexentry{grandi numeri, legge dei|)}{58}
+\indexentry{media!aritmetica!come stima del valore vero|(}{58}
+\indexentry{errori di misura!casuali}{58}
+\indexentry{errori di misura!sistematici}{58}
+\indexentry{media!aritmetica!come stima del valore vero|)}{59}
+\indexentry{varianza!della popolazione e di campioni|(}{59}
+\indexentry{stima!imparziale}{59}
+\indexentry{stima!imparziale}{61}
+\indexentry{varianza!della popolazione e di campioni|)}{63}
+\indexentry{probabilit\`a!densit\`a di|(emidx}{65}
+\indexentry{istogrammi|(}{65}
+\indexentry{istogrammi|)}{67}
+\indexentry{probabilit\`a!densit\`a di|)}{68}
+\indexentry{funzione!di distribuzione|(emidx}{68}
+\indexentry{normalizzazione!condizione di|emidx}{68}
+\indexentry{funzione!di distribuzione|)}{68}
+\indexentry{speranza matematica!per variabili continue|(emidx}{69}
+\indexentry{Ceby@\v Ceby\v sef!teorema di}{69}
+\indexentry{speranza matematica!per variabili continue|)}{69}
+\indexentry{momenti|(}{69}
+\indexentry{coefficiente!di asimmetria}{71}
+\indexentry{asimmetria|see{coefficiente di asimmetria}}{71}
+\indexentry{coefficiente!di curtosi|(}{71}
+\indexentry{curtosi|see{coefficiente di curtosi}}{71}
+\indexentry{coefficiente!di curtosi|)}{71}
+\indexentry{momenti|)}{71}
+\indexentry{funzione!generatrice dei momenti|(}{71}
+\indexentry{momenti!funzione generatrice|see{funzione generatrice dei momenti}}{71}
+\indexentry{funzione!generatrice dei momenti|)}{72}
+\indexentry{funzione!caratteristica|(}{72}
+\indexentry{funzione!caratteristica|)}{73}
+\indexentry{Fourier, trasformata di}{73}
+\indexentry{Fourier, trasformata di}{73}
+\indexentry{funzione!caratteristica!di somme di variabili|(}{74}
+\indexentry{funzione!caratteristica!di somme di variabili|)}{75}
+\indexentry{funzione!caratteristica!per variabili discrete|(}{75}
+\indexentry{somma di un numero casuale di variabili discrete|(}{76}
+\indexentry{somma di un numero casuale di variabili discrete|)}{76}
+\indexentry{funzione!caratteristica!per variabili discrete|)}{76}
+\indexentry{cambiamento di variabile casuale|(}{77}
+\indexentry{cambiamento di variabile casuale|)}{78}
+\indexentry{funzione!generatrice dei momenti!per trasformazioni lineari|(}{78}
+\indexentry{funzione!caratteristica!per trasformazioni lineari|(}{78}
+\indexentry{funzione!caratteristica!per trasformazioni lineari|)}{78}
+\indexentry{funzione!generatrice dei momenti!per trasformazioni lineari|)}{78}
+\indexentry{campione!valori estremi|(emidx}{78}
+\indexentry{campione!valori estremi|)}{79}
+\indexentry{probabilit\`a!densit\`a di}{81}
+\indexentry{funzione!di distribuzione}{81}
+\indexentry{probabilit\`a!funzione marginale}{82}
+\indexentry{normalizzazione!condizione di}{82}
+\indexentry{probabilit\`a!condizionata|(}{82}
+\indexentry{statistica!indipendenza|(}{82}
+\indexentry{statistica!indipendenza|)}{82}
+\indexentry{probabilit\`a!condizionata|)}{82}
+\indexentry{speranza matematica!per variabili continue}{83}
+\indexentry{momenti|(}{83}
+\indexentry{momenti|)}{83}
+\indexentry{covarianza}{83}
+\indexentry{correlazione lineare, coefficiente di}{83}
+\indexentry{funzione!caratteristica}{84}
+\indexentry{funzione!generatrice dei momenti}{84}
+\indexentry{cambiamento di variabile casuale|(}{84}
+\indexentry{Jacobiano!determinante|(}{84}
+\indexentry{Jacobiano!determinante|)}{85}
+\indexentry{cambiamento di variabile casuale|)}{85}
+\indexentry{rapporto di variabili|(}{85}
+\indexentry{rapporto di variabili|)}{86}
+\indexentry{vita media}{86}
+\indexentry{branching ratio}{86}
+\indexentry{campione!valori estremi|(}{87}
+\indexentry{campione!valori estremi|)}{88}
+\indexentry{probabilit\`a!densit\`a di|(}{88}
+\indexentry{probabilit\`a!densit\`a di|)}{89}
+\indexentry{probabilit\`a!funzione marginale|(emidx}{89}
+\indexentry{probabilit\`a!funzione marginale|)}{89}
+\indexentry{normalizzazione!condizione di}{89}
+\indexentry{probabilit\`a!condizionata|(}{89}
+\indexentry{probabilit\`a!condizionata|)}{89}
+\indexentry{statistica!indipendenza|(}{89}
+\indexentry{statistica!indipendenza|)}{90}
+\indexentry{cambiamento di variabile casuale|(}{90}
+\indexentry{Jacobiano, determinante|emidx}{90}
+\indexentry{cambiamento di variabile casuale|)}{91}
+\indexentry{distribuzione!uniforme|(emidx}{93}
+\indexentry{distribuzione!uniforme|)}{94}
+\indexentry{pseudo-casuali, numeri|(}{96}
+\indexentry{funzione!di distribuzione|(}{96}
+\indexentry{funzione!di distribuzione|)}{96}
+\indexentry{metodo!dei rigetti|(}{96}
+\indexentry{metodo!dei rigetti|)}{99}
+\indexentry{pseudo-casuali, numeri|)}{99}
+\indexentry{campione!valori estremi|(}{99}
+\indexentry{distribuzione!uniforme!range|(}{100}
+\indexentry{distribuzione!uniforme!range|)}{100}
+\indexentry{campione!valori estremi|)}{100}
+\indexentry{distribuzione!normale|(emidx}{101}
+\indexentry{combinazioni lineari!di variabili normali|(}{103}
+\indexentry{combinazioni lineari!di variabili normali|)}{104}
+\indexentry{distribuzione!normale|)}{104}
+\indexentry{distribuzione!di Cauchy|(emidx}{104}
+\indexentry{distribuzione!di Breit--Wigner|see{distribuzione di Cauchy}}{104}
+\indexentry{combinazioni lineari!di variabili di Cauchy|(}{107}
+\indexentry{combinazioni lineari!di variabili di Cauchy|)}{107}
+\indexentry{distribuzione!di Cauchy|)}{107}
+\indexentry{rapporto di variabili!normali|(}{107}
+\indexentry{rapporto di variabili!normali|)}{108}
+\indexentry{distribuzione!di Bernoulli|(}{108}
+\indexentry{binomiale, distribuzione|see{distribuzione di Bernoulli}}{108}
+\indexentry{Bernoulli!Jacob (o Jacques)}{109}
+\indexentry{distribuzione!di Bernoulli!e distribuzione normale|(}{110}
+\indexentry{distribuzione!di Bernoulli!e distribuzione normale|)}{113}
+\indexentry{distribuzione!di Bernoulli|)}{113}
+\indexentry{vita media}{113}
+\indexentry{rapporto di asimmetria|see{asimmetria, rapporto di}}{114}
+\indexentry{asimmetria, rapporto di|(}{114}
+\indexentry{asimmetria, rapporto di|)}{115}
+\indexentry{distribuzione!binomiale negativa|(}{115}
+\indexentry{binomiale negativa,   distribuzione|see{distribuzione binomiale negativa}}{115}
+\indexentry{distribuzione!geometrica|(}{116}
+\indexentry{distribuzione!geometrica|)}{116}
+\indexentry{distribuzione!binomiale negativa|)}{116}
+\indexentry{distribuzione!di Poisson|(}{116}
+\indexentry{Poisson!distribuzione di|see{distribuzione di Poisson}}{116}
+\indexentry{Poisson!Sim\'eon Denis}{118}
+\indexentry{distribuzione!di Poisson!e distribuzione di Bernoulli|(}{118}
+\indexentry{distribuzione!di Poisson!e distribuzione di Bernoulli|)}{118}
+\indexentry{distribuzione!di Poisson!e distribuzione normale|(}{121}
+\indexentry{distribuzione!di Poisson!e distribuzione normale|)}{121}
+\indexentry{distribuzione!di Poisson|)}{121}
+\indexentry{asimmetria, rapporto di|(}{122}
+\indexentry{asimmetria, rapporto di|)}{124}
+\indexentry{distribuzione!esponenziale|(}{124}
+\indexentry{distribuzione!esponenziale|)}{126}
+\indexentry{distribuzione!di Erlang|(}{126}
+\indexentry{Erlang!distribuzione di|see{distribuzione di Erlang}}{126}
+\indexentry{Erlang!Agner Krarup}{126}
+\indexentry{distribuzione!di Erlang|)}{127}
+\indexentry{distribuzione!di Poisson!composta|(}{128}
+\indexentry{distribuzione!di Poisson!composta|)}{129}
+\indexentry{distribuzione!log-normale|(}{132}
+\indexentry{distribuzione!log-normale|)}{133}
+\indexentry{distribuzione!normale bidimensionale|(}{135}
+\indexentry{distribuzione!normale bidimensionale|)}{138}
+\indexentry{distribuzione!normale|(emidx}{141}
+\indexentry{de Moivre!Abraham}{141}
+\indexentry{Laplace!Pierre Simon de}{141}
+\indexentry{normalizzazione!condizione di}{142}
+\indexentry{Laplace!Pierre Simon de}{142}
+\indexentry{Gauss, Karl Friedrich|emidx}{142}
+\indexentry{Laplace!Pierre Simon de}{142}
+\indexentry{modulo di precisione della misura|emidx}{142}
+\indexentry{media!aritmetica!come stima del valore vero}{144}
+\indexentry{errore!medio!della distribuzione normale}{144}
+\indexentry{errore!medio!della distribuzione normale}{145}
+\indexentry{errore!quadratico medio!della distribuzione normale|(emidx}{145}
+\indexentry{errore!medio!della distribuzione normale|(}{145}
+\indexentry{modulo di precisione della misura|(}{145}
+\indexentry{modulo di precisione della misura|)}{146}
+\indexentry{errore!medio!della distribuzione normale|)}{146}
+\indexentry{errore!quadratico medio!della distribuzione normale|)}{146}
+\indexentry{scarto normalizzato|(}{146}
+\indexentry{scarto normalizzato|)}{147}
+\indexentry{errore!quadratico medio!della distribuzione normale|(}{147}
+\indexentry{errore!quadratico medio!della distribuzione normale|)}{149}
+\indexentry{distribuzione!normale|)}{149}
+\indexentry{errori di misura!sistematici|(}{150}
+\indexentry{metodo!del $\chi^2$}{150}
+\indexentry{errori di misura!sistematici|)}{150}
+\indexentry{istogrammi!e curva normale|(}{150}
+\indexentry{normalizzazione!della funzione normale agli istogrammi|(}{150}
+\indexentry{normalizzazione!della funzione normale agli istogrammi|)}{151}
+\indexentry{istogrammi!e curva normale|)}{151}
+\indexentry{esame dei dati|(emidx}{152}
+\indexentry{esame dei dati|)}{153}
+\indexentry{limite centrale, teorema del|(}{154}
+\indexentry{media!aritmetica!come stima del valore vero|(}{156}
+\indexentry{media!aritmetica!come stima del valore vero|)}{156}
+\indexentry{limite centrale, teorema del|)}{156}
+\indexentry{pseudo-casuali, numeri!con distribuzione normale|(}{157}
+\indexentry{Box--Muller, metodo di|(}{157}
+\indexentry{Jacobiano, determinante}{158}
+\indexentry{Box--Muller, metodo di|)}{159}
+\indexentry{pseudo-casuali, numeri!con distribuzione normale|)}{159}
+\indexentry{misure!indirette|(}{161}
+\indexentry{stima!imparziale}{163}
+\indexentry{propagazione degli errori, formula di|(emidx}{164}
+\indexentry{propagazione degli errori, formula di|)}{165}
+\indexentry{misure!indirette|)}{165}
+\indexentry{propagazione degli errori, formula di!per prodotti di potenze|(}{165}
+\indexentry{propagazione degli errori, formula di!per prodotti di potenze|)}{165}
+\indexentry{errore!massimo|(}{166}
+\indexentry{propagazione degli errori, formula di!per errori massimi|(}{166}
+\indexentry{propagazione degli errori, formula di!per errori massimi|)}{166}
+\indexentry{errore!massimo|)}{166}
+\indexentry{Fisher, sir Ronald Aylmer|emidx}{167}
+\indexentry{stime|(}{167}
+\indexentry{Cram\'er--Rao, teorema di}{168}
+\indexentry{stima!sufficiente|(emidx}{170}
+\indexentry{stima!sufficiente|)}{170}
+\indexentry{stime|)}{170}
+\indexentry{massima verosimiglianza, metodo della|(emidx}{170}
+\indexentry{funzione!di verosimiglianza|(emidx}{170}
+\indexentry{funzione!di verosimiglianza|)}{171}
+\indexentry{massima verosimiglianza, metodo della|)}{171}
+\indexentry{Cram\'er--Rao, teorema di|(}{171}
+\indexentry{Cram\'er--Rao, teorema di|)}{172}
+\indexentry{stima!sufficiente|(}{173}
+\indexentry{stima!sufficiente|)}{174}
+\indexentry{media!pesata|(emidx}{176}
+\indexentry{Cram\'er--Rao, teorema di}{177}
+\indexentry{media!pesata|)}{177}
+\indexentry{esame dei dati|(}{177}
+\indexentry{esame dei dati|)}{178}
+\indexentry{media!aritmetica!come stima del valore vero|(emidx}{178}
+\indexentry{media!aritmetica!come stima del valore vero|)}{178}
+\indexentry{interpolazione lineare|(emidx}{179}
+\indexentry{funzione!di verosimiglianza|(}{179}
+\indexentry{funzione!di verosimiglianza|)}{180}
+\indexentry{Cram\'er--Rao, teorema di}{180}
+\indexentry{residui|emidx}{180}
+\indexentry{minimi quadrati, formule dei|emidx}{181}
+\indexentry{interpolazione lineare|)}{183}
+\indexentry{errore!a posteriori|(emidx}{183}
+\indexentry{errore!a posteriori|)}{184}
+\indexentry{interpolazione lineare!con una retta per l'origine|(}{184}
+\indexentry{errore!a posteriori}{185}
+\indexentry{interpolazione lineare!con una retta per l'origine|)}{185}
+\indexentry{interpolazione lineare|(}{186}
+\indexentry{interpolazione lineare|)}{187}
+\indexentry{massima verosimiglianza, metodo della|(}{188}
+\indexentry{partizioni ordinate}{188}
+\indexentry{media!aritmetica!e varianza}{191}
+\indexentry{varianza!e media aritmetica}{191}
+\indexentry{distribuzione!uniforme!range|(}{191}
+\indexentry{distribuzione!uniforme!range|)}{192}
+\indexentry{massima verosimiglianza, metodo della|)}{192}
+\indexentry{vita media|(}{192}
+\indexentry{vita media|)}{194}
+\indexentry{Gosset, William (``Student'')}{195}
+\indexentry{Student|see{Gosset, William}}{195}
+\indexentry{distribuzione!del $\chi^2$|(}{195}
+\indexentry{Fourier, trasformata di}{196}
+\indexentry{distribuzione!del $\chi^2$!e distribuzione normale|(}{198}
+\indexentry{distribuzione!del $\chi^2$!e distribuzione normale|)}{199}
+\indexentry{distribuzione!del $\chi^2$!regola di somma}{199}
+\indexentry{Kronecker, delta di}{200}
+\indexentry{media!aritmetica!e varianza|emidx}{203}
+\indexentry{varianza!e media aritmetica|emidx}{203}
+\indexentry{distribuzione!del $\chi^2$|)}{203}
+\indexentry{compatibilit\`a!con una distribuzione|(}{203}
+\indexentry{classi di frequenza|(}{203}
+\indexentry{classi di frequenza|)}{204}
+\indexentry{compatibilit\`a!con una distribuzione|)}{205}
+\indexentry{metodo!del minimo $\chi^2$|(}{205}
+\indexentry{massima verosimiglianza, metodo della|(}{209}
+\indexentry{massima verosimiglianza, metodo della|)}{209}
+\indexentry{metodo!del minimo $\chi^2$|)}{209}
+\indexentry{partizioni ordinate}{209}
+\indexentry{compatibilit\`a!tra dati sperimentali|(}{210}
+\indexentry{omogeneit\`a, test di|see{compatibilit\`a tra dati sperimentali}}{210}
+\indexentry{classi di frequenza}{210}
+\indexentry{contingenze, tabella delle}{210}
+\indexentry{compatibilit\`a!tra dati sperimentali|)}{212}
+\indexentry{compatibilit\`a!con un valore|(}{214}
+\indexentry{two-tailed test}{217}
+\indexentry{one-tailed test}{217}
+\indexentry{compatibilit\`a!con un valore|)}{217}
+\indexentry{piccoli campioni|(}{217}
+\indexentry{distribuzione!di Student|(emidx}{217}
+\indexentry{distribuzione!di Student!e distribuzione normale}{219}
+\indexentry{distribuzione!di Student|)}{220}
+\indexentry{piccoli campioni|)}{220}
+\indexentry{compatibilit\`a!tra valori misurati|(}{220}
+\indexentry{piccoli campioni|(}{221}
+\indexentry{distribuzione!di Student}{222}
+\indexentry{piccoli campioni|)}{222}
+\indexentry{compatibilit\`a!tra valori misurati|)}{222}
+\indexentry{distribuzione!di Fisher|(}{222}
+\indexentry{distribuzione!di Fisher|)}{224}
+\indexentry{compatibilit\`a!tra varianze|(}{224}
+\indexentry{compatibilit\`a!tra varianze|)}{224}
+\indexentry{Kolmogorov e Smirnov, test di|(}{225}
+\indexentry{compatibilit\`a!con una distribuzione|(}{225}
+\indexentry{compatibilit\`a!tra dati sperimentali|(}{225}
+\indexentry{Kolmogorov, Andrei Nikolaevich}{225}
+\indexentry{compatibilit\`a!tra dati sperimentali|)}{226}
+\indexentry{compatibilit\`a!con una distribuzione|)}{226}
+\indexentry{Kolmogorov e Smirnov, test di|)}{226}
+\indexentry{ipotesi!nulla}{228}
+\indexentry{ipotesi!alternativa}{228}
+\indexentry{errore!di prima specie}{228}
+\indexentry{errore!di seconda specie}{228}
+\indexentry{significanza}{228}
+\indexentry{potenza}{228}
+\indexentry{funzione!di verosimiglianza|(}{229}
+\indexentry{Neyman--Pearson, lemma di|(}{232}
+\indexentry{Neyman--Pearson, lemma di|)}{234}
+\indexentry{metodo!del rapporto delle massime verosimiglianze|(}{235}
+\indexentry{metodo!del rapporto delle massime verosimiglianze|)}{237}
+\indexentry{funzione!di verosimiglianza|)}{242}
+\indexentry{calcolo combinatorio|(}{243}
+\indexentry{calcolo combinatorio!lemma fondamentale|(}{243}
+\indexentry{calcolo combinatorio!lemma fondamentale|)}{243}
+\indexentry{disposizioni|(}{244}
+\indexentry{disposizioni|)}{244}
+\indexentry{permutazioni|(}{245}
+\indexentry{permutazioni|)}{245}
+\indexentry{permutazioni!con ripetizione|(}{245}
+\indexentry{permutazioni!con ripetizione|)}{245}
+\indexentry{combinazioni|(}{245}
+\indexentry{coefficienti binomiali}{245}
+\indexentry{coefficienti binomiali|(}{246}
+\indexentry{coefficienti binomiali|)}{246}
+\indexentry{combinazioni|)}{246}
+\indexentry{partizioni ordinate|(emidx}{246}
+\indexentry{partizioni ordinate|)}{247}
+\indexentry{calcolo combinatorio|)}{247}
+\indexentry{errore!della varianza stimata}{253}
+\indexentry{errore!dell'errore stimato}{254}
+\indexentry{cifre significative|(}{254}
+\indexentry{cifre significative|)}{254}
+\indexentry{covarianza|(emidx}{255}
+\indexentry{statistica!indipendenza|(}{256}
+\indexentry{statistica!indipendenza|)}{256}
+\indexentry{combinazioni lineari!varianza!di variabili correlate|(}{256}
+\indexentry{varianza!di combinazioni lineari!di variabili correlate|(}{256}
+\indexentry{covarianza!matrice di|(emidx}{257}
+\indexentry{covarianza!matrice di|)}{257}
+\indexentry{varianza!di combinazioni lineari!di variabili correlate|)}{258}
+\indexentry{combinazioni lineari!varianza!di variabili correlate|)}{258}
+\indexentry{combinazioni lineari!e loro correlazione}{258}
+\indexentry{covarianza|)}{259}
+\indexentry{correlazione lineare, coefficiente di|(emidx}{259}
+\indexentry{statistica!indipendenza}{259}
+\indexentry{correlazione lineare, coefficiente di|)}{260}
+\indexentry{propagazione degli errori, formula di|(}{261}
+\indexentry{covarianza!matrice di}{261}
+\indexentry{propagazione degli errori, formula di|)}{261}
+\indexentry{interpolazione lineare|(}{262}
+\indexentry{minimi quadrati, formule dei}{262}
+\indexentry{residui}{263}
+\indexentry{correlazione lineare, coefficiente di|(}{263}
+\indexentry{errore!a posteriori}{264}
+\indexentry{correlazione lineare, coefficiente di|)}{264}
+\indexentry{correlazione lineare, coefficiente di|(}{264}
+\indexentry{distribuzione!di Student}{264}
+\indexentry{Fisher, sir Ronald Aylmer}{265}
+\indexentry{correlazione lineare, coefficiente di|)}{265}
+\indexentry{covarianza!dei coefficienti della retta interpolante}{267}
+\indexentry{distribuzione!di Student}{269}
+\indexentry{residui}{269}
+\indexentry{run test|(}{270}
+\indexentry{residui|(}{270}
+\indexentry{residui|)}{272}
+\indexentry{run test|)}{273}
+\indexentry{interpolazione lineare|)}{273}
+\indexentry{media!aritmetica!e varianza}{275}
+\indexentry{varianza!e media aritmetica}{275}
+\indexentry{distribuzione!normale|(}{277}
+\indexentry{Laplace!modello di|(}{277}
+\indexentry{Laplace!Pierre Simon de|emidx}{277}
+\indexentry{de Moivre!e Stirling, formula di}{279}
+\indexentry{Stirling, James}{279}
+\indexentry{de Moivre!Abraham}{279}
+\indexentry{Laplace!modello di|)}{282}
+\indexentry{distribuzione!normale|)}{282}
+\indexentry{stima!imparziale|emidx}{283}
+\indexentry{Cram\'er--Rao, teorema di|(emidx}{284}
+\indexentry{massima verosimiglianza, metodo della|(}{288}
+\indexentry{massima verosimiglianza, metodo della|)}{289}
+\indexentry{Cram\'er--Rao, teorema di|)}{289}
+\indexentry{media!aritmetica!come stima del valore vero|(}{289}
+\indexentry{media!aritmetica!come stima del valore vero|)}{290}
+\indexentry{varianza!della popolazione|(}{290}
+\indexentry{varianza!della popolazione|)}{291}

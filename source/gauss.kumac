@@ -1,0 +1,30 @@
+hist/del 0
+vect/del *
+set *
+igset *
+opt *
+fort/file 66 gauss.eps
+graph/meta 66 -113
+opt nbox
+set *fon -130
+set *siz 0.4
+igset txfp -130
+igset txal 0
+set ndvx -50205
+set ndvy -50205
+graph/hplot/null -5 5 0 0.5
+set dmod 1
+set fwid 2
+func/plot 0.3989422803*exp(-0.5*x*x) -11 11 s
+set ltyp 12                                                     | dashed
+graph/prim/line 0 0 0 0.5                                       | middle line
+graph/prim/line -1 0 -1 0.24197                                 | 1-sigma
+graph/prim/line -1 0.24197 1 0.24197                            | sequence
+graph/prim/line 1 0.24197 1 0
+set ltyp 15                                                     | dotted
+graph/prim/line -5 0.3989422803 5 0.3989422803                  | maximum
+graph/prim/line -1.177410022 0 -1.177410022 0.1994711402        | FWHM
+graph/prim/line -5 0.1994711402 5 0.1994711402                  | sequence
+graph/prim/line 1.177410022 0.1994711402 1.177410022 0
+fort/close 66
+opt htit

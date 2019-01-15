@@ -1,0 +1,650 @@
+% $Id: chapter3.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{Elementi di teoria della probabilit\`a}
+Abbiamo gi\`a notato come, per la ineliminabile presenza
+degli errori di misura, quello che otteniamo come risultato
+della stima del valore di una grandezza fisica non sia
+praticamente mai il valore vero della grandezza stessa;
+inoltre, se ripetiamo pi\`u volte la misura, non otteniamo
+mai, in generale, nemmeno lo stesso risultato.
+
+Da questo si deduce che, sulla base di misure ripetute
+comunque effettuate, non si potr\`a mai affermare che un
+qualsiasi numero reale sia (o non sia) il valore vero della
+grandezza stessa.  \`E per\`o evidente come tutti gli
+infiniti numeri reali non debbano essere posti sullo stesso
+piano: alcuni di essi saranno pi\`u verosimili
+(intuitivamente i numeri vicini ai risultati delle nostre
+misure ripetute), altri (pi\`u lontani) saranno meno
+verosimili.
+
+Il problema della misura va dunque impostato \emph{in
+  termini probabilistici}; e potremo dire di averlo risolto
+quando, a partire dai dati sperimentali, saremo in grado di
+determinare un intervallo di valori avente una assegnata
+probabilit\`a di contenere il valore vero.  Prima di
+proseguire, introduciamo dunque alcuni elementi della
+\emph{teoria della probabilit\`a}.
+
+\section{La probabilit\`a: eventi e variabili casuali}%
+\index{casuali!eventi|(}
+\label{ch:3.varcas}
+Oggetto della teoria delle probabilit\`a \`e lo studio dei
+fenomeni \emph{casuali} o \emph{aleatori}: cio\`e fenomeni
+ripetibili (almeno in teoria) infinite volte e che possono
+manifestarsi in pi\`u modalit\`a, imprevedibili
+singolarmente, che si escludono a vicenda l'una con l'altra;
+esempi tipici di fenomeni casuali sono il lancio di un dado
+o di una moneta, o l'estrazione di una carta da un mazzo.
+Come risultato del lancio della moneta o del dado, essi
+cadranno e si ridurranno in quiete con una determinata
+faccia rivolta verso l'alto; per la moneta le possibilit\`a
+sono due, mentre per il dado sono sei.
+
+Il complesso delle possibili modalit\`a con cui un fenomeno
+casuale si pu\`o verificare costituisce l'insieme (o
+\emph{spazio}) dei \emph{risultati}, $\mathcal{S}$; esso
+pu\`o essere costituito da un numero finito o infinito di
+elementi.
+
+Definiremo poi come \emph{evento casuale} l'associazione di
+una o pi\`u di queste possibili modalit\`a: ad esempio, lo
+spazio dei risultati per il fenomeno ``lancio di un dado''
+\`e un insieme composto da sei elementi; ed uno degli eventi
+casuali che \`e possibile definire (e che corrisponde al
+realizzarsi dell'uno o dell'altro di tre dei sei possibili
+risultati) consiste nell'uscita di un numero dispari.
+L'insieme di tutti i possibili eventi (o \emph{spazio degli
+  eventi}) $\mathcal{E}$ \`e dunque l'insieme di tutti i
+sottoinsiemi di $\mathcal{S}$ (\emph{insieme potenza} o
+\emph{insieme delle parti} di $\mathcal{S}$); compresi
+l'insieme vuoto $\emptyset$ ed $\mathcal{S}$ stesso, che si
+chiamano anche rispettivamente \emph{evento impossibile} ed
+\emph{evento certo}.%
+\index{casuali!eventi|)}
+
+\index{casuali!variabili|(emidx}%
+Se si \`e in grado di fissare una legge di corrispondenza
+che permetta di associare ad ogni modalit\`a di un fenomeno
+casuale scelta nell'insieme $\mathcal{S}$ uno ed un solo
+numero reale $x$, questo numero prende il nome di
+\emph{variabile casuale} definita su $\mathcal{S}$.  Le
+variabili casuali possono assumere un numero finito od
+infinito di valori, e possono essere discrete o continue;
+\`e da notare che, per la presenza degli errori, la misura
+di una grandezza fisica pu\`o essere considerata come un
+evento casuale --- ed il risultato numerico che da tale
+misura otteniamo \`e una variabile casuale che possiamo
+associare all'evento stesso.%
+\index{casuali!variabili|)}
+
+\section{La probabilit\`a: definizioni}
+La definizione ``classica'' di probabilit\`a \`e la
+seguente:
+\begin{quote}
+  \index{probabilit\`a!definizione!classica}%
+  \textit{Si definisce come probabilit\`a di un evento
+    casuale il rapporto tra il numero di casi favorevoli al
+    presentarsi dell'evento stesso ed il numero totale di
+    casi possibili, purch\'e tutti questi casi possibili
+    siano ugualmente probabili.}
+\end{quote}
+e se ne ricava immediatamente il seguente
+\begin{quote}
+  \textsc{Corollario:} \textit{la probabilit\`a di un evento
+    casuale \`e un numero compreso tra zero e uno, che
+    assume il valore zero per gli eventi impossibili ed uno
+    per quelli certi.}
+\end{quote}
+
+La definizione ``classica'' sembra sufficiente a permetterci
+di calcolare le probabilit\`a di semplici eventi casuali che
+possano manifestarsi in un numero finito di modalit\`a
+equiprobabili (ad esempio per i giochi d'azzardo), ma \`e
+intrinsecamente insoddisfacente perch\'e racchiude in s\'e
+stessa una \emph{tautologia}: si nota immediatamente come,
+per definire la probabilit\`a, essa presupponga che si sia
+gi\`a in grado di valutare l'equiprobabilit\`a delle varie
+modalit\`a con cui pu\`o manifestarsi l'evento considerato.
+Nel caso di una variabile casuale continua, ci\`o si traduce
+nell'indeterminazione di quale tra le variabili
+topologicamente equivalenti (ossia legate da trasformazioni
+continue) sia quella equiprobabile, cio\`e con probabilit\`a
+per ogni intervallo proporzionale all'ampiezza
+dell'intervallo stesso.
+
+Si possono dare della probabilit\`a definizioni pi\`u
+soddisfacenti dal punto di vista logico, ad esempio la
+seguente (definizione
+\emph{empirica}\/\thinspace\footnote{Anche questa
+  definizione non \`e completamente soddisfacente dal punto
+  di vista concettuale (come vedremo pi\`u in dettaglio nel
+  paragrafo \ref{ch:3.convstat}); ma \`e tra le pi\`u
+  intuitive, perch\'e tra le pi\`u vicine all'uso pratico.},
+teorizzata da von%
+\index{von Mises, Richard}
+Mises\/\footnote{Richard von Mises fu un matematico che
+  visse dal 1883 al 1953; comp\`\i\ ricerche nei campi della
+  probabilit\`a e della statistica, ma soprattutto in quello
+  della matematica applicata alla meccanica dei fluidi (nel
+  1913 istitu\`\i\ all'Universit\`a di Vienna il primo corso
+  al mondo sul volo, e nel 1915 progett\`o un aereo che
+  pilot\`o personalmente nel corso della I guerra
+  mondiale).}):%
+\index{probabilit\`a!definizione!empirica|(}
+definiamo la \emph{frequenza relativa}%
+\index{frequenza!relativa}
+$f(E)$ con cui un evento casuale $E$ si \`e presentato in un
+numero totale $N$ di casi reali come il rapporto tra il
+numero $n$ di volte in cui l'evento si \`e effettivamente
+prodotto (\emph{frequenza assoluta})%
+\index{frequenza!assoluta}
+ed il numero $N$ delle prove effettuate; la probabilit\`a di
+$E$ si definisce euristicamente come l'estensione del
+concetto di frequenza relativa su un numero grandissimo di
+prove, cio\`e
+\begin{equation*}
+  p(E) \; \approx \; \lim_{N \rightarrow \infty} f(E)
+  \; = \; \lim_{N \rightarrow \infty}
+  \left( \frac{n}{N} \right) \peq .
+\end{equation*}%
+\index{probabilit\`a!definizione!empirica|)}
+
+\section{Propriet\`a della probabilit\`a}
+Proseguendo in questa nostra esposizione, useremo ora la
+definizione empirica per ricavare alcune propriet\`a delle
+probabilit\`a di eventi casuali: queste stesse propriet\`a,
+come vedremo nel paragrafo \ref{ch:3.lpdeas}, possono essere
+ricavate a partire dalla \emph{definizione assiomatica}
+(matematicamente soddisfacente, e che verr\`a presentata nel
+paragrafo \ref{ch:3.deaspr}).  Il motivo per cui ci basiamo
+sulla definizione empirica \`e sia la maggiore semplicit\`a
+delle dimostrazioni che la concretezza e l'intuitivit\`a dei
+ragionamenti, che si possono facilmente esemplificare con
+semplici procedure pratiche come il lancio di monete e dadi.
+
+\subsection{L'evento complementare}
+La mancata realizzazione dell'evento $E$ costituisce
+l'\emph{evento complementare}%
+\index{complementare, evento}
+ad $E$, che indicheremo con \ob{E}; i due eventi $E$ ed
+\ob{E}\ si escludono mutuamente, ed esauriscono l'insieme di
+tutti i possibili risultati di una prova od esperimento
+elementare del tipo considerato.  La frequenza relativa di
+\ob{E}\ su $N$ prove \`e
+\begin{equation*}
+  f \left( \ob{E} \right)
+  \; = \; \frac{N-n}{N}
+  \; = \; 1-\frac{n}{N} \; = \; 1-f(E)
+\end{equation*}
+da cui si ricava
+\begin{equation*}
+  p \left( \ob{E} \right) = 1-p(E)
+  \makebox[50mm]{o anche}
+  p ( E ) + p \left( \ob{E} \right) = 1 \peq .
+\end{equation*}
+
+Analogamente si pu\`o dimostrare che, se $A,B,\ldots,Z$ sono
+eventi casuali \emph{mutuamente esclusivi} e che
+\emph{esauriscono l'insieme di tutti i possibili risultati},
+vale la
+\begin{equation} \label{eq:3.norpro}
+  p(A) + p(B) +\cdots+ p(Z) = 1 \peq .
+\end{equation}
+
+\subsection{Probabilit\`a totale}
+Il risultato di una prova o esperimento pi\`u complesso
+pu\`o essere costituito dal verificarsi di due eventi
+simultanei in luogo di uno solo; come esempio, si consideri
+il lancio di una moneta e l'estrazione contemporanea di una
+carta da un mazzo.  Se $E$ indica l'apparizione della testa
+(\ob{E}\ allora sar\`a l'apparizione della croce) ed $F$
+l'estrazione di una carta nera (\ob{F}\ di una carta rossa),
+esistono quattro eventi fondamentali non ulteriormente
+decomponibili e che si escludono vicendevolmente: $E F$, $E
+\ob{F}$, $\ob{E} F$ e $\ob{E} \ob{F}$.
+
+Il simbolo $E F$ indica qui l'evento composto \emph{prodotto
+  logico} dei due eventi semplici $E$ ed $F$, cio\`e quello
+consistente nel verificarsi \emph{sia dell'uno che
+  dell'altro}.  Se ora, su $N$ prove effettuate, la
+frequenza assoluta con cui i quattro eventi fondamentali si
+sono verificati \`e quella indicata nella seguente tabella:
+\medskip
+\begin{center}
+  \begin{tabular}{c|c|c|}
+    \multicolumn{1}{c}{\tabbot} &
+    \multicolumn{1}{c}{$F$} &
+    \multicolumn{1}{c}{\ob{F}} \\
+    \cline{2-3}
+    $E$\tabtop\tabbot & $n_{11}$ & $n_{12}$ \\
+    \cline{2-3}
+    \ob{E}\tabtop\tabbot & $n_{21}$ & $n_{22}$ \\
+    \cline{2-3}
+  \end{tabular}
+\end{center}
+\medskip le rispettive frequenze relative saranno
+\begin{align*}
+  f \left( EF \right) &= \frac{n_{11}}{N} &
+    f \left( E \ob{F} \right) &= \frac{n_{12}}{N} \\[2ex]
+  f \left( \ob{E} F \right) &= \frac{n_{21}}{N} &
+    f \left( \ob{E} \ob{F} \right) &= \frac{n_{22}}{N}
+    \peq .
+\end{align*}
+
+Facendo uso della definizione empirica di probabilit\`a si
+trova, partendo dalle seguenti identit\`a:
+\begin{gather*}
+  f(E) \; = \; \frac{n_{11}+n_{12}}{N} \; = \;
+    f(EF) + f \left( E \ob{F} \right) \\[2ex]
+  f(F) \; = \; \frac{n_{11}+n_{21}}{N} \; = \;
+    f(EF) + f \left( \ob{E} F \right)
+\end{gather*}
+che devono valere le
+\begin{gather*}
+  p(E) = p (EF) + p \left( E \ob{F} \right) \peq , \\[1ex]
+  p(F) = p (EF) + p \left( \ob{E} F \right) \peq ,
+\end{gather*}
+ed altre due simili per \ob{E}\ e \ob{F}.
+
+Se ora si applica la definizione empirica all'evento
+complesso $E+F$ \emph{somma logica} degli eventi semplici
+$E$ ed $F$, definito come l'evento casuale consistente nel
+verificarsi \emph{o dell'uno o dell'altro di essi o di
+  entrambi}, otteniamo
+\begin{align*}
+  f(E+F) &= \frac{n_{11}+n_{12}+n_{21}}{N} \\[1ex]
+  &= \frac{(n_{11}+n_{12})+(n_{11}+n_{21})-n_{11}}{N} \\[1ex]
+  &= f(E)+f(F)-f(EF)
+\end{align*}
+da cui, passando al limite,
+\begin{equation*}%
+\index{probabilit\`a!totale (teorema della)|(}
+  p(E+F) = p(E)+p(F)-p(EF) \peq .
+\end{equation*}
+
+Nel caso particolare di due eventi $E$ ed $F$ che si
+escludano mutuamente (cio\`e per cui sia $p(EF) = 0$ e
+$n_{11} \equiv 0$) vale la cosiddetta \emph{legge della
+  probabilit\`a totale}:
+\begin{equation*}
+  p(E+F) = p(E)+p(F)
+\end{equation*}
+Questa si generalizza poi per induzione completa al caso di
+pi\`u eventi (sempre per\`o \emph{mutuamente esclusivi}),
+per la cui somma logica la probabilit\`a \`e uguale alla
+somma delle probabilit\`a degli eventi semplici:
+\begin{equation} \label{eq:3.protot}
+  p(A+B+\cdots+Z) \: = \: p(A)+p(B)+\cdots+p(Z) \peq .
+\end{equation}%
+\index{probabilit\`a!totale (teorema della)|)}
+
+\subsection{Probabilit\`a condizionata e probabilit\`a
+  composta}
+La probabilit\`a che si verifichi l'evento $E$ nel caso in
+cui si sa gi\`a che si \`e verificato l'evento $F$ si indica
+con il simbolo $p(E|F)$ e si chiama
+\emph{probabilit\`a condizionata}:%
+\index{probabilit\`a!condizionata}
+si ricava per essa facilmente, usando la terminologia
+dell'esempio precedente, l'identit\`a
+\begin{equation*}
+  f(E|F) \; = \; \frac{n_{11}}{n_{11}+n_{21}}
+  \; = \; \frac{n_{11}}{N} \: \frac{N}{n_{11}+n_{21}}
+  \; = \; \frac{f(EF)}{f(F)}
+\end{equation*}
+con l'analoga
+\begin{equation*}
+  f(F|E) \; = \; \frac{f(EF)}{f(E)} \peq ;
+\end{equation*}
+e vale quindi, passando al limite, la
+\begin{equation}%
+\index{probabilit\`a!composta (teorema della)|(}
+\label{eq:3.leprco}
+  p(EF) \; = \; p(F) \cdot p(E|F)
+  \; = \; p(E) \cdot p(F|E) \peq .
+\end{equation}
+
+\index{statistica!indipendenza|(}%
+Nel caso particolare di due eventi casuali tali che il
+verificarsi o meno dell'uno non alteri la probabilit\`a di
+presentarsi dell'altro, ovverosia per cui risulti $p(E|F) =
+p(E)$ e $p(F|E) = p(F)$, questi si dicono tra loro
+\emph{statisticamente indipendenti}\/\thinspace\footnote{Il
+  concetto di indipendenza statistica tra eventi casuali fu
+  definito per la prima volta nel 1718 da Abraham de Moivre%
+  \index{de Moivre!Abraham}
+  (purtroppo noto al grosso pubblico solo per aver
+  correttamente predetto il giorno della propria morte
+  servendosi di una formula matematica), nel suo libro ``The
+  Doctrine of Chance''.};%
+\index{statistica!indipendenza|)}
+e per essi vale la seguente legge (della \emph{probabilit\`a
+  composta}):
+\begin{equation*}
+  p(EF) = p(E) \cdot p(F) \peq .
+\end{equation*}
+
+Questa si generalizza facilmente (sempre per induzione
+completa) ad un evento complesso costituito dal verificarsi
+contemporaneo di un numero qualsiasi di eventi semplici
+(sempre per\`o tutti statisticamente indipendenti tra loro);
+per il quale vale la
+\begin{equation} \label{eq:3.procom}
+  p(A \cdot B\cdots Z) = p(A) \cdot p(B)\cdots p(Z) \peq .
+\end{equation}%
+\index{probabilit\`a!composta (teorema della)|)}
+
+\index{statistica!indipendenza|(}%
+Pi\`u in particolare, gli eventi casuali appartenenti ad un
+insieme di dimensione $N$ (con $N>2$) si dicono \emph{tutti}
+statisticamente indipendenti tra loro quando la
+probabilit\`a del verificarsi di uno qualsiasi di essi non
+\`e alterata dal fatto che uno \emph{o pi\`u d'uno} degli
+altri si sia gi\`a presentato.
+
+Come esempio si consideri il lancio indipendente di due
+dadi, ed i seguenti tre eventi casuali: $A$, consistente
+nell'uscita di un numero dispari sul primo dado; $B$,
+consistente nell'uscita di un numero dispari sul secondo
+dado; e $C$, consistente nell'uscita di un punteggio
+complessivo dispari.  \`E facile vedere che questi eventi
+casuali sono, se considerati a due a due, statisticamente
+indipendenti: $A$ e $B$ per ipotesi, $A$ e $C$ perch\'e
+$p(C|A) = \frac{1}{2} = p(C)$, ed infine $B$ e $C$ perch\'e
+anche $p(C|B) = \frac{1}{2} = p(C)$; ma gli stessi tre
+eventi, se vengono considerati nel loro complesso,
+\emph{non} sono \emph{tutti} statisticamente indipendenti
+--- perch\'e il verificarsi di $A$ assieme a $B$ rende poi
+impossibile il verificarsi di $C$.%
+\index{statistica!indipendenza|)}
+
+\subsection{Il teorema di Bayes}%
+\index{Bayes, teorema di|(}
+Supponiamo che un dato fenomeno casuale $A$ possa dare luogo
+a $N$ eventualit\`a mutuamente esclusive $A_j$, che
+esauriscano inoltre la totalit\`a delle possibilit\`a; e sia
+poi un differente fenomeno casuale che possa condurre o al
+verificarsi o al non verificarsi di un evento $E$.
+Osservando la realizzazione di entrambi questi fenomeni, se
+$E$ si verifica, assieme ad esso si dovr\`a verificare anche
+una ed una sola delle eventualit\`a $A_j$; applicando prima
+la legge della probabilit\`a totale \eqref{eq:3.protot} e
+poi l'equazione \eqref{eq:3.leprco}, si ottiene
+\begin{equation} \label{eq:3.peaj}
+  p(E) \; = \; \sum_{j=1}^N p(E \cdot A_j) \; = \;
+    \sum_{j=1}^N p(A_j) \cdot p(E | A_j) \peq .
+\end{equation}
+
+Ora, riprendendo la legge fondamentale delle probabilit\`a
+condizionate \eqref{eq:3.leprco}, ne ricaviamo
+\begin{equation*}
+  p(A_i | E) = \frac{p(A_i) \cdot p(E | A_i)} { p(E) }
+\end{equation*}
+e, sostituendovi la \eqref{eq:3.peaj}, si giunge alla
+\begin{equation} \label{eq:3.tbayes}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    p(A_i | E) = \frac{p(A_i) \cdot p(E | A_i)}
+    {\sum_j \left[ p(A_j) \cdot p(E | A_j) \right]}
+    \quad }
+\end{equation}
+L'equazione \eqref{eq:3.tbayes} \`e nota con il nome di
+\emph{teorema di Bayes}, e viene spesso usata nel calcolo
+delle probabilit\`a; talvolta anche, come adesso vedremo,
+quando le $A_j$ non siano tanto eventi casuali in senso
+stretto, quanto piuttosto \emph{ipotesi} da discutere per
+capire se esse siano o meno rispondenti alla realt\`a.
+
+Facendo un esempio concreto, si abbiano due monete: una
+``buona'', che presenti come risultato la testa e la croce
+con uguale probabilit\`a (dunque pari a $0.5$); ed una
+``cattiva'', con due teste sulle due facce.  Inizialmente si
+sceglie una delle due monete; quindi avremo due
+eventualit\`a mutuamente esclusive: $A_1$ (\`e stata scelta
+la moneta ``buona'') e $A_2$ (\`e stata scelta la moneta
+``cattiva'') con probabilit\`a rispettive $p(A_1) = p(A_2) =
+0.5$.  Se l'evento casuale $E$ consiste nell'uscita di una
+testa, ovviamente $p(E|A_1) = 0.5$ e $P(E|A_2) = 1$.
+
+Se ora facciamo un esperimento, lanciando la moneta una
+volta e ottenendo una testa, quale \`e la probabilit\`a che
+nell'effettuare la scelta iniziale si sia presa quella
+``buona''?  La risposta \`e data dal teorema di Bayes, da
+cui si ottiene:
+\begin{align*}
+  p(A_1|E) &= \frac{p(A_1) \cdot p(E|A_1)}{p(A_1)
+    \cdot p(E|A_1) + p(A_2) \cdot p(E|A_2)} \\[1ex]
+  &= \frac{0.5 \cdot 0.5}{0.5 \cdot 0.5 + 0.5 \cdot
+    1} \\[1ex]
+  &= \frac{0.25}{0.75} \\[1ex]
+  &= \frac{1}{3} \peq .
+\end{align*}
+
+Ovviamente, se si volesse progettare un esperimento reale,
+sarebbe meglio associarlo al lanciare la moneta $N$ volte
+(con $N > 1$): o si ottiene almeno una croce, ed allora \`e
+sicuramente vera $A_1$; o, invece, si presenta l'evento $E$
+consistente nell'ottenere $N$ teste in $N$ lanci.  In
+quest'ultimo caso, $p(E|A_2) = 1$ e $p(E|A_1) = 1/2^N$ se i
+lanci sono indipendenti tra loro; utilizzando ancora
+l'equazione \eqref{eq:3.tbayes}, si ricava che la
+probabilit\`a di aver scelto la moneta ``buona'', $p(A_1)$,
+\`e data da $1/(1+2^N)$ --- e di conseguenza $p(A_2) =
+2^N/(1+2^N)$ \`e la probabilit\`a che si sia scelta la
+moneta ``cattiva''.
+
+Qui il teorema di Bayes viene utilizzato per
+\emph{verificare una ipotesi statistica}: ovvero per
+calcolare la probabilit\`a che l'una o l'altra di un insieme
+di condizioni $A_j$ che si escludono a vicenda sia vera,
+sulla base di osservazioni sperimentali riassunte dal
+verificarsi di $E$; ma questo ci risulta possibile solo
+perch\'e si conoscono \emph{a priori} le probabilit\`a di
+\emph{tutte} le condizioni stesse $p(A_j)$.
+
+Se, viceversa, queste non sono note, la \eqref{eq:3.tbayes}
+ci d\`a ancora la probabilit\`a che sia vera l'una o l'altra
+delle ipotesi $A_j$ se sappiamo che si \`e verificata la
+condizione sperimentale $E$; ma essa non si pu\`o ovviamente
+calcolare, a meno di fare opportune ipotesi sui valori delle
+$p(A_j)$: ad esempio assumendole tutte uguali, il che \`e
+chiaramente arbitrario.  Per essere pi\`u specifici, non
+potremmo servirci di un esperimento analogo a quelli
+delineati e del teorema di Bayes per calcolare la
+probabilit\`a che una particolare moneta da 1 euro ricevuta
+in resto sia o non sia ``buona'': a meno di non conoscere a
+priori $p(A_1)$ e $p(A_2)$, le probabilit\`a che una moneta
+da 1 euro scelta a caso tra tutte quelle circolanti nella
+nostra zona sia ``buona'' o ``cattiva''.%
+\index{Bayes, teorema di|)}
+
+\section{Definizione assiomatica della probabilit\`a}%
+\index{probabilit\`a!definizione!assiomatica|(}
+\label{ch:3.deaspr}
+Per completezza, accenniamo infine alla cosiddetta
+\emph{definizione assiomatica della
+  probabilit\`a}\thinspace\footnote{Questa definizione \`e
+  dovuta all'eminente matematico russo Andrei Nikolaevich
+  Kolmogorov%
+  \index{Kolmogorov, Andrei Nikolaevich};
+  vissuto dal 1903 al 1987, si occup\`o principalmente di
+  statistica e di topologia.  Fu enunciata nel suo libro del
+  1933 \textit{Grundbegriffe der
+    Wahrscheinlichkeitsrechnung}.}, che \`e matematicamente
+consistente:
+\begin{quote}
+  \textit{Sia $\mathcal{S}$ l'insieme di tutti i possibili
+    risultati di un fenomeno casuale, ed $E$ un qualsiasi
+    evento casuale definito su $\mathcal{S}$ (ossia un
+    qualsiasi sottoinsieme $E \subseteq \mathcal{S}$).  Si
+    definisce come ``probabilit\`a'' di $E$ un numero,
+    $p(E)$, associato univocamente all'evento stesso, che
+    soddisfi alle seguenti tre propriet\`a:}
+  \begin{enumerate}
+  \item\label{def:3.dap1} $p(E) \ge 0$ \textit{per ogni}
+    $E$;
+  \item\label{def:3.dap2} $p(\mathcal{S}) = 1$;
+  \item\label{def:3.dap3} \itshape $p(E_1 \cup E_2 \cup
+    \cdots) = p(E_1) + p(E_2) +\cdots$ per qualsiasi insieme
+    di eventi $E_1, E_2,\ldots$, in numero finito od
+    infinito e a due a due senza alcun elemento in comune
+    (ossia tali che $E_i \cap E_j = \emptyset$ per ogni $i
+    \neq j$).
+  \end{enumerate}
+\end{quote}%
+\index{probabilit\`a!definizione!assiomatica|)}
+
+Questa definizione, pur matematicamente
+consistente\/\footnote{Volendo essere del tutto rigorosi,
+  questa definizione risulta valida solo se l'insieme dei
+  possibili risultati \`e composto da un numero finito o da
+  un'infinit\`a numerabile di elementi; la reale definizione
+  assiomatica della probabilit\`a \`e leggermente differente
+  (ed ancora pi\`u astratta).}, non dice nulla su come
+assegnare dei valori alla probabilit\`a; tuttavia su tali
+valori si possono fare delle ipotesi, verificabili poi
+analizzando gli eventi reali osservati.
+
+\subsection{Le leggi della probabilit\`a e la
+  definizione assiomatica}
+\label{ch:3.lpdeas}
+Dalla definizione assiomatica \`e possibile ricavare, come
+abbiamo gi\`a prima accennato, le stesse leggi cui siamo
+giunti a partire dalla definizione empirica.  Infatti:
+\begin{itemize}
+\item Essendo $\mathcal{S} \cup \emptyset = \mathcal{S}$, la
+  propriet\`a \ref{def:3.dap3} (applicabile perch\'e
+  $\mathcal{S} \cap \emptyset = \emptyset$) implica
+  $p(\mathcal{S}) + p(\emptyset) = p(\mathcal{S})$; da cui
+  ricaviamo, vista la propriet\`a \ref{def:3.dap2},
+  \begin{equation*}
+    p(\emptyset) = 0 \peq .
+  \end{equation*}
+\item Se $A \supset B$, essendo in questo caso $A = B \cup
+  \left( A \cap \ob{B} \right)$, applicando la propriet\`a
+  \ref{def:3.dap3} (il che \`e lecito dato che $B \cap
+  \left( A \cap \ob{B} \right) = \emptyset$) si ottiene
+  $p(A) = p(B) + p \left( A \cap \ob{B} \right)$; e, vista
+  la propriet\`a \ref{def:3.dap1},
+  \begin{equation*}
+    A \supset B \quad \Rightarrow \quad p(A) \geq p(B) \peq .
+  \end{equation*}
+\item Dati due insiemi $A$ e $B$, visto che qualunque essi
+  siano valgono le seguenti identit\`a:
+  \begin{align*}
+    A &= (A \cap B) \cup \left( A \cap \ob{B} \right) \\
+    B &= (A \cap B) \cup \left( \ob{A} \cap B \right) \\
+    (A \cup B) &= (A \cap B) \cup \left( A \cap \ob{B} \right)
+      \cup \left( \ob{A} \cap B \right) \\
+  \end{align*}
+  e applicando a queste tre relazioni (dopo aver verificato
+  che gli insiemi a secondo membro sono tutti disgiunti) la
+  propriet\`a \ref{def:3.dap3} e sommando e sottraendo
+  opportunamente i risultati, si ottiene la \emph{legge
+    della probabilit\`a totale} nella sua forma pi\`u
+  generale:
+  \begin{equation*}%
+  \index{probabilit\`a!totale (teorema della)}
+    p(A \cup B) = p(A) + p(B) - p(A \cap B) \peq .
+  \end{equation*}
+\end{itemize}
+
+Definendo poi $p(E|A)$ (con $p(A) \ne 0$) come
+\begin{equation}%
+\label{eq:3.procas}%
+\index{probabilit\`a!condizionata}
+  p(E|A) = \frac{p(E \cap A)}{p(A)} \peq ,
+\end{equation}
+\`e facile riconoscere che anche essa rappresenta una
+probabilit\`a: essendo $p(E \cap A) \geq 0$ e $p(A) > 0$,
+$p(E|A)$ soddisfa alla propriet\`a \ref{def:3.dap1}; essendo
+$\mathcal{S} \cap A = A$, $p(\mathcal{S}|A) = p(A)/p(A) =
+1$, e $p(E|A)$ soddisfa alla propriet\`a \ref{def:3.dap2};
+infine, se $E_1, E_2,\ldots$ sono insiemi a due a due
+disgiunti,
+\begin{align*}
+  p(E_1 \cup E_2 \cup\cdots|A) &= \frac{p[(E_1 \cup
+    E_2 \cup\cdots) \cap A]}{p(A)} \\[1ex]
+  &= \frac{p[(E_1 \cap A) \cup (E_2 \cap A)
+    \cup\cdots]}{p(A)} \\[1ex]
+  &= \frac{p(E_1 \cap A)}{p(A)} + \frac{p(E_2 \cap A)}{
+    p(A) } +\cdots \\[1.5ex]
+  &= p(E_1|A) + p(E_2|A) +\cdots
+\end{align*}
+e $p(E|A)$ soddisfa anche alla propriet\`a \ref{def:3.dap3}.
+Dalla \eqref{eq:3.procas} si ottiene infine la \emph{legge
+  della probabilit\`a composta} nella sua forma pi\`u
+generale,
+\begin{equation*}%
+\index{probabilit\`a!composta (teorema della)}
+  p(A \cap B) \; = \; p(A|B) \cdot p(B) \; = \; p(B|A)
+    \cdot  p(A) \peq .
+\end{equation*}
+
+\section{La convergenza statistica}%
+\index{statistica!convergenza|(}%
+\index{limite debole|see{statistica, convergenza}}%
+\label{ch:3.convstat}
+Difetto della definizione empirica di probabilit\`a, oltre a
+quello di essere basata su di un esperimento, \`e quello di
+presupporre a priori una convergenza della frequenza
+relativa $f$, al crescere di $N$, verso un valore ben
+definito: valore che si assume poi come probabilit\`a
+dell'evento.
+
+\index{grandi numeri, legge dei|(}%
+Qualora si assuma come definizione di probabilit\`a quella
+assiomatica, \`e effettivamente possibile dimostrare (come
+vedremo pi\`u avanti nel paragrafo \ref{ch:5.granum}, ed in
+particolare nel sottoparagrafo \ref{ch:5.teober}) come, al
+crescere del numero di prove, la frequenza relativa di un
+\emph{qualunque} evento casuale converga verso la
+probabilit\`a dell'evento stesso.
+
+\`E tuttavia assai importante sottolineare come questa legge
+(\emph{legge dei grandi numeri}, o \emph{teorema di
+  Bernoulli}) non implichi una convergenza esatta nel senso
+dell'analisi: non implichi cio\`e che, scelto un qualunque
+numero positivo $\epsilon$, sia possibile determinare in
+conseguenza un intero $M$ tale che, se si effettuano $N$
+prove, per ogni $N>M$ risulti \emph{sicuramente} $|f(E) -
+p(E)| < \epsilon$.  Si pensi in proposito alla chiara
+impossibilit\`a di fissare un numero $M$ tale che, quando si
+lanci un dado pi\`u di $M$ volte, si sia \emph{certi} di
+ottenere almeno un sei: al crescere di $M$ crescer\`a la
+\emph{probabilit\`a} del verificarsi di questo evento, ma
+non si potr\`a mai raggiungere la certezza.
+
+Nella legge dei grandi numeri il concetto di convergenza va
+inteso invece in senso \emph{statistico} (o \emph{debole}, o
+\emph{stocastico}); si dice che all'aumentare del numero di
+prove $N$ una grandezza $x$ tende statisticamente al limite
+$X$ quando, scelta una qualsiasi coppia di numeri positivi
+$\epsilon$ e $\delta$, si pu\`o in conseguenza determinare
+un numero intero $M$ tale che, se si effettua un numero di
+prove $N$ maggiore di $M$, la probabilit\`a che $x$
+differisca da $X$ per pi\`u di $\epsilon$ risulti minore di
+$\delta$.  Indicando col simbolo $\Pr(E)$ la probabilit\`a
+di un evento $E$, la definizione di convergenza statistica
+\`e
+\begin{equation} \label{eq:3.limsta}
+  \forall \epsilon, \delta > 0 \quad \rightarrow
+  \quad \exists M : \quad N > M \; \Rightarrow \;
+  \Pr \Bigl( | x - X | \geq \epsilon \Bigr) \leq
+  \delta \peq .
+\end{equation}
+
+Nel paragrafo \ref{ch:5.granum} vedremo che, dato un
+qualunque evento casuale $E$ avente probabilit\`a $\Pr(E)$
+di manifestarsi, si pu\`o dimostrare che la sua frequenza
+relativa $f(E)$ su $N$ prove converge statisticamente a
+$\Pr(E)$ all'aumentare di $N$; o, in altre parole, come
+aumentando il numero di prove si possa rendere tanto
+improbabile quanto si vuole che la frequenza relativa e la
+probabilit\`a di un qualunque evento casuale $E$
+differiscano pi\`u di una quantit\`a
+prefissata.%
+\index{grandi numeri, legge dei|)}%
+\index{statistica!convergenza|)}
+
+\endinput

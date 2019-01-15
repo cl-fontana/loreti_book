@@ -1,0 +1,973 @@
+% $Id: chapter5.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{Variabili casuali unidimensionali discrete}%
+\label{ch:5.varcun}
+Gi\`a sappiamo (come osservato nel paragrafo
+\ref{ch:3.varcas}) che, a causa degli inevitabili errori, la
+misura di una grandezza fisica pu\`o essere considerata un
+evento casuale; e che il numero reale da noi ottenuto in
+conseguenza della misura stessa pu\`o essere considerato una
+variabile casuale definita sull'insieme di tutti i possibili
+risultati.
+
+Un insieme finito di operazioni di misura, i cui risultati
+costituiscono quello che in linguaggio statistico si dice
+\emph{campione},%
+\index{campione}
+si pu\`o pensare come un particolare sottoinsieme formato da
+elementi estratti a caso dall'insieme di tutte le infinite
+possibili operazioni di misura che potrebbero essere
+effettuate sulla stessa grandezza fisica, eseguite col
+medesimo strumento e sfruttando le medesime procedure.
+
+Quest'ultimo insieme nella terminologia della statistica si
+dice \emph{universo} o \emph{popolazione},%
+\index{popolazione}
+ed \`e in effetti una finzione (si pensi all'universo di
+tutti i possibili lanci di un dado nella teoria dei giochi
+d'azzardo), nel senso che in realt\`a esso non \`e
+un'entit\`a preesistente alle operazioni effettivamente
+eseguite; a differenza dell'insieme di tutti gli individui
+di una vera popolazione, dalla quale si estrae realmente un
+campione per eseguire una ricerca demografica.  Sebbene sia
+una finzione, questo concetto \`e tuttavia utile per poter
+applicare la teoria della probabilit\`a alle caratteristiche
+di un campione.
+
+In questo capitolo esamineremo il comportamento delle
+variabili casuali in generale (ed in particolare quello dei
+risultati delle misure): tra le altre cose, metteremo in
+evidenza i rapporti tra grandezze statistiche che si
+riferiscano ad un campione limitato e grandezze analoghe che
+siano invece riferite all'intera popolazione (\emph{teoria
+  del campionamento}); e dimostreremo la validit\`a della
+legge dei grandi numeri.
+
+\section{Generalit\`a}%
+\index{casuali!variabili|(}
+Riprendiamo ora il concetto di variabile casuale gi\`a
+introdotto in precedenza nel paragrafo \ref{ch:3.varcas}, e
+consideriamo alcuni esempi: se si associa ad ogni faccia di
+un dado un numero compreso tra 1 e 6 (il punteggio inciso
+sulla faccia stessa), si definisce una variabile casuale
+discreta; se l'evento casuale consiste invece nel lancio di
+due monete, indicando con $E$ l'apparizione della testa nel
+lancio della prima e con $F$ l'apparizione della testa nel
+lancio della seconda, il numero $x$ di teste osservate
+nell'evento \`e ancora una variabile casuale discreta, la
+cui definizione \`e data dalla tabella seguente: \medskip
+\begin{center}
+  \begin{tabular}{rc}
+     & $x$ \\
+    \midrule
+    $EF$ & 2 \\
+    $E \ob{F}$ & 1 \\
+    $\ob{E} F$ & 1 \\
+    $\ob{E} \ob{F}$ & 0 \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+\medskip e, come si pu\`o notare, la corrispondenza tra la
+variabile casuale e l'insieme dei possibili risultati non
+\`e in questo caso biunivoca.
+
+Se l'insieme di definizione \`e continuo, la variabile
+casuale $x(E)$ pu\`o essere continua; \`e questo il caso
+pi\`u frequente nella fisica, ad esempio per le misure: ma
+anche in tal caso, a causa della sensibilit\`a limitata
+degli strumenti, l'intervallo continuo di definizione della
+variabile $x$ viene in pratica suddiviso in un numero finito
+$M$ di intervalli, che vengono rappresentati dai valori
+centrali $x_j$ della variabile casuale.%
+\index{casuali!variabili|)}
+
+Detta $\nu_j$ la frequenza assoluta con cui si \`e
+presentato il risultato $x_{j}$ nelle $N$ prove complessive,
+sar\`a
+\begin{equation*}
+  \sum_{j=1}^M \nu_j = N
+\end{equation*}
+(potendo alcune frequenze $\nu_j$ risultare nulle perch\'e i
+corrispondenti valori $x_j$ non sono stati osservati nelle
+prove).  Indicata con
+\begin{equation*}
+  f_j = \frac{\nu_j}{N}
+\end{equation*}
+la frequenza relativa del valore $x_j$ nelle $N$ prove,
+dalla prima relazione segue
+\begin{equation*}
+  \sum_{j=1}^M f_j \; = \; \sum_{j=1}^M
+  \frac{\nu_j}{N} \; = \;
+  \frac{1}{N} \sum_{j=1}^M \nu_j \; \equiv \; 1
+\end{equation*}
+esaurendo gli $M$ valori $x_j$ tutti i possibili risultati
+della misura.
+
+Se il numero delle prove $N$ \`e molto grande e viene fatto
+crescere a piacere, ciascuna $f_j$ deve tendere
+statisticamente al valore $p_j$ (probabilit\`a di osservare
+il valore $x_j$), e sar\`a ancora
+\begin{equation*}
+  \sum_{j=1}^{M} p_{j} \equiv 1
+\end{equation*}
+come dovevamo ovviamente attenderci ricordando l'equazione
+\eqref{eq:3.norpro}.
+
+\section{Speranza matematica}%
+\index{speranza matematica|(}%
+\label{ch:5.medcl}
+Come sappiamo dal paragrafo \ref{ch:4.medpes}, il valore
+medio della variabile $x$ su di un campione finito \`e dato
+dall'equazione
+\begin{equation*}
+  \bar x = \sum\nolimits_i f_i x_i
+\end{equation*}
+dove la sommatoria si intende estesa a tutti i valori che la
+$x$ pu\`o assumere, essendo nulle le frequenze di quelli che
+non si sono effettivamente presentati; definiamo in maniera
+analoga una nuova grandezza $E(x)$, relativa all'intera
+popolazione, mediante la
+\begin{equation} \label{eq:5.spermat}
+  E(x) = \sum\nolimits_i p_i x_i \peq .
+\end{equation}
+$E(x)$ (che si chiama \emph{speranza matematica} della
+variabile casuale $x$) ci appare quindi come una
+generalizzazione alla popolazione del concetto di media
+aritmetica e, se si assumesse come definizione di
+probabilit\`a quella empirica, sarebbe in base ad essa il
+limite (statistico) del valore medio del campione
+all'aumentare della sua dimensione; per cui lo chiameremo
+anche, meno appropriatamente, \emph{valore medio di $x$
+  sull'intera popolazione}.
+
+\`E da notare come non ci sia alcuna garanzia dell'esistenza
+di $E(x)$ se l'insieme dei possibili valori $x_i$ non \`e
+finito (in particolare se $x$ \`e una variabile continua);
+in effetti esistono delle distribuzioni di probabilit\`a
+usate anche in fisica (ad esempio la \emph{distribuzione di
+  Cauchy},%
+\index{distribuzione!di Cauchy} che studieremo pi\`u avanti
+nel paragrafo \ref{ch:8.cauchy}) per le quali la sommatoria
+della \eqref{eq:5.spermat} non converge, e che non ammettono
+quindi speranza matematica.%
+\index{speranza matematica|)}
+
+\index{varianza!della popolazione|(emidx}%
+La speranza matematica per la variabile casuale $\bigl[ x -
+E(x) \bigr]^2$ (ossia la generalizzazione alla popolazione
+della varianza di un campione) si indica poi col simbolo
+$\var(x)$:
+\begin{equation*}
+  \var(x) \; = \; E \left\{ \bigl[ x - E(x) \bigr]^2
+    \right\} \; = \; \sum\nolimits_i p_i \bigl[ x_i -
+    E(x) \bigr]^2 \peq ,
+\end{equation*}
+e ad essa ci riferiremo come \emph{varianza della
+  popolazione della variabile casuale} $x$; come $E(x)$, e
+per gli stessi motivi, anch'essa potrebbe non esistere per
+quelle variabili che assumono un numero infinito di
+possibili valori.%
+\index{varianza!della popolazione|)}
+
+Le considerazioni dei paragrafi seguenti si applicano
+ovviamente solo a popolazioni di variabili casuali per le
+quali esista finita la speranza matematica e, qualora la si
+consideri, la varianza.  Inoltre non useremo mai la
+definizione empirica di probabilit\`a, ma quella
+assiomatica; e vedremo come, partendo da essa, si possa
+dimostrare la legge detta ``dei grandi numeri''%
+\index{grandi numeri, legge dei}
+gi\`a enunciata nel paragrafo \ref{ch:3.convstat}: ossia la
+convergenza, all'aumentare del numero di prove effettuate,
+della frequenza di un qualsiasi evento casuale alla sua
+probabilit\`a.
+
+\section{Il valore medio delle combinazioni lineari}%
+\index{speranza matematica!di combinazioni lineari|(}%
+\index{combinazioni lineari!speranza matematica|(}%
+\label{ch:5.vmclc}
+Consideriamo due variabili casuali $x$ e $y$, aventi
+speranza matematica $E(x)$ ed $E(y)$ rispettivamente; ed una
+loro qualsiasi combinazione lineare a coefficienti costanti
+$z = ax + by$.  Vogliamo dimostrare ora che la speranza
+matematica della nuova variabile $z$ esiste, ed \`e data
+dalla combinazione lineare delle speranze matematiche di $x$
+e di $y$ con gli stessi coefficienti $a$ e $b$.
+
+Indichiamo con $x_j$ i possibili valori della prima
+variabile, e con $y_k$ quelli della seconda; indichiamo poi
+con $p_j$ e $q_k$ le probabilit\`a di ottenere un
+determinato valore rispettivamente per la $x$ e per la $y$.
+Chiamiamo poi $P_{jk}$ la probabilit\`a che simultaneamente
+si abbia $x = x_j$ ed $y = y_k$; un particolare valore per
+la $x$ potr\`a essere associato ad uno qualsiasi dei diversi
+valori della $y$, che sono tra loro mutuamente esclusivi: in
+definitiva, applicando la legge della probabilit\`a totale
+(equazione \eqref{eq:3.protot}) risulter\`a
+\begin{align*}
+    p_j &= \sum \nolimits_k P_{jk} & &\text{e} &
+    q_k &= \sum \nolimits_j P_{jk} \peq .
+\end{align*}
+
+Per la speranza matematica $E(z)$ di $z$ avremo poi
+\begin{align*}
+  E(ax + by) &= \sum \nolimits_{jk} P_{jk} \left(
+    a \, x_j + b \, y_k \right) \\[1ex]
+  &= \sum \nolimits_{jk} a \, P_{jk} \, x_j \; + \;
+    \sum \nolimits_{jk} b \, P_{jk} \, y_k
+    \\[1ex]
+  &= a \sum \nolimits_j \left( \sum \nolimits_k
+    P_{jk} \right) x_j \; + \; b \sum \nolimits_k
+    \left( \sum \nolimits_j P_{jk} \right) y_k
+    \\[1ex]
+  &= a \sum \nolimits_j p_j \, x_j \; + \;
+    b \sum \nolimits_k q_k \, y_k \notag \\[1ex]
+  &= a \, E(x) + b \, E(y) \peq .
+\end{align*}
+
+\`E immediato poi estendere, per induzione completa, questa
+dimostrazione alla combinazione lineare di un numero
+qualsiasi di variabili casuali: se abbiamo
+\begin{equation*}
+  F = a x + b y + c z +\cdots
+\end{equation*}
+allora
+\begin{equation} \label{eq:5.medcol}
+  E(F) = a \, E(x) + b \, E(y) + c \, E(z) + \cdots \peq .
+\end{equation}%
+\index{combinazioni lineari!speranza matematica|)}%
+\index{speranza matematica!di combinazioni lineari|)}
+
+\index{speranza matematica!della media aritmetica|(}%
+Una importante conseguenza pu\`o subito essere ricavata
+applicando l'equazione \eqref{eq:5.medcol} alla media
+aritmetica $\bar x$ di un campione di $N$ misure: essa
+infatti si pu\`o considerare come una particolare
+combinazione lineare delle misure stesse, con coefficienti
+tutti uguali tra loro e pari ad $1/N$.
+
+Prendendo dalla popolazione un differente campione di $N$
+misure, la loro media aritmetica $\bar x$ sar\`a anch'essa
+in generale diversa: quale sar\`a la speranza matematica di
+$\bar x$, ovverosia il valore medio delle varie $\bar x$ su
+un numero molto elevato di campioni di $N$ misure estratti a
+caso dalla popolazione --- e, al limite, su tutti i campioni
+(aventi la stessa dimensione fissa $N$) che dalla
+popolazione \`e possibile ricavare?
+\begin{align}
+  E \left( \bar x \right) &= E \left( \frac{1}{N}
+    \sum_{i=1}^N x_i \right) \notag \\[1ex]
+  &= \frac{1}{N} \sum_{i=1}^N E \left( x_i \right)
+    \notag \\[1ex]
+  &= \frac{1}{N} \cdot N \, E(x) \notag \\
+\intertext{ed infine}
+  E \left( \bar x \right) &= E(x) \label{eq:5.ebarx}
+\end{align}
+cio\`e:
+\begin{quote}
+  \textit{Il valore medio della popolazione delle medie
+    aritmetiche dei campioni di dimensione finita $N$
+    estratti da una popolazione coincide con il valore medio
+    della popolazione stessa}.
+\end{quote}%
+\index{speranza matematica!della media aritmetica|)}
+
+\section{La varianza delle combinazioni lineari}%
+\index{varianza!di combinazioni lineari!di variabili indipendenti|(}%
+\index{combinazioni lineari!varianza!di variabili indipendenti|(}
+Dimostriamo ora un altro teorema generale che riguarda la
+varianza di una combinazione lineare di pi\`u variabili
+casuali, che supporremo per\`o \emph{statisticamente
+  indipendenti}.  Usando gli stessi simboli gi\`a introdotti
+nel paragrafo \ref{ch:5.vmclc}, e dette $x$ ed $y$ due
+variabili casuali che godano di tale propriet\`a, sappiamo
+dall'equazione \eqref{eq:3.procom} che la probabilit\`a
+$P_{jk}$ che contemporaneamente risulti sia $x = x_j$ che $y
+= y_k$ \`e data dal prodotto delle probabilit\`a rispettive
+$p_j$ e $q_k$.
+
+Per semplificare i calcoli, dimostriamo questo teorema
+dapprima nel caso particolare di due popolazioni $x$ e $y$
+che abbiano \emph{speranza matematica nulla}; estenderemo
+poi il risultato a due variabili (sempre statisticamente
+indipendenti) aventi speranza matematica qualunque.  Ci\`o
+premesso, la combinazione lineare
+\begin{equation*}
+  z = a x + b y
+\end{equation*}
+ha anch'essa speranza matematica zero: infatti applicando
+l'equazione \eqref{eq:5.medcol} risulta
+\begin{equation*}
+  E(z) \; = \; E(ax+by) \; = \; a \, E(x) +
+  b \, E(y) \; = \; 0
+\end{equation*}
+e si pu\`o allora ricavare (indicando con i simboli
+${\sigma_x}^2$, ${\sigma_y}^2$ e ${\sigma_z}^2$ le varianze
+di $x$, $y$ e $z$ rispettivamente):
+\begin{align*}
+  {\sigma_z}^2 &= E \left \{ \bigl[ z -
+      E(z) \bigr] ^2 \right \} \\[1ex]
+    &= E \left\{ z^2 \right\} \\[1ex]
+    &= E \left \{ \left( ax+by \right) ^2 \right
+      \} \\[1ex]
+    &= \sum \nolimits_{jk} P_{jk} \left( a \,
+      x_j + b \, y_k \right) ^2 \\[1ex]
+    &= \sum \nolimits_{jk} p_j q_k \bigl(
+      a^2 {x_j}^2 + b^2 {y_k}^2 + 2 a \, b \,
+      x_j \, y_k \bigr) \\[1ex]
+    &= a^2 \sum \nolimits_k q_k
+      \sum \nolimits_j p_j {x_j}^2 \; + \;
+      b^2 \sum \nolimits_j p_j \sum \nolimits_k
+      q_k {y_k}^2 \; + \; 2ab \sum \nolimits_j
+      p_j x_j \sum \nolimits_k q_k y_k \\[1ex]
+    &= a^2 {\sigma_x}^2 \, \sum \nolimits_k q_k
+      \; + \; b^2 {\sigma_y}^2 \, \sum
+      \nolimits_j p_j \; + \; 2 a b \, E(x) \,
+      E(y)
+\end{align*}
+ed infine
+\begin{equation} \label{eq:5.vcl}
+  {\sigma_z}^2 \; = \; a^2 {\sigma_x}^2
+    \; + \; b^2 {\sigma_y}^2 \peq .
+\end{equation}
+
+Allo scopo di estendere la validit\`a dell'equazione
+\eqref{eq:5.vcl} appena dimostrata a due variabili casuali
+$x$ e $y$ aventi speranza matematica anche differente da
+zero, dimostriamo ora il seguente
+\begin{quote}
+  \textsc{Teorema:}\label{def:5.varind} \textit{due
+    variabili casuali che differiscano per un fattore
+    costante hanno la stessa varianza.}
+\end{quote}
+
+Infatti, se le due variabili casuali $x$ e $\xi$ soddisfano
+questa ipotesi, allora deve risultare:
+\begin{align*}
+  \xi &= x + K \\[1ex]
+  E(\xi) &= E(x) + K \\[1ex]
+  {\sigma_\xi}^2 &=
+    E \left \{ \bigl[ \xi - E(\xi) \bigr] ^2
+    \right \} \\[1ex]
+  &= E \left \{ \bigl[ x + K - E(x) - K
+    \bigr] ^2 \right \} \\[1ex]
+  &= E \left \{ \bigl[ x - E(x) \bigr] ^2
+    \right \} \\[1ex]
+  &= {\sigma_x}^2 \peq .
+\end{align*}
+
+Ora, date due variabili casuali $x$ e $y$ qualsiasi, ed una
+loro generica combinazione lineare $z = a x + b y$, basta
+definire altre due variabili casuali ausiliarie
+\begin{align*}
+  \xi &= x - E(x) & &\text{ed} &
+  \eta &= y - E(y)
+\end{align*}
+(che ovviamente soddisfano l'ipotesi di avere speranza
+matematica zero): pertanto la loro combinazione lineare $
+\zeta = a \xi + b \eta $, che differisce anch'essa da $z$
+per un fattore costante e pari ad $a E(x) + b E(y)$, avr\`a
+varianza che, in conseguenza della \eqref{eq:5.vcl}, sar\`a
+data dalla
+\begin{equation*}
+  {\sigma_\zeta}^2 = a^2 {\sigma_\xi}^2 + b^2
+  {\sigma_\eta}^2 \peq .
+\end{equation*}
+
+Ma per quanto detto, $x$ e $\xi$ hanno la stessa varianza;
+cos\`\i\ $y$ ed $\eta$, e $z$ e $\zeta$.  Ne consegue come
+per \emph{qualsiasi} coppia di variabili casuali (purch\'e
+per\`o statisticamente indipendenti) vale la relazione
+\eqref{eq:5.vcl}, che possiamo enunciare nel modo seguente:
+\begin{quote}
+  \textit{Una combinazione lineare, a coefficienti costanti,
+    di due variabili casuali statisticamente indipendenti ha
+    varianza uguale alla combinazione lineare delle
+    rispettive varianze, con coefficienti pari ai quadrati
+    dei coefficienti rispettivi\thinspace\/\footnote{O, come
+      si usa dire in sintesi, \emph{gli errori si combinano
+        quadraticamente}.  Una formula pi\`u generale, che
+      si pu\`o applicare a coppie di variabili casuali
+      qualunque, verr\`a dimostrata
+      nell'appendice~\ref{ch:c.covcor}.}.}
+\end{quote}
+
+\`E ovvio poi estendere (per induzione completa) questo
+risultato alla combinazione lineare di un numero finito
+qualsivoglia di variabili casuali, che siano per\`o sempre
+tra loro tutte statisticamente indipendenti: se
+\begin{equation*}
+  F = ax + by + cz +\cdots
+\end{equation*}
+allora
+\begin{equation} \label{eq:5.varcol}
+  {\sigma_F}^2 = a^2 {\sigma_x}^2 + b^2 {\sigma_y}^2 +
+  c^2 {\sigma_z}^2 +\cdots \peq .
+\end{equation}%
+\index{combinazioni lineari!varianza!di variabili indipendenti|)}%
+\index{varianza!di combinazioni lineari!di variabili indipendenti|)}
+
+\section{L'errore della media dei campioni}%
+\index{varianza!della media aritmetica|(}
+Torniamo ora ad occuparci dello studio delle propriet\`a
+statistiche della media aritmetica di un campione di $N$
+misure indipendenti estratto da una popolazione,
+\begin{equation*}
+  \bar x = \frac{1}{N} \sum_{i=1}^{N} x_{i} \peq ;
+\end{equation*}
+e cerchiamo in particolare di determinarne la varianza.
+Applicando l'equazione \eqref{eq:5.varcol} appena
+dimostrata, risulta
+\begin{align*}
+  {\sigma_{\bar x}}^2 &= \frac{1}{N^2}
+     \sum_{i=1}^N {\sigma_{x_i}}^2 \\[1ex]
+  &= \frac{1}{N^{2}} \cdot N {\sigma_x}^2
+\end{align*}
+ed infine
+\begin{equation} \label{eq:5.sbarx}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    {\sigma_{\bar x}}^2 = \frac{ {\sigma_x}^2 }{N}
+    \quad }
+\end{equation}
+
+In definitiva abbiamo dimostrato che
+\begin{quote}
+  \begin{itemize}
+  \item \textit{Le medie aritmetiche di campioni di $N$
+      misure hanno varianza pari alla varianza della
+      popolazione da cui le misure provengono, divisa per la
+      dimensione dei campioni.}
+  \end{itemize}
+\end{quote}
+e conseguentemente
+\begin{quote}
+  \begin{itemize}
+  \item \textit{L'errore quadratico medio della media di un
+      campione \`e minore dell'analogo errore delle singole
+      misure, e tende a zero al crescere del numero di
+      misure effettuato.}
+  \end{itemize}
+\end{quote}%
+\index{varianza!della media aritmetica|)}
+
+\section{La legge dei grandi numeri}%
+\index{grandi numeri, legge dei|(emidx}%
+\label{ch:5.granum}
+Le relazioni \eqref{eq:5.ebarx} e \eqref{eq:5.sbarx} sono
+state dimostrate sulla base della definizione di speranza
+matematica, e senza presupporre la convergenza verso di essa
+della media dei campioni (n\'e quella delle frequenze verso
+la probabilit\`a); vediamo ora come la legge dei grandi
+numeri (cui abbiamo gi\`a accennato nel paragrafo
+\ref{ch:3.convstat}) si possa da esse dedurre.
+
+\subsection{La disuguaglianza di Bienaym\'e--\v Ceby\v
+  sef}%
+\index{Bienaym\'e--\v Ceby\v sef, disuguaglianza di|(}
+Sia una variabile casuale $x$, e siano $E(x)$ e $\sigma^2$
+la speranza matematica e la varianza della sua popolazione;
+vogliamo ora determinare la probabilit\`a che un valore di
+$x$ scelto a caso differisca (in valore assoluto) da $E(x)$
+per pi\`u di una assegnata quantit\`a (positiva) $\epsilon$.
+Questa \`e ovviamente data, in base alla legge della
+probabilit\`a totale \eqref{eq:3.protot}, dalla
+\begin{equation*}
+  \Pr \Bigl( \bigl| x - E(x) \bigr| \geq \epsilon \Bigl) \;
+    = \; \sum_{|x_i - E(x)| \geq \epsilon} p_i
+\end{equation*}
+dove la sommatoria \`e estesa solo a quei valori $x_i$ che
+soddisfano a tale condizione.  Ora, sappiamo che
+\begin{equation*}
+  \sigma^2 \; = \;
+    E \left\{ \bigl[ x - E(x) \bigr] ^2 \right\}
+    \; = \; \sum\nolimits_i p_i \, \bigl[ x_i -
+    E(x) \bigr] ^2 \peq ;
+\end{equation*}
+se si restringe la sommatoria ai soli termini $x_i$ che
+differiscono (in modulo) da $E(x)$ per pi\`u di $\epsilon$,
+il suo valore diminuir\`a o, al massimo, rimarr\`a
+invariato: deve risultare insomma
+\begin{equation*}
+  \sigma^2 \; \geq \; \sum_{|x_i - E(x)| \geq
+    \epsilon} p_i \, \bigl[ x_i - E(x) \bigr] ^2
+    \; \geq \; \sum_{|x_i - E(x)| \geq \epsilon}
+    p_i \: \epsilon^2 \; = \; \epsilon^2
+    \sum_{|x_i - E(x)| \geq \epsilon} p_i
+\end{equation*}
+e da questa relazione si ottiene la
+\emph{disuguaglianza di Bienaym\'e--\v Ceby\v
+sef}\/\thinspace\footnote{Ir\'en\'ee-Jules Bienaym\'e,%
+\index{Bienaym\'e, Ir\'en\'ee-Jules}
+  francese, fu un matematico e statistico vissuto dal
+  1796 al 1878; Pafnuty Lvovi\v c \v Ceby\v sef,%
+  \index{Ceby@\v Ceby\v sef!Pafnuty Lvovi\v c}
+  matematico russo vissuto dal 1821 al 1894, si
+  occup\`o di analisi, teoria dei numeri,
+  probabilit\`a, meccanica razionale e topologia.}
+\begin{gather}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad \Pr \Bigl(
+    \bigl| x - E(x) \bigr| \geq \epsilon \Bigr) \; \leq \;
+    \frac{\sigma^2}{\epsilon^2} \quad }
+    \label{eq:5.bieceb} \\
+  \intertext{e, se si pone $\epsilon = k \, \sigma$,}
+  \Pr \Bigl( \bigl| x - E(x) \bigr| \geq k \, \sigma \Bigr)
+    \; \leq \frac{1}{k^2} \label{eq:5.bieceb1}
+\end{gather}
+(se nella dimostrazione si sostituissero le frequenze
+relative alle probabilit\`a e la media aritmetica ad $E(x)$,
+si troverebbe che una analoga relazione vale anche per ogni
+campione di valori sperimentali $x_i$ rispetto alla media
+aritmetica $\bar x$ ed alla
+varianza del campione $s^2$).%
+\index{Bienaym\'e--\v Ceby\v sef, disuguaglianza di|)}
+
+La \eqref{eq:5.bieceb1} fissa un \emph{limite superiore} per
+la probabilit\`a esaminata, limite che deve valere per
+\emph{qualsiasi} variabile casuale; con $k \leq 1$ non si
+ottiene alcuna informazione significativa da essa, ma con $k
+> 1$ si vede che il maggiorante della probabilit\`a tende a
+zero all'aumentare di $k$.  In particolare, per
+\emph{qualsiasi} variabile casuale la probabilit\`a di uno
+scarto dal valore medio non inferiore in valore assoluto a
+$2 \sigma$ non pu\`o superare $\frac{1}{4} = 25\%$; e quella
+di uno scarto non inferiore in valore assoluto a $3 \sigma$
+non pu\`o superare $\frac{1}{9} \approx 11.1\%$.
+
+Si deve notare che non si \`e fatta alcuna ipotesi sulla
+distribuzione, a parte l'esistenza della sua varianza
+$\sigma^2$ e della sua speranza matematica $E(x)$; in
+termini cos\`\i\ generali il limite superiore
+\eqref{eq:5.bieceb1} non pu\`o essere ridotto, ma non \`e
+escluso che (per una particolare distribuzione) la
+probabilit\`a per la variabile da essa descritta di
+differire dal suo valore medio sia pi\`u piccola ancora di
+quella fissata dalla disuguaglianza di Bienaym\'e--\v Ceby\v
+sef.  Ad esempio, se esiste finita la quantit\`a
+\begin{gather*}
+  \mu_4 = E \left\{ \bigl[ x - E(x) \bigr]^4
+    \right\} \\
+  \intertext{(momento del quarto ordine rispetto
+    alla media), con passaggi analoghi si troverebbe
+    che}
+  \Pr \left\{ \bigl[ x - E(x) \bigr]^4 \geq
+    \epsilon \right\} \leq \frac{\mu_4}{\epsilon^4} \\
+  \intertext{e, quindi, che}
+  \Pr \left\{ \bigl[ x - E(x) \bigr]^4 \geq
+    k \, \sigma \right\} \leq \frac{\mu_4}{k^4 \,
+   \sigma^4} \peq .
+\end{gather*}
+
+Imponendo altre condizioni (anche non molto restrittive)
+alla distribuzione di probabilit\`a, si potrebbe ridurre
+ulteriormente (in quantit\`a anche notevole) il limite
+superiore stabilito in generale dalla \eqref{eq:5.bieceb1};
+e stimare cos\`\i\ anche la probabilit\`a di uno scarto
+della variabile casuale dal suo valore medio inferiore a
+$\sigma$.  Risale ad esempio a Gauss%
+\index{Gauss, Karl Friedrich}
+(1821) la dimostrazione che per una variabile continua
+avente distribuzione unimodale (con massimo in $x_0$), e per
+la quale esista finita la quantit\`a ${\sigma_0}^2 = E
+\bigl[ ( x - x_0 )^2 \bigr]$, la probabilit\`a di uno scarto
+dalla moda $x_0$ non inferiore in valore assoluto ad una
+quantit\`a prefissata non pu\`o superare la frazione
+$\frac{4}{9}$ del limite di Bienaym\'e--\v Ceby\v sef:
+\begin{equation*}
+  \Pr \Bigl\{ \left| x - x_0 \right| \geq k \,
+    \sigma \Bigr\} \leq \frac{4}{9 \, k^2} \peq .
+\end{equation*}
+
+Se la distribuzione \`e anche \emph{simmetrica}, moda e
+media coincidono entrambe col centro di simmetria; e
+$\sigma_0$ \`e uguale alla deviazione standard $\sigma$.
+Per distribuzioni di questo genere, quindi, il limite
+superiore per la probabilit\`a di uno scarto che non sia
+inferiore a $k$ volte l'errore quadratico medio scende a
+$\frac{4}{9} \approx 44.4\%$ per $k=1$; a $\frac{1}{9}
+\approx 11.1\%$ per $k=2$; ed a $\frac{4}{81} \approx 4.9\%$
+per $k=3$ (e vedremo poi nel paragrafo \ref{ch:9.scanor} che
+per le misure affette da errori puramente casuali i limiti
+superiori sono ancora pi\`u stringenti di questi).
+
+\subsection{Il teorema di \v Ceby\v sef}%
+\index{Ceby@\v Ceby\v sef!teorema di|(emidx}
+Adesso applichiamo la \eqref{eq:5.bieceb} alla variabile
+casuale $\bar x$, media aritmetica di un campione di
+dimensione $N$ di valori che supponiamo essere
+statisticamente indipendenti:
+\begin{equation} \label{eq:5.bichmed}
+  \Pr \Bigl( \bigl| \bar x - E( \bar x ) \bigr| \geq
+  \epsilon \Bigr) \; \leq \; \frac{ {\sigma_{\bar x}}^2 }{
+    \epsilon^2 } \peq ;
+\end{equation}
+ma valendo, per questa variabile casuale, le
+\begin{align*}
+  E(\bar x) &= E(x) & &\text{e} & \var \left( \bar x
+  \right) &= \frac{\sigma^2}{N} \peq ,
+\end{align*}
+sostituendo nella \eqref{eq:5.bichmed} otteniamo
+\begin{equation} \label{eq:5.teoceb1}
+  \Pr \Bigl( \bigl| \bar x - E(x) \bigr| \geq \epsilon
+  \Bigr) \; \leq \; \frac{\sigma^2}{N \, \epsilon^2} \peq .
+\end{equation}
+
+Ora, scelti comunque due numeri positivi $\epsilon$ e
+$\delta$, si pu\`o trovare in conseguenza un valore di $N$
+per cui il secondo membro della \eqref{eq:5.teoceb1} risulti
+sicuramente minore di $\delta$: basta prendere $N > M =
+\lceil \sigma^2/(\delta \, \epsilon^2) \rceil $.  In base
+alla definizione \eqref{eq:3.limsta}, questo significa che
+vale il
+\begin{quote}
+  \textsc{Teorema (di \v Ceby\v sef):}
+  \label{th:5.teoceb}
+  \textit{il valore medio di un campione finito di valori di
+    una variabile casuale qualunque converge
+    statisticamente, all'aumentare della dimensione del
+    campione, alla speranza matematica per quella
+    variabile.}
+\end{quote}%
+\index{Ceby@\v Ceby\v sef!teorema di|)}
+
+\subsection{Il teorema di Bernoulli}%
+\index{Bernoulli!teorema di|(}%
+\label{ch:5.teober}
+Sia un qualsiasi evento casuale $E$ avente probabilit\`a $p$
+di verificarsi; indichiamo con $q = 1 - p$ la probabilit\`a
+del non verificarsi di $E$ (cio\`e la probabilit\`a
+dell'evento complementare \ob{E}\,).
+
+Consideriamo poi un insieme di $N$ prove nelle quali si
+osserva se $E$ si \`e o no verificato; ed introduciamo una
+variabile casuale $y$, definita come il numero di volte in
+cui $E$ si \`e verificato in una di tali prove.  Ovviamente
+$y$ pu\`o assumere i due soli valori 1 (con probabilit\`a
+$p$) e 0 (con probabilit\`a $q$); la sua speranza matematica
+\`e perci\`o data da
+\begin{equation}
+  E( y ) \; = \; 1 \cdot p + 0 \cdot q \; = \; p \peq
+  \label{eq:5.speber} .
+\end{equation}
+
+La frequenza relativa $f$ dell'evento $E$ nelle $N$ prove si
+pu\`o chiaramente esprimere (indicando con $y_i$ il valore
+assunto dalla variabile casuale $y$ nella $i$-esima di esse)
+come
+\begin{equation*}
+  f \; = \; \frac{1}{N} \sum_{i=1}^N y_i \peq ,
+\end{equation*}
+ossia \`e data \emph{dal valore medio della $y$ sul campione
+  di prove}, $\bar y$; ma quest'ultimo (per il teorema di \v
+Ceby\v sef\footnote{Il teorema di \v Ceby\v sef vale per
+  tutte le variabili casuali per le quali esistano sia la
+  speranza matematica che la varianza: la prima \`e espressa
+  dall'equazione \eqref{eq:5.speber}, la seconda sar\`a
+  ricavata pi\`u tardi nell'equazione \eqref{eq:8.varber} a
+  pagina \pageref{eq:8.varber}.}) deve convergere
+statisticamente, all'aumentare di $N$, alla speranza
+matematica per $y$: che vale proprio $p$.  Riassumendo,
+abbiamo cos\`\i\ dimostrato il
+\begin{quote}
+  \textsc{Teorema (di Bernoulli, o legge ``dei grandi
+    numeri''):} \textit{la frequenza relativa di qualunque
+    evento casuale converge (statisticamente) alla sua
+    probabilit\`a all'aumentare del numero delle prove.}
+\end{quote}%
+\index{Bernoulli!teorema di|)}%
+\index{grandi numeri, legge dei|)}
+
+\section{Valore medio e valore vero}%
+\index{media!aritmetica!come stima del valore vero|(}
+Anche se non ci basiamo sulla definizione empirica di
+probabilit\`a, ma su quella assiomatica, possiamo ora
+presupporre la convergenza della media aritmetica dei
+campioni di misure alla speranza matematica della grandezza
+misurata, che ora a buon diritto possiamo chiamare ``valore
+medio del risultato della misura sull'intera popolazione''.
+
+Si pu\`o ora meglio precisare la distinzione fra errori
+casuali ed errori sistematici: i primi,%
+\index{errori di misura!casuali}
+visto che possono verificarsi con uguale probabilit\`a in
+difetto ed in eccesso rispetto al valore vero, avranno
+valore medio nullo; mentre errori sistematici%
+\index{errori di misura!sistematici}
+causeranno invece per definizione una differenza tra il
+valore medio delle misure $E(x)$ ed il valore vero.  In
+assenza di errori sistematici assumiamo allora che valore
+medio e valore vero coincidano: ammettiamo insomma (lo
+proveremo pi\`u avanti per la distribuzione normale) che in
+tal caso $E(x)$ esista e sia uguale a $x^*$.  Sappiamo
+insomma che risulta
+\begin{gather*}
+  \bar x \; = \; \frac{1}{N} \sum_{i=1}^N x_i
+    \; = \; \frac{1}{N} \sum_{j=1}^M \nu_j \, x_j
+    \; = \; \sum_{j=1}^M f_j \, x_j \\[1ex]
+  \lim_{N \rightarrow \infty} \bar x \; \equiv \;
+    E(x) \; = \; \sum\nolimits_j p_j \, x_j \\[1ex]
+  \intertext{e postuliamo che}
+  E(x) \equiv x^* \peq ;
+\end{gather*}
+inoltre sappiamo che anche
+\begin{equation*}
+  E \left( \bar x \right) \; = \; E(x) \; \equiv \; x^* \peq
+  .
+\end{equation*}
+Ossia, non solo $\bar x$ converge ad $E(x)$ all'aumentare
+della dimensione del campione; ma, qualunque sia il valore
+di quest'ultima grandezza, \textbf{mediamente} $\bar x$
+\emph{coincide} con $E(x)$.  Ripetendo varie volte la misura
+ed ottenendo cos\`\i\ pi\`u campioni con differenti medie
+aritmetiche, dando come stima di $E(x)$ la media di uno dei
+nostri campioni avremo insomma la stessa probabilit\`a di
+sbagliare per difetto o per eccesso\/\footnote{Questo nella
+  terminologia statistica si esprime dicendo che la media
+  dei campioni \`e una stima \emph{imparziale}%
+  \index{stima!imparziale}
+  della media della popolazione; al contrario della varianza
+  del campione che, come vedremo nel prossimo paragrafo, \`e
+  una stima \emph{parziale} (o \emph{distorta}) della
+  varianza della popolazione (il concetto verr\`a poi
+  approfondito nel paragrafo \ref{ch:11.sticar}).}.%
+\index{media!aritmetica!come stima del valore vero|)}
+
+\section{Scarto ed errore quadratico medio}%
+\index{varianza!della popolazione e di campioni|(}%
+\label{ch:5.scedeqm}
+L'ultimo punto da approfondire riguarda la relazione tra la
+varianza $s^2$ di un campione di $N$ misure e quella
+$\sigma^2$ della popolazione da cui il campione proviene.
+Ora, $s^2$ si pu\`o esprimere come
+\begin{equation*}
+  s^2 \; = \; \frac{1}{N} \sum_{i=1}^N \left( x_i -
+    \bar x \right) ^2
+\end{equation*}
+e possiamo osservare che (per qualsiasi numero $x^*$ e
+quindi anche per l'incognito valore vero) vale la seguente
+relazione matematica:
+
+\begin{equation} \label{eq:5.mprop2}
+  \begin{split}
+    \quad \frac{1}{N} \sum_{i=1}^N &\left( x_i - x^*
+      \right) ^2 \; = \; \frac{1}{N} \sum_{i=1}^N
+      \bigl[ \left( x_i - \bar x \right)
+      + \left( \bar x - x^* \right) \bigr] ^2 \\
+    &= \frac{1}{N} \left[ \,
+      \sum_{i=1}^N \left( x_i - \bar x \right) ^2
+      \; + \; \sum_{i=1}^N \left( \bar x - x^* \right)
+      ^2 \; + \; 2 \left( \bar x - x^* \right)
+      \sum_{i=1}^N \left( x_i - \bar x \right)
+      \right] \\[1ex]
+    &= \frac{1}{N} \left[ \,
+      \sum_{i=1}^N \left( x_i - \bar x \right) ^2
+      \; + \; N \left( \bar x - x^* \right) ^2
+      \right] \\[1ex]
+    &= s^2 \; + \; \left( \bar x - x^* \right) ^2
+  \end{split} \raisetag{15pt}
+\end{equation}
+(si \`e sfruttata qui l'equazione \eqref{eq:4.mprop1},
+secondo la quale la somma algebrica degli scarti delle
+misure dalla loro media aritmetica \`e identicamente nulla;
+vedi anche l'analoga formula \eqref{eq:4.mprop2} nel
+paragrafo \ref{ch:4.medari}).
+
+Cerchiamo ora di capire come le varianze $s^2$ dei campioni
+di dimensione $N$ siano legate all'analoga grandezza,
+$\sigma^{2}$ o $\var(x)$, definita sull'intera popolazione,
+e per\`o calcolata rispetto al valore medio di essa, $E(x) =
+x^{*}$:
+\begin{equation*}
+  \sigma^{2} \; = \; E \left \{ \bigl[ x - E(x)
+    \bigr]^2 \right\} \; = \; E \left \{ \left( x -
+    x^{*} \right) ^{2} \right \} \peq .
+\end{equation*}
+Sfruttando la relazione \eqref{eq:5.mprop2} in precedenza
+trovata, si ha
+\begin{equation*}
+  s^2 = \frac{1}{N} \sum_{i=1}^N \left( x_i -
+    x^* \right) ^2 \; - \; \left( \bar x
+    - x^* \right) ^2
+\end{equation*}
+e prendendo i valori medi di entrambi i membri (sugli
+infiniti campioni di dimensione $N$ che si possono pensare
+estratti in modo casuale dalla popolazione originaria),
+otteniamo
+\begin{equation*}
+  E ( s^2 ) \; = \; \sigma^2 - E
+  \left \{ \left( \bar x - x^* \right) ^2
+  \right \} \peq .
+\end{equation*}
+
+Ricordando come il valore medio del quadrato degli scarti di
+una variabile (qui $\bar x$) dal suo valore medio (che \`e
+$E(\bar x) = E(x) = x^*$) sia per definizione la varianza
+della variabile stessa (che indicheremo qui come quadrato
+dell'errore quadratico medio $\sigma_{\bar x}$), si ricava
+infine:
+\begin{equation} \label{eq:5.esssss}
+  E ( s^2 ) \; = \; \sigma^2 - \,
+  {\sigma_{\bar x}}^2 \; < \; \sigma^2 \peq .
+\end{equation}
+
+Insomma:
+\begin{quote}
+  \begin{itemize}
+  \item \textit{Il valore medio della varianza $s^2$ di un
+      campione \`e sistematicamente inferiore all'analoga
+      grandezza $\sigma^2$ che si riferisce all'intera
+      popolazione.}
+  \item \textit{La differenza tra la varianza della
+      popolazione $\sigma^{2}$ e la varianza di un campione
+      di $N$ misure da essa estratto \`e \textbf{in media}
+      pari alla varianza della media del campione.}
+  \end{itemize}
+\end{quote}
+
+\section{Stima della varianza della popolazione}
+Vediamo ora come si pu\`o stimare la varianza dell'insieme
+delle infinite misure che possono essere fatte di una
+grandezza fisica a partire da un particolare campione di $N$
+misure.  Riprendiamo l'equazione \eqref{eq:5.esssss}; in
+essa abbiamo gi\`a dimostrato che
+\begin{equation*}
+  E(s^2) = \sigma^2 - {\sigma_{\bar x}}^2
+\end{equation*}
+e sappiamo dalla \eqref{eq:5.sbarx} che la varianza della
+media del campione vale
+\begin{equation*}
+  {\sigma_{\bar x}}^2 = \frac{\sigma^2}{N} \peq .
+\end{equation*}
+
+Risulta pertanto
+\begin{equation*}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    E(s^{2}) = \frac{N-1}{N} \: \sigma^{2}
+    \quad }
+\end{equation*}
+e quindi
+\begin{quote}
+  \textit{\textbf{Mediamente} la varianza di un
+  campione di $N$ misure \`e inferiore alla varianza
+  della intera popolazione per un fattore $(N-1)/N$.}
+\end{quote}
+
+Questo \`e il motivo per cui, per avere una stima
+\emph{imparziale}%
+\index{stima!imparziale}
+(ossia \emph{mediamente corretta}) di $\sigma$, si usa (come
+gi\`a anticipato) la quantit\`a $\mu$ definita attraverso la
+\begin{equation*}
+  \mu ^2 \; = \; \frac{N}{N-1} \: s^2 \; = \;
+  \frac{\sum\limits_{i=1}^N \left( x_i - \bar x
+    \right) ^2 }{N-1} \peq ,
+\end{equation*}
+quantit\`a il cui valore medio su infiniti campioni risulta
+proprio $\sigma^2$.
+
+\section{Ancora sull'errore quadratico medio}
+Diamo qui un'altra dimostrazione del teorema riguardante la
+stima corretta dell'errore quadratico medio di una
+popolazione a partire da un campione, seguendo una linea
+diversa e pi\`u vicina alle verifiche sperimentali che si
+possono fare avendo a disposizione numerosi dati.
+
+Si supponga di avere $M$ campioni contrassegnati dall'indice
+$j$ (con $j$ che assume i valori $1,\ldots,M$); ciascuno di
+essi sia poi costituito da $N$ misure ripetute della stessa
+grandezza $x$, contrassegnate a loro volta dall'indice $i$
+($i=1,\ldots,N$): il valore osservato nella misura $i$-esima
+del campione $j$-esimo sia indicato insomma dal simbolo
+$x_{ij}$.
+
+Indicando con $x^{*}$ il valore vero di $x$, e con $\bar
+x_{j}$ la media aritmetica del campione $j$-esimo, vale la
+\begin{align*}
+  \left( x_{ij} - x^* \right) ^2 &= \Bigl[
+    \left( x_{ij} - \bar x_j \right) + \left(
+    \bar x_j - x^* \right) \Bigr] ^2 \\[1ex]
+  &= \left( x_{ij} - \bar x_j \right) ^2 \; + \;
+    \left( \bar x_j - x^* \right) ^2 \; + \;
+    2 \left( \bar x_j - x^* \right) \left( x_{ij}
+    - \bar x_j \right) \peq .
+\end{align*}
+
+Ora sommiamo su $i$ tutte le $N$ uguaglianze che si hanno
+per i valori dell'indice $i=1,2,\ldots,N$ e dividiamo per
+$N$; se indichiamo con $ {s_j}^2 $ la varianza del campione
+$j$-esimo, data da
+\begin{equation*}
+  {s_j}^2 = \frac{1}{N} \sum_{i=1}^{N}
+  \left( x_{ij} - \bar x_{j} \right) ^{2}
+\end{equation*}
+otteniamo alla fine
+\begin{equation*}
+  \frac{1}{N} \sum_{i=1}^N \left( x_{ij} - x^* \right) ^2 \;
+  = \; {s_j}^2 \; + \; \left( \bar x_j - x^* \right) ^2 \; +
+  \; \frac{2}{N} \left( \bar x_j - x^* \right)
+  \sum_{i=1}^N \left( x_{ij} - \bar x_j \right) \peq .
+\end{equation*}
+
+L'ultima sommatoria a destra \`e la somma algebrica degli
+scarti delle misure del campione $j$-esimo dalla loro media
+aritmetica $\bar x_j$ che sappiamo essere identicamente
+nulla. Dunque, per ogni $j$ vale la
+\begin{equation*}
+  \frac{1}{N} \sum_{i=1}^N \left( x_{ij} - x^* \right) ^2 =
+  {s_j}^2 \; + \; \left( \bar x_j - x^* \right) ^2
+\end{equation*}
+e se sommiamo membro a membro tutte le $M$ uguaglianze che
+abbiamo per $j=1,2,\ldots,M$ e dividiamo per $M$, risulta
+\begin{equation*}
+  \frac{1}{M} \sum_{j=1}^M \: \frac{1}{N} \sum_{i=1}^N
+  \left( x_{ij} - x^* \right) ^2 \; = \; \frac{1}{M}
+  \sum_{j=1}^M {s_j}^2 \: + \: \frac{1}{M} \sum_{j=1}^M
+  \left( \bar x_j - x^* \right) ^2 \peq .
+\end{equation*}
+
+Ora supponiamo di avere a disposizione moltissimi campioni e
+passiamo al limite per $M \rightarrow \infty$.  Il primo
+membro (che rappresenta il valore medio, su tutti i dati e
+tutti gli infiniti campioni, del quadrato degli scarti dal
+valore \emph{vero}) converge stocasticamente alla varianza
+della variabile casuale $x$; il secondo termine a destra
+(valore medio, su tutti gli infiniti campioni, del quadrato
+degli scarti della media aritmetica del campione dal proprio
+valore vero) converge alla varianza delle medie dei campioni
+di $N$ misure ${\sigma_{\bar x}}^2$.
+
+Il primo termine a destra \`e il valore medio della varianza
+dei campioni di $N$ misure e, sostituendo, infine si trova
+\begin{align*}
+  \sigma ^{2} &= \lim_{M \rightarrow \infty} \,
+    \frac{1}{NM} \, \sum \nolimits_{ij}
+    \left( x_{ij} - x^{*} \right) ^{2} \\[1ex]
+  &= \lim_{M \rightarrow \infty} \,
+    \frac{1}{M} \, \sum_{j=1}^{M} {s_j}^2
+    \; + \; \lim_{M \rightarrow \infty} \,
+    \frac{1}{M} \, \sum_{j=1}^{M}
+    \left( \bar x_{j} - x^{*} \right) ^{2} \\[1ex]
+  &= E ( s^{2} ) \; + \; {\sigma_{\bar x}}^2 \peq .
+\end{align*}
+
+Ora, avendo gi\`a dimostrato che
+\begin{equation*}
+  {\sigma_{\bar x}}^2 = \frac{\sigma^{2}}{N} \peq ,
+\end{equation*}
+si ricava facilmente
+\begin{equation*}
+  \sigma^{2} = E ( s^{2} ) + \frac{\sigma^{2}}{N}
+\end{equation*}
+ovvero
+\begin{equation*}
+  E ( s^{2} ) = \frac{N-1}{N} \, \sigma^{2}
+\end{equation*}
+che \`e il risultato gi\`a ottenuto.
+
+Si noti che mentre molti teoremi della statistica sono
+validi solo \emph{asintoticamente}, cio\`e per campioni
+numerosi o per un numero molto grande di variabili, questo
+teorema vale per ogni $N$
+($ \ge 2$).%
+\index{varianza!della popolazione e di campioni|)}
+
+\endinput

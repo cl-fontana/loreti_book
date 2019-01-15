@@ -1,0 +1,32 @@
+HIST/DEL 0
+VECT/DEL *
+SET *
+IGSET *
+FORT/FILE 66 ISTO.EPS
+GRAPH/META 66 -113                      | -113: Encapsulated PostScript
+HIST/CREATE/1D 1 'Angolo (gradi)' 40 177.95 181.95
+VECT/CREATE Y(40) R _
+        0 0 0 0 0 0 0 0 0 0 _
+        1 1 0 5 2 2 3 10 3 11 _
+        14 10 8 6 4 3 1 5 3 1 _
+        2 1 3 1 0 0 0 0 0 0
+HIST/PUT/CONT 1 Y
+
+OPT NBOX
+OPT GRID
+SET VFON -130                           | Axis values: Times-Roman,
+SET VSIZ 0.4                            |       0.3 cm high
+SET TFON -130                           | Titles: Times-Roman 0.3 cm
+SET TSIZ 0.4
+SET CFON -130                           | Comments
+SET GFON -130                           | Global title, font
+SET LFON -130                           | Axis labels
+SET NDVX 50204
+SET NDVY -503
+
+GRAPH/HPLOT/NULL 178 182 0 15
+SET DMOD 1
+SET HWID 2
+HIST/PLOT 1 S
+
+FORT/CLOSE 66

@@ -1,0 +1,67 @@
+hist/del 0
+vect/del *
+set *
+igset *
+opt *
+
+opt nbox
+set *fon -130
+set *siz 0.4
+igset txfp -130
+igset txal 23
+igset chhe 0.37
+
+opt pto
+opt utit
+
+fort/file 66 bigau1.eps
+graph/meta 66 -113
+igset dime 3
+func/fun2 1 exp(-1.3888889*(x*x-1.6*x*y+y*y)) 100 -3 3 100 -3 3 ' '
+set ndvx 6
+set ndvy 6
+set ndvz 4
+hist/2d/cont 1 ! 1
+itx 0 -3.5 'r = 0.8'
+fort/close 66
+
+fort/file 67 bigau2.eps
+graph/meta 67 -113
+igset dime 3
+func/fun2 2 exp(-1.3888889*(x*x-1.6*x*y+y*y)) 100 -3 3 100 -3 3 ' '
+set ndvx 6
+set ndvy 6
+set ndvz 4
+hist/2d/surf 2 60
+itx 0 -3.5 'r = 0.8'
+fort/close 67
+
+fort/file 68 bigau3.eps
+graph/meta 68 -113
+zone 1 2
+set ndvx 10
+set ndvy 503
+opt grid
+null -5 5 0 0.7
+set fwid 5
+set lwid 3
+set ltyp 1
+graph/prim/line 0.2 0 0.2 0.367879
+graph/prim/line 0.2 0.367879 1.4 0.367879
+graph/prim/line 1.4 0.367879 1.4 0
+graph/prim/line 0.8 0 0.8 0.60653
+set dmod 1
+func/plot exp(-1.3888889*(x*x-1.6*x+1)) -5 5 's'
+itx 0 -0.1 'Sezione a y=1  --  f(x,1) = N(0.8,0.6)'
+null -5 5 0 0.7
+set ltyp 1
+graph/prim/line 1 0 1 0.0820850
+graph/prim/line 1 0.0820850 2.2 0.0820850
+graph/prim/line 2.2 0.0820850 2.2 0
+graph/prim/line 1.6 0 1.6 0.135335
+set dmod 1
+func/plot exp(-1.3888889*(x*x-3.2*x+4)) -5 5 's'
+itx 0 -0.1 'Sezione a y=2  --  f(x,2) = N(1.6,0.6)'
+fort/close 68
+
+opt htit

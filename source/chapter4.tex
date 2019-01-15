@@ -1,0 +1,676 @@
+% $Id: chapter4.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{Elaborazione dei dati}
+In questo capitolo si discute dell'organizzazione da dare ai
+dati sperimentali, e su come si possano da essi ricavare
+quantit\`a significative.
+
+\section{Istogrammi}%
+\index{istogrammi|(emidx}
+Una volta che si disponga di un insieme di pi\`u misure
+della stessa grandezza fisica (nella statistica si parla in
+genere di un \emph{campione} di misure), \`e opportuno
+cercare di organizzarle in modo che il loro significato
+risulti a colpo d'occhio evidente; la maniera pi\`u consueta
+di rappresentare graficamente le misure \`e quella di
+disporle in un \emph{istogramma}.
+
+Essendovi una corrispondenza biunivoca tra i numeri reali ed
+i punti di una retta orientata, ognuna delle nostre misure
+pu\`o essere rappresentata su di essa da un punto;
+l'istogramma \`e un particolare tipo di diagramma cartesiano
+in cui l'asse delle ascisse \`e dedicato a tale
+rappresentazione.  Tuttavia \`e facile rendersi conto del
+fatto che non tutti i valori della variabile sono in
+realt\`a permessi, perch\'e gli strumenti forniscono per
+loro natura un insieme discreto di valori essendo limitati
+ad un numero finito di cifre significative.
+
+Conviene allora mettere in evidenza sull'asse delle ascisse
+tutti i possibili valori che possono essere ottenuti da una
+misura reale; cio\`e punti separati da un intervallo che
+corrisponde alla cifra significativa pi\`u bassa dello
+strumento, o comunque alla pi\`u piccola differenza
+apprezzabile con esso se l'ultima cifra deve essere stimata
+dall'osservatore (ad esempio il decimo di grado stimato ad
+occhio su un goniometro avente scala al mezzo grado).
+
+Nelle ordinate del diagramma si rappresenta poi la frequenza
+assoluta con la quale i diversi valori si sono presentati;
+questo si fa associando ad ognuna delle misure un rettangolo
+avente area unitaria, che viene riportato con la base al di
+sopra dell'intervallo appropriato ogni volta che uno dei
+possibili valori \`e stato ottenuto.
+
+Nel caso consueto in cui l'asse delle ascisse venga diviso
+in intervalli aventi tutti la stessa ampiezza, tutti questi
+rettangoli avranno ovviamente la stessa altezza: di modo che
+\`e possibile, dall'altezza di una colonna di rettangoli
+unitari sovrapposti, risalire al numero di dati del campione
+aventi un determinato valore.
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{isto.pstex_t}
+  } \end{center}
+  \caption[Istogramma di un campione di misure]
+  {Esempio di istogramma (100 misure ripetute della somma
+    degli angoli interni di un triangolo).}
+  \label{fig:4.istri}
+\end{figure}
+
+Se le frequenze assolute risultassero troppo piccole, pu\`o
+essere opportuno raggruppare le misure in \emph{classi di
+  frequenza};%
+\index{classi di frequenza|emidx}
+ciascuna classe corrispondendo ad un intervallo multiplo
+opportuno del pi\`u piccolo rappresentabile discusso sopra.
+
+Anzich\'e costruire l'istogramma riportandovi un risultato
+per volta, si possono contare prima le frequenze in ciascuna
+classe e disegnare sopra ognuna di esse un rettangolo avente
+area corrispondente alla frequenza ivi osservata.  L'area
+dell'istogramma sopra ad un qualsiasi intervallo \`e
+proporzionale alla frequenza assoluta con cui si \`e
+osservato un valore che cade entro di esso; uguale, se si
+assume come unit\`a di misura per le aree quella del
+rettangolo di altezza unitaria.  L'area totale sottesa
+dall'istogramma \`e, sempre rispetto a tale unit\`a, pari al
+numero di osservazioni $N$.%
+\index{istogrammi|)}
+
+\index{frequenza!cumulativa|(}%
+Un'altra rappresentazione, che \`e poco usata ma vantaggiosa
+perch\'e non richiede la previa (e in qualche misura
+arbitraria) definizione delle classi di frequenza, \`e
+quella della \emph{frequenza cumulativa}, assoluta o
+relativa.%
+\label{def:4.frcure}
+Essa \`e definita, per ogni valore dell'ascissa $x$, dal
+numero (assoluto o relativo) di volte per cui il risultato
+della misura \`e stato minore o uguale a $x$: si tratta
+dunque di una funzione monotona non decrescente con uno
+scalino pari rispettivamente ad 1 o a $1 / N$ in
+corrispondenza di ognuno degli $N$ valori osservati.
+Risulta inoltre
+\begin{equation*}
+  0 \; = \; F(-\infty) \; \le \; F(x) \; \le \; F(+\infty)
+  \; = \;
+  \begin{cases}
+      N & \text{(ass.)} \\[4mm]
+      1 & \text{(rel.)}
+  \end{cases}
+\end{equation*}%
+\index{frequenza!cumulativa|)}
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{cumul.pstex_t}
+  } \end{center}
+  \caption[Frequenza cumulativa relativa di un campione
+    di misure]{Frequenza cumulativa relativa per le stesse
+    misure della figura \ref{fig:4.istri}.}
+\end{figure}
+
+\section{Stime di tendenza centrale}%
+\index{stime!di tendenza centrale|(}%
+\label{ch:4.tecen}
+In presenza di $N$ valori osservati di una grandezza fisica
+(che non siano tutti coincidenti), si pone il problema di
+definire un algoritmo che fornisca la stima migliore del
+valore vero della grandezza osservata; cio\`e di determinare
+quale, tra le infinite funzioni dei dati, ha la maggiore
+probabilit\`a di darci il valore vero.
+
+Ora, se supponiamo di avere eliminato tutti gli errori
+sistematici, \`e intuitivo come il valore di tale stima
+debba corrispondere ad una ascissa in posizione centrale
+rispetto alla distribuzione dei valori osservati; sappiamo
+infatti che gli errori casuali hanno uguale probabilit\`a di
+presentarsi in difetto ed in eccesso rispetto al valore vero
+e, \emph{se il numero di misure \`e sufficientemente
+  elevato}, ci aspettiamo (sulla base della legge dei grandi
+numeri)%
+\index{grandi numeri, legge dei}
+che la distribuzione effettiva delle frequenze non si
+discosti troppo da quella teorica delle probabilit\`a.
+Dunque ci si attende che i valori osservati si
+distribuiscano simmetricamente rispetto al valore vero.
+
+\subsection{La moda}%
+\index{moda|(}
+Nella statistica esistono varie stime della cosiddetta
+\emph{tendenza centrale} di un campione; una di queste stime
+\`e il valore corrispondente al massimo della frequenza,
+cio\`e il valore che si \`e presentato il maggior numero di
+volte (ovvero la media dei valori \emph{contigui} che
+presentassero tutti la medesima massima frequenza): tale
+stima (se esiste) si chiama \emph{moda} del campione, e si
+indica con il simbolo $\widehat x$.
+
+In generale per\`o la distribuzione potrebbe non avere
+massimo (distribuzioni \emph{amodali}), oppure averne pi\`u
+d'uno in intervalli non contigui (distribuzioni
+\emph{multimodali}); anche se questo non dovrebbe essere il
+caso per le distribuzioni di misure ripetute.
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{modes.pstex_t}
+  } \end{center}
+  \caption[Distribuzioni unimodali, bimodali e amodali]
+  {Due distribuzioni unimodali (in alto), una bimodale (in
+    basso a sinistra), una senza moda (in basso a destra);
+    quest'ultima distribuzione simula il campionamento a
+    istanti casuali dell'elongazione di un pendolo.}
+\end{figure}
+Talvolta si dice che la distribuzione non ha moda anche se
+il massimo esiste, ma si presenta ad uno degli estremi
+dell'intervallo che contiene le misure; non essendo in tal
+caso la moda, ovviamente, una stima di tendenza centrale.
+
+Per tutti questi motivi la moda non \`e di uso molto
+frequente, e non \`e opportuna in questo contesto anche
+per ragioni che saranno esaminate pi\`u avanti.%
+\index{moda|)}
+
+\subsection{La mediana}%
+\index{mediana|(}
+Un'altra stima di tendenza centrale di uso frequente nella
+statistica (anche se non nella fisica) \`e la \emph{mediana}
+di un campione: indicata col simbolo $\widetilde x$, \`e
+definita come quel valore che divide l'istogramma dei dati
+in due parti di uguale area\/\footnote{Il valore della
+  mediana di un insieme di dati, cos\`\i\ definito, dipende
+  dalla scelta delle classi si frequenza; per questo motivo
+  la mediana in genere non si adopera tanto per i campioni
+  sperimentali di dati, quanto per le distribuzioni
+  teoriche.}; in termini meno precisi, la mediana lascia un
+uguale numero di dati alla propria sinistra ed alla propria
+destra\/\footnote{Basta applicare le due definizioni ad un
+  insieme di dati composto dai tre valori $\{ 0, 1, 1 \}$
+  per rendersi conto della differenza.}.  Usando questa
+forma della definizione, per trovare la mediana di un
+insieme di valori tutti distinti basta disporli in ordine
+crescente e prendere il valore centrale (per un numero
+dispari di misure; si prende la semisomma dei due valori
+centrali se le misure sono in numero pari).
+
+Al contrario della moda, la mediana esiste sempre; nel
+diagramma della frequenza cumulativa relativa \`e definita
+dall'ascissa corrispondente all'ordinata del 50\%.  Si pu\`o
+dimostrare anche che la mediana $\widetilde x$ \`e quel
+valore di $x$ che rende minima la somma dei valori assoluti
+degli scarti delle nostre misure $x_{i}$ da $x$; cio\`e tale
+che
+\begin{equation*}
+  \min \left\{ \sum_{i=1}^N | x_i - x | \right\}
+  \: = \: \sum_{i=1}^N | x_i - \widetilde x | \peq .
+\end{equation*}%
+\index{mediana|)}
+
+\subsection{La media aritmetica}%
+\index{media!aritmetica!come stima di tendenza centrale|(}
+\label{ch:4.medari}
+La stima di gran lunga pi\`u usata della tendenza centrale
+di un campione \`e la \emph{media aritmetica} $\bar x$ dei
+valori osservati, definita attraverso la
+\begin{equation} \label{eq:4.mediar}
+  \bar x = \frac{1}{N} \sum_{i=1}^N x_i \peq .
+\end{equation}
+Propriet\`a matematiche della media aritmetica sono le
+seguenti:%
+\index{media!aritmetica!propriet\`a matematiche|(}
+\begin{quote}
+  \textsc{Propriet\`a 1:} \textit{la somma degli scarti di
+    un insieme di valori dalla loro media aritmetica \`e
+    identicamente nulla.}
+\end{quote}
+Infatti dalla definizione risulta
+\begin{align}
+  \sum_{i=1}^N ( x_i - \bar x ) &=
+    \sum_{i=1}^N x_i - \sum_{i=1}^N  \bar x
+    \notag \\[1ex]
+  &= \sum_{i=1}^N x_i - N \bar x \notag \\[1ex]
+  &= N \bar x - N \bar x \notag \\
+  \intertext{ed infine}
+  \sum_{i=1}^N ( x_i - \bar x ) &\equiv 0 \peq
+  . \label{eq:4.mprop1}
+\end{align}
+
+\begin{quote}
+  \textsc{Propriet\`a 2:} \textit{la media aritmetica $\bar
+    x$ di un insieme di dati numerici $x_1, x_2,\ldots, x_N$
+    \`e quel valore di $x$ rispetto al quale risulta minima
+    la somma dei quadrati degli scarti dalle $x_i$; cio\`e
+    quel numero per il quale \`e verificata la}
+  \begin{equation*}
+    \min \left \{ \sum_{i=1}^N (x_i - x)^2 \right \}
+    \; = \; \sum_{i=1}^N ( x_i - \bar x ) ^2 \peq .
+  \end{equation*}
+\end{quote}
+
+Infatti abbiamo
+\begin{align*}
+  \sum_{i=1}^N (x_i-x) ^2 &=
+    \sum_{i=1}^N \bigl[ (x_i-\bar x) +
+    (\bar x-x) \bigr] ^2 \\[1ex]
+  &= \sum_{i=1}^N \left[ (x_i-\bar x) ^2 +
+    (\bar x - x) ^2
+    + 2 (x_i-\bar x) (\bar x - x) \right]
+    \\[1ex]
+  &= \sum_{i=1}^N (x_i-\bar x) ^2
+    \;+\; \sum_{i=1}^N (\bar x-x) ^2
+    \;+\; 2(\bar x-x)\sum_{i=1}^N (x_i-\bar x) \peq ;
+\end{align*}
+da qui, sfruttando l'equazione \eqref{eq:4.mprop1}, si
+ottiene
+\begin{equation} \label{eq:4.mprop2}
+  \sum_{i=1}^N (x_i-x) ^2 = \sum_{i=1}^N
+    (x_i-\bar x)^2 \;+\; N(\bar x - x)^2
+\end{equation}
+e finalmente
+\begin{equation*}
+  \sum_{i=1}^N (x_i-x) ^2 \ge \sum_{i=1}^N
+    (x_i-\bar x)^2 \peq .
+\end{equation*}%
+\index{media!aritmetica!propriet\`a matematiche|)}%
+\index{media!aritmetica!come stima di tendenza centrale|)}%
+\index{stime!di tendenza centrale|)}
+
+\subsection{Considerazioni complessive}
+Oltre le tre stime citate di tendenza centrale ne esistono
+altre, di uso per\`o limitato a casi particolari e che non
+hanno frequente uso n\'e nella statistica n\'e nella fisica;
+per soli motivi di completezza citiamo qui:
+\begin{itemize}
+\item la \emph{media geometrica},%
+  \index{media!geometrica}
+  $g$, definita come la radice $N$-esima del prodotto degli
+  $N$ valori rappresentati nel campione:
+  \begin{equation*}
+    g^N = \prod_{i=1}^N x_i \peq ;
+  \end{equation*}
+\item la \emph{media armonica},%
+  \index{media!armonica}
+  $h$, definita come il reciproco del valore medio dei
+  reciproci dei dati:
+  \begin{equation*}
+    \frac{1}{h} = \frac{1}{N} \sum_{i=1}^N \frac{1}{x_i} \peq
+    ;
+  \end{equation*}
+\item la \emph{media quadratica},%
+  \index{media!quadratica}
+  $q$, definita come la radice quadrata del valore medio dei
+  quadrati dei dati:
+  \begin{equation*}
+    q = \sqrt{ \frac{1}{N} \sum_{i=1}^N {x_i}^2 } \peq .
+  \end{equation*}
+\end{itemize}
+
+Se la distribuzione dei dati non \`e troppo irregolare, le
+prime tre stime citate per la tendenza centrale (moda,
+mediana e media aritmetica) non sono molto lontane; esiste
+una relazione empirica che le lega e che \`e valida per
+distribuzioni non troppo asimmetriche:
+\begin{equation*}
+  \left| \bar x - \widehat x \right| \; \approx \; 3
+  \left| \bar x - \widetilde x \right| \peq ,
+\end{equation*}
+cio\`e la differenza tra media aritmetica e moda \`e circa
+il triplo della differenza tra media aritmetica e mediana.
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center} {
+    \input{maxbol.pstex_t}
+  } \end{center}
+  \caption[La distribuzione di Maxwell--Boltzmann]
+  {I valori delle tre principali stime di tendenza centrale
+    per la distribuzione di Maxwell--Boltzmann; l'unit\`a
+    per le ascisse \`e il parametro $\alpha$ che compare
+    nell'equazione \eqref{eq:4.maxbol}.}
+  \label{fig:4.maxbol}
+\end{figure}
+
+Come esempio, nella figura \ref{fig:4.maxbol} \`e mostrato
+l'andamento di una distribuzione di probabilit\`a per una
+variabile (continua) che \`e di interesse per la fisica; e
+nel grafico sono messi in evidenza i valori per essa assunti
+dalle tre stime di tendenza centrale considerate.  Si tratta
+della funzione di frequenza detta di
+\emph{Maxwell--Boltzmann},%
+\index{distribuzione!di Maxwell--Boltzmann}
+e secondo essa sono ad esempio distribuiti, in un gas
+perfetto, i moduli delle velocit\`a delle molecole:
+l'equazione della curva \`e
+\begin{equation} \label{eq:4.maxbol}
+  y \; = \; f(v) \; = \; \frac{4}{\sqrt{\pi}} \:
+  \alpha^\frac{3}{2} \, v^2 \, e^{-\alpha \, v^2}
+\end{equation}
+(in cui $\alpha$ \`e una costante dipendente dalla massa
+delle molecole e dalla temperatura del gas).
+
+La scelta dell'uso dell'una o dell'altra stima statistica
+per determinare la tendenza centrale di un campione di
+misure ripetute andr\`a decisa sulla base delle propriet\`a
+delle stime stesse; pi\`u precisamente sulla base dello
+studio di come si distribuiscono varie stime che si
+riferiscano a campioni analoghi, cio\`e ad insiemi di misure
+della stessa grandezza fisica presumibilmente affette dallo
+stesso errore (eseguite  insomma in condizioni simili) e
+composti da uno stesso numero di dati.  La stima che
+sceglieremo dovrebbe essere la migliore, nel senso gi\`a
+usato all'inizio di questo paragrafo \ref{ch:4.tecen}:
+quella che ha la maggiore probabilit\`a di darci il valore
+vero della grandezza misurata.
+
+\subsection{Prima giustificazione della media}%
+\index{media!aritmetica!come stima del valore vero|(} La
+stima di tendenza centrale che \`e di uso generale per le
+misure ripetute \`e la \emph{media aritmetica}: i motivi
+sono svariati e sostanzialmente legati alle propriet\`a
+statistiche della media stessa; di essi ci occuperemo ancora
+pi\`u avanti.  In particolare vedremo nel paragrafo
+\ref{ch:11.mepeted} che la media aritmetica \`e
+effettivamente la stima \emph{migliore}, nel senso or ora
+chiarito di questa frase.
+
+A questo punto possiamo gi\`a comunque renderci conto (anche
+se in maniera \emph{non rigorosa}) che la media aritmetica
+di pi\`u misure dovrebbe avere un errore inferiore a quello
+delle misure stesse; indichiamo con $x^*$ il valore vero
+della grandezza $x$, e con $x_i$ ($i = 1, 2, \ldots, N$) le
+$N$ determinazioni sperimentali di $x$: l'errore assoluto
+commesso in ognuna delle misure $x_i$ sar\`a dato da
+$\epsilon_i = x_i - x^*$.  L'errore assoluto della media
+aritmetica \`e allora dato da
+\begin{equation*}
+  \bar \epsilon = \bar x - x^*
+\end{equation*}
+e, sfruttando la \eqref{eq:4.mediar},
+\begin{equation*}
+  \bar \epsilon \; = \; \frac{1}{N}\sum_{i=1}^N x_i \; - \;
+  x^* \; = \; \frac{1}{N}\sum_{i=1}^N \left( x_i-x^* \right)
+  \; = \; \frac{1}{N}\sum_{i=1}^N \epsilon_i \peq .
+\end{equation*}
+
+Se gli errori sono solo casuali, saranno ugualmente
+probabili in difetto e in eccesso rispetto al valore vero; e
+se le misure sono numerose gli $\epsilon_{i}$ tenderanno
+quindi ad eliminarsi a vicenda nella sommatoria, che inoltre
+\`e moltiplicata per un fattore
+$1/N$.%
+\index{media!aritmetica!come stima del valore vero|)}
+
+\subsection{La media aritmetica espressa tramite le
+  frequenze}
+\label{ch:4.medpes}
+Siano $x_i$, con $i = 1, \ldots, N$, gli $N$ valori del
+campione di cui vogliamo calcolare la media aritmetica;
+supponiamo che qualcuno dei valori ottenuti sia
+\emph{ripetuto}, ad esempio che il valore $x_1$ si sia
+presentato $n_1$ volte, $x_2$ si sia presentato $n_2$ volte
+e cos\`\i\ via: la media aritmetica si pu\`o calcolare
+come
+\begin{align*}
+  \bar x &= \frac{n_1 x_1 + n_2 x_2 +\cdots}{N}
+  & (N &= n_1 + n_2 +\cdots) \peq .
+\end{align*}
+
+Indichiamo con $x_j$ ($j = 1, 2, \ldots, M$) gli $M$ valori
+distinti di $x$ presenti nel campione; $n_j$ \`e la
+frequenza assoluta con cui abbiamo ottenuto il valore $x_j$
+nel corso delle nostre misure, ed il rapporto $n_j / N$ \`e
+la frequenza relativa $f_j$ dello stesso evento casuale:
+allora possiamo scrivere
+\begin{equation*}
+  \bar x \; = \; \frac{1}{N} \sum_{i=1}^N x_i \; = \;
+  \frac{1}{N} \sum_{j=1}^M n_j x_j \; = \;
+  \sum_{j=1}^M \frac{n_j}{N} \, x_j \; = \;
+  \sum_{j=1}^M f_j x_j \peq .
+\end{equation*}
+
+\index{media!pesata|(}%
+Formule in cui si sommano valori numerici (qui gli $x_j$)
+moltiplicati ciascuno per un fattore specifico ($f_j$) vanno
+sotto il nome generico di \emph{formule di media pesata}:
+ogni valore distinto dagli altri contribuisce infatti al
+risultato finale con un \emph{peso} relativo dato dal numero
+$f_j$.
+
+\`E bene osservare come si possano definire infinite medie
+pesate dei valori numerici $x_j$, corrispondenti alle
+infinite differenti maniere di attribuire ad ognuno di essi
+un peso; ed anche che, in genere, con il nome di ``media
+pesata'' ci si riferisce a quella particolare formula che
+permette di calcolare la migliore stima del valore vero di
+una grandezza fisica sulla base di pi\`u misure aventi
+differente precisione (l'equazione \eqref{eq:11.medpes}, che
+incontreremo pi\`u avanti nel paragrafo
+\ref{ch:11.mepeted}), e non alla formula precedente.%
+\index{media!pesata|)}
+
+\index{media!aritmetica!propriet\`a matematiche|(}%
+Fin qui tale formula si presenta solo come un artificio per
+calcolare la media aritmetica di un insieme di valori
+risparmiando alcune operazioni; ma pensiamo di far tendere
+all'infinito il numero di misure effettuate.  In tal caso,
+se assumiamo che la frequenza relativa con cui ogni valore
+si \`e presentato tenda stocasticamente alla probabilit\`a
+rispettiva, in definitiva otteniamo che la media aritmetica
+delle misure deve anch'essa tendere ad un limite
+determinato:
+\begin{equation*}%
+\index{media!aritmetica!come stima del valore vero}
+  \lim_{N \rightarrow \infty} \bar x \; = \;
+  \sum \nolimits_j p_j x_j \peq .
+\end{equation*}
+
+In definitiva, se siamo in grado di assegnare in qualche
+modo una probabilit\`a al presentarsi di ognuno dei
+possibili valori di una misura, siamo anche in grado di
+calcolare il valore assunto dalla media aritmetica di un
+campione di quei valori nel limite di infinite misure
+effettuate.%
+\index{media!aritmetica!propriet\`a matematiche|)}
+Di questa formula ci serviremo pi\`u avanti, una volta
+ricavata appunto (sotto opportune ipotesi) la probabilit\`a
+di ottenere un certo risultato dalle misure di una grandezza
+fisica.
+
+\section{Stime di dispersione}%
+\index{stime!di dispersione|(}
+Abbiamo sviluppato il paragrafo \ref{ch:4.tecen} partendo
+dall'intuizione (giustificata con l'aiuto delle
+caratteristiche degli errori casuali e della legge dei
+grandi numeri) che la tendenza centrale di un insieme di
+misure \`e legata al valore vero della grandezza misurata.
+Cos\`\i, similmente, si intuisce che agli errori introdotti
+nell'eseguire le nostre misure \`e legata un'altra grandezza
+caratteristica del campione, cio\`e la sua
+\emph{dispersione}: ovvero la valutazione della larghezza
+dell'intervallo in $x$ in cui le misure stesse sono
+distribuite attorno al valore centrale.
+
+\subsection{Semidispersione massima e quantili}%
+\index{semidispersione massima|(}%
+\index{dispersione massima|see{semidispersione massima}}
+La pi\`u grossolana delle stime statistiche di dispersione
+si effettua trovando il massimo ed il minimo valore
+osservato: la \emph{semidispersione massima} \`e definita
+come la semidifferenza tra questi due valori,
+\begin{equation*}
+  \frac{x_{\max} - x_{\min}}{2} \peq .
+\end{equation*}
+
+Essa ha il difetto di ignorare la maggior parte dei dati e
+particolarmente quelli, generalmente preponderanti, prossimi
+al centro della distribuzione; inoltre normalmente aumenta
+all'aumentare del numero di misure, invece di tendere ad un
+valore determinato.  Il doppio della semidispersione massima
+\begin{equation*}
+  R = x_{\max} - x_{\min}
+\end{equation*}
+\`e anch'esso usato come stima della dispersione di un
+campione, e viene chiamato \emph{range}.%
+\index{range}%
+\index{semidispersione massima|)}
+
+\index{quantili|(}%
+\index{quartili|see{quantili}}%
+\index{decili|see{quantili}}%
+\index{percentili|see{quantili}}%
+Grandezze frequentemente usate per caratterizzare una
+distribuzione nella statistica (non nella fisica) sono i
+\emph{quartili}, i \emph{decili} ed i \emph{percentili}
+(collettivamente \emph{quantili}), indicati con $Q_i$ ($i=1,
+2, 3$); con $D_i$ ($i=1, \ldots, 9$); e con $P_i$
+($i=1,\ldots, 99$) rispettivamente.  Essi sono definiti
+(analogamente alla mediana) come quei valori della $x$ che
+dividono la distribuzione rispettivamente in 4, 10 e 100
+parti di uguale area; ovviamente vale la
+\begin{equation*}
+  Q_2 \: \equiv \: D_5 \: \equiv \: P_{50}
+  \: \equiv \: \widetilde x \peq .
+\end{equation*}
+
+Come stima della dispersione di una distribuzione \`e usato
+dagli statistici l'\emph{intervallo semiinterquartilico} $Q
+= (Q_3 - Q_1) / 2$, come pure la differenza $P_{90} -
+P_{10}$ tra il novantesimo ed il decimo percentile; tali
+intervalli esistono sempre, ma non sono padroneggiabili
+agevolmente negli sviluppi teorici.%
+\index{quantili|)}
+
+\subsection{Deviazione media assoluta (errore medio)}%
+\index{errore!medio|(}%
+\index{deviazione media assoluta|see{errore medio}}
+Altra stima di dispersione \`e la \emph{deviazione media
+  assoluta} (o \emph{errore medio}), definita come
+\begin{equation*}
+  \overline{ \rule{0pt}{2.0ex} | x - \bar x | } \: =
+  \: \frac{1}{N}\sum_{i=1}^N \left| x_i - \bar x \right| \peq
+  ,
+\end{equation*}
+oppure, meno frequentemente, come
+\begin{equation*}
+  \overline{ \rule{0pt}{2.0ex} | x - \widetilde x | } \: = \:
+  \frac{1}{N}\sum_{i=1}^N \left| x_i - \widetilde x \right|
+  \peq ;
+\end{equation*}
+ma anch'essa non \`e facile da trattare a ragione della
+operazione non lineare costituita dal valore assoluto.%
+\index{errore!medio|)}
+
+\subsection{Varianza e deviazione standard}%
+\index{varianza|(}%
+\index{errore!quadratico medio|(}
+La pi\`u importante (e pi\`u usata, non solo in fisica)
+stima di dispersione \`e la \emph{deviazione standard}
+(oppure \emph{scarto} o \emph{deviazione quadratica media})
+$s$; che si definisce come la radice quadrata della
+\emph{varianza}, $s^2$:
+\begin{equation*}
+  s^2 = \frac{1}{N} \sum_{i=1}^N \left( x_i
+    - \bar x \right) ^2 \peq .
+\end{equation*}
+
+Per distribuzioni non troppo asimmetriche la deviazione
+media assoluta \`e circa i $\frac{4}{5}$ della deviazione
+standard, e l'intervallo semiinterquartilico \`e circa i
+$\frac{2}{3}$ della stessa.
+
+Per calcolare lo scarto quadratico medio di un campione
+senza l'aiuto di un calcolatore appositamente programmato,
+pu\`o risultare utile sfruttare la sua seguente propriet\`a:
+
+\begin{align*}%
+\index{varianza!propriet\`a matematiche|(}
+  N \, s^2 &= \sum_{i=1}^N ( x_i - \bar x ) ^2 \\[1ex]
+  &= \sum_{i=1}^N \bigl( {x_i}^2 +
+    \bar x ^2 - 2 \, \bar x \, x_i \bigr) \\[1ex]
+  &= \sum_{i=1}^N {x_i}^2 \; + \; N \, \bar x ^2 \; - \;
+    2 \, \bar x \sum_{i=1}^N x_i \\[1ex]
+  &= \sum_{i=1}^N {x_i}^2 \; + \; N \, \bar x ^2 \; - \;
+    2 \, N \, \bar x ^2 \\[1ex]
+  &= \sum_{i=1}^N {x_i}^2 \; - \; N \, \bar x ^2 \\
+\intertext{da cui la formula}
+  s^2 &= \frac{1}{N} \sum_{i=1}^N {x_i}^2 \; - \; \bar x ^2
+\end{align*}
+che permette un calcolo pi\`u agevole di $s^2$ accumulando
+successivamente i quadrati dei valori
+osservati anzich\'e quelli dei loro scarti dalla media.%
+\index{varianza!propriet\`a matematiche|)}%
+\index{errore!quadratico medio|)}%
+\index{varianza|)}%
+\index{stime!di dispersione|)}
+
+\section{Giustificazione della media}%
+\index{media!aritmetica!come stima del valore vero|(}%
+\label{ch:4.giumed}
+Stabiliamo quindi per convenzione che il nostro metodo per
+misurare la dispersione di un campione di dati \`e quello
+del calcolo della deviazione standard; accettiamo anche che
+\emph{in qualche modo} questo numero sia legato all'errore
+presumibilmente commesso nel corso delle misure.  Una
+definizione pi\`u precisa di ci\`o che si intende con le
+parole ``errore commesso'', ovverosia l'interpretazione
+probabilistica dello scarto quadratico medio nei riguardi
+delle misure ripetute, verr\`a data pi\`u avanti nel
+paragrafo \ref{ch:9.scanor}.
+
+Comunque, una volta assunto questo, possiamo approfondire il
+discorso gi\`a cominciato sulla media aritmetica come stima
+del centro della distribuzione e quindi del valore vero di
+una grandezza, nel caso di misure ripetute ed in assenza di
+errori sistematici.  \`E infatti possibile
+provare\/\footnote{La   dimostrazione risale a Gauss%
+  \index{Gauss, Karl Friedrich}
+  se ci si limita alle sole operazioni lineari sui dati, e
+  solo ad anni recenti per un qualsiasi algoritmo operante
+  su di essi; vedi in proposito
+  l'appendice~\ref{ch:e.maxlik}.} che la media aritmetica
+\`e la stima del valore vero affetta \emph{dal minimo errore
+  casuale},%
+\index{errore!della media|(}
+cio\`e avente la pi\`u piccola deviazione standard.
+
+Riferendosi a quanto prima accennato, ci\`o significa che le
+medie aritmetiche di molti campioni analoghi di $N$ misure
+avranno un istogramma pi\`u stretto delle mode, delle
+mediane e di qualsiasi altra misura di tendenza centrale
+desumibile dagli stessi campioni; la larghezza di tale
+istogramma (misurata, come abbiamo assunto, dal suo scarto
+quadratico medio) sar\`a messa in relazione con lo scarto
+quadratico medio delle misure da un teorema di cui ci
+occuperemo nel seguito.  Da esso discender\`a anche che
+l'errore statistico della media aritmetica converge a zero
+al crescere indefinito del numero di dati $N$.%
+\index{errore!della media|)}
+Per concludere:
+\begin{quote}
+  \begin{enumerate}
+  \item \textit{Disponendo di pi\`u misure ripetute della
+      stessa grandezza fisica, si assume come migliore stima
+      del valore vero di quella grandezza la loro media
+      aritmetica.}
+  \item \textit{Questa stima \`e pi\`u precisa di quanto non
+      lo siano le singole misure, ed \`e tanto pi\`u
+      attendibile quanto maggiore \`e il numero delle
+      stesse.}
+  \item \textit{Come valutazione dell'errore commesso nelle
+      singole misure si assume il loro scarto quadratico
+      medio; o meglio, per motivi che verranno chiariti in
+      seguito, la quantit\`a}\/\thinspace\footnote{La
+      differenza tra questa formula e quella prima citata
+      non \`e praticamente avvertibile se $N$ non \`e troppo
+      piccolo.}
+    \begin{equation*}
+      \mu = \sqrt{ \frac{\sum \limits_{i=1}^N
+          ( x_i - \bar x )^2 }{N-1} } \peq .
+    \end{equation*}
+  \end{enumerate}
+\end{quote}%
+\index{media!aritmetica!come stima del valore vero|)}
+
+\endinput

@@ -1,0 +1,345 @@
+% $Id: chapter10.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{Le misure indirette}%
+\index{misure!indirette|(}%
+\label{ch:10.misind}
+Misure indirette, come sappiamo, sono quelle eseguite non
+sulla grandezza fisica che interessa determinare ma su altre
+grandezze che siano a quest'ultima legate da una qualche
+relazione funzionale; quest'ultima ci permetter\`a poi di
+ricavarne il valore mediante il calcolo.
+
+Supponiamo per semplicit\`a che queste altre grandezze
+vengano misurate direttamente: gli inevitabili errori
+commessi per ognuna di esse si ripercuoteranno poi
+attraverso i calcoli effettuati, e si \emph{propagheranno}
+fino al risultato finale; l'entit\`a dell'errore nelle
+misure indirette dipender\`a dunque sia dai valori di quelli
+commessi nelle misure dirette, sia dalla forma analitica
+della funzione usata per il calcolo.
+
+Consideriamo il caso del tutto generale di una qualsiasi
+funzione $F$ di pi\`u variabili $ x, y, z, \ldots\, $:
+ammettendo che i valori di queste variabili si possano
+ottenere da misure di tipo diretto, vogliamo determinare un
+algoritmo per ricavare da tali misure una stima del valore
+vero di $F$; infine, nell'ipotesi che le variabili siano
+anche tra loro statisticamente indipendenti, vedremo come si
+pu\`o valutare l'errore collegato a tale stima.
+
+\section{Risultato della misura}
+Innanzi tutto, \`e chiaro che il valore vero $F^*$ della
+grandezza $F$ \`e quello che corrisponde ai valori veri
+delle variabili indipendenti da cui $F$ dipende:
+\begin{equation} \label{eq:10.rimind}
+  F^* = F( x^*, y^*, z^*,\ldots) \peq .
+\end{equation}
+Non avendo per\`o a disposizione tali valori veri, tutto
+quello che possiamo fare \`e usare le migliori stime di cui
+disponiamo: cio\`e, supponiamo, i valori medi di campioni di
+determinazioni ripetute di tutte queste grandezze; insomma,
+calcolare il valore \ob{F}\ assunto dalla funzione in
+corrispondenza dei valori $\bar x, \bar y, \bar z,\ldots$
+delle variabili.
+
+Ricordiamo che il valore di una funzione di pi\`u variabili
+$F$ in un qualsiasi punto si pu\`o ricavare dal valore
+assunto dalla $F$ e dalle sue derivate successive in un
+punto diverso, attraverso la formula dello sviluppo in serie
+di Taylor:
+\begin{align*}
+  F(x,y,z,\ldots) &= F \left( x_0,y_0,z_0,
+    \ldots\right) + && \text{(ordine zero)}
+    \\[1ex]
+  &+ \frac{\partial F}{\partial x} \left( x - x_0
+    \right) + \frac{\partial F}{\partial y} \left(
+    y - y_0 \right) +\cdots && \text{(primo
+    ordine)} \\[1ex]
+  &+ \frac{ \partial^2 F}{\partial x^2} \,
+    \frac{\left( x - x_0 \right)^2}{2!} +\cdots
+    && \text{(secondo ordine)} \\[1.5ex]
+  &+ \mathcal{O}(3)
+\end{align*}
+(in cui per brevit\`a si \`e omesso di indicare che le
+derivate parziali vanno calcolate per i valori delle
+variabili $ x = x_0 $, $ y = y_0 $ e cos\`\i\ via).
+
+Se \`e possibile trascurare i termini di ordine superiore al
+primo, possiamo in particolare ricavare:
+\begin{align*}
+  \ob{F} &= F \left( \bar x, \bar y, \bar z,
+   \ldots\right) \\[1ex]
+  &\approx F \left( x^*, y^*, z^*,\ldots\right) +
+    \frac{\partial F}{\partial x} \left( \bar x -
+    x^* \right) + \frac{\partial F}{\partial y}
+    \left( \bar y - y^* \right) + \cdots \peq .
+\end{align*}
+Prendendo poi il valore medio di entrambi i membri e tenendo
+presente nei passaggi sia la \eqref{eq:10.rimind}, sia che
+risulta $ E( \bar x - x^* ) \: = \: E(\bar x)-x^* \: \equiv
+\: 0 $ in assenza di errori sistematici (e similmente per le
+altre variabili), si ottiene
+\begin{align*}
+  E \Bigl \{ F \left( \bar x, \bar y, \bar z,
+   \ldots\right) \Bigr \} &\approx F^* +
+    \frac{\partial F}{\partial x} \, E \left( \bar x
+    - x^* \right) + \frac{\partial F}{\partial y} \,
+    E \left( \bar y - y^* \right) +\cdots \\[1ex]
+  &= F^*
+\end{align*}
+cio\`e
+\begin{equation*}
+  E \left( \ob{F} \right) \approx F^*
+\end{equation*}
+e, in definitiva:
+\begin{quote}
+  \textit{In media, il valore di una funzione $F$ calcolato
+    per le medie misurate delle variabili coincide col
+    valore vero.}
+\end{quote}
+(ossia \ob{F}\ \`e una stima \emph{imparziale}%
+\index{stima!imparziale}
+di $F^*$).
+
+Ricordiamo che questa conclusione \`e valida \emph{solo
+  approssimativamente}, perch\'e nello sviluppo in serie di
+Taylor abbiamo trascurato tutti i termini di ordine
+superiore al primo; ma quali sono i limiti della validit\`a
+della conclusione?  In quali casi si possono cio\`e
+effettivamente considerare trascurabili i termini del
+second'ordine e degli ordini superiori?
+
+Ognuno dei termini di ordine $i$ nello sviluppo di $F$
+contiene una delle derivate $i$-esime della funzione,
+moltiplicata per un fattore del tipo $ ( \bar x - x^* ) $
+elevato alla $i$-esima potenza e divisa per il fattoriale di
+$i$; sar\`a senz'altro lecito trascurare questi termini se
+le differenze tra i valori medi stimati per le variabili
+indipendenti ed i loro valori veri sono piccole, in altre
+parole \emph{se gli errori commessi nelle misure dirette
+  sono piccoli}.
+
+Un caso particolare \`e poi quello in cui la $F$ \`e una
+funzione lineare in ognuna delle variabili da cui dipende;
+in questo caso, ovviamente, tutte le derivate di ordine
+successivo al primo sono identicamente nulle, e le
+conclusioni precedenti sono valide \emph{esattamente}.
+
+\section{Combinazioni lineari di misure dirette}
+Supponiamo che le misure dirette delle variabili
+indipendenti da cui dipende la $F$ siano esenti da errori
+sistematici, e che siano pertanto distribuite secondo la
+legge normale; consideriamo dapprima quelle particolari
+funzioni che sono le combinazioni lineari di pi\`u
+variabili:
+\begin{equation*}
+  F \; = \; k_1 \, x_1 + k_2 \, x_2 + k_3 \, x_3
+    +\cdots \; = \; \sum \nolimits_i k_i \, x_i \peq .
+\end{equation*}
+
+Abbiamo gi\`a visto, nell'equazione \eqref{eq:5.medcol} a
+pagina \pageref{eq:5.medcol}, che il valore medio di una
+tale funzione \`e la combinazione lineare, con gli stessi
+coefficienti, delle medie delle variabili; e, se supponiamo
+inoltre che le variabili siano tutte \emph{statisticamente
+  indipendenti} tra loro, sappiamo anche che la varianza di
+$F$ \`e poi data (equazione \eqref{eq:5.varcol} a pagina
+\pageref{eq:5.varcol}) dalla combinazione lineare delle loro
+varianze con coefficienti pari ai quadrati dei rispettivi
+coefficienti:
+\begin{gather*}
+  E(F) \; = \; \sum \nolimits_i k_i \, E ( x_i )
+  \; = \; \sum \nolimits_i k_i \, x_i^*
+  \; \equiv \; F^* \\
+  \intertext{e}
+  {\sigma_F}^2 = \sum \nolimits_i {k_i}^2 {\sigma_i}^2 \peq .
+\end{gather*}
+
+Abbiamo inoltre dimostrato, a pagina \pageref{th:8.colino},
+un teorema secondo il quale una qualsiasi combinazione
+lineare a coefficienti costanti di variabili casuali aventi
+distribuzione normale, ed inoltre tra loro statisticamente
+indipendenti, \`e anch'essa distribuita secondo la legge
+normale.
+
+Ora, sapendo che la distribuzione della $F$ \`e data dalla
+funzione di Gauss, siamo anche in grado di attribuire un
+significato pi\`u preciso al suo errore quadratico medio
+$\sigma_F$: quello cio\`e di semiampiezza dell'intervallo,
+avente centro sul valore medio $E(F) = F^*$, che contiene un
+qualsiasi valore della $F$ (ed in particolare la nostra
+miglior stima \ob{F}\,) con una probabilit\`a del 68\%; o,
+di converso, la semiampiezza di un intervallo centrato sulla
+nostra migliore stima \ob{F}\ e che contiene l'ignoto valore
+vero $F^*$ con una probabilit\`a del 68\%.
+
+In definitiva le formule precedenti risolvono il problema
+delle misure indirette per quelle particolari funzioni che
+sono le combinazioni lineari, permettendoci di calcolare per
+esse sia il valore stimato pi\`u verosimile che l'errore, e
+dandoci inoltre l'interpretazione probabilistica di questo
+errore.
+
+\section{La formula di propagazione degli errori}%
+\index{propagazione degli errori, formula di|(emidx}
+Ora, qualsiasi funzione di pi\`u variabili si pu\`o
+considerare in prima approssimazione lineare; questo se ci
+limitiamo a considerarla in un dominio di definizione
+abbastanza ristretto da poter trascurare i termini di ordine
+superiore al primo in uno sviluppo in serie di Taylor.  In
+definitiva possiamo estendere le conclusioni del paragrafo
+precedente ad una qualsiasi funzione di pi\`u variabili
+\begin{multline*}
+  F(x,y,z,\ldots) \; \approx \\
+  F (\bar x, \bar y, \bar z,\ldots) +
+  \frac{\partial F}{\partial x} \left( x - \bar x \right) +
+  \frac{\partial F}{\partial y} \left( y - \bar y \right) +
+  \frac{\partial F}{\partial z} \left( z - \bar z \right)
+  +\cdots
+\end{multline*}
+per la cui varianza avremo
+\begin{equation} \label{eq:10.proper}
+  \boxed{ \rule[-6mm]{0mm}{14mm} \quad
+    {\sigma_F}^2 \; \approx \;
+    \left( \dfrac{\partial F}{\partial x}
+      \right)^2 \! {\sigma_x}^2 +
+    \left( \dfrac{\partial F}{\partial y}
+      \right)^2 \! {\sigma_y}^2 +
+    \left( \dfrac{\partial F}{\partial z}
+      \right)^2 \! {\sigma_z}^2
+      +\cdots \quad }
+\end{equation}
+(le derivate vanno calcolate per i valori $x = \bar x$, $y =
+\bar y$, $z = \bar z$,\ldots\ delle variabili indipendenti).
+
+Questa formula \`e nota sotto il nome di \emph{formula di
+  propagazione degli errori}: ripetiamo che si tratta di una
+formula \emph{approssimata}; che \`e valida solo se non si
+commettono errori troppo grandi nelle misure dirette delle
+variabili; e che presuppone che le variabili stesse siano
+tra loro statisticamente indipendenti\/\footnote{Una formula
+  di propagazione degli errori per variabili qualsiasi (che
+  ossia non ne presupponga l'indipendenza statistica)
+  verr\`a ricavata pi\`u avanti, nel paragrafo
+  \ref{ch:c.proper}.}.  La formula di propagazione \`e
+invece \emph{esatta} nel caso particolare (esaminato nel
+paragrafo precedente) di una combinazione lineare di
+variabili casuali indipendenti, caso questo nel quale tutte
+le derivate parziali di ordine superiore al primo sono
+identicamente nulle.%
+\index{propagazione degli errori, formula di|)}%
+\index{misure!indirette|)}
+
+\section{Errore dei prodotti di potenze}%
+\index{propagazione degli errori, formula di!per prodotti di potenze|(}
+Applichiamo ora la formula \eqref{eq:10.proper} di
+propagazione degli errori a quella particolare classe di
+funzioni costituita dai prodotti di potenze delle variabili
+indipendenti: cio\`e alle funzioni del tipo
+\begin{equation*}
+  F(x, y, z,\ldots) = K \cdot
+  x^\alpha \cdot y^\beta \cdot z^\gamma\cdots \peq .
+\end{equation*}
+
+Calcoliamo innanzi tutto le derivate parziali di $F$;
+risulta
+\begin{displaymath}
+  \left \{ \begin{array}{rcccl}
+    \dfrac{\partial F}{\partial x}
+      & = & K \cdot \alpha \, x^{\alpha - 1} \cdot
+        y^\beta \cdot z^\gamma\cdots
+      & = & \alpha \, \dfrac{F}{x} \\[3ex]
+    \dfrac{\partial F}{\partial y}
+      & = & K \cdot x^\alpha \cdot \beta \, y^{\beta -
+        1} \cdot z^\gamma\cdots
+      & = & \beta \, \dfrac{F}{y} \\[3ex]
+    \cdots & & & &
+  \end{array} \right.
+\end{displaymath}
+(ammettendo che nessuna delle variabili sia nulla; questo
+implica che anche la $F$ abbia valore diverso da zero).
+Introducendo questi valori delle derivate nella formula di
+propagazione degli errori, avremo
+\begin{align*}
+  {\sigma_F}^2 &\approx
+    \left( \frac{\partial F}{\partial x} \right) ^2
+    \! {\sigma_x}^2 +
+    \left( \frac{\partial F}{\partial y} \right) ^2
+    \! {\sigma_y}^2 +\cdots \\[1ex]
+  &= \alpha^2 \, \frac{F^2}{x^2} \, {\sigma_x}^2 +
+    \beta^2 \, \frac{F^2}{y^2} \, {\sigma_y}^2
+    +\cdots
+\end{align*}
+ed in definitiva
+\begin{equation*}
+  \Biggl( \frac{\sigma_F}{ F } \Biggr) ^2
+  \approx \alpha^2 \Biggl( \frac{\sigma_x}{ x }
+  \Biggr) ^2 + \beta^2 \Biggl( \frac{\sigma_y}{ y
+      } \Biggr) ^2 +\cdots \peq ;
+\end{equation*}
+relazione che permette di ricavare con semplici calcoli
+l'errore relativo di $F$ dagli errori relativi commessi
+nella misura delle variabili indipendenti.  Per quanto detto
+in precedenza, questa relazione \`e solo una prima
+approssimazione; e possiamo ritenerla valida se le variabili
+indipendenti sono misurate con errori piccoli.%
+\index{propagazione degli errori, formula di!per prodotti di potenze|)}
+
+\section{Errori massimi}%
+\index{errore!massimo|(}
+Quando si parla di errori di misura senza specificare
+null'altro, si sottintende di norma che i numeri riportati
+si riferiscono ad errori quadratici medi; talvolta per\`o si
+\`e in grado di indicare un intervallo all'interno del quale
+si sa con assoluta certezza che deve trovarsi il valore vero
+della grandezza misurata: in questi casi si pu\`o ovviamente
+attribuire un errore in termini \emph{assoluti} (sia in
+difetto che in eccesso) al valore indicato.  Supponendo per
+semplicit\`a che i valori limite siamo simmetrici rispetto
+al risultato trovato, che si potr\`a quindi ancora esprimere
+nella forma
+\begin{equation*}
+  x = x_0 \pm \Delta x \peq ,
+\end{equation*}
+vogliamo ora determinare la legge secondo la quale si
+propagano questi \emph{errori massimi} nelle misure
+indirette.
+
+\`E immediato riconoscere che, se $F = Kx$ e $x \in [ x_0 -
+\Delta x, x_0 + \Delta x ]$, necessariamente $F$ deve
+appartenere ad un intervallo di semiampiezza $\Delta F$, con
+$\Delta F = |K| \, \Delta x$.  Similmente, sommando (o
+sottraendo) due grandezze indipendenti di cui si conoscano
+gli errori massimi, il risultato $F = x \pm y$ dovr\`a
+essere compreso in un intervallo di semiampiezza $\Delta F =
+\Delta x + \Delta y$.  Usando entrambe queste conclusioni,
+nel caso di una combinazione lineare%
+\index{propagazione degli errori, formula di!per errori massimi|(}
+\begin{gather*}
+  F = \sum_{i=1}^N a_i \, x_i \\
+  \intertext{l'errore massimo su $F$ vale}
+  \Delta F = \sum_{i=1}^N \left| a_i \right| \Delta x_i \peq
+  .
+\end{gather*}
+
+Per una relazione funzionale qualsiasi
+\begin{equation*}
+  F = F(x_1, x_2, \ldots, x_N) \peq ,
+\end{equation*}
+e nei limiti in cui si possano trascurare i termini di
+ordine superiore al primo in uno sviluppo in serie di
+Taylor, la formula di propagazione per gli errori massimi
+\`e dunque
+\begin{gather*}
+  \Delta F \approx \sum_{i=1}^N \left| \frac{\partial
+    F}{\partial x_i} \right| \Delta x_i \peq ; \\
+  \intertext{e, per i prodotti di potenze del tipo $ F = K
+    \cdot x^\alpha \cdot y^\beta \cdots$,}
+  \frac{\Delta F}{|F|} \approx |\alpha| \, \frac{\Delta
+    x}{|x|} + |\beta| \, \frac{\Delta y}{|y|}  + \cdots \peq
+  .
+\end{gather*}%
+\index{propagazione degli errori, formula di!per errori massimi|)}%
+\index{errore!massimo|)}
+
+\endinput

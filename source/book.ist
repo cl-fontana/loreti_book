@@ -1,0 +1,9 @@
+% Makeindex style file ``book.ist''; borrowed (with modifications)
+% from: The LaTeX Companion, page 361.
+% $Id: book.ist,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+heading_prefix          "\\rule[2.5pt]{2mm}{2pt}\\textbf{~~"
+heading_suffix          "~~}\\rule[3pt]{10mm}{1pt}\\nopagebreak\n"
+headings_flag           1
+preamble                "\\begin{theindex}\\begin{raggedright}\\small\n"
+postamble               "\n\n\\end{raggedright}\\end{theindex}\n"

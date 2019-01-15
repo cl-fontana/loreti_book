@@ -1,0 +1,33 @@
+HIST/DEL 0
+VECT/DEL *
+SET *
+IGSET *
+FORT/FILE 66 CUMUL.EPS
+GRAPH/META 66 -113                      | -113: Encapsulated PostScript
+
+HIST/CREATE/1D 1 'Angolo (gradi)' 40 178.0 182.0
+VECT/CREATE Y(40) R _
+        0 0 0 0 0 0 0 0 0 0 _
+        0.01 0.02 0.02 0.07 0.09 0.11 0.14 0.24 0.27 0.38 _
+        0.52 0.62 0.70 0.76 0.80 0.83 0.84 0.89 0.92 0.93 _
+        0.95 0.96 0.99 1 1 1 1 1 1 1
+HIST/PUT/CONT 1 Y
+
+OPT NBOX
+OPT GRID
+IDOPT 1 1EVL
+SET VFON -130                           | Axis values: Times-Roman,
+SET VSIZ 0.4                            |       font height (cm)
+SET TFON -130                           | Titles: Times-Roman,
+SET TSIZ 0.4                            |       font height (cm)
+SET CFON -130
+SET GFON -130
+SET LFON -130
+SET NDVX 50204
+SET NDVY 206
+
+GRAPH/HPLOT/NULL 178 182 0 1.1
+SET DMOD 1
+SET HWID 2
+HISTOGRAM/PLOT 1 S
+FORT/CLOSE 66

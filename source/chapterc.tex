@@ -1,0 +1,1202 @@
+% $Id: chapterc.tex,v 1.1 2005/03/01 10:06:08 loreti Exp $
+
+\chapter{Covarianza e correlazione}%
+\label{ch:c.covcor}
+\section{La covarianza}%
+\index{covarianza|(emidx}%
+\label{ch:c.covar}
+Per due variabili casuali $x$ ed $y$ si definisce la
+\emph{covarianza}, che si indica con uno dei due simboli $
+\, \cov (x, y) $ o $ K_{xy} $, nel seguente modo:
+\begin{align*}
+  \cov (x, y) &= E \Bigl \{ \left[
+    \vphantom{y} x - E(x) \right] \left[ y - E(y)
+    \right] \Bigr \} \\[1ex]
+   &= E(x y) - E(x) \cdot E(y) \peq .
+\end{align*}
+Per provare l'equivalenza delle due forme, basta osservare
+che\/\footnote{Nel seguito useremo per la varianza, per le
+  probabilit\`a di ottenere i vari valori $x_i $ o $y_j $ e
+  cos\`\i\ via, le stesse notazioni gi\`a introdotte nel
+  capitolo \ref{ch:5.varcun}.}
+\begin{align*}
+   \cov (x, y) &= E \Bigl \{ \left[ \vphantom{y} x
+     - E(x) \right] \left[ y - E(y) \right] \Bigr \}
+     \\[1ex]
+   &= \sum \nolimits_{ij} P_{ij} \left[ \vphantom{y}
+     x_i - E(x) \right] \left[ y_j - E(y) \right]
+     \\[1ex]
+   &= \sum \nolimits_{ij} P_{ij} \, x_i \, y_j \; - \;
+     E(x) \sum \nolimits_{ij} P_{ij} \, y_j \; - \;
+     E(y) \sum \nolimits_{ij} P_{ij} \, x_i \; +
+     \\[1ex]
+   &\qquad + E(x) \, E(y) \sum \nolimits_{ij} P_{ij}
+     \\[1ex]
+   &= E(x y) \; - \; E(x) \sum \nolimits_j q_j \, y_j
+     \; - \; E(y) \sum \nolimits_i p_i \, x_i \; + \;
+     E(x) \, E(y) \\[1ex]
+   &= E(x y) \; - \; E(x) \cdot E(y)
+\end{align*}
+ricordando alcune relazioni gi\`a ricavate nel capitolo
+\ref{ch:5.varcun}, e valide per variabili casuali
+\emph{qualunque}: in particolare, anche \emph{non}
+statisticamente indipendenti.
+
+\`E chiaro come per variabili \emph{statisticamente
+  indipendenti} la covarianza sia nulla:%
+\index{statistica!indipendenza|(}
+infatti per esse vale la
+\begin{equation*}
+  E(xy) \; = \; \sum \nolimits_{ij} P_{ij} \, x_i
+    \, y_j \; = \; \sum \nolimits_{ij} \, p_i \, q_j
+    \, x_i \,y_j \; = \; E(x) \cdot E(y) \peq .
+\end{equation*}
+Non \`e per\`o vero l'inverso: consideriamo ad esempio le
+due variabili casuali $x$ ed $y = x^2$, ovviamente
+dipendenti l'una dall'altra: la loro covarianza vale
+\begin{equation*}
+  \cov(x,y) \; = \; E(xy) - E(x) \cdot E(y) \; = \; E(x^3)
+    - E(x) \cdot E(x^2)
+\end{equation*}
+ed \`e chiaramente nulla per qualunque variabile casuale $x$
+con distribuzione simmetrica rispetto allo zero; quindi
+l'annullarsi della covarianza \`e condizione
+\emph{necessaria ma non sufficiente} per l'indipendenza
+statistica di due variabili casuali.%
+\index{statistica!indipendenza|)}
+
+\index{combinazioni lineari!varianza!di variabili correlate|(}%
+\index{varianza!di combinazioni lineari!di variabili correlate|(}%
+Possiamo ora calcolare la varianza delle combinazioni
+lineari di due variabili casuali qualunque, estendendo la
+formula gi\`a trovata nel capitolo \ref{ch:5.varcun} nel
+caso particolare di variabili statisticamente indipendenti;
+partendo ancora da due variabili $x$ e $y$ con media zero
+per semplificare i calcoli, per la loro combinazione lineare
+$z = ax + by $ valgono le:
+\begin{align*}
+  E(z) \; &= \; a \, E(x) + b \, E(y) \; = \; 0 \\[1ex]
+  \cov (x, y) \; &= \; E(xy) - E(x) \cdot E(y) \; = \;
+    E(xy) \\[1ex]
+  \var (z) \; &= \; E \left\{ \bigl[ z - E(z) \bigr]^2
+    \right\} \\[1ex]
+  &= \; E \bigl( z^2 \bigr) \\[1ex]
+  &= \; E \left[ (ax + by) ^2 \right] \\[1ex]
+  &= \; \sum \nolimits_{ij} P_{ij} (a \, x_i +
+    b \, y_j) ^2 \\[1ex]
+  &= \; a^2 \sum \nolimits_{ij} P_{ij} \,
+    {x_i}^2 \; + \; b^2 \sum \nolimits_{ij}
+    P_{ij} \, {y_j}^2 \; + \; 2 a b
+    \sum \nolimits_{ij} P_{ij} \, x_i \, y_j
+    \\[1ex]
+  &= \; a^2 \sum \nolimits_i p_i {x_i}^2 \; + \;
+    b^2 \sum \nolimits_j q_j {y_j}^2 \; + \;
+    2 a b \, E(xy)
+\end{align*}
+ed infine
+\begin{equation} \label{eq:c.varcol}
+  \var (z) \; = \; a^2 \, \var (x) + b^2 \, \var (y)
+    + 2 a b \, \cov(x, y) \peq .
+\end{equation}
+
+Questa si estende immediatamente a variabili casuali con
+media qualsiasi: introducendo ancora le variabili ausiliarie
+\begin{align*}
+  \xi &= x - E(x) && \text{ed} &
+  \eta &= y - E(y)
+\end{align*}
+per le quali gi\`a sappiamo che vale la
+\begin{equation*}
+  E(\xi) \; = \; E(\eta) \; = \; 0
+\end{equation*}
+con le
+\begin{align*}
+  \var (\xi) &= \var (x) && \text{e} &
+  \var (\eta) &= \var (y) \peq ;
+\end{align*}
+basta osservare infatti che vale anche la
+\begin{equation*}
+  \cov (x, y) \; = \;
+    E \Bigl \{ \left[ \vphantom{y} x - E(x)
+    \right] \left[ y - E(y) \right] \Bigr \}
+    \; = \; \cov (\xi, \eta) \peq .
+\end{equation*}
+
+La \eqref{eq:c.varcol} si pu\`o poi generalizzare, per
+induzione completa, ad una variabile $z$ definita come
+combinazione lineare di un numero qualsiasi $N$ di variabili
+casuali: si trova che, se
+\begin{gather}
+  z = \sum_{i=1}^N a_i \, x_i \notag \\
+  \intertext{risulta}
+  \var(z) = \sum_i {a_i}^2 \, \var(x_i) +
+    \sum_{\substack{i,j \\ j > i}} 2 \, a_i \, a_j \,
+    \cov(x_i , x_j) \peq . \label{eq:c.varcon}
+\end{gather}
+
+\index{covarianza!matrice di|(emidx}%
+Per esprimere in modo compatto la \eqref{eq:c.varcon}, si
+ricorre in genere ad una notazione che usa la cosiddetta
+\emph{matrice delle covarianze} delle variabili $x$;
+ovverosia una matrice quadrata $\boldsymbol{V}$ di ordine
+$N$, in cui il generico elemento $V_{ij}$ \`e uguale alla
+covarianza delle variabili casuali $x_i$ e $x_j$:
+\begin{gather}
+  V_{ij} \; = \; \cov(x_i, x_j) \; = \; E (x_i \cdot
+  x_j) - E(x_i) \cdot E(x_j) \peq . \label{eq:c.matcov} \\
+  \intertext{La matrice \`e ovviamente
+    \emph{simmetrica} ($V_{ij} = V_{ji}$); e, in
+    particolare, gli elementi diagonali $V_{ii}$
+    valgono}
+  V_{ii} \; = \; E( {x_i}^2 ) - \bigl[ E (x_i)
+    \bigr]^2 \; \equiv \; \var(x_i) \peq . \notag
+\end{gather}%
+\index{covarianza!matrice di|)}
+
+Consideriamo poi le $a_i$ come le $N$ componenti di un
+\emph{vettore} $\boldsymbol{A}$ di dimensione $N$ (che
+possiamo concepire come una matrice rettangolare di $N$
+righe ed una colonna); ed introduciamo la matrice
+\emph{trasposta} di $\boldsymbol{A}$,
+$\boldsymbol{\widetilde A}$, che \`e una matrice
+rettangolare di una riga ed $N$ colonne i cui elementi
+valgono
+\begin{gather*}
+  \widetilde A_i = A_i \peq . \\
+  \intertext{Possiamo allora scrivere la
+    \eqref{eq:c.varcon} nella forma}
+  \var(z) = \sum_{i,j} \widetilde A_i \: V_{ij}
+    \: A_j
+\end{gather*}
+(la simmetria di $\boldsymbol{V}$ e quella tra
+$\boldsymbol{\widetilde A}$ ed $\boldsymbol{A}$ produce,
+nello sviluppo delle sommatorie, il fattore 2 che moltiplica
+le covarianze); o anche, ricordando le regole del prodotto
+tra matrici,
+\begin{equation*}
+  \boxed{ \rule[-5mm]{0mm}{12mm} \quad
+    \var(z) \; = \; \boldsymbol{\widetilde A} \,
+      \boldsymbol{V} \, \boldsymbol{A}
+    \quad}
+\end{equation*}%
+\index{varianza!di combinazioni lineari!di variabili correlate|)}%
+\index{combinazioni lineari!varianza!di variabili correlate|)}
+
+Si pu\`o poi facilmente dimostrare il seguente teorema, che
+ci sar\`a utile pi\`u avanti:
+\begin{quote}
+  \index{combinazioni lineari!e loro correlazione}%
+  \textsc{Teorema:} \textit{due differenti combinazioni
+    lineari delle stesse variabili casuali sono sempre
+    correlate.  }
+\end{quote}
+Infatti, dette $A$ e $B$ le due combinazioni lineari:
+\begin{align*}
+  A &= \sum_{i=1}^N a_i \, x_i &&\text{$\Rightarrow$}
+    & E(A) &= \sum_{i=1}^N a_i \, E(x_i) \\[1ex]
+  B &= \sum_{j=1}^N b_j \, x_j &&\text{$\Rightarrow$}
+    & E(B) &= \sum_{j=1}^N b_j \, E(x_j)
+\end{align*}
+abbiamo che la covarianza di $A$ e $B$ vale
+\begin{align*}
+  \cov(A, B) &= E \Biggl\{ \Bigl[ A - E(A) \Bigr] \,
+    \Bigl[ B - E(B) \Bigr] \Biggr\} \\[1ex]
+  &= E \left\{ \sum_{i,j} a_i \, b_j \, \Bigl[ x_i - E
+    \bigl( x_i \bigr) \Bigr] \, \Bigl[ x_j - E \bigl(
+    x_j \bigr) \Bigr] \right\} \\[1ex]
+  &= \sum_{i,j} a_i \, b_j \: E \Biggl\{ \Bigl[ x_i - E
+    \bigl( x_i \bigr) \Bigr] \, \Bigl[ x_j - E \bigl(
+    x_j \bigr) \Bigr] \Biggr\} \\[1ex]
+  &= \sum_i a_i \, b_i \: \var(x_i) +
+    \sum_{\substack{i,j\\i\ne j}} a_i \, b_j \:
+    \cov(x_i, x_j)
+\end{align*}
+e non \`e in genere nulla.  In forma matriciale e con ovvio
+significato dei simboli,
+\begin{equation*}
+  \cov(A, B) = \boldsymbol{\widetilde A} \,
+    \boldsymbol{V} \, \boldsymbol{B} \peq .
+\end{equation*}
+
+\`E da notare come $A$ e $B$ siano di norma sempre correlate
+\emph{anche se le variabili di partenza $x_i$ sono tutte tra
+  loro statisticamente indipendenti}: in questo caso infatti
+tutti i termini non diagonali della matrice delle covarianze
+si annullano, e risulta
+\begin{equation} \label{eq:c.covcol}
+  \cov( A,B ) = \sum_{i=1}^N a_i \, b_i \, \var( x_i ) \peq .
+\end{equation}%
+\index{covarianza|)}
+
+\section{La correlazione lineare}%
+\index{correlazione lineare, coefficiente di|(emidx}
+Per due variabili casuali qualunque si definisce poi il
+\emph{coefficiente di correlazione lineare} $ \cor(x,y) $
+(anche indicato col simbolo $ r_{xy} $, o semplicemente come
+$r$) nel modo seguente:
+\begin{equation*}
+  r_{xy} \; \equiv \;
+    \cor (x, y) \; = \;
+    \frac{\cov (x, y)} {\sqrt{ \var(x) \, \var(y) }}
+    \; = \; \frac{\cov (x, y)} {\sigma_x \, \sigma_y} \peq .
+\end{equation*}
+
+Il coefficiente di correlazione di due variabili \`e
+ovviamente adimensionale; \`e nullo quando le variabili
+stesse sono statisticamente indipendenti%
+\index{statistica!indipendenza}
+(visto che \`e zero la loro covarianza); ed \`e comunque
+compreso tra i due limiti $-1$ e $+1$.  Che valga
+quest'ultima propriet\`a si pu\`o dimostrare calcolando
+dapprima la varianza di una variabile casuale ausiliaria $z$
+definita attraverso la relazione $z = \sigma_y \, x -
+\sigma_x \, y$, ed osservando che essa deve essere una
+quantit\`a non negativa:
+\begin{align*}
+  \var (z) &= {\sigma_y}^2 \, \var(x) + {\sigma_x}^2
+    \, \var(y) - 2 \, \sigma_x \, \sigma_y \,
+    \cov (x, y) \\[1ex]
+  &= 2 \, \var(x) \, \var(y) -
+    2 \, \sigma_x \, \sigma_y \, \cov (x, y)
+    \\[1ex]
+  &\ge 0 \peq ;
+\end{align*}
+da cui
+\begin{equation*}
+  \cor (x, y) \le 1 \peq .
+\end{equation*}
+Poi, compiendo analoghi passaggi su un'altra variabile
+definita stavolta come $z = \sigma_y \, x + \sigma_x \, y$,
+si troverebbe che deve essere anche $ \cor (x, y) \ge -1 $.
+
+Se il coefficiente di correlazione lineare raggiunge uno dei
+due valori estremi $\pm 1$, risulta $\var(z) = 0$; e dunque
+deve essere
+\begin{equation*}
+  z \; = \; \sigma_y \, x \mp \sigma_x \, y
+  \; = \; \text{costante}
+\end{equation*}
+cio\`e $x$ ed $y$ devono essere legati da una relazione
+funzionale \emph{di tipo lineare}.
+
+Vale anche l'inverso: partendo infatti dall'ipotesi che le
+due variabili siano legate da una relazione lineare data da
+$ y =a + b x $, con $b$ finito e non nullo, ne consegue che:
+
+\begin{align*}
+  E(y) &= a + b \, E(x) \\[1ex]
+  \var (y) &= b^2 \, \var(x) \\[1ex]
+  E(xy) &= E(a \, x + b\, x^2) \\[1ex]
+  &= a \, E(x) + b \, E(x^2) \\[1ex]
+  \cov (x, y) &= E(xy) - E(x) \cdot E(y) \\[1ex]
+  &= a \, E(x) + b \, E(x^2) - E(x)
+    \bigl[ a + b \, E(x) \bigr] \\[1ex]
+  &= b \left\{ E(x^2) - \bigl[ E(x)
+    \bigr] ^2 \right\} \\[1ex]
+  &= b \cdot \var(x) \\[1ex]
+  \cor (x, y) &= \frac{\cov (x, y)}
+    {\sqrt{ \var(x) \, \var(y) }} \\[1ex]
+  &= \frac{ b \, \var(x) } {\sqrt{ b^2
+    \bigl[ \var(x) \bigr] ^2 }} \\[1ex]
+  &= \frac{b}{|b|} \\[1ex]
+  &= \pm 1 \peq .
+\end{align*}
+
+Il segno del coefficiente di correlazione \`e quello del
+coefficiente angolare della retta.  Sono da notare due cose:
+innanzi tutto il rapporto $b / |b|$ perde significato quando
+$b = 0$ o quando $b = \infty$, cio\`e quando la retta \`e
+parallela ad uno degli assi coordinati: in questi casi ($x$
+= costante o $y$ = costante) una delle due grandezze non \`e
+in realt\`a una variabile casuale, e l'altra \`e dunque
+indipendente da essa; \`e facile vedere che tanto il
+coefficiente di correlazione tra $x$ e $y$ quanto la
+covarianza valgono zero, essendo $E(xy) \equiv E(x) \cdot
+E(y)$ in questo caso.
+
+Anche quando esiste una relazione funzionale esatta tra $x$
+e $y$, se questa non \`e rappresentata da una funzione
+lineare il coefficiente di correlazione non raggiunge i
+valori estremi $\pm 1 $; per questa ragione appunto esso si
+chiama pi\`u propriamente ``coefficiente di correlazione
+\emph{lineare}''.%
+\index{correlazione lineare, coefficiente di|)}
+
+\section{Propagazione degli errori per variabili
+  correlate}%
+\index{propagazione degli errori, formula di|(}%
+\label{ch:c.proper}
+Vediamo ora come si pu\`o ricavare una formula di
+propagazione per gli errori (da usare in luogo
+dell'equazione \eqref{eq:10.proper} che abbiamo incontrato a
+pagina \pageref{eq:10.proper}) se le grandezze fisiche
+misurate direttamente non sono tra loro statisticamente
+indipendenti; nel corso di questo paragrafo continueremo ad
+usare la notazione gi\`a introdotta nel capitolo
+\ref{ch:10.misind}.
+
+Consideriamo una funzione $F$ di $N$ variabili, $F = F(x_1,
+x_2,\ldots, x_N)$; ed ammettiamo che sia lecito svilupparla
+in serie di Taylor nell'intorno del punto $(\bar x_1, \bar
+x_2,\ldots, \bar x_N)$ trascurando i termini di ordine
+superiore al primo (questo avviene, come sappiamo, o se gli
+errori di misura sono piccoli o se $F$ \`e lineare rispetto
+a tutte le variabili).  Tenendo presente il teorema di
+pagina \pageref{def:5.varind}, ed applicando alla formula
+dello sviluppo
+\begin{gather}
+  F(x_1, x_2,\ldots, x_N) \; \approx \;
+  F(\bar x_1, \bar x_2,\ldots, \bar x_N) \; + \;
+    \sum_{i=1}^N \frac{\partial F}{\partial x_i}
+    \left( x_i - \bar x_i \right) \notag \\
+  \intertext{l'equazione \eqref{eq:c.varcon}, otteniamo}
+  \var(F) \; \approx \; \sum_i \left( \frac{\partial F}
+    {\partial x_i} \right)^2 \! \var(x_i) + 2
+    \sum_{\substack{i, j\\ j > i}} \frac{\partial
+    F}{\partial x_i} \: \frac{\partial F}{\partial x_j}
+    \: \cov(x_i, x_j) \peq . \label{eq:c.proper}
+\end{gather}
+
+Per esprimere in modo compatto la \eqref{eq:c.proper}, si
+pu\`o ricorrere ancora alla matrice delle covarianze%
+\index{covarianza!matrice di}
+$\boldsymbol{V}$ delle variabili $x_i$; ricordandone la
+definizione (data dall'equazione \eqref{eq:c.matcov} a
+pagina \pageref{eq:c.matcov}) ed introducendo poi un vettore
+$\boldsymbol{F}$ di dimensione $N$ di componenti
+\begin{gather*}
+  F_i \; = \; \frac{\partial F}{\partial x_i} \\
+  \intertext{ed il suo trasposto $\boldsymbol{\widetilde
+    F}$, la \eqref{eq:c.proper} si pu\`o riscrivere nella
+    forma}
+  \var(F) \; = \; \sum_{i,j} \widetilde F_i \: V_{ij}
+    \: F_j \\
+  \intertext{ossia}
+  \boxed{ \rule[-5mm]{0mm}{12mm} \quad
+    \var(F) \; = \; \boldsymbol{\widetilde F}
+      \, \boldsymbol{V} \, \boldsymbol{F}
+  \quad}
+\end{gather*}%
+\index{propagazione degli errori, formula di|)}
+
+\section{Applicazioni all'interpolazione lineare}%
+\index{interpolazione lineare|(}
+Riprendiamo adesso il problema dell'interpolazione lineare,
+gi\`a discusso nel capitolo \ref{ch:11.teldat}: si sia
+cio\`e compiuto un numero $N$ di misure indipendenti di
+coppie di valori di due grandezze fisiche $x$ e $y$, tra le
+quali si ipotizza che esista una relazione funzionale di
+tipo lineare data da $y=a+bx $.  Supponiamo inoltre che
+siano valide le ipotesi esposte nel paragrafo
+\ref{ch:11.intlin}; in particolare che le $x_i$ siano prive
+di errore, e che le $y_i$ siano affette da errori normali e
+tutti uguali tra loro.
+
+\subsection{Riscrittura delle equazioni dei minimi
+  quadrati}%
+\label{ch:c.intmed}
+Sebbene i valori della $x$ siano scelti dallo sperimentatore
+e privi di errore, e non siano pertanto variabili casuali in
+senso stretto; e sebbene la variabilit\`a delle $y$ sia
+dovuta non solo agli errori casuali di misura ma anche alla
+variazione della $x$, introduciamo ugualmente (in maniera
+\emph{puramente formale}) le medie e le varianze degli $N$
+valori $x_i$ e $y_i$, date dalle espressioni
+\begin{gather*}
+  \bar x \; = \; \frac{ \sum_i x_i }{N}
+  \makebox[30mm]{e}
+  \var (x) \; = \; \frac{ \sum_i \left( x_i
+    - \bar x \right) ^2 }{N}
+    \; = \; \frac{ \sum_i {x_i}^2 }{N} -
+    {\bar x} ^2 \\
+  \intertext{(e simili per la $y $); e la covarianza
+    di $x$ e $y$, data dalla}
+  \cov (x, y) \; = \; \frac{ \sum_i x_i \,
+    y_i }{N} \, - \, \bar x \bar y \peq .
+\end{gather*}
+
+Queste grandezze permettono di riscrivere le equazioni
+\eqref{eq:11.normeq} risolutive del problema
+dell'interpolazione lineare per un insieme di dati, che
+abbiamo gi\`a incontrato a pagina \pageref{eq:11.normeq},
+nella forma
+\begin{equation*}%
+  \index{minimi quadrati, formule dei}
+  \left\{ \begin{array}{lclcl}
+    a & + & b \, \bar x & = & \bar y \\[1ex]
+    a \, \bar x & + & b \, \bigl[ \var(x) +
+      {\bar x}^2 \bigr] & = &
+    \cov(x,y) \; + \; \bar x \bar y
+  \end{array} \right.
+\end{equation*}
+
+La prima equazione intanto implica che la retta interpolante
+deve passare per il punto $(\bar x, \bar y)$ le cui
+coordinate sono le medie dei valori misurati delle due
+variabili in gioco; poi, ricavando da essa $a = \bar y - b
+\bar x$ e sostituendo nella seconda equazione, dopo aver
+semplificato alcuni termini si ottiene la soluzione per
+l'altra incognita:
+\begin{equation} \label{eq:c.valueb}
+  b \; = \; \frac{\cov (x, y)}{ \var (x) } \;
+    \equiv \; \cor(x,y) \, \sqrt{ \frac{\var(y)}
+    {\var(x)} }
+\end{equation}
+e la retta interpolante ha quindi equazione
+\begin{gather*}
+  y \; = \; a + bx \; = \; \left( \bar y - b \bar x
+    \right) + b x \\
+  \intertext{o anche}
+  \left( y - \bar y \right) \; = \; b \left(
+    x - \bar x \right) \\
+  \intertext{(in cui $b$ ha il valore
+    \eqref{eq:c.valueb}).
+    Introduciamo ora le due variabili casuali
+    ausiliarie $\xi = x - \bar x $ e $\eta = y
+    - \bar y$, per le quali valgono le}
+  \bar \xi \; = \; 0
+    \makebox[30mm]{e}
+    \var (\xi) \; = \; \var (x) \\
+  \intertext{(con le analoghe per $\eta$ ed $y $),
+    ed inoltre la}
+  \cov (\xi, \eta) = \cov (x, y)
+\end{gather*}
+ed indichiamo poi con $\widehat y_i$ il valore della $y$
+sulla retta interpolante in corrispondenza dell'ascissa $x_i
+$:
+\begin{equation} \label{eq:c.resid}
+  \widehat y_i \; = \; a + b x_i \; = \;
+    \bar y + b \left( x_i - \bar x \right)
+\end{equation}
+e con $\delta_i$ la differenza $\widehat y_i - y_i $.  Le
+differenze $\delta_i$ prendono il nome di \emph{residui},%
+\index{residui}
+e di essi ci occuperemo ancora pi\`u avanti; risulta che
+\begin{align*}
+  \sum\nolimits_i {\delta_i}^2 &= \sum\nolimits_i \Bigl \{ \left[
+    \bar y + b \left( x_i - \bar x \right) \right]
+    - y_i \Bigr \} ^2 \\[1ex]
+  &= \sum\nolimits_i \left( b \xi_i - \eta_i \right) ^2
+    \\[1ex]
+  &= b^2 \sum\nolimits_i {\xi_i}^2 + \sum\nolimits_i {\eta_i}^2
+    - 2 b \sum\nolimits_i \xi_i \eta_i \\[1ex]
+  &= N \, b^2 \, \var(\xi) + N \, \var(\eta)
+    - 2 N b \, \cov(\xi, \eta) \\[1ex]
+  &= N \, b^2 \, \var(x) + N \, \var(y)
+    - 2 N b \, \cov(x, y) \\[1ex]
+  &= N \, \var(x) \left[ \frac{ \cov(x, y) }
+    { \var(x) } \right] ^2
+    + N \, \var(y) - 2 N \, \frac{ \cov(x, y) }
+    { \var(x) } \, \cov(x, y) \\[1ex]
+  &= N \left\{ \var(y)
+    - \frac{ \left[ \cov(x, y) \right] ^2 }
+    { \var(x) } \right\} \\[1ex]
+  &= N \; \var(y) \: ( 1 - r^2 )
+\end{align*}%
+\index{correlazione lineare, coefficiente di|(}
+in cui $r$ \`e il coefficiente di correlazione lineare
+calcolato usando, sempre solo formalmente, i campioni dei
+valori misurati delle $x$ e delle $y$.
+
+Visto che quest'ultimo, nel calcolo dell'interpolazione
+lineare fatto con le calcolatrici da tasca, viene in genere
+dato come sottoprodotto dell'algoritmo, la sua conoscenza
+permette (usando questa formula) di ottenere facilmente
+l'errore a posteriori sulle ordinate interpolate (studiato
+nel paragrafo \ref{ch:11.fisher}):
+\begin{equation}%
+  \label{eq:c.fishalt}%
+  \index{errore!a posteriori}
+  \boxed{ \rule[-6mm]{0mm}{16mm} \quad
+    \mu_y \; = \; \sqrt{
+    \dfrac{\sum_i {\delta_i}^2}{N-2} } \; = \;
+    \sqrt{ \dfrac{N}{N-2} \, \var(y)
+    \left( 1 - r^2 \right)}
+  \quad }
+\end{equation}
+oltre a fornire una grossolana stima dell'allineamento dei
+punti; quanto pi\`u infatti esso \`e rigoroso, tanto pi\`u
+$r$ si avvicina a $\pm 1$.
+
+Il valore $\mu_y$ dell'errore rappresenta sempre anche una
+stima dell'allineamento dei punti, a differenza del
+coefficiente di correlazione lineare, per cui $r = \pm 1$
+implica allineamento perfetto, ma \emph{non} inversamente:
+potendo essere ad esempio (punti su di una retta parallela
+all'asse $x$) $r = 0$ e $\var(y) = 0$ ancora con
+allineamento perfetto.
+
+\`E opportuno qui osservare che $r$ \emph{non} \`e il
+coefficiente di correlazione fra gli \emph{errori} delle
+grandezze $x$ ed $y $; infatti, per ipotesi, la $x$ non \`e
+affetta da errore e, se pur lo fosse, la correlazione fra
+gli errori sarebbe nulla qualora ciascuna $x_i$ fosse
+misurata indipendentemente dalla corrispondente $y_i$ o,
+altrimenti, sarebbe tanto pi\`u prossima ai valori estremi
+$\pm 1$ quanto maggiore fosse il numero di cause d'errore
+comuni alle misure di $x$ e di $y$.
+
+Invece $r$ \`e il coefficiente di correlazione per l'insieme
+dei punti aventi coordinate date dalle coppie di valori
+misurati, e nell'ipotesi di effettiva dipendenza lineare
+delle grandezze $x$ ed $y$ sarebbe sempre rigorosamente
+uguale a $\pm 1$ se non intervenissero gli errori
+sperimentali.%
+\index{correlazione lineare, coefficiente di|)}
+
+\subsection{Verifica di ipotesi sulla correlazione lineare}%
+\index{correlazione lineare, coefficiente di|(}
+Non \`e pensabile di poter svolgere una teoria completa
+della correlazione in queste pagine; tuttavia talvolta un
+fisico si trova nella necessit\`a di verificare delle
+ipotesi statistiche sul coefficiente di correlazione lineare
+ricavato sperimentalmente da un insieme di $N$ coppie di
+valori misurati $\{ x_i, y_i \}$.  Nel seguito riassumiamo,
+senza darne alcuna dimostrazione, alcune propriet\`a di
+questi coefficienti:
+\begin{itemize}
+\item Se si vuole verificare che la correlazione tra $x$ ed
+  $y$ sia significativamente differente da zero, si pu\`o
+  calcolare il valore della variabile casuale
+  \begin{equation*}
+    t = \frac{r \sqrt{N-2}}{\sqrt{1 - r^2}}
+  \end{equation*}
+  che \`e distribuita secondo Student%
+  \index{distribuzione!di Student}
+  con $(N-2)$ gradi di libert\`a, e controllare la sua
+  compatibilit\`a con lo zero.
+\item Rispetto al valore vero $\rho$ della correlazione
+  lineare tra le due variabili, il valore $r$ ricavato da un
+  insieme di $N$ coppie $\{ x_i, y_i \}$ estratte a caso
+  dalle rispettive popolazioni \`e tale che la variabile
+  casuale
+  \begin{equation} \label{eq:c.varfish}
+    Z(r) \; = \; \ln \sqrt{ \frac{1 + r}{1 - r} } \; = \;
+      \frac{1}{2} \, \bigl[ \ln ( 1 + r ) - \ln ( 1 - r)
+      \bigr]
+  \end{equation}
+  (detta \emph{variabile di Fisher}%
+  \index{Fisher, sir Ronald Aylmer}%
+  ) segue una distribuzione approssimativamente normale con
+  valore medio e varianza date da
+  \begin{align*}
+    E(Z) &= Z(\rho) &&\text{e} & \var(Z) &= {\sigma_Z}^2 =
+      \frac{1}{N-3}
+  \end{align*}
+  rispettivamente; la trasformazione inversa della
+  \eqref{eq:c.varfish} \`e la
+  \begin{equation*}
+    r \; = \; \frac{e^{2Z} - 1}{e^{2Z} + 1} \peq .
+  \end{equation*}
+  Quindi:
+  \begin{itemize}
+  \item per verificare se il valore vero della correlazione
+    pu\`o essere una quantit\`a prefissata $\rho$, si
+    controlla la compatibilit\`a con la distribuzione
+    normale $N(Z(\rho), \sigma_Z)$ del valore ottenuto
+    $Z(r)$;
+  \item per calcolare un intervallo di valori corrispondente
+    ad un certo livello di confidenza, si usano i
+    corrispondenti intervalli per la distribuzione normale
+    con deviazione standard $\sigma_Z$;
+  \item per verificare se due coefficienti di correlazione
+    lineare $r_1$ ed $r_2$, ricavati da $N_1$ ed $N_2$
+    coppie di valori $\{ x_i, y_i \}$ rispettivamente, siano
+    o meno significativamente differenti, si calcola la
+    variabile casuale
+    \begin{equation*}
+      \delta \; =  \; \frac{Z_1 - Z_2}{\sqrt{\var( Z_1 ) +
+      \var( Z_2 ) }} \; = \; \frac{Z_1 - Z_2}{\sqrt{
+      \dfrac{1}{N_1 - 3} + \dfrac{1}{N_2 - 3} } }
+    \end{equation*}
+    (ove $Z_1$ e $Z_2$ sono le variabili di Fisher ricavate
+    dalla \eqref{eq:c.varfish} per i due campioni; $\delta$
+    segue asintoticamente la distribuzione normale con media
+    $E(Z_1) - E(Z_2)$ e varianza 1) e si verifica se il
+    risultato ottenuto \`e compatibile con lo zero.
+  \end{itemize}
+\end{itemize}%
+\index{correlazione lineare, coefficiente di|)}
+
+\subsection{La correlazione tra i coefficienti della retta}
+Notiamo anche che l'intercetta e la pendenza $a$ e $b$ della
+retta interpolante un insieme di punti sperimentali, essendo
+ottenute come combinazioni lineari delle stesse variabili
+casuali, sono tra loro correlate (come osservato nel
+paragrafo \ref{ch:c.covar}); le equazioni
+\eqref{eq:11.minqua} possono essere riscritte (l'abbiamo
+gi\`a visto nel paragrafo \ref{ch:11.intlin}) come
+\begin{align*}
+  a &= \sum\nolimits_i a_i \, y_i &&\text{e} &
+  b &= \sum\nolimits_i b_i \, y_i
+\end{align*}
+una volta che si sia posto
+\begin{equation*}
+  \begin{cases}
+    a_i = \displaystyle \frac{1}{\Delta} \,
+      \left[ \sum\nolimits_j {x_j}^2 - \left(
+      \sum\nolimits_j x_j \right) x_i \right]
+      \\[3ex]
+    b_i = \displaystyle \frac{1}{\Delta} \left[
+      N \, x_i - \sum\nolimits_j x_j \right]
+  \end{cases}
+\end{equation*}
+Ricordando la definizione di $\Delta$, possiamo esprimerlo
+come
+\begin{align*}
+  \Delta &= N \left( \sum\nolimits_j {x_j}^2
+    \right) - \left( \sum\nolimits_j x_j \right)^2 \\[1ex]
+  &= N^2 \left[ \frac{\sum\nolimits_j {x_j}^2}{N} -
+    \left( \frac{\sum\nolimits_j x_j}{N} \right)^2
+    \right]
+\end{align*}
+ed infine come
+\begin{equation} \label{eq:c.delta}
+  \Delta = N^2 \: \var(x) \peq .
+\end{equation}
+
+Visto che le $y_i$ sono per ipotesi statisticamente
+indipendenti tra loro, possiamo applicare la
+\eqref{eq:c.covcol}; ne ricaviamo, sostituendovi la
+\eqref{eq:c.delta} e ricordando che gli errori sono tutti
+uguali, che
+\begin{align*}
+  \cov( a, b ) &= \sum\nolimits_i a_i \, b_i \,
+    \var(y_i) \\[1ex]
+  &= \frac{{\sigma_y}^2}{\Delta^2} \, \sum\nolimits_i
+    \left[ \sum\nolimits_j {x_j}^2 - \left(
+    \sum\nolimits_j x_j \right) x_i \right] \left[ N
+    x_i - \sum\nolimits_j x_j \right] \\[1ex]
+  &= \frac{{\sigma_y}^2}{\Delta^2} \, \sum\nolimits_i
+    \Biggl[ \left( \sum\nolimits_j {x_j}^2 \right) N
+    x_i - \left( \sum\nolimits_j {x_j}^2  \right)
+    \left( \sum\nolimits_j x_j \right) -
+    \\[1ex]
+  &\qquad - \left( \sum\nolimits_j x_j \right) N
+    {x_i}^2 + \left( \sum\nolimits_j x_j \right)^2 \!
+    x_i \Biggr] \\[1ex]
+  &= \frac{{\sigma_y}^2}{\Delta^2} \, \Biggl[ N \left(
+    \sum\nolimits_j {x_j}^2 \right) \left(
+    \sum\nolimits_i x_i \right) - N \left(
+    \sum\nolimits_j {x_j}^2 \right) \left(
+    \sum\nolimits_j x_j \right) - \\[1ex]
+  &\qquad - N \left( \sum\nolimits_j x_j \right) \left(
+    \sum\nolimits_i {x_i}^2 \right) + \left(
+    \sum\nolimits_j x_j \right)^3 \Biggr]
+    \\[1ex]
+  &= \frac{{\sigma_y}^2}{\Delta^2} \, \left(
+    \sum\nolimits_j x_j \right) \, \left[ \left(
+    \sum\nolimits_j x_j \right)^2 - N \left(
+    \sum\nolimits_j {x_j}^2 \right) \right]
+\end{align*}
+ed infine, vista la definizione di $\Delta$,
+\begin{gather}%
+\index{covarianza!dei coefficienti della retta interpolante}
+  \cov( a, b ) = - \, \frac{\sum\nolimits_j
+    x_j}{\Delta} \, {\sigma_y}^2 \peq ; \label{eq:c.covab} \\
+  \intertext{o anche}
+  \cov( a, b ) = - \, \frac{\bar x}{N} \,
+    \frac{{\sigma_y}^2}{\var(x)} \peq , \notag
+\end{gather}
+diversa da zero se $\bar x \ne 0$; inoltre il segno della
+correlazione tra $a$ e $b$ \`e opposto a quello di $\bar x$.
+Questo non sorprende: la retta interpolante deve
+necessariamente passare per il punto $(\bar x, \bar y)$,
+come abbiamo notato nel paragrafo \ref{ch:c.intmed}: se
+$\bar x$ \`e positivo, aumentando la pendenza della retta
+deve diminuire il valore della sua intercetta; e viceversa
+per $\bar x < 0$.
+
+\subsection{Stima puntuale mediante l'interpolazione
+  lineare}
+Bisogna tener presente che le formule dei minimi quadrati ci
+danno l'equazione della retta che meglio approssima la
+relazione tra le due variabili nella parte di piano in cui
+esistono punti misurati; ma non ci dicono nulla sulla
+dipendenza tra le variabili stesse in zone in cui non siano
+state effettuate delle osservazioni.
+
+In altre parole, non si pu\`o mai escludere sulla base delle
+misure che la $y = f(x)$ sia una funzione comunque complessa
+ma approssimativamente lineare \emph{solamente}
+nell'intervallo in cui abbiamo investigato; per questo
+motivo bisogna evitare per quanto possibile di usare
+l'equazione della retta interpolante per ricavare valori
+stimati $\widehat y$ della variabile indipendente (dalla
+$\widehat y = a + b x$) in corrispondenza di valori della
+$x$ non compresi nell'intorno delle misure, e questo tanto
+pi\`u rigorosamente quanto pi\`u $x$ \`e distante da tale
+intorno: \emph{non \`e lecito usare l'interpolazione per
+  estrapolare} su regioni lontane da quelle investigate.
+
+A questo proposito, se lo scopo primario dell'interpolazione
+non \`e tanto quello di ottenere una stima di $a$ o $b$
+quanto quello di ricavare il valore $\widehat y$ assunto
+dalla $y$ in corrispondenza di un particolare valore
+$\widehat x$ della variabile indipendente $x$, applicando la
+formula di propagazione degli errori \eqref{eq:c.proper}
+alla $\widehat y = a + b \widehat x$ ricaviamo:
+\begin{equation*}
+  \var(\widehat y) \; = \; \var(a) + {\widehat x}^2 \,
+  \var(b) + 2 \, \widehat x \, \cov(a,b) \peq .
+\end{equation*}
+
+Sostituendo nell'equazione precedente le espressioni
+\eqref{eq:11.errab} per le varianze di $a$ e $b$ e quella
+\eqref{eq:c.covab} della loro covarianza, si ha poi
+\begin{gather*}
+  \var(\widehat y) \; = \; \frac{\sum\nolimits_i {x_i}^2}
+  {\Delta} \, {\sigma_y}^2 + {\widehat x}^2 \,
+    \frac{N}{\Delta} \, {\sigma_y}^2 - 2 \, \widehat x \,
+    \frac{\sum\nolimits_i x_i}{\Delta} \, {\sigma_y}^2 \\
+  \intertext{e, introducendo nell'equazione precedente sia
+    l'espressione \eqref{eq:c.delta} per $\Delta$ che la}
+  \sum\nolimits_i {x_i}^2 = N \, \left[ \var(x) + \bar x^2
+    \right] \\
+  \intertext{e la}
+  \sum\nolimits_i x_i = N \bar x
+\end{gather*}
+otteniamo
+\begin{align*}
+  \var(\widehat y) &= \frac{{\sigma_y}^2}{\Delta} \, \left[
+    \sum\nolimits_i {x_i}^2 - 2 \widehat x \sum\nolimits_i
+    x_i + N {\widehat x}^2 \right] \\[1ex]
+  &= \frac{{\sigma_y}^2}{N \, \var(x)} \, \left[ \var(x) +
+    \bar x^2 - 2 \widehat x \bar x + {\widehat x}^2 \right]
+\end{align*}
+ed infine la
+\begin{equation} \label{eq:c.errhaty}
+  \var(\widehat y) = \frac{{\sigma_y}^2}{N} \, \left[ 1 +
+    \frac{\left( \widehat x - \bar x \right)^2}{\var(x)}
+  \right] \peq .
+\end{equation}
+
+Si vede immediatamente dalla \eqref{eq:c.errhaty} che
+l'errore sul valore stimato $\widehat y$ (che \`e funzione
+di $\widehat x$) \`e minimo quando $\widehat x = \bar x$:
+quindi, per ricavare una stima della $y$ con il pi\`u
+piccolo errore casuale possibile, bisogna che il
+corrispondente valore della $x$ sia nel centro
+dell'intervallo in cui si sono effettuate le misure (questo
+in accordo con le considerazioni qualitative precedenti a
+riguardo di interpolazione ed estrapolazione).
+
+\subsection{Verifica di ipotesi nell'interpolazione lineare}
+Nel paragrafo \ref{ch:11.intlin} abbiamo ricavato le formule
+\eqref{eq:11.minqua} dei minimi quadrati e le formule
+\eqref{eq:11.errab} per l'errore dei coefficienti della
+retta interpolata: queste ultime richiedono la conoscenza
+dell'errore comune sulle ordinate $\sigma_y$ che, di
+consueto, viene ricavato a posteriori dai dati attraverso
+l'equazione \eqref{eq:c.fishalt}.
+
+Assai di frequente \`e necessario verificare delle ipotesi
+statistiche sui risultati dell'interpolazione lineare; una
+volta ricavata, ad esempio, la pendenza della retta
+interpolante, si pu\`o o voler confrontare la stima ottenuta
+con un valore noto a priori, o voler costruire attorno ad
+essa un intervallo corrispondente ad un certo livello di
+confidenza; o, ancora, si pu\`o voler effettuare il
+confronto (o calcolare l'ampiezza dell'intervallo di
+confidenza) per un valore $\widehat y = a + b \widehat x$
+della $y$ stimato sulla base dell'interpolazione, e la cui
+varianza \`e data dalla \eqref{eq:c.errhaty}.
+
+\`E naturale pensare di sfruttare per questo scopo le
+tabelle della distribuzione normale; ma questo
+implicitamente richiede che il numero di coppie di dati a
+disposizione \emph{sia sufficientemente elevato} perch\'e la
+stima di $\sigma_y$ ottenuta a posteriori dai dati si possa
+considerare esatta.  In realt\`a quando l'errore \`e
+ricavato a posteriori \emph{tutte} le grandezze
+precedentemente citate \emph{non} seguono la distribuzione
+normale \emph{ma la distribuzione di Student}%
+\index{distribuzione!di Student}
+con $(N-2)$ gradi di libert\`a.
+
+\subsection{Adeguatezza dell'interpolazione lineare o
+  polinomiale in genere}
+Talvolta non si sa a priori che la relazione tra due
+variabili $x$ ed $y$ \`e di tipo lineare; ma, una volta
+eseguite le misure, si nota un loro approssimativo disporsi
+lungo una linea retta.  In questo caso si pu\`o cercare di
+inferire una legge fisica dai dati sperimentali; ma come si
+pu\`o essere ragionevolmente sicuri che la relazione tra le
+due grandezze sia effettivamente lineare, anche limitandoci
+all'intervallo in cui sono distribuite le osservazioni?
+
+Una possibilit\`a \`e quella di eseguire interpolazioni
+successive con pi\`u curve polinomiali di grado $M$
+crescente, del tipo
+\begin{equation} \label{eq:c.polin}
+  y \; = \; P_M(x) \; = \; \sum_{k=0}^M a_k \, x^k
+\end{equation}
+e di osservare l'andamento del \emph{valore} dei residui in
+funzione di $M$: al crescere del grado del polinomio questi
+diminuiranno, dapprima in modo rapido per poi assestarsi su
+valori, sempre decrescenti, ma pi\`u o meno dello stesso
+ordine di grandezza; ed infine si annulleranno quando $M =
+N-1$.  Il valore di $M$ che segna la transizione tra questi
+due comportamenti ci d\`a il grado della curva polinomiale
+che descrive in modo soddisfacente la relazione tra le
+variabili senza per questo seguire le fluttuazioni casuali
+di ogni singola misura.
+
+Nel caso in cui ognuno degli $N$ valori $y_i$ ha errore noto
+$\sigma_i$ (e le $y_i$ non sono correlate), la somma dei
+quadrati dei residui%
+\index{residui}
+pesati in maniera inversamente proporzionale ai quadrati
+degli errori,
+\begin{equation*}
+  S_M \; = \; \sum_{i=1}^N \frac{ {\delta_i}^2 }{
+    {\sigma_i}^2 } \; = \; \sum_{i=1}^N \frac{\left( y_i -
+    \widehat y_i \right)^2}{ {\sigma_i}^2 }
+\end{equation*}
+(le $\widehat y_i$ si intendono calcolate usando il
+polinomio interpolante $y = P_M(x)$ \eqref{eq:c.polin}, i
+cui $M+1$ coefficienti siano stati stimati dai dati) \`e
+distribuita come il $\chi^2$ a $N - M - 1$ gradi di
+libert\`a; la probabilit\`a di ottenere un determinato
+valore di $S_M$ sotto l'ipotesi $y = P_M(x)$ pu\`o dunque
+essere stimata dalle tabelle della distribuzione, e ci d\`a
+una misura statisticamente corretta dell'``accordo
+complessivo'' tra i punti misurati ed un polinomio di grado
+$M$.
+
+Per valutare numericamente la significativit\`a della
+variazione di questo ``accordo complessivo'' dovuta ad un
+aumento di grado del polinomio interpolante, la regola di
+somma del $\chi^2$ ci dice che la variazione della somma
+pesata dei quadrati dei residui, $S_{M-1} - S_M$, deve
+essere distribuita come il $\chi^2$ ad un grado di
+libert\`a; normalmente, in luogo di usare direttamente
+$S_{M-1} - S_M$, si considera l'altra variabile casuale
+\begin{equation*}
+  F = \frac{\phantom{m} S_{M-1} - S_M \phantom{m}}{
+    \dfrac{S_M}{N - M - 1} }
+\end{equation*}
+(che rappresenta una sorta di ``variazione relativa
+dell'accordo complessivo''), e la si confronta con la
+funzione di frequenza di Fisher a 1 e $(N - M - 1)$ gradi di
+libert\`a; un valore di $F$ elevato, e che con piccola
+probabilit\`a potrebbe essere ottenuto da quella
+distribuzione, implicher\`a che l'aumento di grado \`e
+significativo.
+
+\subsection{Il \emph{run test} per i residui}%
+\index{run test|(}%
+\index{residui|(}
+Un'altra tecnica che ci permette di capire se una funzione
+di primo grado \`e o meno adeguata a rappresentare un
+insieme di dati \`e quella che consiste nell'osservare
+l'andamento, in funzione della $x$, del solo segno dei
+residui $\delta_i$ differenza tra i valori misurati e quelli
+stimati della $y$:
+\begin{equation*}
+  \delta_i \; = \; y_i - \widehat{y}_i \; = \; y_i - (a + b
+  \, x_i) \peq .
+\end{equation*}
+
+\begin{figure}[htbp]
+  \vspace*{2ex}
+  \begin{center}
+    \input{runfig.pstex_t}
+  \end{center}
+  \caption{Esempio di interpolazione lineare per un insieme
+    di 12 punti.}
+  \label{fig:c.intex}
+\end{figure}
+
+Per meglio chiarire questo concetto, osserviamo la figura
+\ref{fig:c.intex} tratta dal paragrafo 8.3.2 del testo di
+Barlow citato nella bibliografia (appendice
+\ref{ch:g.biblio}, a pagina \pageref{ch:g.biblio}).  \`E
+evidente come l'andamento dei dati sperimentali non
+suggerisca affatto l'ipotesi di una dipendenza lineare del
+tipo $y=A+Bx$; questo anche se l'entit\`a degli errori
+assunti sulle $y_i$ fa s\`\i\ che l'accordo tra i dati
+stessi e la retta interpolante, se valutato con il calcolo
+del $\chi^2$, risulti comunque accettabile: infatti il
+metodo citato usa come stima la somma dei quadrati dei
+\emph{rapporti tra i residui e gli errori stimati},
+ovviamente piccola se questi ultimi sono stati
+sopravvalutati.
+
+Quello che \`e in grado di suggerire il sospetto di un
+andamento non lineare della legge $y=y(x)$, in casi come
+questo, \`e un altro tipo di controllo basato appunto
+\emph{sul solo segno dei residui e non sul loro valore}
+(come il calcolo del $\chi^2$, o dell'errore a posteriori, o
+del coefficiente di correlazione lineare, o dalla somma
+pesata dei quadrati dei residui).  Segni che siano (come
+nell'esempio di figura \ref{fig:c.intex}) per piccole $x$
+tutti positivi, poi tutti negativi, ed infine tutti positivi
+per i valori pi\`u grandi delle $x$ suggeriranno che si sta
+tentando di approssimare con una retta una funzione che in
+realt\`a \`e una curva pi\`u complessa (ad esempio una
+parabola) avente concavit\`a rivolta verso l'alto.
+
+Cominciamo con l'osservare che il valore medio $\bar \delta$
+dei residui \`e identicamente nullo: infatti dalla
+\eqref{eq:c.resid} ricaviamo immediatamente
+\begin{equation*}
+  \bar \delta = \frac{1}{N} \sum_{i=1}^N \Bigl[ \left( y_i -
+      \bar y \right) - b \left( x_i - \bar x \right) \Bigr]
+  \equiv 0 \peq .
+\end{equation*}
+Questo \`e dovuto al fatto che sia la somma degli scarti
+$x_i - \bar x$ che quella degli scarti $y_i - \bar y$ sono
+identicamente nulle in conseguenza della
+\eqref{eq:4.mprop1}, ed \`e vero quindi indipendentemente
+dal valore di $b$: questa propriet\`a vale insomma per
+residui calcolati rispetto a \emph{qualunque} retta del
+fascio di centro $(\bar x, \bar y)$ cui sappiamo che la
+retta interpolante \emph{deve} appartenere.
+
+Continuiamo osservando che i residui $\delta_i$ e le
+coordinate $x_i$ hanno tra loro covarianza nulla:
+\begin{align*}
+  \cov (\delta, x) &= \frac{1}{N} \sum_{i=1}^N \left[ \left(
+      \delta_i - \bar \delta \right) \left( x_i - \bar x
+    \right) \right] \\[1ex]
+  &= \frac{1}{N} \sum_{i=1}^N \left[ \left( y_i - \bar y
+    \right) \left( x_i - \bar x \right) - b \left( x_i -
+      \bar x \right)^2 \right] \\[1ex]
+  &= \cov(x, y) - b \var(x) \\[1ex]
+  &\equiv 0
+\end{align*}
+(si \`e sfruttata, alla fine, la \eqref{eq:c.valueb}).%
+\index{residui|)}
+Questa condizione non \`e sufficiente, come si sa, ad
+assicurare l'indipendenza statistica tra i residui $\delta$
+e le coordinate $x$ dei punti interpolati; in effetti queste
+due variabili casuali \emph{non} sono tra loro indipendenti,
+essendo ad esempio impossibile che i residui si presentino
+in una sequenza crescente all'aumentare delle ascisse $x_i$.
+
+Per\`o, quando il numero $N$ dei dati \`e grande, delle $N!$
+sequenze possibili di residui assai poche sono quelle
+escluse a priori dalla natura della loro origine; mentre la
+probabilit\`a delle altre sequenze (che decresce in maniera
+inversamente proporzionale a $N!$) \`e comunque assai
+piccola: e si pu\`o in prima approssimazione assumere che
+\emph{tutte} le sequenze di residui siano \emph{possibili ed
+  equiprobabili}.
+
+Tornando alla figura \ref{fig:c.intex}, i residui sono
+(muovendosi nel senso delle $x$ crescenti) dapprima
+positivi, poi negativi, poi ancora positivi; sono composti
+insomma da una sequenza di tre sottoinsiemi di valori aventi
+tutti lo stesso segno (o, con parola anglosassone, da una
+sequenza di tre \emph{runs}).  Se possiamo assumere
+equiprobabili tutte le possibili sequenze dei residui \`e
+intuitivo capire come un numero cos\`\i\ basso di runs si
+debba presentare con piccola probabilit\`a sulla base di
+fluttuazioni unicamente casuali; per cui l'osservazione di
+tale evento pu\`o essere attribuita invece alla falsit\`a
+dell'ipotesi che ha prodotto i residui, ovvero alla non
+linearit\`a della dipendenza funzionale $y = y(x)$.
+
+Nell'ipotesi di avere un insieme composto da $N_+$ numeri
+positivi (corrispondenti, nel caso dei residui, a punti al
+di sopra della retta interpolante) e da $N_- = N - N_+$
+numeri negativi (residui di punti al di sotto della retta
+interpolante), \`e possibile calcolare quante delle loro
+permutazioni producono un prefissato numero di runs $N_r$;
+se \`e accettabile l'approssimazione cui abbiamo appena
+accennato, il rapporto tra $N_r$ ed il numero totale di
+permutazioni possibili ci dar\`a la probabilit\`a di
+ottenere un certo $N_r$.
+
+I calcoli dettagliati si possono trovare nel citato
+paragrafo 8.3.2 del Barlow o, pi\`u in breve, nel paragrafo
+11.3.1 di Eadie \emph{et al.} (testo sempre citato nella
+bibliografia); qui ricordiamo solo come:
+\begin{enumerate}
+\item se $N_+ = 0$ o $N_- = 0$ (caso impossibile questo per
+  i residui di un'interpolazione lineare) l'unico valore
+  possibile \`e $N_r = 1$.
+\item Se $N_+ > 0$ e $N_- > 0$, ed indicando con $m =
+  \min(N_+, N_-)$ il pi\`u piccolo di questi due valori, il
+  numero di runs $N_r$ \`e compreso tra i seguenti estremi:
+  \begin{equation*}
+    \begin{cases}
+      2 \le N_r \le 2 m & \qquad \qquad \text{se}~~N_+ =
+      N_- = m~; \\[1ex]
+      2 \le N_r \le 2 m + 1 & \qquad \qquad \text{se}~~N_+
+      \ne N_-~.
+    \end{cases}
+  \end{equation*}
+
+  Il massimo valore di $N_r$ corrisponde, nel primo caso, ad
+  un alternarsi di valori positivi e negativi; nel secondo,
+  a singoli valori del segno che si \`e presentato con
+  minore frequenza che separino sequenze di uno o pi\`u
+  valori dell'altro segno.
+\item Se $N_r$ \`e pari, con $N_r = 2s$, la probabilit\`a di
+  avere $N_r$ runs \`e data da
+  \begin{equation} \label{eq:c.pari}
+    \Pr(N_r) = 2 \, \frac{ \displaystyle \binom{N_+ - 1}{s -
+        1} \binom{N_- - 1}{s - 1} }{ \displaystyle
+      \binom{N}{N_+} } \peq ;
+  \end{equation}
+\item se $N_r$ \`e dispari, con $N_r = 2s - 1$ (ed
+  ovviamente $s \ge 2$ essendo $N_+>0$ e $N_->0$), la
+  probabilit\`a di avere $N_r$ runs \`e data da
+  \begin{equation} \label{eq:c.dispari}
+    \Pr(N_r) = \frac{ \displaystyle \binom{N_+ - 1}{s - 2}
+      \binom{N_- - 1}{s - 1} + \binom{N_+ - 1}{s - 1}
+      \binom{N_- - 1}{ s - 2} }{ \displaystyle
+      \binom{N}{N_+} } \peq .
+  \end{equation}
+\item In ogni caso, valore medio e varianza di $N_r$ valgono
+  rispettivamente
+  \begin{gather*}
+    E( N_r ) = 1 + 2 \, \frac{N_+ N_-}{N} \\
+    \intertext{e}
+    \var( N_r ) = 2 \, \frac{N_+ N_- \left( 2 N_+ N_- - N
+      \right)}{N^2 \, ( N - 1 )} \peq .
+  \end{gather*}
+\end{enumerate}
+
+Nel caso della figura \ref{fig:c.intex} ($N_+ = N_- = 6$) la
+probabilit\`a di ottenere casualmente $N_r \le 3$, calcolata
+applicando direttamente le formule \eqref{eq:c.pari} e
+\eqref{eq:c.dispari}, vale appena l'1.3\%; \`e insomma
+lecito (almeno ad un livello di confidenza del 98.7\%)
+rigettare l'ipotesi di un andamento lineare della $y$ in
+funzione di $x$.%
+\index{run test|)}%
+\index{interpolazione lineare|)}
+
+\section{Applicazioni alla stima di parametri}
+Se la densit\`a di probabilit\`a $f(x;\theta)$ di una
+variabile casuale $x$ dipende da un parametro di valore vero
+ignoto $\theta^*$, abbiamo visto nel capitolo
+\ref{ch:11.teldat} che una stima $\widehat \theta$ di tale
+valore pu\`o essere ottenuta col metodo della massima
+verosimiglianza; e che \`e possibile ricavare dalla derivata
+seconda della funzione di verosimiglianza (che ne misura la
+concavit\`a nel punto di massimo) l'errore di questa stima,
+attraverso l'equazione \eqref{eq:11.varlik}.
+
+Il metodo si pu\`o ovviamente estendere alla stima
+contemporanea di pi\`u parametri (e lo abbiamo in effetti
+usato, ad esempio, per ricavare i due coefficienti della
+retta interpolante nel paragrafo \ref{ch:11.intlin}): se $x$
+\`e la variabile misurata, di densit\`a di probabilit\`a
+$f(x; \theta_1, \theta_2,\ldots,\theta_M)$ dipendente da $M$
+parametri $\theta_k$, le stime di massima verosimiglianza
+$\widehat \theta_k$ si ricavano risolvendo il sistema
+ottenuto annullando contemporaneamente ognuna delle derivate
+parziali prime (ed esaminando poi ognuna delle eventuali
+soluzioni per controllare se corrisponde ad un massimo).
+
+I punti enunciati nel paragrafo \ref{ch:11.maxver}
+continuano a rimanere validi anche nel caso
+multidimensionale: in particolare, ognuna delle stime
+$\widehat \theta_k$ \`e asintoticamente normale; e si
+troverebbe che le derivate seconde della funzione di
+verosimiglianza nel punto di minimo sono legate all'inversa
+della matrice delle covarianze delle $M$ stime attraverso la
+\begin{equation} \label{eq:c.varlik}
+  \left( \boldsymbol{V}^\mathbf{-1} \right)_{ij} = - N \cdot
+    E \left\{ \frac{ \partial^2 \, \ln f( x; \theta_1,
+    \theta_2,\ldots,\theta_M) }{\partial \theta_i \,
+    \partial \theta_j } \right\}
+\end{equation}
+che si pu\`o pensare come la generalizzazione a pi\`u stime
+contemporanee dell'equazione \eqref{eq:11.varlik}.
+
+Come esempio, abbiamo gi\`a visto nel paragrafo
+\ref{ch:11.exampl} come stimare \emph{contemporaneamente} i
+due parametri $\mu$ e $\sigma$ di una popolazione normale da
+un campione di $N$ determinazioni indipendenti col metodo
+della massima verosimiglianza; e vogliamo ora ricavare gli
+errori di quelle stime dalla \eqref{eq:c.varlik}.
+
+Ricordiamo dal paragrafo \ref{ch:11.exampl} che il logaritmo
+della densit\`a di probabilit\`a vale
+\begin{equation*}
+  \ln f ( x; \mu, \sigma ) \; = \; - \ln \sigma - \ln \sqrt{
+    2 \pi } - \frac{1}{2} \left( \frac{x - \mu}{ \sigma }
+    \right)^2 \peq ;
+\end{equation*}
+e che le due stime di massima verosimiglianza per $\mu$ e
+$\sigma$ sono
+\begin{align*}
+  \widehat \mu &= \bar x = \frac{1}{N} \sum_{i=1}^N x_i
+   &&\text{e} &
+   \widehat \sigma^2 &= \frac{1}{N} \sum_{i=1}^N \left( x_i
+     - \widehat \mu \right)^2
+\end{align*}
+rispettivamente.
+Le derivate prime di $\ln f$ sono
+\begin{align*}
+  \frac{\partial}{\partial \mu} \ln f &= \frac{x -
+    \mu}{\sigma^2}
+  &
+  \frac{\partial}{\partial \sigma} \ln f &= -
+    \frac{1}{\sigma} + \frac{( x - \mu )^2}{\sigma^3}
+\end{align*}
+e le derivate seconde
+\begin{align*}
+  \frac{\partial^2}{\partial \mu^2} \ln f &= -
+    \frac{1}{\sigma^2} &
+  \frac{\partial^2}{\partial \mu \, \partial \sigma} \ln f
+    &= - 2 \, \frac{x - \mu}{\sigma^3} \\[2ex]
+  \frac{\partial^2}{\partial \sigma \, \partial \mu
+    } \ln f &= - 2 \, \frac{x - \mu}{\sigma^3} &
+  \frac{\partial^2}{\partial \sigma^2} \ln f &=
+    \frac{1}{\sigma^2} - 3 \, \frac{( x - \mu )^2}{\sigma^4}
+    \\
+  \intertext{di valori medi}
+  E \left( \frac{\partial^2}{\partial \mu^2} \ln f \right)
+    &= - \frac{1}{\sigma^2} &
+  E \left( \frac{\partial^2}{\partial \mu \, \partial
+    \sigma} \ln f \right) &= 0 \\[2ex]
+  E \left( \frac{\partial^2}{\partial \sigma \,
+    \partial \mu } \ln f \right) &= 0 &
+  E \left( \frac{\partial^2}{\partial \sigma^2} \ln f
+    \right) &= - \frac{2}{\sigma^2} \peq ;
+\end{align*}
+per cui, dalla \eqref{eq:c.varlik}, l'inverso della matrice
+delle covarianze (che \`e diagonale) \`e
+\begin{gather*}
+  \boldsymbol{V}^\mathbf{-1} = \left\|
+    \begin{array}{cc}
+      \tabtop \dfrac{N}{\widehat \sigma^2} & 0 \\[2ex]
+      \tabbot 0 & \dfrac{2 N}{\widehat \sigma^2}
+    \end{array}
+  \right\| \\
+  \intertext{e la matrice $\boldsymbol{V}$ stessa vale}
+  \boldsymbol{V} = \left\|
+    \begin{array}{cc}
+      \tabtop \dfrac{\widehat \sigma^2}{N} & 0 \\[2ex]
+      \tabbot 0 & \dfrac{\widehat \sigma^2}{2 N}
+    \end{array}
+  \right\| \peq .
+\end{gather*}
+
+Insomma, oltre alla consueta espressione della varianza
+della media
+\begin{equation*}
+  \var( \widehat \mu ) = \frac{\widehat \sigma^2}{N}
+\end{equation*}
+abbiamo ottenuto quella della varianza di $\widehat \sigma$
+\begin{equation*}
+  \var( \widehat \sigma ) = \frac{\widehat \sigma^2}{2 N}
+\end{equation*}
+da confrontare con la \eqref{eq:b.errstd}, in cui per\`o
+$\widehat \sigma$ era gi\`a stato corretto, moltiplicandolo
+per un fattore $N/(N-1)$, per eliminare la distorsione della
+stima; e la riconferma del fatto, gi\`a visto nel paragrafo
+\ref{th:12.inmest} a pagina \pageref{th:12.inmest}, che
+valore medio e varianza di un campione di stime indipendenti
+sono variabili casuali statisticamente indipendenti tra loro
+(le covarianze infatti sono nulle).%
+\index{media!aritmetica!e varianza}%
+\index{varianza!e media aritmetica}
+
+\endinput

@@ -1,0 +1,45 @@
+hist/del 0
+vect/del *
+set *
+igset *
+
+fort/file 66 trigau.eps
+graph/meta 66 -113                      | -113: encapsulated postscript
+
+opt nbox
+opt utit
+opt grid
+set *fon -130                           | times-roman,
+set *siz 0.4                            | font height (cm)
+igset txfp -130
+igset chhe 0.4
+
+set ndvx -50208
+set ndvy -50206
+graph/hplot/null -4.0 4.0 0.0 1.2
+set fwid 2
+set dmod 13
+func/plot 0.5*exp(-0.25*x*x)/1.77245385 -4.1 4.1 s      | h = 0.5
+set dmod 12
+func/plot exp(-x*x)/1.77245385 -4.1 4.1 s               | h = 1
+set dmod 1
+func/plot 2.0*exp(-4.05*x*x)/1.77245385 -4.1 4.1 s      | h = 2
+
+igset fais 1
+igset faci 0
+graph/prim/box 1.7 4 0.98 1.2
+igset fais 0
+graph/prim/box 1.7 4 0.98 1.2
+set dmod 13
+set lwid 2
+graph/prim/line 2 1.15 2.8 1.15
+graph/prim/itx 3 1.14 'h = 0.5'
+set dmod 12
+graph/prim/line 2 1.09 2.8 1.09
+graph/prim/itx 3 1.08 'h = 1'
+set dmod 1
+graph/prim/line 2 1.03 2.8 1.03
+graph/prim/itx 3 1.02 'h = 2'
+
+fort/close 66
+opt htit

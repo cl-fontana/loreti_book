@@ -1,0 +1,81 @@
+HIST/DEL 0
+VECT/DEL *
+SET *
+IGSET *
+FORT/FILE 66 ISTGAU.EPS
+GRAPH/META 66 -113                      | -113: Encapsulated PostScript
+
+HIST/CREATE/1D 1 ' ' 20 -4.0 4.0
+VECT/CREATE Y1(20) R _
+        0 0 0 0 0.02 0.06 0.02 0.14 0.22 0.12 _
+        0.08 0.16 0.06 0.06 0.04 0.02 0 0 0 0
+HIST/PUT/CONT 1 Y1
+
+HIST/CREATE/1D 2 ' ' 20 -4.0 4.0
+VECT/CREATE Y2(20) R _
+        14E-5 45E-5 179E-5 542E-5 1443E-5 _
+        3273E-5 6065E-5 9562E-5 13388E-5 15493E-5 _
+        15566E-5 13145E-5 9741E-5 5977E-5 3253E-5 _
+        1485E-5 556E-5 201E-5 57E-5 15E-5
+HIST/PUT/CONT 2 Y2
+
+HIST/CREATE/1D 3 ' ' 100 -4.0 4.0
+VECT/CREATE Y3(100) R
+VECT/INPUT Y3(1:20) _
+        1E-4 1E-4 1E-4 2E-4 2E-4 _
+        5E-4 3E-4 10E-4 14E-4 16E-4 _
+        16E-4 20E-4 36E-4 43E-4 67E-4 _
+        68E-4 84E-4 105E-4 152E-4 156E-4
+VECT/INPUT Y3(21:40) _
+        210E-4 224E-4 300E-4 292E-4 382E-4 _
+        481E-4 527E-4 675E-4 724E-4 814E-4 _
+        990E-4 1140E-4 1148E-4 1336E-4 1508E-4 _
+        1628E-4 1722E-4 1920E-4 2100E-4 2255E-4
+VECT/INPUT Y3(41:60) _
+        2436E-4 2569E-4 2635E-4 2843E-4 2880E-4 _
+        3036E-4 3043E-4 3164E-4 3075E-4 3255E-4 _
+        3234E-4 3146E-4 3163E-4 3001E-4 2953E-4 _
+        2875E-4 2739E-4 2654E-4 2500E-4 2387E-4
+VECT/INPUT Y3(61:80) _
+        2256E-4 2120E-4 1922E-4 1781E-4 1641E-4 _
+        1440E-4 1340E-4 1218E-4 1046E-4 982E-4 _
+        819E-4 715E-4 640E-4 522E-4 471E-4 _
+        455E-4 341E-4 264E-4 234E-4 203E-4
+VECT/INPUT Y3(81:100) _
+        168E-4 131E-4 112E-4 81E-4 79E-4 _
+        43E-4 48E-4 40E-4 27E-4 19E-4 _
+        17E-4 18E-4 17E-4 7E-4 4E-4 _
+        3E-4 4E-4 3E-4 2E-4 1E-4
+HIST/PUT/CONT 3 Y3
+
+HIST/SET/MAX 1 0.3
+HIST/SET/MAX 2 0.2
+HIST/SET/MAX 3 0.4
+
+OPT NBOX
+SET VFON -130                           | Axis values: Times-Roman,
+SET VSIZ 0.4                            |       font height (cm)
+SET TFON -130                           | Titles: Times-Roman,
+SET TSIZ 0.4                            |       font height (cm)
+SET GFON -130                           | Global title: Times-Roman,
+SET GSIZ 0.4                            |       font height (cm)
+SET CFON -130
+SET LFON -130
+OPT GRID
+
+GRAPH/VIEW/ZONE 2 2
+SET YGTI 0.2
+TITLE 'Frequenze relative'
+SET HWID 2
+SET NDVX -504
+SET NDVY -503
+HISTOGRAM/PLOT 1
+SET NDVY -502
+HISTOGRAM/PLOT 2
+GRAPH/VIEW/ZONE 1 2 2 S
+SET NDVX -50204
+SET NDVY -504
+HISTOGRAM/PLOT 3
+TITLE
+
+FORT/CLOSE 66
